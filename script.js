@@ -174,6 +174,32 @@ document.addEventListener('DOMContentLoaded', function() {
             intro.classList.add('loaded');
         }
     }, 500);
+
+    // Universal fade-in animation system
+    function initFadeInAnimations() {
+        // Get all elements with fade-in classes
+        const fadeInElements = document.querySelectorAll('.fade-in, .fade-in-delay-1, .fade-in-delay-2, .fade-in-delay-3, .fade-in-delay-4');
+        const staggerElements = document.querySelectorAll('.fade-in-stagger');
+        
+        // Animate individual fade-in elements
+        fadeInElements.forEach((element, index) => {
+            setTimeout(() => {
+                element.classList.add('loaded');
+            }, 100 + (index * 100)); // Stagger the animations
+        });
+        
+        // Animate staggered elements
+        staggerElements.forEach((container, containerIndex) => {
+            setTimeout(() => {
+                container.classList.add('loaded');
+            }, 200 + (containerIndex * 200));
+        });
+    }
+
+    // Initialize fade-in animations after page load
+    setTimeout(() => {
+        initFadeInAnimations();
+    }, 800);
     
     // Cool page load animations for records
     setTimeout(() => {

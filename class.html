@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASS | Anika's Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">
+          <span class="logo-a">A</span><span class="logo-nika">nika</span><span class="logo-b">B</span><span class="logo-hagavatula">hagavatula</span>
+        </a>
+        <nav class="nav">
+          <a href="work.html">Work</a>
+          <a href="about.html">About</a>
+          <a href="resume.html">Resume</a>
+          <div class="theme-toggle">
+            <button class="theme-toggle-btn" aria-label="Toggle dark mode">
+              <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+              </svg>
+              <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"/>
+              </svg>
+            </button>
+          </div>
+        </nav>
+        <button class="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </header>
+
+    <!-- Mobile Menu - Moved outside header for proper layering -->
+    <div class="mobile-nav" aria-label="Mobile menu">
+      <button class="mobile-close" aria-label="Close menu">×</button>
+      <div class="mobile-nav-content">
+        <a href="work.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="resume.html">Resume</a>
+        <div class="theme-toggle mobile-theme-toggle">
+          <button class="theme-toggle-btn" aria-label="Toggle dark mode">
+            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+            </svg>
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <main class="class-main">
+        <!-- Project Header -->
+        <section class="class-header">
+            <div class="class-header-content">
+                <div class="class-meta">
+                    <span class="class-organization fade-in">Community Living and Support Services</span>
+                    <h1 class="class-title fade-in-delay-1">Program Management Dashboard</h1>
+                </div>
+                <div class="class-details fade-in-delay-2">
+                    <div class="class-detail-item">
+                        <h3>Role</h3>
+                        <p>UX Researcher, UX Designer, Product Strategy</p>
+                    </div>
+                    <div class="class-detail-item">
+                        <h3>Skills</h3>
+                        <p>User Research, User Interview, Observational Study, Affinity Diagrams, Sketch, Prototypes</p>
+                    </div>
+                    <div class="class-detail-item">
+                        <h3>Tools</h3>
+                        <p>Figma, Miro, HTML, CSS, JavaScript</p>
+                    </div>
+                    <div class="class-detail-item">
+                        <h3>Timeline</h3>
+                        <p>5 Months</p>
+                    </div>
+                    <div class="class-detail-item">
+                        <h3>Team</h3>
+                        <p>Ellia Yang, Eichel Choi, Anqi Chen, Annie Woo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="class-hero-image fade-in-delay-3">
+                <img src="images/classpreview.png" alt="CLASS Program Management Dashboard" class="class-dashboard-image">
+            </div>
+        </section>
+
+        <!-- Case Study Sections -->
+        <section class="case-study-section fade-in-delay-4">
+            <div class="section-header">
+                <h2 class="section-title">Overview</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">A tool that supports overworked staff who work with individuals recovering from traumatic brain injuries</h3>
+                <div class="section-text">
+                    <p>For our HCI capstone project, we partnered with CLASS, a nonprofit in Pittsburgh, PA, that runs a Structured Day Program for individuals with TBI. Staff faced major challenges: fragmented documentation, heavy paperwork, and a lack of technology to streamline participant support.</p>
+                    <p>We designed a solution that would reduce staff burden by consolidating participant information, empower participants to engage with their goals and activities, and ensure accessibility for a wide range of cognitive abilities.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section">
+            <div class="section-header">
+                <h2 class="section-title">Context</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">Disabilities affect more than 1.3 billion people worldwide.</h3>
+                <div class="section-text">
+                    <p>CLASS is a nonprofit organization that helps individuals with disabilities and older adults live independently in their communities and achieve their goals. Community plays a vital role in the rehabilitation and growth process for individuals with cognitive impairments and motor disabilities, which is exactly what CLASS facilitates.</p>
+                    <p>The goal of our project, given to us by our client, was to research and develop a potential solution that would help any program at CLASS. We were given a very broad scope with seemingly unlimited directions to take. So our first step was to narrow our focus area.</p>
+                    <p>CLASS offers a wide variety of programs for participants, including in-home services, community living support, and training programs among many others. We focused on the Structured Day program a newer specialized program that supports individuals with Traumatic Brain Injuries.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section">
+            <div class="section-header">
+                <h2 class="section-title">Discovery</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">How can we use technological interventions to effectively support increased independence and quality of life for individuals with Traumatic Brain Injuries?</h3>
+                <div class="section-text">
+                    <p>We began with extensive research to understand the daily challenges faced by CLASS staff and the unique needs of TBI participants.</p>
+                </div>
+                <div class="research-methods">
+                    <div class="research-method">
+                        <div class="method-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h4>Literature Reviews</h4>
+                    </div>
+                    <div class="research-method">
+                        <div class="method-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                                <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h4>Observational Studies</h4>
+                    </div>
+                    <div class="research-method">
+                        <div class="method-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h4>User Interviews</h4>
+                    </div>
+                    <div class="research-method">
+                        <div class="method-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="12" y1="19" x2="12" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="8" y1="22" x2="16" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h4>Expert Interviews</h4>
+                    </div>
+                </div>
+                <div class="insights">
+                    <div class="insight">
+                        <h4>Insight 1</h4>
+                        <p>Participants benefit most from personalized assistance from staff.</p>
+                    </div>
+                    <div class="insight">
+                        <h4>Insight 2</h4>
+                        <p>All TBI Participants have individualized, varying needs and goals.</p>
+                    </div>
+                    <div class="insight">
+                        <h4>Insight 3</h4>
+                        <p>Staff are overwhelmed with responsibility.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section">
+            <div class="section-header">
+                <h2 class="section-title">Problem</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">So how do we contextualize these pain points and research insights and how can we connect the needs of the participants with the responsibilities of staff members?</h3>
+                <div class="problem-statement">
+                    <h3>Participants highly value personalized support from staff, but staff are not always in the position to give it.</h3>
+                </div>
+                <div class="problem-factors">
+                    <div class="problem-factor">
+                        <h4>No centralized system</h4>
+                        <p>Staff relied on memory or scattered Word docs.</p>
+                    </div>
+                    <div class="problem-factor">
+                        <h4>Inefficient assessments</h4>
+                        <p>Over 20 pages to document each participant, subjective and hard to track.</p>
+                    </div>
+                    <div class="problem-factor">
+                        <h4>Limited participant autonomy</h4>
+                        <p>Participants had little control in shaping their daily activities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Anika Bhagavatula</h3>
+                <div class="social-links">
+                    <a href="mailto:anikabhagavatula@berkeley.edu">anikabhagavatula@berkeley.edu</a>
+                    <a href="https://linkedin.com/in/anika-bhagavatula" target="_blank" class="linkedin-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
