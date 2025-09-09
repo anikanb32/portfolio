@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Record outer circle -->
+  <circle cx="16" cy="16" r="15" fill="#15705b" stroke="#15705b" stroke-width="1"/>
+  <!-- Record inner circles -->
+  <circle cx="16" cy="16" r="10" fill="none" stroke="#15705b" stroke-width="0.5"/>
+  <circle cx="16" cy="16" r="6" fill="none" stroke="#15705b" stroke-width="0.5"/>
+  <!-- Thick black center -->
+  <circle cx="16" cy="16" r="4" fill="#000000"/>
+  <!-- White inner circle (center hole) -->
+  <circle cx="16" cy="16" r="1.5" fill="#ffffff"/>
+  <!-- Groove lines -->
+  <circle cx="16" cy="16" r="8" fill="none" stroke="#15705b" stroke-width="0.3" opacity="0.6"/>
+  <circle cx="16" cy="16" r="5" fill="none" stroke="#15705b" stroke-width="0.3" opacity="0.6"/>
+</svg>
