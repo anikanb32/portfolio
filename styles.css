@@ -4150,6 +4150,80 @@ body.dark-mode .card-sort-photo:hover {
     box-shadow: none;
 }
 
+/* Prototype Gallery */
+.prototype-gallery {
+    margin: 4rem 0;
+    position: relative;
+}
+
+.prototype-header {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #15705b;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.prototype-scroll-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 2rem 0;
+    scroll-behavior: smooth;
+    /* Hide scrollbar for webkit browsers */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.prototype-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.prototype-image {
+    width: auto;
+    height: 400px;
+    min-width: 100%;
+    object-fit: contain;
+    cursor: zoom-in;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    box-shadow: none;
+}
+
+.prototype-image:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.scroll-indicator {
+    text-align: center;
+    margin-top: 1rem;
+    opacity: 0.7;
+}
+
+.scroll-indicator span {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Dark mode for prototype gallery */
+body.dark-mode .prototype-image {
+    box-shadow: none;
+}
+
+body.dark-mode .prototype-image:hover {
+    box-shadow: none;
+}
+
+body.dark-mode .scroll-indicator span {
+    color: #999;
+}
+
+body.dark-mode .prototype-header {
+    color: #22c55e;
+}
+
 
 /* Responsive Design for CLASS Page */
 @media (max-width: 1000px) {
@@ -4326,6 +4400,19 @@ body.dark-mode .card-sort-photo:hover {
     
     .takeaway-item p {
         font-size: 1rem;
+    }
+    
+    /* Prototype gallery responsive */
+    .prototype-image {
+        height: 300px;
+    }
+    
+    .scroll-indicator span {
+        font-size: 0.8rem;
+    }
+    
+    .prototype-header {
+        font-size: 1.1rem;
     }
 }
 
