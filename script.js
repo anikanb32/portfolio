@@ -740,6 +740,42 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Initialize counts (commented out since counts are not displayed)
         // updateFilterCounts('all');
+        
+        // Add click navigation for work items
+        workItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const project = this.getAttribute('data-project');
+                console.log(`Clicked on work item: ${project}`);
+                
+                // Navigate to the appropriate project page
+                switch(project) {
+                    case 'class':
+                        window.location.href = 'class.html';
+                        break;
+                    case 'quantframe':
+                        window.location.href = 'quantframe.html';
+                        break;
+                    case 'noborders':
+                        // Add navigation when noborders page is created
+                        console.log('No Borders project clicked - page not yet created');
+                        break;
+                    case 'coachpro':
+                        // Add navigation when coachpro page is created
+                        console.log('CoachPro project clicked - page not yet created');
+                        break;
+                    case 'xometry':
+                        // Add navigation when xometry page is created
+                        console.log('Xometry project clicked - page not yet created');
+                        break;
+                    case 'neurologic':
+                        // Add navigation when neurologic page is created
+                        console.log('Neurologic project clicked - page not yet created');
+                        break;
+                    default:
+                        console.log(`No navigation defined for project: ${project}`);
+                }
+            });
+        });
     }
   })();
 
@@ -776,5 +812,76 @@ document.addEventListener('DOMContentLoaded', function() {
         document.addEventListener('DOMContentLoaded', initResumeAnimations);
     } else {
         initResumeAnimations();
+    }
+})();
+
+// Image Modal Functionality
+(function() {
+    function initializeImageModal() {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = document.querySelector('.image-modal-close');
+        const expandableImages = document.querySelectorAll('.expandable-image');
+        
+        if (!modal || !modalImg || !closeBtn) return; // Modal elements not found
+        
+        // Add click event to all expandable images
+        expandableImages.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = 'block';
+                modalImg.src = this.getAttribute('data-src') || this.src;
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            });
+        });
+        
+        // Close modal when clicking the X
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        });
+        
+        // Close modal when clicking outside the image
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.style.display === 'block') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        });
+    }
+    
+    // Initialize image modal when DOM is loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeImageModal);
+    } else {
+        initializeImageModal();
+    }
+})();
+
+// Problem Factor Arrow Animation
+(function() {
+    function initializeProblemArrows() {
+        const problemFactors = document.querySelectorAll('.problem-factor');
+        
+        if (problemFactors.length === 0) return; // Not on class page
+        
+        // Set CSS custom properties for staggered animation delays
+        problemFactors.forEach((factor, index) => {
+            factor.style.setProperty('--factor-index', index);
+        });
+    }
+    
+    // Initialize problem arrows when DOM is loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeProblemArrows);
+    } else {
+        initializeProblemArrows();
     }
 })(); 
