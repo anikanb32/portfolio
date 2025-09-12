@@ -884,4 +884,101 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         initializeProblemArrows();
     }
-})(); 
+})();
+
+// Progress Indicator Functionality
+function initializeProgressIndicator() {
+    const progressIndicator = document.getElementById('progressIndicator');
+    if (!progressIndicator) return;
+
+    const progressSteps = progressIndicator.querySelectorAll('.progress-step');
+    const sections = [];
+
+    // Get all sections that have IDs matching the progress steps
+    progressSteps.forEach(step => {
+        const sectionId = step.getAttribute('data-section');
+        const section = document.getElementById(sectionId);
+        if (section) {
+            sections.push({ element: section, step: step, id: sectionId });
+        }
+    });
+
+    if (sections.length === 0) return;
+
+    // Function to update active step based on scroll position
+    function updateActiveStep() {
+        const scrollPosition = window.scrollY + window.innerHeight / 2;
+        let activeSection = null;
+        let minDistance = Infinity;
+
+        sections.forEach(({ element, step, id }) => {
+            const rect = element.getBoundingClientRect();
+            const elementTop = rect.top + window.scrollY;
+            const elementBottom = elementTop + rect.height;
+            
+            // Calculate distance from center of viewport to section
+            const distance = Math.abs(scrollPosition - (elementTop + elementBottom) / 2);
+            
+            if (distance < minDistance) {
+                minDistance = distance;
+                activeSection = { element, step, id };
+            }
+        });
+
+        // Update active states
+        progressSteps.forEach(step => {
+            step.classList.remove('active', 'completed');
+        });
+
+        if (activeSection) {
+            activeSection.step.classList.add('active');
+            
+            // Mark previous steps as completed
+            const activeIndex = sections.findIndex(s => s.id === activeSection.id);
+            sections.forEach((section, index) => {
+                if (index < activeIndex) {
+                    section.step.classList.add('completed');
+                }
+            });
+        }
+    }
+
+    // Add click functionality to progress steps
+    progressSteps.forEach(step => {
+        step.addEventListener('click', () => {
+            const sectionId = step.getAttribute('data-section');
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Throttled scroll event listener
+    let scrollTimeout;
+    function handleScroll() {
+        if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+        }
+        scrollTimeout = setTimeout(updateActiveStep, 10);
+    }
+
+    // Initial update
+    updateActiveStep();
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Update on resize
+    window.addEventListener('resize', handleScroll, { passive: true });
+}
+
+// Initialize progress indicator when DOM is loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeProgressIndicator);
+} else {
+    initializeProgressIndicator();
+} 

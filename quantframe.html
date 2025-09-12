@@ -6,7 +6,7 @@
     <title>QuantFrame | Anika's Portfolio</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -30,19 +30,19 @@
       </header>
 
     <main>
-        <section class="project-content">
+        <section class="project-content" id="overview">
             <div class="project-header">
                 <h1 class="fade-in">QuantFrame</h1>
                 <p class="project-subtitle fade-in-delay-1">AI Market Trading Platform</p>
             </div>
             
             <div class="project-details fade-in-delay-2">
-                <div class="project-description">
+                <div class="project-description" id="context">
                     <h2>About the Project</h2>
                     <p>QuantFrame is an advanced AI-powered trading platform that leverages machine learning algorithms to analyze market data and execute trades with precision. The platform provides real-time market insights, automated trading strategies, and comprehensive portfolio management tools.</p>
                 </div>
                 
-                <div class="project-features">
+                <div class="project-features" id="discovery">
                     <h2>Key Features</h2>
                     <ul>
                         <li>Real-time market data analysis</li>
@@ -54,7 +54,7 @@
                     </ul>
                 </div>
                 
-                <div class="project-tech">
+                <div class="project-tech" id="problem">
                     <h2>Technologies Used</h2>
                     <ul>
                         <li>Python & TensorFlow</li>
@@ -67,6 +67,40 @@
             </div>
         </section>
     </main>
+
+    <!-- Progress Indicator -->
+    <div class="progress-indicator" id="progressIndicator">
+        <div class="progress-steps">
+            <div class="progress-step" data-section="overview">
+                <div class="step-dot"></div>
+                <span class="step-label">Overview</span>
+            </div>
+            <div class="progress-step" data-section="context">
+                <div class="step-dot"></div>
+                <span class="step-label">Context</span>
+            </div>
+            <div class="progress-step" data-section="discovery">
+                <div class="step-dot"></div>
+                <span class="step-label">Research</span>
+            </div>
+            <div class="progress-step" data-section="problem">
+                <div class="step-dot"></div>
+                <span class="step-label">Problem</span>
+            </div>
+            <div class="progress-step" data-section="ideation">
+                <div class="step-dot"></div>
+                <span class="step-label">Ideation</span>
+            </div>
+            <div class="progress-step" data-section="prototyping">
+                <div class="step-dot"></div>
+                <span class="step-label">Prototyping</span>
+            </div>
+            <div class="progress-step" data-section="takeaways">
+                <div class="step-dot"></div>
+                <span class="step-label">Takeaways</span>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-content">

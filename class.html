@@ -8,17 +8,17 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
         <a href="index.html" class="logo">
-          <span class="logo-a">A</span><span class="logo-nika">nika</span><span class="logo-b">B</span><span class="logo-hagavatula">hagavatula</span>
+          <span class="logo-a">a</span><span class="logo-nika">nika</span><span class="logo-b">b</span><span class="logo-hagavatula">hagavatula</span>
         </a>
         <nav class="nav">
-          <a href="work.html">Work</a>
-          <a href="about.html">About</a>
-          <a href="resume.html">Resume</a>
+          <a href="work.html">work</a>
+          <a href="about.html">about</a>
+          <a href="resume.html">resume</a>
           <div class="theme-toggle">
             <button class="theme-toggle-btn" aria-label="Toggle dark mode">
               <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -39,9 +39,9 @@
     <div class="mobile-nav" aria-label="Mobile menu">
       <button class="mobile-close" aria-label="Close menu">×</button>
       <div class="mobile-nav-content">
-        <a href="work.html">Work</a>
-        <a href="about.html">About</a>
-        <a href="resume.html">Resume</a>
+        <a href="work.html">work</a>
+        <a href="about.html">about</a>
+        <a href="resume.html">resume</a>
         <div class="theme-toggle mobile-theme-toggle">
           <button class="theme-toggle-btn" aria-label="Toggle dark mode">
             <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -92,7 +92,7 @@
         </section>
 
         <!-- Case Study Sections -->
-        <section class="case-study-section fade-in-delay-4">
+        <section class="case-study-section fade-in-delay-4" id="overview">
             <div class="section-header">
                 <h2 class="section-title">Overview</h2>
             </div>
@@ -105,7 +105,7 @@
             </div>
         </section>
 
-        <section class="case-study-section">
+        <section class="case-study-section" id="context">
             <div class="section-header">
                 <h2 class="section-title">Context</h2>
             </div>
@@ -119,7 +119,7 @@
             </div>
         </section>
 
-        <section class="case-study-section">
+        <section class="case-study-section" id="discovery">
             <div class="section-header">
                 <h2 class="section-title">Discovery</h2>
             </div>
@@ -207,7 +207,7 @@
             </div>
         </section>
 
-        <section class="case-study-section">
+        <section class="case-study-section" id="problem">
             <div class="section-header">
                 <h2 class="section-title">Problem</h2>
             </div>
@@ -231,7 +231,7 @@
             </div>
         </section>
 
-        <section class="case-study-section">
+        <section class="case-study-section" id="ideation">
             <div class="section-header">
                 <h2 class="section-title">Ideation</h2>
             </div>
@@ -267,7 +267,7 @@
             </div>
         </section>
 
-        <section class="case-study-section">
+        <section class="case-study-section" id="prototyping">
             <div class="section-header">
                 <h2 class="section-title">Prototyping</h2>
             </div>
@@ -324,7 +324,7 @@
             </div>
         </section>
 
-        <section class="case-study-section">
+        <section class="case-study-section" id="takeaways">
             <div class="section-header">
                 <h2 class="section-title">Lo-Fi Prototypes</h2>
             </div>
@@ -334,15 +334,16 @@
                 </div>
 
                 
-
+                <div class="scroll-indicator">
+                    <span>Scroll horizontally to view all prototypes</span>
+                </div>
                 <div class="prototype-gallery">
+                    
                     <h4 class="prototype-header">Staff Facing</h4>
                     <div class="prototype-scroll-container">
                         <img src="images/stafflofi.png" alt="Staff-facing lo-fi prototype screens" class="prototype-image expandable-image" data-src="images/stafflofi.png">
                     </div>
-                    <div class="scroll-indicator">
-                        <span>← Scroll horizontally to view all prototypes →</span>
-                    </div>
+                    
                 </div>
 
                 <div class="prototype-gallery">
@@ -350,13 +351,385 @@
                     <div class="prototype-scroll-container">
                         <img src="images/participantlofi.png" alt="Participant-facing lo-fi prototype screens" class="prototype-image expandable-image" data-src="images/participantlofi.png">
                     </div>
-                    <div class="scroll-indicator">
-                        <span>← Scroll horizontally to view all prototypes →</span>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section" id="usability-testing">
+            <div class="section-header">
+                <h2 class="section-title">Usability Testing</h2>
+            </div>
+            <div class="section-content">
+                <div class="section-text">
+                    <h3 class="section-subtitle">What features do staff and participants value?</h3>
+                    <p>We conducted usability testing with our lo-fi prototypes to understand which features resonated most with both user groups.</p>
+                </div>
+
+                <div class="usability-insights">
+                    <div class="insights-category">
+                        <h4 class="insights-category-title">Staff Prototype Insights</h4>
+                        <div class="insight-cards">
+                            <div class="insight-card">
+                                <div class="insight-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <p>Would need to know what materials and activities they are doing beforehand</p>
+                            </div>
+                            <div class="insight-card">
+                                <div class="insight-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M9 11V9a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M9 7h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <p>Staff appreciate having activity suggestions</p>
+                            </div>
+                            <div class="insight-card">
+                                <div class="insight-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <p>Roll call style attendance can be unreliable because participants come at different times</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="insights-category">
+                        <h4 class="insights-category-title">Participant Prototype Insights</h4>
+                        <div class="insight-cards">
+                            <div class="insight-card">
+                                <div class="insight-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <p>Participants want a space to share their achievements and projects</p>
+                            </div>
+                            <div class="insight-card">
+                                <div class="insight-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <p>Participants would prefer large font and color customization</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section" id="design">
+            <div class="section-content">
+                <div class="section-header">
+                    <h2 class="section-title">Designs</h2>
+                    <h3 class="section-subtitle">A new and improved interaction method</h3>
+                </div>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/TT-hofPp-24?si=qkT_xKVlh2S3NWZw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                
+                <div class="design-features">
+                    <div class="design-feature">
+                        <div class="feature-content">
+                            <h3 class="feature-title">Profiles</h3>
+                            <div class="feature-insight">
+                                <div class="insight-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12 2C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="insight-content">
+                                    <span class="insight-label">insight</span>
+                                    <p class="feature-description">Participant logs for staff are helpful to reference periodically to help with handling activities or personal and social interactions.</p>
+                                </div>
+                            </div>
+                            <div class="feature-gif">
+                                <img src="gifs/profile.gif" alt="Profile interface showing participant details and skills tracking" class="feature-image">
+                            </div>
+                            <div class="feature-caption">
+                                <div class="caption-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <span>A detailed participant profile to document high level information about skills, goals, and interests.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="design-feature">
+                        <div class="feature-content">
+                            <h3 class="feature-title">Activity Suggestion</h3>
+                            <div class="feature-insight">
+                                <div class="insight-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12 2C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="insight-content">
+                                    <span class="insight-label">insight</span>
+                                    <p class="feature-description">Staff need a way to track past activities and get goal-based suggestions.</p>
+                                </div>
+                            </div>
+                            <div class="feature-gif">
+                                <img src="gifs/activities.gif" alt="Activity suggestion interface showing personalized activity recommendations" class="feature-image">
+                            </div>
+                            <div class="feature-caption">
+                                <div class="caption-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <span>Display of suggested activities by different filters based on participant information helps prioritize activity types.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="design-feature">
+                        <div class="feature-content">
+                            <h3 class="feature-title">Viewing Attendance</h3>
+                            <div class="feature-insight">
+                                <div class="insight-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12 2C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="insight-content">
+                                    <span class="insight-label">insight</span>
+                                    <p class="feature-description">Staff oversight on attendance is important. Staff should be able to view crucial information about participants.</p>
+                                </div>
+                            </div>
+                            <div class="feature-gif">
+                                <img src="gifs/attendance.gif" alt="Attendance tracking interface showing participant management" class="feature-image">
+                            </div>
+                            <div class="feature-caption">
+                                <div class="caption-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <span>Implemented an attendance tracking system along with a detailed participant profile.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="design-feature">
+                        <div class="feature-content">
+                            <h3 class="feature-title">Activity Information</h3>
+                            <div class="feature-insight">
+                                <div class="insight-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12 2C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="insight-content">
+                                    <span class="insight-label">insight</span>
+                                    <p class="feature-description">It is important to keep in mind the level of support to determine activities based on feasibility.</p>
+                                </div>
+                            </div>
+                            <div class="feature-gif">
+                                <img src="gifs/activityinfo.gif" alt="Activity information interface showing detailed activity management" class="feature-image">
+                            </div>
+                            <div class="feature-caption">
+                                <div class="caption-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <span>Staff need to know when an activity was last conducted to ensure variety in programming.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section" id="impact">
+            <div class="section-header">
+                <h2 class="section-title">Impact</h2>
+            </div>
+            <div class="section-content">
+                <div class="impact-comparison">
+                    <div class="impact-column">
+                        <h3 class="impact-column-title">Initial Insights + Needs</h3>
+                        <div class="insight-arrows">
+                            <div class="insight-arrow-item">
+                                <div class="insight-box">Participants benefit most from personalized assistance from staff.</div>
+                                <div class="arrow">→</div>
+                            </div>
+                            <div class="insight-arrow-item">
+                                <div class="insight-box">All TBI Participants have individualized, varying needs and goals.</div>
+                                <div class="arrow">→</div>
+                            </div>
+                            <div class="insight-arrow-item">
+                                <div class="insight-box">Staff are overwhelmed with responsibility.</div>
+                                <div class="arrow">→</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="impact-column">
+                        <h3 class="impact-column-title">Prototype Outcomes</h3>
+                        <div class="outcome-items">
+                            <div class="outcome-item">
+                                <p>Suggesting relevant and interesting activities for each participant can increase and improve the quality of time spent between participants and staff.</p>
+                            </div>
+                            <div class="outcome-item">
+                                <p>Staff and participants can track the participants' personal goals on their individual profiles, which show their skills, progress, and interests.</p>
+                            </div>
+                            <div class="outcome-item">
+                                <p>Participants and staff can use the dashboard to organize and reference information about participants, plan activities ahead of time, and help assimilate new staff easily.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quotes-section">
+                    <h3 class="quotes-title">Hearing from our users</h3>
+                    <div class="quotes-grid">
+                        <div class="quote-item">
+                            <div class="quote-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="quote-content">
+                                <p>"It's good that I can see recent activities just <strong>so I can plan</strong> what I should do it next."</p>
+                                <span class="quote-attribution">- Staff S</span>
+                            </div>
+                        </div>
+                        <div class="quote-item">
+                            <div class="quote-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="quote-content">
+                                <p>"I really like <strong>choosing activities</strong> that I want to do today."</p>
+                                <span class="quote-attribution">- Participant G</span>
+                            </div>
+                        </div>
+                        <div class="quote-item">
+                            <div class="quote-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="quote-content">
+                                <p>"The skills area and goals look really good - straight <strong>from the participant skills assessment</strong>."</p>
+                                <span class="quote-attribution">- Staff S</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section" id="final-thoughts">
+            <div class="section-header">
+                <h2 class="section-title">Final Thoughts</h2>
+            </div>
+            <div class="section-content">
+                <div class="final-thoughts-grid">
+                    <div class="thoughts-column">
+                        <h3 class="thoughts-title">
+                            <div class="thoughts-title-content">
+                                
+                                <h3 class="section-subtitle">Learnings...</h3>
+                            </div>
+                        </h3>
+                        <div class="thoughts-content">
+                            <p>Having spoken to the participants with traumatic brain injuries and hearing their own individual goals, I realized how important it is to give people autonomy through design, especially when their voices are not always heard. This project shifted my perspective on who the 'user' really is in complex systems and sometimes the most impactful design work happens behind the scenes, empowering the people who directly support those who need it most.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="thoughts-column">
+                        <h3 class="thoughts-title">
+                            <div class="thoughts-title-content">
+                                
+                                <h3 class="section-subtitle">With more time...</h3>
+                            </div>
+                        </h3>
+                        <div class="thoughts-content">
+                            <p>I would want to run more user testing with the most refined coded prototype specifically to test metrics on staff time spent planning and researching daily activities. I would love to help with the implementation of the backend, especially because the assistive technology coordinator we were working with, Rebekah, emphasized how difficult it is to hand off to an external software specialist. Creating a more robust prototype would allow for staff to use the prototype more readily while the final deliverable is completed.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Progress Indicator -->
+    <div class="progress-indicator" id="progressIndicator">
+        <div class="progress-steps">
+            <div class="progress-step" data-section="overview">
+                <div class="step-dot"></div>
+                <span class="step-label">Overview</span>
+            </div>
+            <div class="progress-step" data-section="context">
+                <div class="step-dot"></div>
+                <span class="step-label">Context</span>
+            </div>
+            <div class="progress-step" data-section="discovery">
+                <div class="step-dot"></div>
+                <span class="step-label">Research</span>
+            </div>
+            <div class="progress-step" data-section="problem">
+                <div class="step-dot"></div>
+                <span class="step-label">Problem</span>
+            </div>
+            <div class="progress-step" data-section="ideation">
+                <div class="step-dot"></div>
+                <span class="step-label">Ideation</span>
+            </div>
+            <div class="progress-step" data-section="prototyping">
+                <div class="step-dot"></div>
+                <span class="step-label">Prototyping</span>
+            </div>
+            <div class="progress-step" data-section="takeaways">
+                <div class="step-dot"></div>
+                <span class="step-label">Prototypes</span>
+            </div>
+            <div class="progress-step" data-section="usability-testing">
+                <div class="step-dot"></div>
+                <span class="step-label">Testing</span>
+            </div>
+            <div class="progress-step" data-section="design">
+                <div class="step-dot"></div>
+                <span class="step-label">Design</span>
+            </div>
+            <div class="progress-step" data-section="impact">
+                <div class="step-dot"></div>
+                <span class="step-label">Impact</span>
+            </div>
+            <div class="progress-step" data-section="final-thoughts">
+                <div class="step-dot"></div>
+                <span class="step-label">Reflection</span>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-content">
