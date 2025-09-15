@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroLogic | Anika's Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">
+          <span class="logo-a">a</span><span class="logo-nika">nika</span><span class="logo-b">b</span><span class="logo-hagavatula">hagavatula</span>
+        </a>
+        <nav class="nav">
+          <a href="work.html">work</a>
+          <a href="about.html">about</a>
+          <a href="resume.html">resume</a>
+          <div class="theme-toggle">
+            <button class="theme-toggle-btn" aria-label="Toggle dark mode">
+              <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+              </svg>
+              <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"/>
+              </svg>
+            </button>
+          </div>
+        </nav>
+        <button class="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </header>
+
+    <!-- Mobile Menu - Moved outside header for proper layering -->
+    <div class="mobile-nav" aria-label="Mobile menu">
+      <button class="mobile-close" aria-label="Close menu">×</button>
+      <div class="mobile-nav-content">
+        <a href="work.html">work</a>
+        <a href="about.html">about</a>
+        <a href="resume.html">resume</a>
+        <div class="theme-toggle mobile-theme-toggle">
+          <button class="theme-toggle-btn" aria-label="Toggle dark mode">
+            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+            </svg>
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <main class="class-main">
+        <!-- Project Header -->
+        <section class="class-header">
+            <div class="class-header-content">
+                <div class="class-meta">
+                    <h1 class="class-title fade-in">NeuroLogic</h1>
+                    <span class="class-organization fade-in-delay-1">Course Project</span>
+                </div>
+                <div class="class-details fade-in-delay-2">
+                    <div class="class-detail-item">
+                        <h3>Role</h3>
+                        <p>Frontend Development</p>
+                    </div>
+                    <div class="class-detail-item">
+                        <h3>Skills</h3>
+                        <p>CSS, HTML, Javascript, three.js</p>
+                    </div>
+                    <div class="class-detail-item">
+                        <h3>Tools</h3>
+                        <p>Figma, Github, VSCode</p>
+                    </div>
+                    <div class="class-detail-item">
+                        <h3>Timeline</h3>
+                        <p>2 months</p>
+                    </div>
+                </div>
+            </div>
+            <div class="class-hero-image fade-in-delay-3">
+                <img src="images/neurologicpreview.png" alt="NeuroLogic Interactive Brain Interface" class="class-dashboard-image expandable-image" data-src="images/neurologicpreview.png">
+            </div>
+            <div class="live-site-link fade-in-delay-4">
+                <a href="https://anikanb32.github.io/pui-homework/final-project/index.html" target="_blank" class="live-site-button">
+                    <svg class="live-site-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6zm2 0v8h12V6H6z"/>
+                        <path d="M2 10h2v4H2v-4zm18 0h2v4h-2v-4z"/>
+                    </svg>
+                    <span class="live-site-text">View Live Site</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Case Study Sections -->
+        <section class="case-study-section fade-in-delay-4" id="overview">
+            <div class="section-header">
+                <h2 class="section-title">Overview</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">A tool for users to understand neuroscience and the brain in a more interactive way - for those who are unfamiliar with how the brain works and how basic neuroscience principles are understood.</h3>
+                <div class="section-text">
+                    <p>NeuroLogic is an <b>interactive website</b> designed to help users gain a foundational understanding of neuroscience and brain function. Aimed at college students and curious adults, NeuroLogic serves as an accessible first resource for those unfamiliar with basic neuroscience principles. The site features a minimalistic, bold design that facilitates easy navigation and engagement.</p>
+                    <p>It is important for us to pose essential questions about the brain's nature, our understanding of it, and the linkage between human behavior and brain activity. NeuroLogic offers further <b>learning resources</b>, including complex research papers, to encourage exploration.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section" id="solution-preview">
+            <div class="section-header">
+                <h2 class="section-title">Solution Preview</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">A glimpse into the final interactive neuroscience platform</h3>
+                <div class="solution-gallery">
+                    <div class="solution-item">
+                        <img src="gifs/resources.gif" alt="NeuroLogic Homepage Solution" class="solution-gif expandable-image" data-src="gifs/resources.gif">
+                        <div class="solution-caption">
+                            <h4>Interactive Homepage</h4>
+                            <p>Engaging landing experience with animated brain visualization and intuitive navigation</p>
+                        </div>
+                    </div>
+                    <div class="solution-item">
+                        <img src="images/brainmap.gif" alt="NeuroLogic Brain Map Solution" class="solution-gif expandable-image" data-src="images/brainmap.gif">
+                        <div class="solution-caption">
+                            <h4>3D Brain Exploration</h4>
+                            <p>Interactive brain model with clickable regions and detailed information overlays</p>
+                        </div>
+                    </div>
+                    <div class="solution-item">
+                        <img src="gifs/brainsimulation.gif" alt="NeuroLogic Simulation Solution" class="solution-gif expandable-image" data-src="gifs/brainsimulation.gif">
+                        <div class="solution-caption">
+                            <h4>Dynamic Simulations</h4>
+                            <p>Real-time brain activity simulations with adjustable parameters and visual feedback</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section" id="problem">
+            <div class="section-header">
+                <h2 class="section-title">Problem</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">The complexity of neuroscience creates barriers to understanding for those unfamiliar with brain science.</h3>
+                <div class="section-text">
+                    <p>Neuroscience is inherently complex, with intricate concepts about brain function, neural pathways, and cognitive processes that can be overwhelming for beginners. Traditional educational resources often present this information in dense, academic formats that fail to engage learners or make the material accessible.</p>
+                    <p>The <b>problem</b> lies in the disconnect between the fascinating nature of brain science and the intimidating presentation of this knowledge. Many people are curious about how their brain works but are deterred by the technical complexity and lack of interactive, engaging learning tools that can make neuroscience concepts tangible and understandable.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section" id="discovery">
+            <div class="section-header">
+                <h2 class="section-title">Early Wireframes</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">Creating a general layout of information for each page to establish the foundation for interactive learning.</h3>
+                <div class="section-text">
+                    <p>I first wanted to create a general layout of information for each page. I added a home page for basic navigation and posing broad questions. The goal of the brain areas page was to create an <b>interactive tool</b> to view the brain and localizations of different units. The simulation page will show how various stimuli can change brain activity, giving users the ability to toggle various factors. I also added resources to further the educational motivation of the site.</p>
+                </div>
+                
+                <div class="wireframe-gallery">
+                    <div class="wireframe-item">
+                        <img src="images/wf1neurologic.png" alt="Homepage wireframe with quote and brain graphic" class="wireframe-image expandable-image" data-src="images/wf1neurologic.png">
+                    </div>
+                    <div class="wireframe-item">
+                        <img src="images/wf2neurologic.png" alt="Brain Map wireframe with interactive regions" class="wireframe-image expandable-image" data-src="images/wf2neurologic.png">
+                    </div>
+                    <div class="wireframe-item">
+                        <img src="images/wf3neurologic.png" alt="Simulator wireframe with controls and brain visualization" class="wireframe-image expandable-image" data-src="images/wf3neurologic.png">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section" id="prototyping">
+            <div class="section-header">
+                <h2 class="section-title">Prototyping</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">Usability Testing</h3>
+                <div class="section-text">
+                    <p>I conducted usability tests to address two main parts: functionality and design evaluation. Participants were guided through key tasks using a think-aloud protocol to observe their navigation and interaction with the website.</p>
+                </div>
+                
+                <div class="usability-insights">
+                    <div class="insights-category">
+                        <h4 class="insights-category-title">Testing Activities</h4>
+                        <div class="insight-cards">
+                            <div class="insight-card">
+                                <div class="insight-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <p>Identifying Main Page Functions - Users were asked to list and describe the functionalities available on the home page</p>
+                            </div>
+                            <div class="insight-card">
+                                <div class="insight-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <p>Exploring Brain Regions - Participants navigated to different brain regions, utilizing hover and click features</p>
+                            </div>
+                            <div class="insight-card">
+                                <div class="insight-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <p>Running Simulations - Users attempted to initiate simulations to evaluate intuitiveness and accessibility</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-text" style="margin-top: 4rem;">
+                    <h3 class="section-subtitle">Feedback + Design Changes</h3>
+                    <p>There was valuable feedback for enhancing user interaction, simplifying complex content, and improving accessibility. A key suggestion was to streamline interactions by developing the <b>brain interface with D3.js</b>, making sure that visuals and controls are intuitive and well-explained while minimizing unnecessary features.</p>
+                    <p>I received recommendations to use both <b>color and size variations</b> for highlighting important information, making the platform more inclusive for users with color vision deficiencies. The feedback emphasized using <b>images of the brain</b> to illustrate different slices and activity areas, which would help users understand the complex structure more intuitively.</p>
+                </div>
+                
+                <div class="section-text">
+                    <h3 class="section-subtitle">Refined Wireframes</h3>
+                    <p>Based on the feedback received, I created a second iteration of wireframes that incorporated the suggested improvements for better user interaction and accessibility.</p>
+                </div>
+                
+                <div class="wireframe-gallery">
+                    <div class="wireframe-item">
+                        <img src="images/wf4neurologic.png" alt="Refined homepage wireframe with improved accessibility" class="wireframe-image expandable-image" data-src="images/wf4neurologic.png">
+                    </div>
+                    <div class="wireframe-item">
+                        <img src="images/wf5neurologic.png" alt="Enhanced brain map wireframe with D3.js integration" class="wireframe-image expandable-image" data-src="images/wf5neurologic.png">
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section" id="implementation">
+            <div class="section-header">
+                <h2 class="section-title">Implementation</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">Design Evolution and Technical Challenges</h3>
+                <div class="section-text">
+                    <p>I shifted from an initial "brighter white and blue theme" to a "black, white, grayscales, and pops of red" to create a more dramatic effect and clearer contrast, ensuring text and buttons are distinguishable without relying solely on color variations.</p>
+                    <p>I increased the pages dynamic layout while maintaining a minimalistic design. I implemented typing effects for titles and parallax backgrounds, along with interactive elements like flipping cards and shifting gears to engage users. The theme was adjusted to convey a more 'serious' and bold ambiance.</p>
+                    <p>One of the biggest challenges was integrating the external brain visual, managing the terminal, eliminating errors, and cleaning up outdated code. This required learning different rendering processes and leveraging <b>generative AI to create accurate visuals</b>, overcoming the complexities of rendering them manually.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section" id="interaction">
+            <div class="section-header">
+                <h2 class="section-title">Interaction</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">Three core interactive features that bring neuroscience concepts to life</h3>
+                
+                <div class="interaction-features">
+                    <div class="interaction-feature">
+                        <h4>Brain Areas</h4>
+                        <p>Allows users to explore different regions of the brain and understand their functions. The 3D interactive model lets users rotate and zoom in/out to view from various angles. Red dots on specific brain areas can be clicked to display their functions in an adjacent text box.</p>
+                    </div>
+                    <div class="interaction-feature">
+                        <h4>Simulation</h4>
+                        <p>Demonstrates how various factors like stimulants and sleep affect neuron activity. Separate simulation tabs for Sugar, Caffeine, and Sleep allow users to focus on specific factors. They can adjust variables like dopamine sensitivity, stimulant levels, environmental effects, and sensitivity history.</p>
+                    </div>
+                    <div class="interaction-feature">
+                        <h4>Resources</h4>
+                        <p>Provides additional materials and references for users interested in expanding their neuroscience knowledge with flippable cards, links, and journal papers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section" id="final-thoughts">
+            <div class="section-header">
+                <h2 class="section-title">Final Thoughts</h2>
+            </div>
+            <div class="section-content">
+                <div class="final-thoughts-grid">
+                    <div class="thoughts-column">
+                        <h3 class="thoughts-title">
+                            <div class="thoughts-title-content">
+                                <h3 class="section-subtitle">Learnings...</h3>
+                            </div>
+                        </h3>
+                        <div class="thoughts-content">
+                            <p>Creating NeuroLogic taught me the power of <b>storytelling</b> in educational technology. The challenge wasn't just building an interactive brain model, but crafting a narrative that makes complex neuroscience concepts accessible and engaging. I learned how visual design and interaction patterns can transform intimidating academic content into an exploratory journey that invites curiosity rather than overwhelming users with technical jargon.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="thoughts-column">
+                        <h3 class="thoughts-title">
+                            <div class="thoughts-title-content">
+                                <h3 class="section-subtitle">With more time...</h3>
+                            </div>
+                        </h3>
+                        <div class="thoughts-content">
+                            <p>I would expand the simulation capabilities to include more complex neurological conditions and their visual representations. With more time, I'd develop a comprehensive user research program to understand how different learning styles interact with the platform, and create adaptive content that personalizes the educational experience. I'd also explore integrating real-time data visualization and collaborative features that allow users to share their discoveries and insights about brain function.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Progress Indicator -->
+    <div class="progress-indicator" id="progressIndicator">
+        <div class="progress-steps">
+            <div class="progress-step" data-section="overview">
+                <div class="step-dot"></div>
+                <span class="step-label">Overview</span>
+            </div>
+            <div class="progress-step" data-section="solution-preview">
+                <div class="step-dot"></div>
+                <span class="step-label">Preview</span>
+            </div>
+            <div class="progress-step" data-section="problem">
+                <div class="step-dot"></div>
+                <span class="step-label">Problem</span>
+            </div>
+            <div class="progress-step" data-section="discovery">
+                <div class="step-dot"></div>
+                <span class="step-label">Wireframes</span>
+            </div>
+            <div class="progress-step" data-section="prototyping">
+                <div class="step-dot"></div>
+                <span class="step-label">Prototyping</span>
+            </div>
+            <div class="progress-step" data-section="implementation">
+                <div class="step-dot"></div>
+                <span class="step-label">Implementation</span>
+            </div>
+            <div class="progress-step" data-section="interaction">
+                <div class="step-dot"></div>
+                <span class="step-label">Interaction</span>
+            </div>
+            <div class="progress-step" data-section="final-thoughts">
+                <div class="step-dot"></div>
+                <span class="step-label">Reflection</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Anika Bhagavatula</h3>
+                <div class="social-links">
+                    <a href="mailto:anikabhagavatula@berkeley.edu">anikabhagavatula@berkeley.edu</a>
+                    <a href="https://linkedin.com/in/anika-bhagavatula" target="_blank" class="linkedin-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="image-modal-close">&times;</span>
+        <img class="image-modal-content" id="modalImage">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

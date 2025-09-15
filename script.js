@@ -117,13 +117,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     window.location.href = 'quantframe.html';
                     break;
                 case 'class':
-                    window.location.href = 'work.html';
+                    window.location.href = 'class.html';
                     break;
                 case 'noborders':
                     window.location.href = 'work.html';
                     break;
                 case 'coachpro':
                     window.location.href = 'work.html';
+                    break;
+                case 'xometry':
+                    window.location.href = 'xometry.html';
+                    break;
+                case 'neurologic':
+                    window.location.href = 'neurologic.html';
                     break;
                 default:
                     console.log(`No navigation defined for project: ${project}`);
@@ -764,12 +770,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         console.log('CoachPro project clicked - page not yet created');
                         break;
                     case 'xometry':
-                        // Add navigation when xometry page is created
-                        console.log('Xometry project clicked - page not yet created');
+                        window.location.href = 'xometry.html';
                         break;
                     case 'neurologic':
-                        // Add navigation when neurologic page is created
-                        console.log('Neurologic project clicked - page not yet created');
+                        window.location.href = 'neurologic.html';
                         break;
                     default:
                         console.log(`No navigation defined for project: ${project}`);
@@ -825,8 +829,13 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (!modal || !modalImg || !closeBtn) return; // Modal elements not found
         
-        // Add click event to all expandable images
+        // Add click event to all expandable images (excluding hero image)
         expandableImages.forEach(img => {
+            // Skip the hero image
+            if (img.closest('.class-hero-image')) {
+                return;
+            }
+            
             img.addEventListener('click', function() {
                 modal.style.display = 'block';
                 modalImg.src = this.getAttribute('data-src') || this.src;
