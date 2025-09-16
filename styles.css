@@ -176,6 +176,11 @@ body.dark-mode .mobile-close {
     transition: color 0.3s ease;
 }
 
+body.dark-mode .slogan {
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
 body.dark-mode .mobile-nav a {
     color: #ffffff;
     transition: color 0.3s ease;
@@ -761,6 +766,30 @@ main {
     transform: translateY(0);
 }
 
+.fade-in-delay-5 {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 1.0s;
+}
+
+.fade-in-delay-5.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-delay-6 {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 1.2s;
+}
+
+.fade-in-delay-6.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Staggered fade-in for multiple elements */
 .fade-in-stagger > * {
     opacity: 0;
@@ -870,6 +899,40 @@ main {
     line-height: 1.6;
     font-weight: 400;
     max-width: 50%;
+    color: #000000;
+    transition: color 0.3s ease;
+}
+
+.intro p.fade-in-delay-2 {
+    font-size: 1rem;
+}
+
+/* Highlight phrases styling */
+.highlight-phrase {
+    font-weight: 700;
+    color: #000000;
+    transition: color 0.3s ease;
+}
+
+/* Dark mode for paragraph text */
+body.dark-mode .intro p {
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+/* Dark mode for highlighted phrases */
+body.dark-mode .highlight-phrase {
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.slogan {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #000000;
+    margin: 1.5rem 0;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
 }
 
 /* Projects Section */
@@ -996,6 +1059,44 @@ main {
     .intro p {
         max-width: 100%;
         font-size: 1rem;
+        color: #000000;
+        transition: color 0.3s ease;
+    }
+    
+    .intro p.fade-in-delay-2 {
+        font-size: 0.9rem;
+    }
+    
+    /* Mobile dark mode for paragraph text */
+    body.dark-mode .intro p {
+        color: #ffffff;
+        transition: color 0.3s ease;
+    }
+    
+    /* Mobile styling for highlighted phrases */
+    .highlight-phrase {
+        font-weight: 700;
+        color: #000000;
+        transition: color 0.3s ease;
+    }
+    
+    /* Dark mode for highlighted phrases on mobile */
+    body.dark-mode .highlight-phrase {
+        color: #ffffff;
+        transition: color 0.3s ease;
+    }
+    
+    .slogan {
+        font-size: 1.4rem;
+        margin: 1rem 0;
+        color: #000000;
+        transition: color 0.3s ease;
+    }
+    
+    /* Mobile dark mode for slogan */
+    body.dark-mode .slogan {
+        color: #ffffff;
+        transition: color 0.3s ease;
     }
     
     .projects {
@@ -1344,6 +1445,24 @@ body.dark-mode .footer-content {
     color: #222;
     max-width: none;
 }
+
+.about-highlight-quote {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #000000;
+    margin: 2rem 0;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+    transition-delay: 0.4s;
+}
+
+.about-highlight-quote.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
 .about-edu {
     font-size: 1rem;
     margin: 0;
@@ -1427,9 +1546,184 @@ body.dark-mode .footer-content {
     color: #183c2b;
 }
 
+/* Recent Vinyl Picks Section */
+.vinyl-picks-section {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    max-width: 300px;
+    margin-left: auto;
+}
+
+.vinyl-picks-header {
+    text-align: right;
+    max-width: 400px;
+    margin-top: 1rem;
+}
+
+.vinyl-picks-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.vinyl-picks-container {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin: 0.5rem 0 0 0;
+    width: auto;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.vinyl-pick {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    max-width: 120px;
+}
+
+.vinyl-pick:hover {
+    transform: translateY(-3px);
+}
+
+.vinyl-album-cover {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.vinyl-album-cover:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+}
+
+.album-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.vinyl-pick:hover .album-image {
+    /* No zoom effect */
+}
+
+.vinyl-pick .vinyl-info {
+    text-align: center;
+    max-width: 100px;
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+}
+
+.album-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 0.2rem;
+    line-height: 1.3;
+}
+
+.album-artist {
+    font-size: 0.6rem !important;
+    color: #666;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+
+
+/* Dark mode for vinyl picks */
+body.dark-mode .vinyl-picks-title {
+    color: #ffffff;
+}
+
+body.dark-mode .album-title {
+    color: #ffffff;
+}
+
+body.dark-mode .album-artist {
+    color: #cccccc;
+}
+
+/* Responsive design for vinyl picks */
+@media (max-width: 768px) {
+    .vinyl-picks-section {
+        align-items: center;
+        margin-left: 0;
+        max-width: 100%;
+    }
+    
+    .vinyl-picks-header {
+        text-align: center;
+    }
+    
+    .vinyl-picks-container {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        justify-content: center;
+    }
+    
+    .vinyl-pick {
+        max-width: 100px;
+    }
+    
+    .vinyl-album-cover {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .vinyl-pick .vinyl-info {
+        max-width: 90px;
+    }
+    
+    .vinyl-picks-title {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .vinyl-picks-container {
+        gap: 0.8rem;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .vinyl-pick {
+        max-width: 80px;
+    }
+    
+    .vinyl-album-cover {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .vinyl-pick .vinyl-info {
+        max-width: 80px;
+    }
+    
+    .vinyl-picks-title {
+        font-size: 1.1rem;
+    }
+}
+
 /* DJ Turntable Section */
 .about-dj-section {
-    margin-top: 4rem;
+    margin-top: 0rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -1665,7 +1959,7 @@ body.dark-mode .footer-content {
         inset 0 1px 0 rgba(255,255,255,0.1),
         inset 0 -1px 0 rgba(0,0,0,0.2);
     padding: 2rem;
-    width: 600px;
+    width: 550px;
     min-height: 280px;
     display: flex;
     flex-direction: row;
@@ -1679,7 +1973,7 @@ body.dark-mode .footer-content {
     max-width: 600px;
     box-sizing: border-box;
     overflow: hidden;
-    min-width: 600px;
+    min-width: 550px;
 }
 
 .turntable-deck {
@@ -1930,7 +2224,7 @@ body.dark-mode .footer-content {
     
     .dj-turntable {
         width: 100%;
-        max-width: 500px;
+        max-width: 450px;
         min-width: auto;
     }
     
@@ -2018,6 +2312,18 @@ body.dark-mode .footer-content {
         margin-top: 0;
     }
     
+    .about-highlight-quote {
+        font-size: 1.2rem;
+        margin: 1.5rem 0;
+    }
+    
+    /* Mobile dark mode for highlight quote */
+    body.dark-mode .about-highlight-quote {
+        color: #ffffff;
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+        transition-delay: 0.4s;
+    }
+    
     .dj-layout {
         padding: 0 2rem;
     }
@@ -2035,7 +2341,7 @@ body.dark-mode .footer-content {
     }
     .dj-turntable {
         width: 100%;
-        max-width: 500px;
+        max-width: 450px;
         min-height: 180px;
         padding: 1rem 0.8rem;
         gap: 0.8rem;
@@ -2069,7 +2375,7 @@ body.dark-mode .footer-content {
         flex-direction: column;
         gap: 1.5rem;
         align-items: center;
-        max-width: 400px;
+        max-width: 450px;
         width: 100%;
         margin-left: 1rem;
         margin-right: 1rem;
@@ -2505,6 +2811,12 @@ body.dark-mode .about-dot {
 
 body.dark-mode .about-intro {
     color: #ffffff;
+}
+
+body.dark-mode .about-highlight-quote {
+    color: #ffffff;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+    transition-delay: 0.4s;
 }
 
 body.dark-mode .about-edu {
@@ -5056,18 +5368,24 @@ body.dark-mode .prototype-header {
     line-height: 1.1;
     margin: 0 0 1rem 0;
     padding: 0;
+    transition: color 0.3s ease;
 }
 
 .work-dot {
     color: #111;
+    transition: color 0.3s ease;
 }
 
 .work-subtitle {
     font-size: 1.2rem;
-    color: #666;
+    color: #000000;
     font-weight: 400;
-    max-width: 600px;
-    line-height: 1.5;
+    max-width: 50%;
+    line-height: 1.6;
+}
+
+.work-subtitle:not(.fade-in-delay-2) {
+    transition: color 0.3s ease;
 }
 
 /* Work Filters Section */
@@ -5305,7 +5623,11 @@ body.dark-mode .work-dot {
 }
 
 body.dark-mode .work-subtitle {
-    color: #cccccc;
+    color: #ffffff;
+}
+
+body.dark-mode .work-subtitle:not(.fade-in-delay-2) {
+    transition: color 0.3s ease;
 }
 
 body.dark-mode .filter-btn {
@@ -5376,6 +5698,21 @@ body.dark-mode .cta-content p {
     
     .work-subtitle {
         font-size: 1rem;
+        max-width: 100%;
+        color: #000000;
+    }
+    
+    .work-subtitle:not(.fade-in-delay-2) {
+        transition: color 0.3s ease;
+    }
+    
+    /* Mobile dark mode for work subtitle */
+    body.dark-mode .work-subtitle {
+        color: #ffffff;
+    }
+    
+    body.dark-mode .work-subtitle:not(.fade-in-delay-2) {
+        transition: color 0.3s ease;
     }
     
     .filter-container {

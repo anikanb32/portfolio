@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     window.location.href = 'quantframe.html';
                     break;
                 case 'class':
-                    window.location.href = 'class.html';
+                    window.location.href = 'work.html';
                     break;
                 case 'noborders':
                     window.location.href = 'work.html';
@@ -184,15 +184,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Universal fade-in animation system
     function initFadeInAnimations() {
         // Get all elements with fade-in classes
-        const fadeInElements = document.querySelectorAll('.fade-in, .fade-in-delay-1, .fade-in-delay-2, .fade-in-delay-3, .fade-in-delay-4');
+        const fadeInElements = document.querySelectorAll('.fade-in, .fade-in-delay-1, .fade-in-delay-2, .fade-in-delay-3, .fade-in-delay-4, .fade-in-delay-5, .fade-in-delay-6');
         const staggerElements = document.querySelectorAll('.fade-in-stagger');
         
-        // Animate individual fade-in elements
-        fadeInElements.forEach((element, index) => {
-            setTimeout(() => {
-                element.classList.add('loaded');
-            }, 100 + (index * 100)); // Stagger the animations
+        // Animate individual fade-in elements - respect CSS transition delays
+        fadeInElements.forEach((element) => {
+            // Add loaded class immediately - CSS will handle the timing with transition-delay
+            element.classList.add('loaded');
         });
+        
+        // Specifically handle the highlight quote
+        const highlightQuote = document.querySelector('.about-highlight-quote');
+        if (highlightQuote) {
+            highlightQuote.classList.add('loaded');
+        }
         
         // Animate staggered elements
         staggerElements.forEach((container, containerIndex) => {
@@ -301,6 +306,7 @@ document.addEventListener('DOMContentLoaded', function() {
     themeToggleBtns.forEach(btn => {
         btn.addEventListener('click', toggleTheme);
     });
+
 
 }); 
 

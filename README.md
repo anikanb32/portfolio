@@ -1,6 +1,7 @@
 # Anika Bhagavatula - Product Design Portfolio
 
 A modern, minimalist product design portfolio featuring a unique vinyl record-inspired project showcase.
+updating this again
 
 ## Features
 
