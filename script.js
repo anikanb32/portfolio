@@ -1,6 +1,32 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing navigation...');
     
+    // Lazy loading for images
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy-load');
+                    img.classList.add('loaded');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        
+        lazyImages.forEach(img => imageObserver.observe(img));
+    } else {
+        // Fallback for browsers without IntersectionObserver
+        lazyImages.forEach(img => {
+            img.src = img.dataset.src;
+            img.classList.remove('lazy-load');
+            img.classList.add('loaded');
+        });
+    }
+    
     // Hamburger menu functionality
     const hamburger = document.querySelector('.hamburger');
     const mobileNav = document.querySelector('.mobile-nav');
@@ -120,10 +146,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     window.location.href = 'work.html';
                     break;
                 case 'noborders':
-                    window.location.href = 'work.html';
+                    window.location.href = 'noborders.html';
                     break;
                 case 'coachpro':
-                    window.location.href = 'work.html';
+                    window.location.href = 'coachpro.html';
                     break;
                 case 'xometry':
                     window.location.href = 'xometry.html';
@@ -768,12 +794,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         window.location.href = 'quantframe.html';
                         break;
                     case 'noborders':
-                        // Add navigation when noborders page is created
-                        console.log('No Borders project clicked - page not yet created');
+                        window.location.href = 'noborders.html';
                         break;
                     case 'coachpro':
-                        // Add navigation when coachpro page is created
-                        console.log('CoachPro project clicked - page not yet created');
+                        window.location.href = 'coachpro.html';
                         break;
                     case 'xometry':
                         window.location.href = 'xometry.html';
