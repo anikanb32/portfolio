@@ -1028,10 +1028,21 @@ body.dark-mode .highlight-phrase {
 .record:focus {
     text-decoration: none;
     color: inherit;
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
 }
 
 .record:focus {
-    outline: none;
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.record:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
 }
 
 /* Responsive Design */
