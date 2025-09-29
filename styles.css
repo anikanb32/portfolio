@@ -1022,27 +1022,117 @@ body.dark-mode .highlight-phrase {
     transform: rotate(360deg) scale(1.1);
 }
 
+/* Global outline removal for all elements */
+*:focus,
+*:focus-visible,
+*:focus-within {
+    outline: none !important;
+    outline-offset: 0 !important;
+    outline-width: 0 !important;
+    outline-style: none !important;
+}
+
 /* Ensure record links maintain styling */
 .record:visited,
 .record:active,
-.record:focus {
-    text-decoration: none;
-    color: inherit;
+.record:focus,
+.record:focus-visible,
+.record:focus-within {
+    text-decoration: none !important;
+    color: inherit !important;
     outline: none !important;
+    outline-offset: 0 !important;
+    outline-width: 0 !important;
+    outline-style: none !important;
     box-shadow: none !important;
     border: none !important;
+    border-width: 0 !important;
+    border-style: none !important;
+    border-color: transparent !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-focus-ring-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
 }
 
 .record:focus {
     outline: none !important;
+    outline-offset: 0 !important;
+    outline-width: 0 !important;
+    outline-style: none !important;
     box-shadow: none !important;
     border: none !important;
+    border-width: 0 !important;
+    border-style: none !important;
+    border-color: transparent !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-focus-ring-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
 }
 
 .record:focus-visible {
     outline: none !important;
+    outline-offset: 0 !important;
+    outline-width: 0 !important;
+    outline-style: none !important;
     box-shadow: none !important;
     border: none !important;
+    border-width: 0 !important;
+    border-style: none !important;
+    border-color: transparent !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-focus-ring-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+
+.record:focus-within {
+    outline: none !important;
+    outline-offset: 0 !important;
+    outline-width: 0 !important;
+    outline-style: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-width: 0 !important;
+    border-style: none !important;
+    border-color: transparent !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-focus-ring-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
 }
 
 /* Responsive Design */
