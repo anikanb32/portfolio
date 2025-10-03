@@ -140,22 +140,22 @@ document.addEventListener('DOMContentLoaded', function() {
             // Navigate to the appropriate project page
             switch(project) {
                 case 'quantframe':
-                    window.location.href = '/quantframe/';
+                    window.location.href = '../quantframe/';
                     break;
                 case 'class':
-                    window.location.href = '/class/';
+                    window.location.href = '../class/';
                     break;
                 case 'noborders':
-                    window.location.href = '/noborders/';
+                    window.location.href = '../noborders/';
                     break;
                 case 'coachpro':
-                    window.location.href = '/coachpro/';
+                    window.location.href = '../coachpro/';
                     break;
                 case 'xometry':
-                    window.location.href = '/xometry/';
+                    window.location.href = '../xometry/';
                     break;
                 case 'neurologic':
-                    window.location.href = '/neurologic/';
+                    window.location.href = '../neurologic/';
                     break;
                 default:
                     console.log(`No navigation defined for project: ${project}`);
@@ -809,22 +809,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Navigate to the appropriate project page
                 switch(project) {
                     case 'class':
-                        window.location.href = '/class/';
+                        window.location.href = '../class/';
                         break;
                     case 'quantframe':
-                        window.location.href = '/quantframe/';
+                        window.location.href = '../quantframe/';
                         break;
                     case 'noborders':
-                        window.location.href = '/noborders/';
+                        window.location.href = '../noborders/';
                         break;
                     case 'coachpro':
-                        window.location.href = '/coachpro/';
+                        window.location.href = '../coachpro/';
                         break;
                     case 'xometry':
-                        window.location.href = '/xometry/';
+                        window.location.href = '../xometry/';
                         break;
                     case 'neurologic':
-                        window.location.href = '/neurologic/';
+                        window.location.href = '../neurologic/';
                         break;
                     default:
                         console.log(`No navigation defined for project: ${project}`);
