@@ -140,22 +140,22 @@ document.addEventListener('DOMContentLoaded', function() {
             // Navigate to the appropriate project page
             switch(project) {
                 case 'quantframe':
-                    window.location.href = 'quantframe.html';
+                    window.location.href = '/quantframe/';
                     break;
                 case 'class':
-                    window.location.href = 'work.html';
+                    window.location.href = '/class/';
                     break;
                 case 'noborders':
-                    window.location.href = 'noborders.html';
+                    window.location.href = '/noborders/';
                     break;
                 case 'coachpro':
-                    window.location.href = 'coachpro.html';
+                    window.location.href = '/coachpro/';
                     break;
                 case 'xometry':
-                    window.location.href = 'xometry.html';
+                    window.location.href = '/xometry/';
                     break;
                 case 'neurologic':
-                    window.location.href = 'neurologic.html';
+                    window.location.href = '/neurologic/';
                     break;
                 default:
                     console.log(`No navigation defined for project: ${project}`);
@@ -333,6 +333,27 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', toggleTheme);
     });
 
+    // Back to top button functionality
+    const backToTopButton = document.getElementById('backToTop');
+    
+    if (backToTopButton) {
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        // Smooth scroll to top when clicked
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 
 }); 
 
@@ -788,22 +809,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Navigate to the appropriate project page
                 switch(project) {
                     case 'class':
-                        window.location.href = 'class.html';
+                        window.location.href = '/class/';
                         break;
                     case 'quantframe':
-                        window.location.href = 'quantframe.html';
+                        window.location.href = '/quantframe/';
                         break;
                     case 'noborders':
-                        window.location.href = 'noborders.html';
+                        window.location.href = '/noborders/';
                         break;
                     case 'coachpro':
-                        window.location.href = 'coachpro.html';
+                        window.location.href = '/coachpro/';
                         break;
                     case 'xometry':
-                        window.location.href = 'xometry.html';
+                        window.location.href = '/xometry/';
                         break;
                     case 'neurologic':
-                        window.location.href = 'neurologic.html';
+                        window.location.href = '/neurologic/';
                         break;
                     default:
                         console.log(`No navigation defined for project: ${project}`);

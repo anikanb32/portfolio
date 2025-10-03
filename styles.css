@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -1246,6 +1248,75 @@ body.dark-mode .highlight-phrase {
     }
 }
 
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 40px;
+    height: 40px;
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.back-to-top.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: #333333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top:active {
+    transform: translateY(0);
+}
+
+/* Dark mode for back to top button - inverted colors */
+body.dark-mode .back-to-top {
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .back-to-top:hover {
+    background: #f0f0f0;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive back to top button */
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 1.5rem;
+        left: 1.5rem;
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .back-to-top {
+        bottom: 1rem;
+        left: 1rem;
+        width: 32px;
+        height: 32px;
+    }
+}
+
 /* Footer */
 footer {
     width: 100%;
@@ -1574,6 +1645,7 @@ body.dark-mode .footer-content {
 }
 
 .about-highlight-quote {
+    font-family: 'Playfair Display', serif;
     font-size: 1.4rem;
     font-weight: 700;
     color: #000000;
@@ -3485,6 +3557,8 @@ body.dark-mode .vinyl-record[data-color="#1e3a8a"] {
 
 .timeline-card h4 {
     font-size: 1.4rem;
+    font-family: 'Playfair Display', serif;
+
     font-weight: 700;
     color: #111;
     margin-bottom: 0.5rem;
@@ -3612,6 +3686,34 @@ body.dark-mode .timeline-card .company {
 body.dark-mode .timeline-card .location,
 body.dark-mode .timeline-card .duration {
     color: #cccccc;
+}
+
+/* Darker styling for education entries */
+.timeline-card.education-card {
+    background: #e8e8e8;
+}
+
+.timeline-card.education-card h4 {
+    color: #000;
+}
+
+.timeline-card.education-card .degree {
+    color: #333;
+    font-weight: 600;
+}
+
+/* Dark mode styling for education entries - lighter background */
+body.dark-mode .timeline-card.education-card {
+    background: #2a2a2a;
+}
+
+body.dark-mode .timeline-card.education-card h4 {
+    color: #ffffff;
+}
+
+body.dark-mode .timeline-card.education-card .degree {
+    color: #cccccc;
+    font-weight: 600;
 }
 
 body.dark-mode .timeline-card .summary {
@@ -3954,6 +4056,7 @@ body.dark-mode .mobile-nav .download-btn:hover {
     font-weight: 700;
     line-height: 1.1;
     margin: 0;
+    padding-bottom: 2rem;
     color: #111;
 }
 
@@ -4071,14 +4174,13 @@ body.dark-mode .mobile-nav .download-btn:hover {
 .class-map-image {
     max-width: 400px;
     height: auto;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    box-shadow: none;
+    transition: none;
 }
 
 .class-map-image:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    /* Hover effects removed - keeping image flat */
 }
 
 /* Blue highlight for key phrases */
@@ -4251,7 +4353,8 @@ body.dark-mode .case-study-section h4 {
 }
 
 .section-subtitle {
-    font-size: 1.8rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
     font-weight: 600;
     color: #333;
     margin-bottom: 2rem;
@@ -4570,7 +4673,7 @@ body.dark-mode #problem.xometry-problem .section-text p {
 }
 
 body.dark-mode .section-text p {
-    color: #cccccc;
+    color: #ffffff;
 }
 
 body.dark-mode .method-icon {
@@ -5003,6 +5106,65 @@ body.dark-mode .insight-card .insight-icon {
 
 body.dark-mode .insight-card .insight-icon svg {
     color: #000000;
+}
+
+/* Class page specific insight cards with blue theme */
+.class-insight-card {
+    background: #A0D7DC;
+    border: none;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.class-insight-card:hover {
+    background: #8BC5CA;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.class-insight-card .insight-icon {
+    background: transparent;
+    color: #333333;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.class-insight-card p {
+    margin: 0;
+    color: #333333;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+/* Dark mode for class insight cards */
+body.dark-mode .class-insight-card {
+    background: #A0D7DC;
+}
+
+body.dark-mode .class-insight-card:hover {
+    background: #8BC5CA;
+}
+
+body.dark-mode .class-insight-card p {
+    color: #333333;
+}
+
+body.dark-mode .class-insight-card .insight-icon {
+    color: #333333;
+}
+
+body.dark-mode .class-insight-card .insight-icon svg {
+    color: #333333;
 }
 
 /* Responsive design for usability testing */
@@ -5464,6 +5626,7 @@ body.dark-mode .caption-icon {
     padding: 4rem 0;
 }
 
+
 .coming-soon-icon {
     display: flex;
     justify-content: center;
@@ -5518,6 +5681,22 @@ body.dark-mode .coming-soon-description {
 
 body.dark-mode .coming-soon-icon {
     color: #A480A6;
+}
+
+/* Coachpro page specific styling */
+.coachpro-page .coming-soon-icon {
+    color: #2c804b;
+}
+
+.coachpro-page .btn-primary {
+    background: #2c804b;
+    color: white;
+}
+
+.coachpro-page .btn-primary:hover {
+    background: #296b41;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
 }
 
 /* Responsive design for impact and final thoughts */
@@ -5701,6 +5880,7 @@ body.dark-mode .prototype-header {
     
     .class-title {
         font-size: 2.5rem;
+        
     }
     
     .section-title {
@@ -5908,6 +6088,7 @@ body.dark-mode .prototype-header {
 }
 
 .work-subtitle {
+    font-family: 'Playfair Display', serif;
     font-size: 1.2rem;
     color: #000000;
     font-weight: 400;
@@ -6462,7 +6643,7 @@ body.dark-mode .cta-content p {
 }
 
 .progress-step:hover {
-    background: rgba(0, 0, 0, 0.05);
+    /* background: rgba(0, 0, 0, 0.05); */
     transform: translateX(-4px);
 }
 
@@ -6518,9 +6699,9 @@ body.dark-mode .cta-content p {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
-[data-theme="light"] .progress-step:hover {
+/* [data-theme="light"] .progress-step:hover {
     background: rgba(0, 0, 0, 0.08);
-}
+} */
 
 [data-theme="light"] .step-dot {
     background: rgba(0, 0, 0, 0.3);
@@ -6555,9 +6736,9 @@ body.dark-mode .cta-content p {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
 }
 
-[data-theme="dark"] .progress-step:hover {
+/* [data-theme="dark"] .progress-step:hover {
     background: rgba(255, 255, 255, 0.1);
-}
+} */
 
 [data-theme="dark"] .step-dot {
     background: rgba(255, 255, 255, 0.4);
@@ -6565,10 +6746,11 @@ body.dark-mode .cta-content p {
 }
 
 [data-theme="dark"] .step-label {
-    color: #e0e0e0;
+    color: #ffffff;
     font-weight: 500;
     font-size: 0.75rem;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+    opacity: 0.7;
 }
 
 [data-theme="dark"] .progress-step.active .step-label {
@@ -6578,9 +6760,10 @@ body.dark-mode .cta-content p {
 }
 
 [data-theme="dark"] .progress-step.completed .step-label {
-    color: #ffffff;
+    color: #808080;
     font-weight: 700;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+    text-shadow: none;
+    opacity: 1;
 }
 
 /* Xometry Page Specific Styles */
