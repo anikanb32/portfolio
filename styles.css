@@ -34,7 +34,9 @@ a {
 /* .record:hover, .logo:hover, .theme-toggle-btn:hover {
     cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='rgba(173,216,230,0.6)' stroke='rgba(173,216,230,0.9)' stroke-width='1'/%3E%3Ccircle cx='16' cy='16' r='8' fill='rgba(173,216,230,0.4)' stroke='rgba(173,216,230,0.8)' stroke-width='0.5'/%3E%3Ccircle cx='16' cy='16' r='2' fill='rgba(0,0,0,0.6)'/%3E%3C/svg%3E") 16 16, pointer;
 } */
-
+.logo {
+    font-family: 'Poppins', sans-serif;
+}
 /* Theme Toggle Button - Simple Icon */
 .theme-toggle {
     display: flex;
@@ -698,6 +700,7 @@ main {
 }
 
 .intro {
+    font-family: 'Playfair Display', serif;
     opacity: 0;
     transform: translateY(30px);
     transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1627,6 +1630,7 @@ body.dark-mode .footer-content {
 
 
 .about-title {
+    font-family: 'Playfair Display', serif;
     font-size: 6rem;
     font-weight: 700;
     line-height: 1.1;
@@ -1745,180 +1749,8 @@ body.dark-mode .footer-content {
     color: #183c2b;
 }
 
-/* Recent Vinyl Picks Section */
-.vinyl-picks-section {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 1rem;
-    max-width: 300px;
-    margin-left: auto;
-}
-
-.vinyl-picks-header {
-    text-align: right;
-    max-width: 400px;
-    margin-top: 1rem;
-}
-
-.vinyl-picks-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #000;
-    margin-bottom: 0.5rem;
-    line-height: 1.2;
-}
-
-.vinyl-picks-container {
-    display: flex;
-    gap: 1.5rem;
-    align-items: flex-start;
-    margin: 0.5rem 0 0 0;
-    width: auto;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-}
-
-.vinyl-pick {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    max-width: 120px;
-}
-
-.vinyl-pick:hover {
-    transform: translateY(-3px);
-}
-
-.vinyl-album-cover {
-    width: 80px;
-    height: 80px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.vinyl-album-cover:hover {
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
-}
-
-.album-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all 0.3s ease;
-}
-
-.vinyl-pick:hover .album-image {
-    transform: scale(1.05);
-}
-
-.vinyl-pick .vinyl-info {
-    text-align: center;
-    max-width: 100px;
-    position: static;
-    opacity: 1;
-    pointer-events: auto;
-    transform: none;
-}
-
-.album-title {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #000;
-    margin-bottom: 0.2rem;
-    line-height: 1.3;
-}
-
-.album-artist {
-    font-size: 0.6rem !important;
-    color: #666;
-    font-weight: 400;
-    line-height: 1.4;
-}
 
 
-
-/* Dark mode for vinyl picks */
-body.dark-mode .vinyl-picks-title {
-    color: #ffffff;
-}
-
-body.dark-mode .album-title {
-    color: #ffffff;
-}
-
-body.dark-mode .album-artist {
-    color: #cccccc;
-}
-
-/* Responsive design for vinyl picks */
-@media (max-width: 768px) {
-    .vinyl-picks-section {
-        align-items: center;
-        margin-left: 0;
-        max-width: 100%;
-    }
-    
-    .vinyl-picks-header {
-        text-align: center;
-    }
-    
-    .vinyl-picks-container {
-        flex-direction: row;
-        align-items: center;
-        gap: 1rem;
-        justify-content: center;
-    }
-    
-    .vinyl-pick {
-        max-width: 100px;
-    }
-    
-    .vinyl-album-cover {
-        width: 70px;
-        height: 70px;
-    }
-    
-    .vinyl-pick .vinyl-info {
-        max-width: 90px;
-    }
-    
-    .vinyl-picks-title {
-        font-size: 1.25rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .vinyl-picks-container {
-        gap: 0.8rem;
-        flex-direction: row;
-        justify-content: center;
-    }
-    
-    .vinyl-pick {
-        max-width: 80px;
-    }
-    
-    .vinyl-album-cover {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .vinyl-pick .vinyl-info {
-        max-width: 80px;
-    }
-    
-    .vinyl-picks-title {
-        font-size: 1.1rem;
-    }
-}
 
 /* DJ Turntable Section */
 .about-dj-section {
@@ -1936,6 +1768,7 @@ body.dark-mode .album-artist {
 }
 
 .dj-section-title {
+    font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
     font-weight: 700;
     color: #000;
@@ -3051,6 +2884,255 @@ body.dark-mode .dj-section-subtitle {
     color: #cccccc;
 }
 
+/* Recent Vinyl Picks Section */
+.vinyl-picks-section {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    max-width: 300px;
+    margin-left: auto;
+}
+
+.vinyl-picks-header {
+    font-family: 'Playfair Display', serif;
+    text-align: right;
+    max-width: 400px;
+    margin-top: 1rem;
+}
+
+.vinyl-picks-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.vinyl-picks-container {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin: 0.5rem 0 0 0;
+    width: auto;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.vinyl-pick {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    max-width: 120px;
+}
+
+.vinyl-pick:hover {
+    transform: translateY(-3px);
+}
+
+.vinyl-album-cover {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.vinyl-album-cover:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+}
+
+.album-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.vinyl-pick:hover .album-image {
+    transform: scale(1.05);
+}
+
+.vinyl-pick .vinyl-info {
+    text-align: center;
+    max-width: 100px;
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+}
+
+.album-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 0.2rem;
+    line-height: 1.3;
+}
+
+.album-artist {
+    font-size: 0.6rem !important;
+    color: #000000;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+
+
+/* Dark mode for vinyl picks */
+body.dark-mode .vinyl-picks-title {
+    color: #ffffff;
+}
+
+body.dark-mode .album-title {
+    color: #ffffff;
+}
+
+body.dark-mode .album-artist {
+    color: #cccccc;
+}
+
+/* Responsive design for vinyl picks */
+@media (max-width: 768px) {
+    .vinyl-picks-section {
+        align-items: center;
+        margin-left: 0;
+        max-width: 100%;
+    }
+    
+    .vinyl-picks-header {
+        text-align: center;
+    }
+    
+    .vinyl-picks-container {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        justify-content: center;
+    }
+    
+    .vinyl-pick {
+        max-width: 100px;
+    }
+    
+    .vinyl-album-cover {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .vinyl-pick .vinyl-info {
+        max-width: 90px;
+    }
+    
+    .vinyl-picks-title {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .vinyl-picks-container {
+        gap: 0.8rem;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .vinyl-pick {
+        max-width: 80px;
+    }
+    
+    .vinyl-album-cover {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .vinyl-pick .vinyl-info {
+        max-width: 80px;
+    }
+    
+    .vinyl-picks-title {
+        font-size: 1.1rem;
+    }
+}
+
+/* Vinyl Picks Section - Simple Text Line */
+/* .vinyl-picks-section {
+    margin-top: 0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 0 120px;
+}
+
+.vinyl-picks-header {
+    text-align: left;
+    max-width: 600px;
+    margin-top: 2rem;
+}
+
+.vinyl-picks-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.vinyl-artists-line {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #333;
+    text-transform: lowercase;
+    line-height: 1.5;
+    width: 100%;
+}
+
+/* Responsive design for vinyl picks */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .vinyl-picks-section {
+        padding: 0 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .vinyl-picks-section {
+        padding: 0 2rem;
+    }
+    
+    .vinyl-picks-title {
+        font-size: 2rem;
+    }
+    
+    .vinyl-artists-line {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .vinyl-picks-section {
+        padding: 0 1.5rem;
+    }
+    
+    .vinyl-artists-line {
+        font-size: 0.8rem;
+    }
+}
+
+/* Dark mode for vinyl picks */
+body.dark-mode .vinyl-picks-title {
+    color: #ffffff;
+}
+
+body.dark-mode .vinyl-artists-line {
+    color: #cccccc;
+} */
+
 body.dark-mode .dj-image-placeholder {
     background: #000000;
     border-color: #555;
@@ -3390,6 +3472,7 @@ body.dark-mode .vinyl-record[data-color="#1e3a8a"] {
 }
 
 .resume-title {
+    font-family: 'Playfair Display', serif;
     font-size: 6rem;
     font-weight: 700;
     line-height: 1.1;
@@ -4053,6 +4136,7 @@ body.dark-mode .mobile-nav .download-btn:hover {
 
 .class-title {
     font-size: 4rem;
+    font-family: 'Playfair Display', serif;
     font-weight: 700;
     line-height: 1.1;
     margin: 0;
@@ -4300,6 +4384,7 @@ body.dark-mode .case-study-section h4 {
 #problem .problem-factor h4,
 #problem .problem-factor p {
     color: #ffffff;
+    font-family: 'Playfair Display', serif;
 }
 
 #problem.xometry-problem .section-title,
@@ -6088,14 +6173,13 @@ body.dark-mode .prototype-header {
 }
 
 .work-subtitle {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
     color: #000000;
     font-weight: 400;
     max-width: 50%;
     line-height: 1.6;
 }
-
 .work-subtitle:not(.fade-in-delay-2) {
     transition: color 0.3s ease;
 }
@@ -6282,6 +6366,7 @@ body.dark-mode .lazy-load {
 
 
 .project-name {
+    font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
     font-weight: 700;
     color: #111;
