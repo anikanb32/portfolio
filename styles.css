@@ -1027,6 +1027,8 @@ body.dark-mode .highlight-phrase {
     transform: rotate(360deg) scale(1.1);
 }
 
+
+
 /* Global outline removal for all elements */
 *:focus,
 *:focus-visible,
@@ -2830,6 +2832,268 @@ body.dark-mode .footer-content {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+/* === HOMETEST.HTML SPECIFIC STYLES === */
+/* Test Records Container */
+.test-records-container {
+    display: flex;
+    align-items: center;
+    gap: -50px;
+    position: relative;
+    height: 400px;
+}
+
+/* Test Record Styling - Enhanced version below */
+
+.test-record:nth-child(1) {
+    z-index: 1;
+    margin-left: 0;
+}
+
+.test-record:nth-child(2) {
+    z-index: 1;
+    margin-left: -200px;
+}
+
+.test-record:nth-child(3) {
+    z-index: 1;
+    margin-left: -200px;
+}
+
+.test-record:nth-child(4) {
+    z-index: 1;
+    margin-left: -200px;
+}
+
+/* Test Record Image Styling */
+.test-record-image {
+    max-width: 500px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    transform-origin: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Enhanced Test Record Hover Effects */
+.test-record {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    opacity: 1; /* Start visible */
+    text-decoration: none;
+    display: block;
+    z-index: 1;
+}
+
+.test-record:hover {
+    z-index: 10;
+    margin-left: 0 !important;
+}
+
+.test-record:hover .test-record-image {
+    transform: rotate(360deg) scale(1.1);
+    animation: continuous-spin 2s linear infinite;
+}
+
+/* Completely hide other test records when hovering */
+.test-records-container:hover .test-record:not(:hover) {
+    opacity: 0 !important;
+    transform: scale(0.95) !important;
+}
+
+/* Test Project Information Container */
+.test-project-info-container {
+    position: absolute;
+    top: 50%;
+    left: 500px; /* Position to the right of the leftmost record */
+    transform: translateY(-50%);
+    width: 400px;
+    height: 300px;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.test-project-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.test-project-info.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.test-project-description {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.test-project-description h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.test-project-description p {
+    font-size: 0.9rem;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.test-project-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.test-tag {
+    background: #15705b;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.test-project-preview {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.test-preview-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode for test project info */
+body.dark-mode .test-project-description {
+    background: rgba(30, 30, 30, 0.95);
+    color: #fff;
+}
+
+body.dark-mode .test-project-description h3 {
+    color: #fff;
+}
+
+body.dark-mode .test-project-description p {
+    color: #ccc;
+}
+
+/* Test Responsive Design */
+@media (max-width: 1200px) {
+    .test-records-container {
+        gap: -30px;
+    }
+    
+    .test-record-image {
+        max-width: 450px;
+        max-height: 450px;
+    }
+    
+    .test-record:nth-child(2),
+    .test-record:nth-child(3),
+    .test-record:nth-child(4) {
+        margin-left: -180px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .test-project-info-container {
+        width: 350px;
+        height: 250px;
+        left: 450px; /* Adjust for smaller record size */
+    }
+    
+    .test-project-description {
+        padding: 1rem;
+    }
+    
+    .test-project-description h3 {
+        font-size: 1.25rem;
+    }
+    
+    .test-project-description p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .test-records-container {
+        flex-direction: column;
+        gap: 2rem;
+        height: auto;
+    }
+    
+    .test-record {
+        margin-left: 0 !important;
+    }
+    
+    .test-record-image {
+        max-width: 320px;
+        max-height: 320px;
+    }
+    
+    .test-project-info-container {
+        position: static;
+        transform: none;
+        width: 100%;
+        height: auto;
+        margin-top: 2rem;
+    }
+    
+    .test-project-info {
+        position: static;
+        transform: none;
+        opacity: 1;
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .test-project-description {
+        margin-bottom: 1rem;
+    }
+    
+    .test-record:hover {
+        margin-left: 0 !important;
+    }
+    
+    .test-records-container:hover .test-record:not(:hover) {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
 /* End Loading Screen Styles */ 
 
 /* Dark Mode Styles for About Page */
@@ -4173,7 +4437,7 @@ body.dark-mode .mobile-nav .download-btn:hover {
 }
 
 .class-hero-image .expandable-image {
-    cursor: default !important;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='rgba(21,112,91,0.6)' stroke='rgba(21,112,91,0.9)' stroke-width='1'/%3E%3Ccircle cx='16' cy='16' r='8' fill='rgba(21,112,91,0.4)' stroke='rgba(21,112,91,0.8)' stroke-width='0.5'/%3E%3Ccircle cx='16' cy='16' r='2' fill='rgba(0,0,0,0.6)'/%3E%3C/svg%3E") 16 16, none !important;
     transition: none !important;
 }
 
@@ -6720,7 +6984,7 @@ body.dark-mode .cta-content p {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    cursor: pointer;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='rgba(21,112,91,0.6)' stroke='rgba(21,112,91,0.9)' stroke-width='1'/%3E%3Ccircle cx='16' cy='16' r='8' fill='rgba(21,112,91,0.4)' stroke='rgba(21,112,91,0.8)' stroke-width='0.5'/%3E%3Ccircle cx='16' cy='16' r='2' fill='rgba(0,0,0,0.6)'/%3E%3C/svg%3E") 16 16, none;
     transition: all 0.3s ease;
     padding: 0.3rem;
     border-radius: 8px;

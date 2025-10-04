@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing navigation...');
     
+    // Initialize test page functionality
+    initializeTestPage();
+    
     // Lazy loading for images
     const lazyImages = document.querySelectorAll('img[data-src]');
     
@@ -1041,4 +1044,66 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeProgressIndicator);
 } else {
     initializeProgressIndicator();
-} 
+}
+
+// Test page specific functionality
+function initializeTestPage() {
+    // Only run on hometest.html
+    if (!document.querySelector('.test-records-container')) {
+        return;
+    }
+    
+    console.log('Initializing test page functionality...');
+    
+    const testRecords = document.querySelectorAll('.test-record');
+    const testProjectInfoPanels = document.querySelectorAll('.test-project-info');
+    
+    if (testRecords.length === 0 || testProjectInfoPanels.length === 0) {
+        console.log('Test records or project info panels not found');
+        return;
+    }
+    
+    testRecords.forEach(record => {
+        record.addEventListener('mouseenter', function() {
+            const projectType = this.getAttribute('data-project');
+            console.log('Hovering over test record:', projectType);
+            
+            // Remove active class from all project info panels
+            testProjectInfoPanels.forEach(panel => {
+                panel.classList.remove('active');
+            });
+            
+            // Add active class to the corresponding project info panel
+            const targetPanel = document.querySelector(`.test-project-info[data-project="${projectType}"]`);
+            if (targetPanel) {
+                targetPanel.classList.add('active');
+            }
+        });
+        
+        record.addEventListener('mouseleave', function() {
+            // Remove active class from all project info panels
+            testProjectInfoPanels.forEach(panel => {
+                panel.classList.remove('active');
+            });
+        });
+    });
+    
+    // Also handle hover on the project info container to keep it visible
+    const testProjectInfoContainer = document.querySelector('.test-project-info-container');
+    if (testProjectInfoContainer) {
+        testProjectInfoContainer.addEventListener('mouseenter', function() {
+            // Keep the currently active panel visible
+            const activePanel = document.querySelector('.test-project-info.active');
+            if (activePanel) {
+                activePanel.classList.add('active');
+            }
+        });
+        
+        testProjectInfoContainer.addEventListener('mouseleave', function() {
+            // Hide all panels when leaving the container
+            testProjectInfoPanels.forEach(panel => {
+                panel.classList.remove('active');
+            });
+        });
+    }
+}
