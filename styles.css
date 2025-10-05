@@ -899,6 +899,7 @@ main {
     font-size: 6rem;
 }
 
+
 .intro p {
     font-size: 1.2rem;
     line-height: 1.6;
@@ -924,6 +925,7 @@ body.dark-mode .intro p {
     color: #ffffff;
     transition: color 0.3s ease;
 }
+
 
 /* Dark mode for role-cursor elements */
 body.dark-mode .role-cursor {
