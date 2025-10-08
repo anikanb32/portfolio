@@ -93,13 +93,13 @@ a {
 
 /* Dark Mode Styles */
 body.dark-mode {
-    background: #000000;
+    background: #1a1a1a;
     color: #ffffff;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.dark-mode .header {
-    background: #000000;
+    background: #1a1a1a;
     transition: background-color 0.3s ease;
     opacity: 0;
     transform: translateY(-20px);
@@ -171,7 +171,7 @@ body.dark-mode .mobile-nav {
 }
 
 body.dark-mode .mobile-nav-content {
-    background: #000000;
+    background: #1a1a1a;
     color: #ffffff;
 }
 
@@ -191,7 +191,7 @@ body.dark-mode .mobile-nav a {
 }
 
 body.dark-mode footer {
-    background: #000000;
+    background: #1a1a1a;
     transition: background-color 0.3s ease;
 }
 
@@ -1558,7 +1558,7 @@ body.dark-mode .footer-content {
 .project-details p {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #333;
+    color: #000;
     margin-bottom: 1rem;
 }
 
@@ -1570,7 +1570,7 @@ body.dark-mode .footer-content {
 .project-details li {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #333;
+    color: #000;
     margin-bottom: 0.8rem;
     padding-left: 1.5rem;
     position: relative;
@@ -2708,6 +2708,163 @@ body.dark-mode .footer-content {
 .vinyl-record[data-color="#166534"] { --vinyl-color: #166534; }
 .vinyl-record[data-color="#581c87"] { --vinyl-color: #581c87; }
 
+/* Password Protection Modal */
+.password-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    backdrop-filter: blur(10px);
+}
+
+.password-modal-content {
+    background: white;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    animation: modalSlideIn 0.4s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.password-header {
+    margin-bottom: 2rem;
+}
+
+.lock-icon {
+    color: #15705b;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.password-header h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 0.5rem;
+}
+
+.password-header p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.password-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+#passwordInput {
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    outline: none;
+}
+
+#passwordInput:focus {
+    border-color: #15705b;
+}
+
+.password-submit-btn {
+    background: #15705b;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.password-submit-btn:hover {
+    background: #0f5a47;
+}
+
+.password-error {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: #fdf2f2;
+    border-radius: 8px;
+    border: 1px solid #fecaca;
+}
+
+/* Dark mode for password modal */
+body.dark-mode .password-modal-content {
+    background: #1a1a1a;
+    color: white;
+}
+
+body.dark-mode .password-header h2 {
+    color: white;
+}
+
+body.dark-mode .password-header p {
+    color: #ccc;
+}
+
+body.dark-mode #passwordInput {
+    background: #2a2a2a;
+    border-color: #444;
+    color: white;
+}
+
+body.dark-mode #passwordInput:focus {
+    border-color: #15705b;
+}
+
+body.dark-mode .password-error {
+    background: #2d1b1b;
+    border-color: #5c2a2a;
+    color: #fca5a5;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .password-modal-content {
+        padding: 2rem;
+        margin: 1rem;
+    }
+    
+    .password-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .password-header p {
+        font-size: 0.9rem;
+    }
+}
+
 /* Extra small phone styles */
 @media (max-width: 480px) {
     header {
@@ -2963,7 +3120,7 @@ body.dark-mode .footer-content {
 
 .test-project-description p {
     font-size: 0.9rem;
-    color: #333;
+    color: #000;
     line-height: 1.5;
     margin-bottom: 1rem;
 }
@@ -3353,7 +3510,7 @@ body.dark-mode .album-artist {
 .vinyl-artists-line {
     font-size: 1rem;
     font-weight: 400;
-    color: #333;
+    color: #000;
     text-transform: lowercase;
     line-height: 1.5;
     width: 100%;
@@ -3467,7 +3624,7 @@ body.dark-mode .gradcap-icon svg {
 .music-rotation-title {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #333;
+    color: #000;
     margin-bottom: 1.5rem;
     text-align: left;
     display: block !important;
@@ -3612,7 +3769,7 @@ body.dark-mode .gradcap-icon svg {
 .song-title {
     font-size: 1rem;
     font-weight: 600;
-    color: #333;
+    color: #000;
     flex: 1;
 }
 
@@ -3931,7 +4088,7 @@ body.dark-mode .vinyl-record[data-color="#1e3a8a"] {
 
 .timeline-card .summary {
     font-size: 1rem;
-    color: #333;
+    color: #000;
     line-height: 1.6;
     margin-top: 1rem;
     font-weight: 400;
@@ -3947,7 +4104,7 @@ body.dark-mode .vinyl-record[data-color="#1e3a8a"] {
 
 .timeline-card li {
     font-size: 0.95rem;
-    color: #333;
+    color: #000;
     line-height: 1.6;
     margin-bottom: 0.8rem;
     padding-left: 1.5rem;
@@ -4020,7 +4177,7 @@ body.dark-mode .timeline-header h3 {
 }
 
 body.dark-mode .timeline-card {
-    background: #000000;
+    background: #1a1a1a;
 }
 
 body.dark-mode .timeline-card h4 {
@@ -4047,7 +4204,7 @@ body.dark-mode .timeline-card .duration {
 }
 
 .timeline-card.education-card .degree {
-    color: #333;
+    color: #000;
     font-weight: 600;
 }
 
@@ -4097,7 +4254,7 @@ body.dark-mode .skill-category p {
 }
 
 body.dark-mode .skill-category {
-    background: #000000;
+    background: #1a1a1a;
 }
 
 /* Removed border-top styles as they're no longer needed */
@@ -4428,7 +4585,7 @@ body.dark-mode .mobile-nav .download-btn:hover {
 
 .class-detail-item p {
     font-size: 1rem;
-    color: #333;
+    color: #000;
     line-height: 1.5;
     margin: 0;
 }
@@ -4586,7 +4743,7 @@ body.dark-mode .mobile-nav .download-btn:hover {
 .case-study-section h4 {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #333;
+    color: #000;
     margin: 2rem 0 1rem 0;
     line-height: 1.4;
 }
@@ -4707,7 +4864,7 @@ body.dark-mode .case-study-section h4 {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     font-weight: 600;
-    color: #333;
+    color: #000;
     margin-bottom: 2rem;
     line-height: 1.3;
 }
@@ -4715,7 +4872,7 @@ body.dark-mode .case-study-section h4 {
 .section-impact {
     font-size: 2.5rem;
     font-weight: 600;
-    color: #333;
+    color: #000;
     margin-bottom: 2rem;
     line-height: 1.3;
     position: relative;
@@ -4728,7 +4885,7 @@ body.dark-mode .case-study-section h4 {
 .section-text p {
     font-size: 1.1rem;
     line-height: 1.7;
-    color: #333;
+    color: #000;
     margin-bottom: 1.5rem;
 }
 
@@ -4768,7 +4925,7 @@ body.dark-mode .case-study-section h4 {
 .research-method h4 {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #333;
+    color: #000;
     margin: 0;
 }
 
@@ -4955,7 +5112,7 @@ body.dark-mode .case-study-section h4 {
 
 .problem-factor p {
     font-size: 1rem;
-    color: #333;
+    color: #000;
     line-height: 1.6;
     margin: 0;
     font-weight: 500;
@@ -5201,7 +5358,7 @@ body.dark-mode .problem-factor:last-child::after {
     margin: 0;
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #333;
+    color: #000;
 }
 
 .ideation-diagram {
@@ -5360,7 +5517,7 @@ body.dark-mode .question-item p {
     margin: 0;
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #333;
+    color: #000;
 }
 
 /* Usability Testing Section */
@@ -5380,7 +5537,7 @@ body.dark-mode .question-item p {
 .insights-category-title {
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--text-color, #333);
+    color: var(--text-color, #000);
     margin-bottom: 0.5rem;
 }
 
@@ -5480,7 +5637,7 @@ body.dark-mode .insight-card .insight-icon svg {
 
 .class-insight-card .insight-icon {
     background: transparent;
-    color: #333333;
+    color: #000000;
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
@@ -5492,7 +5649,7 @@ body.dark-mode .insight-card .insight-icon svg {
 
 .class-insight-card p {
     margin: 0;
-    color: #333333;
+    color: #000000;
     line-height: 1.5;
     font-size: 0.95rem;
 }
@@ -5507,15 +5664,15 @@ body.dark-mode .class-insight-card:hover {
 }
 
 body.dark-mode .class-insight-card p {
-    color: #333333;
+    color: #000000;
 }
 
 body.dark-mode .class-insight-card .insight-icon {
-    color: #333333;
+    color: #000000;
 }
 
 body.dark-mode .class-insight-card .insight-icon svg {
-    color: #333333;
+    color: #000000;
 }
 
 /* Responsive design for usability testing */
@@ -5621,7 +5778,7 @@ body.dark-mode .video-container {
 .feature-title {
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--text-color, #333);
+    color: var(--text-color, #000);
     margin: 0;
 }
 
@@ -5646,7 +5803,7 @@ body.dark-mode .video-container {
 .feature-description {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: var(--text-color, #333);
+    color: var(--text-color, #000);
     margin: 0;
 }
 
@@ -5694,7 +5851,7 @@ body.dark-mode .video-container {
 .feature-caption span {
     font-size: 0.9rem;
     line-height: 1.5;
-    color: var(--text-color, #333);
+    color: var(--text-color, #000);
 }
 
 /* Dark mode for design features */
@@ -5807,7 +5964,7 @@ body.dark-mode .feature-caption {
 .quotes-title {
     font-size: 1.1rem;
     font-weight: 500;
-    color: var(--text-color, #333);
+    color: var(--text-color, #000);
     margin-bottom: 2rem;
     text-align: center;
 }
@@ -5828,7 +5985,7 @@ body.dark-mode .feature-caption {
 
 .quote-item p {
     margin: 0 0 1rem 0;
-    color: var(--text-color, #333);
+    color: var(--text-color, #000);
     line-height: 1.6;
     font-size: 0.95rem;
     font-style: italic;
@@ -5851,7 +6008,7 @@ body.dark-mode .feature-caption {
 .thoughts-title {
     font-size: 1.1rem;
     font-weight: 500;
-    color: var(--text-color, #333);
+    color: var(--text-color, #000);
     margin-bottom: 2rem;
 }
 
@@ -5879,7 +6036,7 @@ body.dark-mode .feature-caption {
 
 .thoughts-content p {
     margin: 0;
-    color: var(--text-color, #333);
+    color: var(--text-color, #000);
     line-height: 1.7;
     font-size: 1.1rem;
 }
@@ -5988,7 +6145,7 @@ body.dark-mode .caption-icon {
 .coming-soon-subtitle {
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--text-color, #333);
+    color: var(--text-color, #000);
     margin-bottom: 1.5rem;
 }
 
@@ -6492,7 +6649,7 @@ body.dark-mode .prototype-header {
     font-family: inherit;
     font-size: 0.95rem;
     font-weight: 500;
-    color: #333;
+    color: #000;
     position: relative;
     overflow: hidden;
 }
@@ -6659,7 +6816,7 @@ body.dark-mode .lazy-load {
 
 .tag {
     background: #f5f5f5;
-    color: #333;
+    color: #000;
     border: none;
     padding: 0.4rem 0.8rem;
     border-radius: 20px;
@@ -7029,7 +7186,7 @@ body.dark-mode .cta-content p {
 }
 
 .progress-step.active .step-label {
-    color: #333;
+    color: #000;
     font-weight: 600;
 }
 
@@ -7066,7 +7223,7 @@ body.dark-mode .cta-content p {
 }
 
 [data-theme="light"] .progress-step.active .step-label {
-    color: #333;
+    color: #000;
     font-weight: 700;
 }
 
