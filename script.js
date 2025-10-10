@@ -160,6 +160,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 case 'neurologic':
                     window.location.href = '../neurologic/';
                     break;
+                case 'context-aware-vr':
+                    window.location.href = '../context-aware-vr/';
+                    break;
                 default:
                     console.log(`No navigation defined for project: ${project}`);
             }
@@ -828,6 +831,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         break;
                     case 'neurologic':
                         window.location.href = '../neurologic/';
+                        break;
+                    case 'context-aware-vr':
+                        window.location.href = '../context-aware-vr/';
                         break;
                     default:
                         console.log(`No navigation defined for project: ${project}`);
