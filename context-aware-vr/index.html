@@ -60,7 +60,7 @@
         <section class="class-header">
             <div class="class-header-content">
                 <div class="class-meta">
-                    <h1 class="class-title fade-in">Context-Aware Virtual Reality Interfaces</h1>
+                    <h1 class="class-title fade-in">Context-Aware Mixed Reality Interfaces</h1>
                     <span class="class-organization fade-in-delay-1">Research Internship at CMU HCII + Meta</span>
                 </div>
                 <div class="class-details fade-in-delay-2">
@@ -87,9 +87,47 @@
                 </div>
             </div>
             <div class="class-hero-image fade-in-delay-3">
-                <img src="../images/llmhero.png" alt="LLM for AR/VR Interface" class="class-dashboard-image expandable-image" data-src="../images/llmhero.png">
+                <img src="../images/llminterface/context-display.png" alt="LLM for AR/VR Interface" class="class-dashboard-image expandable-image" data-src="../images/llminterface/context-display.png">
             </div>
         </section>
+
+        <!-- Progress Indicator -->
+        <div class="progress-indicator" id="progressIndicator">
+            <div class="progress-steps">
+                <div class="progress-step" data-section="overview">
+                    <div class="step-dot"></div>
+                    <span class="step-label">Overview</span>
+                </div>
+                <div class="progress-step" data-section="problem">
+                    <div class="step-dot"></div>
+                    <span class="step-label">Question</span>
+                </div>
+                <div class="progress-step" data-section="context">
+                    <div class="step-dot"></div>
+                    <span class="step-label">Context</span>
+                </div>
+                <div class="progress-step" data-section="research">
+                    <div class="step-dot"></div>
+                    <span class="step-label">Research</span>
+                </div>
+                <div class="progress-step" data-section="Exploration">
+                    <div class="step-dot"></div>
+                    <span class="step-label">Exploration</span>
+                </div>
+                <div class="progress-step" data-section="Development">
+                    <div class="step-dot"></div>
+                    <span class="step-label">Development</span>
+                </div>
+                <div class="progress-step" data-section="Experimentation">
+                    <div class="step-dot"></div>
+                    <span class="step-label">Experimentation</span>
+                </div>
+                <div class="progress-step" data-section="final-thoughts">
+                    <div class="step-dot"></div>
+                    <span class="step-label">Reflection</span>
+                </div>
+            </div>
+        </div>
 
         <!-- Overview -->
         <!-- <section class="case-study-section fade-in-delay-5" id="overview">
@@ -165,53 +203,194 @@
         
 
         <!-- MineXR Dataset -->
-        <section class="case-study-section fade-in-delay-6" id="minexr-dataset">
+        <section class="case-study-section" id="research">
+            <br>
+            <br>
             <div class="section-header">
-                <h2 class="section-title">Exploring the MineXR Dataset</h2>
+                <h2 class="section-title">Research</h2>
             </div>
             <div class="section-content">
-                <p>The MineXR workflow allows researchers to collect and analyze users' personalized XR interfaces in various contexts. Our research examined this dataset, which comprises <strong>695 XR widgets in 109 unique XR layouts</strong>.</p>
-                
-                <!-- <div class="class-insight-cards">
-                    <div class="class-insight-card">
-                        <div class="insight-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        </div>
-                        <h3>XR Widgets</h3>
-                        <p>Cropped app interfaces representing diverse UI elements</p>
+                <h3 class="section-subtitle">Exploring the MineXR Dataset</h3>
+                <div class="left-right-container">
+                    <div class="section-text">
+                        <br>
+                        <br>
+                        <br>
+                        <p>I examined the MineXR workflow which enables researchers to collect and analyze users' personalized XR interfaces in various contexts.
+                            I focused on the MineXR dataset for our integration with LLMs, consisting of 695 XR widgets in 109 unique XR layouts.
+                            *Widgets are defined as cropped app interfaces 
+                        </p>
+                        
+                        
                     </div>
-                    <div class="class-insight-card">
-                        <div class="insight-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        </div>
-                        <h3>Scene Reconstruction</h3>
-                        <p>3D models of environments with contextual information</p>
-                    </div>
-                    <div class="class-insight-card">
-                        <div class="insight-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        </div>
-                        <h3>Data Annotation</h3>
-                        <p>Structured categorization and description of interface elements</p>
-                    </div>
-                    <div class="class-insight-card">
-                        <div class="insight-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        </div>
-                        <h3>Layout Analysis</h3>
-                        <p>Distribution patterns across users and environments</p>
+                    
+                    <div class="class-map-container">
+                        <img src="../images/minexr.png" alt="Sample Pipeline" class="class-map-image expandable-image" data-src="../images/minexr.png">
                     </div>
                 </div>
-            </div> -->
+                <br>
+                        <br>
+                        <br>
+                <div class="left-right-container">
+                    
+                    <div class="class-map-container">
+                         <img src="../images/spreadsheet.png" alt="Sample Pipeline 2" class="class-map-image expandable-image" data-src="../images/spreadsheet.png">
+                    </div>
+                    <div class="section-text">
+                        <br>
+                        <br>
+                        <p>
+                            From the dataset, I played around with the given contexts (environment + task) and the subsequent widgets and screen descriptions from the dataset. I aimed to fine-tune the dataset into the most ideal form to supplement the LLM.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <section class="case-study-section" id="Exploration">
+            <br>
+            <br>
+            <div class="section-header">
+                <h2 class="section-title">Exploration</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">Planning the Workflow</h3>
+                <div class="left-right-container">
+                <div class="section-text">
+                    <p>
+                        I first explored LLMs and different LLM agents by asking questions, creating prompts of varying specificity, and documenting our findings. Based on these explorations, we developed an initial framework for the pipeline and defined the desired input and output of each LLM agent.
+                    </p>
+                    <p>
+                        This pipeline contains three initial components: 
+                        <ol>
+                            <li>
+                                <b>Task Generator:</b> The input is the context which includes the environment and task. The output is a list of tasks that would be useful based on the context
+                                
+                            </li> 
+                            <br>
+                            <li>
+                                <b>Application Planner: </b>The input is the output of the task generator. The output is an example of apps based on the input tasks 
+                                
+                            </li>
+                            <br>
+                            <li>
+                                <b>Functionality Planner:</b>  The input is the output of the application planner. The output is a list of functionalities for each app type and a categorization of each app type as primary, periphery, or ambient]
+                            
+                            </li>
+                        </ol>
+                        
+                    </p>
+                </div>
+                    
+                     <div class="class-map-container">
+                         <img src="../images/workflow.png" alt="Sample Pipeline" class="class-map-image expandable-image" data-src="../images/workflow.png">
+                     </div>
+                </div>
+                    
+                     
+                
+            </div>
+        </section>
+
+
+        <section class="case-study-section" id="Development">
+            <br>
+            <br>
+            <div class="section-header">
+                <h2 class="section-title">Development</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">Developing the Pipeline</h3>
+                <div class="section-text">
+                    <p>
+                        The goal was to leverage the MineXR dataset within the pipeline to make the outputs (functionalities) more well informed and relatively parallel to the dataset. 
+                    </p>
+                    <p>
+                        To this end, we experimented with introducing the dataset in multiple places in the pipeline
+                        <ul>
+                            <li>
+                                as an example within a prompt
+                            </li>
+                            <li>
+                                as a debugger LLM
+                            </li>
+                        </ul>
+                    </p>
+                    <p>
+                        We then figured out how to implement the dataset into the pipeline with an LLM agent which makes the most sense and produces the most ideal and precise results. This included datasets with a varying number of locations and tasks.
+                    </p>
+                    
+                     <div class="class-map-container">
+                         <img src="../images/llminterface/llmstructure.png" alt="Sample Pipeline" class="class-map-image expandable-image" data-src="../images/llminterface/llmstructure.png">
+                     </div>
+                    
+                     
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section" id="Experimentation">
+            <br>
+            <br>
+            <div class="section-header">
+                <h2 class="section-title">Experimentation</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">Testing and Optimizing the Workflow</h3>
+                <div class="section-text">
+                    <p>
+                        I first developed a score for quantifying the quality of our output to compare how well the pipeline produced outputs. This was dependent on three calculations and factors. One was the overlap of app categories in the functionality output. Another being the semantic similarity of the functionalities themselves. The last factor is the primary overlap of apps in the LLM output and the Dataset.                    </p>
+                    <p>
+                        
+                    
+                     <div class="class-map-container">
+                         <img src="../images/llminterface/quantify.png" alt="Sample Pipeline" class="class-map-image expandable-image" data-src="../images/llminterface/quantify.png">
+                     </div>
+                    
+                     <p>
+                        We created our pipeline tests and developed comparisons between modified LLM agents, prompts, and factors such as number of apps, app types, functionality descriptions, and categorization into primary, periphery, and ambient layouts.
+
+                     </p>
+                     
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section" id="final-thoughts">
+            <div class="section-header">
+                <h2 class="section-title">Final Thoughts</h2>
+            </div>
+            <div class="section-content">
+                <div class="final-thoughts-grid">
+                    <div class="thoughts-column">
+                        <h3 class="thoughts-title">
+                            <div class="thoughts-title-content">
+                                
+                                <h3 class="section-subtitle">Learnings...</h3>
+                            </div>
+                        </h3>
+                        <div class="thoughts-content">
+                            <p>Building <b>structure from ambiguity</b> was a challenge throughout this research project. It was difficult to tame something as unstructured as LLM outputs and find a way to create more deterministic, reproducible outputs for our pipeline. I learned more about semantic similarity scoring and how best to quantify seemingly subjective metrics.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="thoughts-column">
+                        <h3 class="thoughts-title">
+                            <div class="thoughts-title-content">
+                                
+                                <h3 class="section-subtitle">With more time...</h3>
+                            </div>
+                        </h3>
+                        <div class="thoughts-content">
+                            <p>I would <b>test UI outputs more</b> to understand how reproducible and similar outputs are to the initial dataset layouts. It would be great to understand how more modern frameworks and AI agents would also perform, now that newer LLM models have fine tuning capabilities. Considering <b>different interaction patterns and user context</b> would also be interesting, in educational settings or in collaborative use. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
 
         <!-- LLM Pipeline Development -->
         <!-- <section class="case-study-section fade-in-delay-7" id="pipeline-development">
@@ -341,15 +520,7 @@
             </div>
         </section> -->
 
-        <div class="section-content">
-            <h3 class="coming-soon-subtitle">Coming Soon...</h3>
-        <p class="coming-soon-description">I'm working on documenting the complete research process, check back soon for the full story!</p>
-        <div class="coming-soon-cta">
-            <a href="../work/" class="btn-primary">View Other Projects</a>
-        </div>
-
-
-        </div>
+        
 
         
         

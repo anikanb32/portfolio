@@ -4557,8 +4557,8 @@ body.dark-mode .mobile-nav .download-btn:hover {
 
 .class-organization {
     font-size: 1.1rem;
-    color: #666;
-    font-weight: 500;
+    color: #2e2e2e;
+    font-weight: 200;
     margin-bottom: 1rem;
     display: block;
 }
@@ -4687,7 +4687,7 @@ body.dark-mode .mobile-nav .download-btn:hover {
 .class-map-image {
     max-width: 400px;
     height: auto;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: none;
     transition: none;
 }
@@ -4851,14 +4851,14 @@ body.dark-mode .case-study-section h4 {
 }
 
 .section-header {
-    margin-bottom: 2rem;
+    margin-bottom: .8rem;
 }
 
 .section-title {
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: .8rem;
+    font-weight: 200;
     color: #111;
-    margin: 0 0 0.25rem 0;
+    margin: 0 0 0 0;
     display: inline-block;
 }
 
@@ -4888,9 +4888,55 @@ body.dark-mode .case-study-section h4 {
     margin-bottom: 3rem;
 }
 
+/* Left-right container flexbox layout */
+.left-right-container {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+/* Fix list indentation within paragraphs */
+.section-text ul,
+.section-text ol {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-text li {
+    margin-bottom: 0.25rem;
+}
+
+/* Make llmstructure image larger */
+.class-map-image[src*="llmstructure.png"] {
+    max-width: 1200px;
+}
+
+.left-right-container .section-text {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.left-right-container .class-map-container {
+    flex: 0 0 auto;
+    margin: 0;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+    .left-right-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .left-right-container .class-map-container {
+        align-self: center;
+    }
+}
+
 .section-text p {
-    font-size: 1.1rem;
-    line-height: 1.7;
+    font-size: 0.9rem;
+    line-height: 2;
     color: #000;
     margin-bottom: 1.5rem;
 }
