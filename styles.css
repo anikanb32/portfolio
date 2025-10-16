@@ -2277,6 +2277,14 @@ body.dark-mode .footer-content {
 }
 
 /* Tablet responsive */
+/* Intermediate breakpoint for better responsiveness */
+@media (max-width: 1300px) and (min-width: 1025px) {
+    .about-img {
+        width: 400px;
+        height: 380px;
+    }
+}
+
 @media (max-width: 1024px) and (min-width: 769px) {
     .about-main {
         padding: 4rem 3rem;
