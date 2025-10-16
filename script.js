@@ -374,23 +374,45 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   var theme = getTheme();
 
+  // Check if we're using styles.css
+  var isTestStyles = document.querySelector('link[href*="styles.css"]') !== null;
+  
   // Loader HTML
   var loader = document.createElement('div');
   loader.className = 'loading-overlay';
   loader.setAttribute('data-theme', theme);
-  loader.innerHTML = `
-    <div class="record-loader">
-      <svg class="record-svg" id="record-svg" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="45" cy="45" r="40" fill="#15705b"/>
-        <!-- Even more gray, thin semicircle lines/arcs for spinning effect -->
-        <path d="M57 45a12 12 0 0 0-24 0" stroke="#bbbbbb" stroke-width="0.7" fill="none" stroke-linecap="round"/>
-        <path d="M63 45a18 18 0 0 0-36 0" stroke="#bbbbbb" stroke-width="0.5" fill="none" stroke-linecap="round"/>
-        <path d="M75 45a30 30 0 0 0-60 0" stroke="#bbbbbb" stroke-width="0.3" fill="none" stroke-linecap="round"/>
-        <circle cx="45" cy="45" r="14" fill="#111"/>
-        <circle cx="45" cy="45" r="3.5" fill="#fff"/>
-      </svg>
-    </div>
-  `;
+  
+  if (isTestStyles) {
+    // Use red SVG for test styles
+    loader.innerHTML = `
+      <div class="record-loader">
+        <svg class="record-svg-red" id="record-svg" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="45" cy="45" r="40" fill="#903232"/>
+          <!-- Even more gray, thin semicircle lines/arcs for spinning effect -->
+          <path d="M57 45a12 12 0 0 0-24 0" stroke="#bbbbbb" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+          <path d="M63 45a18 18 0 0 0-36 0" stroke="#bbbbbb" stroke-width="0.5" fill="none" stroke-linecap="round"/>
+          <path d="M75 45a30 30 0 0 0-60 0" stroke="#bbbbbb" stroke-width="0.3" fill="none" stroke-linecap="round"/>
+          <circle cx="45" cy="45" r="14" fill="#111"/>
+          <circle cx="45" cy="45" r="3.5" fill="#fff"/>
+        </svg>
+      </div>
+    `;
+  } else {
+    // Use original green SVG for regular styles
+    loader.innerHTML = `
+      <div class="record-loader">
+        <svg class="record-svg" id="record-svg" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="45" cy="45" r="40" fill="#15705b"/>
+          <!-- Even more gray, thin semicircle lines/arcs for spinning effect -->
+          <path d="M57 45a12 12 0 0 0-24 0" stroke="#bbbbbb" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+          <path d="M63 45a18 18 0 0 0-36 0" stroke="#bbbbbb" stroke-width="0.5" fill="none" stroke-linecap="round"/>
+          <path d="M75 45a30 30 0 0 0-60 0" stroke="#bbbbbb" stroke-width="0.3" fill="none" stroke-linecap="round"/>
+          <circle cx="45" cy="45" r="14" fill="#111"/>
+          <circle cx="45" cy="45" r="3.5" fill="#fff"/>
+        </svg>
+      </div>
+    `;
+  }
   document.body.appendChild(loader);
 
   var record = document.getElementById('record-svg');
