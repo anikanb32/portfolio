@@ -374,8 +374,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   var theme = getTheme();
 
-  // Check if we're using styles.css
-  var isTestStyles = document.querySelector('link[href*="styles.css"]') !== null;
+  // Check if we're using styles_test.css
+  var isTestStyles = document.querySelector('link[href*="styles_test.css"]') !== null;
   
   // Loader HTML
   var loader = document.createElement('div');
@@ -428,10 +428,24 @@ document.addEventListener('DOMContentLoaded', function() {
       if (loader.parentNode) loader.parentNode.removeChild(loader);
     }, 400);
   }
+  
+  // Ensure loading screen shows for minimum duration
+  var minLoadTime = 1000; // 1 second minimum
+  var startTime = Date.now();
+  
+  function checkAndHideLoader() {
+    var elapsed = Date.now() - startTime;
+    if (elapsed >= minLoadTime) {
+      hideLoader();
+    } else {
+      setTimeout(checkAndHideLoader, minLoadTime - elapsed);
+    }
+  }
+  
   if (document.readyState === 'complete') {
-    hideLoader();
+    checkAndHideLoader();
   } else {
-    window.addEventListener('load', hideLoader);
+    window.addEventListener('load', checkAndHideLoader);
   }
 
   // Ensure default theme is light if not set
