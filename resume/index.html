@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume | Anika's Portfolio</title>
-    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="../brain.svg">
     <link rel="stylesheet" href="../styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,9 +16,9 @@
           <span class="logo-a">a</span><span class="logo-nika">nika</span><span class="logo-b">b</span><span class="logo-hagavatula">hagavatula</span>
         </a>
         <nav class="nav">
-          <a href="../work/">work</a>
+          <a href="../#work">work</a>
           <a href="../about/">about</a>
-          <a href="../resume/">resume</a>
+          <a href="../resume/" class="active">resume</a>
           <div class="theme-toggle">
             <button class="theme-toggle-btn" aria-label="Toggle dark mode">
               <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -39,7 +39,7 @@
     <div class="mobile-nav" aria-label="Mobile menu">
       <button class="mobile-close" aria-label="Close menu">×</button>
       <div class="mobile-nav-content">
-        <a href="../work/">work</a>
+        <a href="../#work">work</a>
         <a href="../about/">about</a>
         <a href="../resume/" class="active download-btn">resume</a>
         <div class="theme-toggle mobile-theme-toggle">
@@ -82,9 +82,9 @@
                     <div class="timeline-card education-card">
                         
                         <h4>University of California, Berkeley</h4>
-                        <p class="degree">Master of Information Management and Systems, HCI and UX Track</p>
+                        <p class="degree">Master of Information Management and Systems, Human-Computer Interaction</p>
                         <p class="location">Berkeley, CA • May 2027</p>
-                        <p class="summary">Pursuing advanced studies in human-computer interaction and user experience design.</p>
+                        <!-- <p class="summary">Pursuing advanced studies in human-computer interaction and user experience design.</p> -->
                     </div>
                 </div>
                 <div class="timeline-node"></div>
@@ -96,8 +96,8 @@
                     <div class="timeline-card">
                         <h4>Product Design Intern</h4>
                         <p class="company">QuantFrame Technologies</p>
-                        <p class="location">New York, NY • May 2025 - August 2025</p>
-                        <p class="summary">Designed AI-powered trading platform with autonomous agents generating actionable insights for quantitative traders.</p>
+                        <p class="location">New York, NY • May 2025 - September 2025</p>
+                        <p class="summary">Designed AI-powered trading platform with autonomous agents generating actionable insights for algorithmic trading.</p>
                     </div>
                 </div>
                 <div class="timeline-node"></div>
@@ -110,7 +110,6 @@
                         <h4>Carnegie Mellon University</h4>
                         <p class="degree">Bachelor of Science in Human-Computer Interaction and Computational Neuroscience</p>
                         <p class="location">Pittsburgh, PA • May 2025</p>
-                        <p class="summary">Studied the intersection of human cognition, computer science, and design principles.</p>
                     </div>
                 </div>
                 <div class="timeline-node"></div>
@@ -121,9 +120,9 @@
                 <div class="timeline-content">
                     <div class="timeline-card">
                         <h4>UX Research Intern</h4>
-                        <p class="company">CMU HCII, Augmented Perception Lab + Meta</p>
+                        <p class="company">CMU HCII, Augmented Perception Lab + Meta Reality Labs</p>
                         <p class="location">Pittsburgh, PA • May 2024 - December 2024</p>
-                        <p class="summary">Developed multi-agent system for adaptive VR interfaces using generative AI and spatial computing.</p>
+                        <p class="summary">Developed a system to generate adaptive AR interfaces using LLMS.</p>
                     </div>
                 </div>
                 <div class="timeline-node"></div>
@@ -136,7 +135,7 @@
                         <h4>UX Development Intern</h4>
                         <p class="company">Xometry Inc.</p>
                         <p class="location">New York, NY • June 2023 - August 2023</p>
-                        <p class="summary">Translated Figma designs into React components and modernized legacy codebase to TypeScript.</p>
+                        <p class="summary">Worked on frontend development of the Request-For-Quote module.</p>
                     </div>
                 </div>
                 <div class="timeline-node"></div>
@@ -147,7 +146,7 @@
                         <h4>Undergraduate Researcher</h4>
                         <p class="company">CMU Department of Computer Science, Biological and Machine Intelligence Research Lab</p>
                         <p class="location">Pittsburgh, PA • September 2022 - August 2023</p>
-                        <p class="summary">Analyzed neural responses in primates to investigate visual attention encoding using computational methods.</p>
+                        <p class="summary">Investigated visual attention encoding using machine learning methods.</p>
                     </div>
                 </div>
                 <div class="timeline-node"></div>
@@ -160,7 +159,7 @@
                         <h4>Research Intern</h4>
                         <p class="company">The Rockefeller University, Tarakhovsky Lab</p>
                         <p class="location">New York City, NY • May 2022 - July 2022</p>
-                        <p class="summary">Designed and launched a new research focus on senescence cell susceptibility to Dengue virus infection dependent on the degradation of DNA repair Bromodomain proteins.</p>
+                        <p class="summary">Designed and launched a new research focus on senescent cell susceptibility to Dengue virus infection.</p>
                     </div>
                 </div>
                 <div class="timeline-node"></div>
@@ -173,7 +172,7 @@
                         <h4>Researcher</h4>
                         <p class="company">CMU Neuroscience Institute, Yttri Lab</p>
                         <p class="location">Pittsburgh, PA • January 2022 - May 2022</p>
-                        <p class="summary">Researched neural circuitry affecting action selection decisions - the brain's motor, reward, and cognitive systems. Conducted optogenetics stimulation experiments, executed R and MATLAB data analyses.</p>
+                        <p class="summary">Researched neural circuitry affecting action selection decisions - the brain's motor, reward, and cognitive systems.</p>
                     </div>
                 </div>
                 <div class="timeline-node"></div>
@@ -184,9 +183,9 @@
                 <div class="timeline-content">
                     <div class="timeline-card">
                         <h4>Researcher</h4>
-                        <p class="company">CMU Dept. of Chemistry, Ly Lab and SpaceX</p>
+                        <p class="company">SpaceX and CMU Department of Chemistry, Ly Lab</p>
                         <p class="location">Pittsburgh, PA • September 2021 - February 2022</p>
-                        <p class="summary">Conducted experiments on the SpaceX Inspiration4 mission to understand radioactive decay of medical drugs during space flight. Examined decay of active ingredients with High Performance Liquid Chromatography and UV Spectroscopy.</p>
+                        <p class="summary">Conducted experiments on the SpaceX Inspiration4 mission to understand radioactive decay of medical drugs during space flight.</p>
                     </div>
                 </div>
                 <div class="timeline-node"></div>
@@ -219,7 +218,7 @@
     <footer>
         <div class="footer-content">
             <div class="contact-info">
-                <h3>Anika Bhagavatula</h3>
+                <h3>thanks for stopping by :)</h3>
                 <div class="social-links">
                     <a href="mailto:anikabhagavatula@berkeley.edu">anikabhagavatula@berkeley.edu</a>
                     <a href="https://www.linkedin.com/in/anikabhagavatula" target="_blank" class="linkedin-icon">
@@ -231,6 +230,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- Custom Cursor Dots -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-dot" id="cursor-dot-2"></div>
+    <div class="cursor-dot" id="cursor-dot-3"></div>
 
     <script src="../script.js"></script>
 </body>

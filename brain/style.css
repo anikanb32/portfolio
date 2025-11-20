@@ -1,0 +1,27 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #ffffff;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: #ffffff; /* will be updated dynamically */
+  pointer-events: none;
+}
+
+#app, canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+

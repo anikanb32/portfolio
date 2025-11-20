@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anika's Portfolio</title>
-    <link rel="icon" type="image/png" href="newfavicon.png">
-    <link rel="shortcut icon" type="image/png" href="newfavicon.png">
-    <link rel="apple-touch-icon" href="newfavicon.png">
+    <link rel="icon" type="image/svg+xml" href="brain.svg">
+    <link rel="shortcut icon" type="image/svg+xml" href="brain.svg">
+    <link rel="apple-touch-icon" href="brain.svg">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -16,7 +16,7 @@
           <span class="logo-a">a</span><span class="logo-nika">nika</span><span class="logo-b">b</span><span class="logo-hagavatula">hagavatula</span>
         </a>
         <nav class="nav">
-          <a href="work/">work</a>
+          <a href="#work">work</a>
           <a href="about/">about</a>
           <a href="resume/">resume</a>
           <div class="theme-toggle">
@@ -39,7 +39,7 @@
     <div class="mobile-nav" aria-label="Mobile menu">
       <button class="mobile-close" aria-label="Close menu">×</button>
       <div class="mobile-nav-content">
-        <a href="work/">work</a>
+        <a href="#work">work</a>
         <a href="about/">about</a>
         <a href="resume/">resume</a>
         <div class="theme-toggle mobile-theme-toggle">
@@ -57,47 +57,184 @@
 
     <main>
         <section class="intro">
-            <h1 class="fade-in">
-                <span>hi there, i'm anika! </span>
-                <span>a product designer.</span>
-               
-            </h1>
-            <div class="work-subtitle fade-in-delay-2"><b>decoding brains + encoding experiences</b></div>
-            <br>
-            <p class="work-subtitle fade-in-delay-2">I love connecting the technical to the human through thoughtful 
-               design. From studying neural networks in the lab to discovering gems in dusty 
-               vinyl record crates, I'm about understanding what clicks with people. </p>
-               <!-- My diverse background 
-               allows me to approach design from multiple perspectives: understanding user psychology, 
-               working within technical constraints, and always considering the broader system. -->
-        </section>
-
-        <section class="projects">
-            <div class="records-container">
-                <a href="class/" class="record" data-project="class">
-                    <img src="images/record-images/class1record.png" alt="CLASS" class="record-image">
-                </a>
-                
-                
-                <a href="coachpro/" class="record" data-project="coachpro">
-                  <img src="images/record-images/coachprorecord1.png" alt="CoachPro" class="record-image">
-                </a>
-                <a href="noborders/" class="record" data-project="noborders">
-                    <img src="images/record-images/nobordersrecord1.png" alt="No Borders" class="record-image">
-                </a>
-                
-               
-                <a href="quantframe/" class="record" data-project="quantframe">
-                  <img src="images/record-images/quantframerecord1.png" alt="QuantFrame" class="record-image">
-                </a>
+            <div class="intro-content">
+                <div class="intro-text">
+                    <h1 class="fade-in">
+                        <span class="poppins-text">hi there, i'm anika! </span>
+                        <span>a <span class="breathing-text">product designer</span> and <span class="breathing-text">researcher</span>.</span>
+                       
+                    </h1>
+                    <!-- <div class="work-subtitle fade-in-delay-2"><b>decoding the mind + encoding experiences</b></div> -->
+                    <br>
+                    <p class="work-subtitle fade-in-delay-2">I love exploring where perception, emotion, and technology meet, building experiences that allow people to see, feel, and express themselves. It's what makes me eager to find what really clicks with people. </p>
+                       <!-- My diverse background 
+                       allows me to approach design from multiple perspectives: understanding user psychology, 
+                       working within technical constraints, and always considering the broader system. -->
+                </div>
+                <div class="intro-brain">
+                    <div id="brain-bg"></div>
+                    <div id="brain-app"></div>
+                </div>
             </div>
         </section>
+
+        <section id="work" class="work-header">
+            <h1 class="about-title fade-in">selected work<span class="work-dot">.</span></h1>
+            <!-- <p class="work-subtitle fade-in-delay-2">A collection of projects that showcase my approach to design, from concept to execution.</p> -->
+        </section>
+
+        <section class="work-filters fade-in-delay-3">
+          <div class="filter-container">
+              <button class="filter-btn active" data-filter="all">
+                  <span class="filter-text">All</span>
+                  <!-- <span class="filter-count">6</span> -->
+              </button>
+              <button class="filter-btn" data-filter="design">
+                  <span class="filter-text">Product & UX Design</span>
+                  <!-- <span class="filter-count">3</span> -->
+              </button>
+              <button class="filter-btn" data-filter="programming">
+                  <span class="filter-text">Frontend Development</span>
+                  <!-- <span class="filter-count">3</span> -->
+              </button>
+              <button class="filter-btn" data-filter="research">
+                  <span class="filter-text">Research</span>
+                  <!-- <span class="filter-count">1</span> -->
+              </button>
+          </div>
+      </section>
+
+      <section class="work-grid fade-in-stagger">
+          <div class="work-item" data-project="class" data-category="design">
+              <div class="project-image-container">
+                  <img data-src="../gifs/classmainpreview.gif" alt="CLASS Project" class="project-image lazy-load" loading="lazy">
+                  <div class="project-overlay">
+                      <span class="view-project">view project</span>
+                  </div>
+              </div>
+              <h2 class="project-name">Community Living and Support Services</h2>
+              <p class="project-description">An tool to centralize critical information for the Structured Day program, which supports individuals recovering from Traumatic Brain Injuries.</p>
+              <div class="project-tags">
+                  <span class="tag">UX Design</span>
+                  <span class="tag">User Research</span>
+                  <span class="tag">Frontend Development</span>
+              </div>
+          </div>
+
+          <div class="work-item" data-project="noborders" data-category="design">
+              <div class="project-image-container">
+                  <img data-src="../images/work/Search.gif" alt="NO BORDERS SHOP Project" class="project-image lazy-load" loading="lazy">
+                  <div class="project-overlay">
+                      <span class="view-project">view project</span>
+                  </div>
+              </div>
+              <h2 class="project-name">NO BORDERS SHOP</h2>
+              <p class="project-description">A mobile app that transforms how we connect with local artisans to support sustainable fashion and cultural authenticity.</p>
+              <div class="project-tags">
+                  <span class="tag">UX Design</span>
+                  <span class="tag">User Research</span>
+              </div>
+          </div>
+
+          <!-- <div class="work-item" data-project="quantframe" data-category="design">
+              <div class="project-image-container">
+                  <img src="../images/work/newqfpreview.png" alt="QuantFrame Project" class="project-image">
+                  <div class="project-overlay">
+                      <span class="view-project">view project</span>
+                  </div>
+              </div>
+              <h2 class="project-name">AI Market Trading Tool</h2>
+              <p class="project-description">A visualization platform that transforms complex quantitative information into intuitive, actionable insights and signals.</p>
+              <div class="project-tags">
+                  <span class="tag">Product Design</span>
+                  <span class="tag">Product Strategy</span>
+              </div>
+          </div> -->
+
+          <div class="work-item" data-project="coachpro" data-category="design">
+              <div class="project-image-container">
+                  <img data-src="../gifs/coachpro.gif" alt="CoachPro Project" class="project-image lazy-load" loading="lazy">
+                  <div class="project-overlay">
+                      <span class="view-project">view project</span>
+                  </div>
+              </div>
+              <h2 class="project-name">CoachPro</h2>
+              <p class="project-description">A comprehensive platform for tennis academies to manage operations, track player development, and build meaningful coach-player relationships.</p>
+              <div class="project-tags">
+                  <span class="tag">Product Design</span>
+                  <span class="tag">User Research</span>
+              </div>
+          </div>
+
+          <div class="work-item" data-project="xometry" data-category="programming">
+              <div class="project-image-container">
+                  <img src="../images/newxometrylogo.png" alt="Xometry Project" class="project-image">
+                  <div class="project-overlay">
+                      <span class="view-project">view project</span>
+                  </div>
+              </div>
+              <h2 class="project-name">Xometry</h2>
+              <p class="project-description">Implementations to streamline the process of matching custom manufacturing parts through AI-powered instant quoting.</p>
+              <div class="project-tags">
+                  <span class="tag">Frontend Development</span>
+              </div>
+          </div>
+
+          
+          <div class="work-item" data-project="neurologic" data-category="programming">
+              <div class="project-image-container">
+                  <img data-src="../images/work/neuro.gif" alt="Neurologic Project" class="project-image lazy-load" loading="lazy">
+                  <div class="project-overlay">
+                      <span class="view-project">view project</span>
+                  </div>
+              </div>
+              <h2 class="project-name">Neurologic</h2>
+              <p class="project-description">An interactive neuroscience educational platform that provides insights into cognitive processes and neuroscience principles.</p>
+              <div class="project-tags">
+                      <span class="tag">Frontend Development</span>
+                      <span class="tag">Accessible Design</span>
+                  </div>
+          </div>
+
+          <div class="work-item" data-project="context-aware-vr" data-category="research">
+              <div class="project-image-container">
+                  <img src="../images/work/contextpreview.png" alt="Context-Aware VR Interfaces" class="project-image">
+                  <div class="project-overlay">
+                      <span class="view-project">view project</span>
+                  </div>
+              </div>
+              <h2 class="project-name">Context-Aware Virtual Reality Interfaces</h2>
+              <p class="project-description">Developing an LLM pipeline to build personalized context-aware AR/VR interfaces.</p>
+              <div class="project-tags">
+                  <span class="tag">Research</span>
+                  <span class="tag">LLMs</span>
+                  <span class="tag">AR/VR</span>
+              </div>
+          </div>
+
+          <div class="work-item" data-project="immersive-automotive" data-category="research">
+              <div class="project-image-container">
+                  <img data-src="bmwlogo.gif" alt="Immersive Automotive Experiences" class="project-image lazy-load" loading="lazy">
+                  <div class="project-overlay">
+                      <span class="view-project">view project</span>
+                  </div>
+              </div>
+              <h2 class="project-name">Immersive Automotive Experiences</h2>
+              <!-- <p class="project-description">Exploring immersive experiences for context-based user journeys.</p> -->
+              <p class="project-description">Coming soon...</p>
+              <div class="project-tags">
+                  <span class="tag">Research</span>
+                  <span class="tag">AR/VR</span>
+              </div>
+          </div>
+        </section>
+    
     </main>
 
     <footer>
         <div class="footer-content">
             <div class="contact-info">
-                <h3>Anika Bhagavatula</h3>
+                <h3>thanks for stopping by :)</h3>
                 <div class="social-links">
                     <a href="mailto:anikabhagavatula@berkeley.edu">anikabhagavatula@berkeley.edu</a>
                     <a href="https://www.linkedin.com/in/anikabhagavatula" target="_blank" class="linkedin-icon">
@@ -110,6 +247,33 @@
         </div>
     </footer>
 
+    <!-- Password Protection Modal -->
+    <div id="passwordModal" class="password-modal">
+        <div class="password-modal-content">
+            <div class="password-header">
+                <div class="lock-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.25 10.0546V8C5.25 4.27208 8.27208 1.25 12 1.25C15.7279 1.25 18.75 4.27208 18.75 8V10.0546C19.8648 10.1379 20.5907 10.348 21.1213 10.8787C22 11.7574 22 13.1716 22 16C22 18.8284 22 20.2426 21.1213 21.1213C20.2426 22 18.8284 22 16 22H8C5.17157 22 3.75736 22 2.87868 21.1213C2 20.2426 2 18.8284 2 16C2 13.1716 2 11.7574 2.87868 10.8787C3.40931 10.348 4.13525 10.1379 5.25 10.0546ZM6.75 8C6.75 5.10051 9.10051 2.75 12 2.75C14.8995 2.75 17.25 5.10051 17.25 8V10.0036C16.867 10 16.4515 10 16 10H8C7.54849 10 7.13301 10 6.75 10.0036V8ZM14 16C14 17.1046 13.1046 18 12 18C10.8954 18 10 17.1046 10 16C10 14.8954 10.8954 14 12 14C13.1046 14 14 14.8954 14 16Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h2>Enter Password</h2>
+                <p>To check out Anika's work, please enter the password below!</p>
+            </div>
+            <form class="password-form" id="passwordForm">
+                <input type="password" id="passwordInput" placeholder="Enter password" autofocus required>
+                <button type="submit" id="passwordSubmit" class="password-submit-btn">Enter</button>
+            </form>
+            <p id="passwordError" class="password-error" style="display: none;"></p>
+        </div>
+    </div>
+
+    <!-- Custom Cursor Dots -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-dot" id="cursor-dot-2"></div>
+    <div class="cursor-dot" id="cursor-dot-3"></div>
+
+    <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+    <script src="brain-intro.js"></script>
     <script src="script.js"></script>
 </body>
 </html> 

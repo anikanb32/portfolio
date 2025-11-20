@@ -1,5 +1,196 @@
+// Password Protection System
+// (function() {
+    
+//     const pw = 'brain';
+    
+   
+//     function isAuthenticated() {
+//         return sessionStorage.getItem('portfolio_authenticated') === 'true';
+//     }
+    
+   
+//     function hideMainContent() {
+//         const body = document.body;
+//         if (body) {
+//             body.style.overflow = 'hidden';
+//             body.classList.add('content-hidden');
+//             const header = document.querySelector('header');
+//             const main = document.querySelector('main');
+//             const footer = document.querySelector('footer');
+//             if (header) {
+//                 header.style.display = '';
+//                 header.style.opacity = '0';
+//             }
+//             if (main) {
+//                 main.style.display = '';
+//                 main.style.opacity = '0';
+//             }
+//             if (footer) {
+//                 footer.style.display = '';
+//                 footer.style.opacity = '0';
+//             }
+//         }
+//     }
+    
+//     // Show main content after authentication
+//     function showMainContent() {
+//         const body = document.body;
+//         if (body) {
+//             body.classList.remove('content-hidden');
+//             body.style.overflow = '';
+//             body.style.overflowX = 'hidden'; // Keep horizontal overflow hidden
+//             body.style.overflowY = 'auto'; // Allow vertical scrolling
+//             const header = document.querySelector('header');
+//             const main = document.querySelector('main');
+//             const footer = document.querySelector('footer');
+//             if (header) {
+//                 header.style.display = '';
+//                 header.style.opacity = '';
+//                 header.style.pointerEvents = '';
+//             }
+//             if (main) {
+//                 main.style.display = '';
+//                 main.style.opacity = '';
+//                 main.style.pointerEvents = '';
+//             }
+//             if (footer) {
+//                 footer.style.display = '';
+//                 footer.style.opacity = '';
+//                 footer.style.pointerEvents = '';
+//             }
+//         }
+//     }
+    
+//     // Check authentication status immediately
+//     if (!isAuthenticated()) {
+//         hideMainContent();
+//     }
+    
+//     // Initialize password modal when DOM is ready
+//     function initPasswordModal() {
+//         const passwordModal = document.getElementById('passwordModal');
+//         const passwordInput = document.getElementById('passwordInput');
+//         const passwordForm = document.getElementById('passwordForm');
+//         const passwordError = document.getElementById('passwordError');
+        
+//         if (!passwordModal || !passwordInput || !passwordForm) {
+//             return;
+//         }
+        
+//         // Show modal if not authenticated
+//         if (!isAuthenticated()) {
+//             passwordModal.style.display = 'flex';
+//             passwordInput.focus();
+//         } else {
+//             passwordModal.style.display = 'none';
+//             showMainContent();
+//         }
+        
+//         // Handle form submission
+//         passwordForm.addEventListener('submit', function(e) {
+//             e.preventDefault();
+//             e.stopPropagation();
+            
+//             const enteredPassword = passwordInput.value.trim();
+            
+//             // HIDE ERROR IMMEDIATELY - BEFORE CHECKING PASSWORD
+//             passwordError.classList.remove('show');
+//             passwordError.style.display = 'none';
+//             passwordError.style.visibility = 'hidden';
+//             passwordError.style.opacity = '0';
+//             passwordError.textContent = '';
+//             passwordError.style.transition = 'none';
+            
+//             // Use requestAnimationFrame to ensure error is hidden before any rendering
+//             requestAnimationFrame(function() {
+//                 if (enteredPassword === pw) {
+//                     // Correct password - authenticate user
+//                     sessionStorage.setItem('portfolio_authenticated', 'true');
+//                     passwordInput.value = '';
+//                     passwordInput.removeAttribute('required');
+                    
+//                     // Make absolutely sure error is hidden
+//                     passwordError.classList.remove('show');
+//                     passwordError.style.display = 'none';
+//                     passwordError.style.visibility = 'hidden';
+//                     passwordError.style.opacity = '0';
+//                     passwordError.textContent = '';
+                    
+//                     // Fade out modal and immediately disable pointer events
+//                     passwordModal.classList.add('fade-out');
+//                     passwordModal.style.pointerEvents = 'none';
+                    
+//                     // Show main content after a short delay for smooth transition
+//                     setTimeout(function() {
+//                         showMainContent();
+//                         setTimeout(function() {
+//                             passwordModal.style.display = 'none';
+//                             passwordModal.classList.remove('fade-out');
+//                         }, 200);
+//                     }, 200);
+//                 } else {
+//                     // Wrong password - show error
+//                     passwordError.textContent = 'Incorrect password. Please try again.';
+//                     passwordError.style.transition = '';
+//                     passwordError.classList.add('show');
+//                     passwordError.style.display = 'flex';
+//                     passwordError.style.visibility = 'visible';
+//                     passwordError.style.opacity = '1';
+//                     passwordInput.value = '';
+//                     passwordInput.focus();
+//                 }
+//             });
+//         });
+        
+//         // Prevent browser validation on input
+//         passwordInput.addEventListener('invalid', function(e) {
+//             e.preventDefault();
+//             e.stopPropagation();
+//             return false;
+//         });
+        
+//         // Also prevent validation on form
+//         passwordForm.addEventListener('invalid', function(e) {
+//             e.preventDefault();
+//             e.stopPropagation();
+//             return false;
+//         }, true);
+        
+//         // Clear error message when user starts typing
+//         passwordInput.addEventListener('input', function() {
+//             passwordError.classList.remove('show');
+//             passwordError.style.display = 'none';
+//             passwordError.style.visibility = 'hidden';
+//             passwordError.style.opacity = '0';
+//         });
+        
+//         // Allow Enter key to submit
+//         passwordInput.addEventListener('keydown', function(e) {
+//             if (e.key === 'Enter') {
+//                 passwordForm.dispatchEvent(new Event('submit'));
+//             }
+//         });
+//     }
+    
+//     // Initialize when DOM is ready
+//     if (document.readyState === 'loading') {
+//         document.addEventListener('DOMContentLoaded', initPasswordModal);
+//     } else {
+//         initPasswordModal();
+//     }
+// })();
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing navigation...');
+    
+    // Detect if we're on a project page and add class to body
+    const projectPages = ['quantframe', 'xometry', 'neurologic', 'class', 'context-aware-vr', 'coachpro', 'noborders'];
+    const pathname = window.location.pathname;
+    const isProjectPage = projectPages.some(page => pathname.includes('/' + page + '/') || pathname.includes('/' + page + '.html'));
+    
+    if (isProjectPage) {
+        document.body.classList.add('project-page');
+    }
     
     // Initialize test page functionality
     initializeTestPage();
@@ -58,8 +249,8 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Mobile nav z-index:', window.getComputedStyle(mobileNav).zIndex);
         });
         
-        // Close mobile nav when clicking on a link
-        const mobileNavLinks = mobileNav.querySelectorAll('a');
+        // Close mobile nav when clicking on a link (except work links which are handled separately)
+        const mobileNavLinks = mobileNav.querySelectorAll('a:not([href="#work"]):not([href="../#work"])');
         console.log('Found mobile navigation links:', mobileNavLinks.length);
         mobileNavLinks.forEach(link => {
             link.addEventListener('click', function() {
@@ -196,6 +387,118 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Handle work link navigation to index.html#work section
+    const workLinks = document.querySelectorAll('nav a[href="#work"], nav a[href="../#work"], .mobile-nav a[href="#work"], .mobile-nav a[href="../#work"]');
+    
+    workLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            const workSection = document.getElementById('work');
+            
+            // If we're on index.html and work section exists, scroll to it
+            if (workSection && (href === '#work' || href === '../#work')) {
+                e.preventDefault();
+                
+                // Check if mobile (viewport width <= 768px)
+                const isMobile = window.innerWidth <= 768;
+                
+                // Close mobile menu if open
+                const mobileNav = document.querySelector('.mobile-nav');
+                const isMobileMenuOpen = mobileNav && mobileNav.classList.contains('active');
+                
+                if (isMobileMenuOpen) {
+                    mobileNav.classList.add('closing');
+                    mobileNav.classList.remove('active');
+                    
+                    // Wait for menu animation to complete before scrolling
+                    setTimeout(() => {
+                        mobileNav.classList.remove('closing');
+                        document.body.classList.remove('menu-open');
+                        
+                        // Scroll to work section after menu closes
+                        // Use less offset on mobile
+                        const headerHeight = document.querySelector('.header')?.offsetHeight || 80;
+                        const offset = isMobile ? 20 : 80;
+                        const targetPosition = workSection.offsetTop - headerHeight - offset;
+                        
+                        window.scrollTo({
+                            top: Math.max(0, targetPosition),
+                            behavior: 'smooth'
+                        });
+                    }, 400);
+                } else {
+                    // If menu is not open, scroll immediately
+                    // Use less offset on mobile
+                    const headerHeight = document.querySelector('.header')?.offsetHeight || 80;
+                    const offset = isMobile ? 20 : 80;
+                    const targetPosition = workSection.offsetTop - headerHeight - offset;
+                    
+                    window.scrollTo({
+                        top: Math.max(0, targetPosition),
+                        behavior: 'smooth'
+                    });
+                }
+            } else if (href === '../#work') {
+                // If we're on another page, navigate to index.html first
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                const mobileNav = document.querySelector('.mobile-nav');
+                if (mobileNav && mobileNav.classList.contains('active')) {
+                    mobileNav.classList.add('closing');
+                    mobileNav.classList.remove('active');
+                    setTimeout(() => {
+                        mobileNav.classList.remove('closing');
+                        document.body.classList.remove('menu-open');
+                    }, 400);
+                }
+                
+                // Navigate to index.html with hash
+                window.location.href = '../#work';
+            }
+        });
+    });
+    
+    // Handle hash navigation to work section on page load
+    if (window.location.hash === '#work') {
+        // Check if mobile (viewport width <= 768px)
+        const isMobile = window.innerWidth <= 768;
+        
+        // Wait for page to fully load
+        window.addEventListener('load', function() {
+            const workSection = document.getElementById('work');
+            if (workSection) {
+                setTimeout(() => {
+                    const headerHeight = document.querySelector('.header')?.offsetHeight || 80;
+                    const offset = isMobile ? 20 : 80;
+                    const targetPosition = workSection.offsetTop - headerHeight - offset;
+                    
+                    window.scrollTo({
+                        top: Math.max(0, targetPosition),
+                        behavior: 'smooth'
+                    });
+                }, 100);
+            }
+        });
+        
+        // Also handle if page is already loaded
+        if (document.readyState === 'complete') {
+            const workSection = document.getElementById('work');
+            if (workSection) {
+                setTimeout(() => {
+                    const headerHeight = document.querySelector('.header')?.offsetHeight || 80;
+                    const offset = isMobile ? 20 : 80;
+                    const targetPosition = workSection.offsetTop - headerHeight - offset;
+                    
+                    window.scrollTo({
+                        top: Math.max(0, targetPosition),
+                        behavior: 'smooth'
+                    });
+                }, 100);
+            }
+        }
+    }
+    
     // Page load animations
     const header = document.querySelector('.header');
     const intro = document.querySelector('.intro');
@@ -243,6 +546,138 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
         initFadeInAnimations();
     }, 800);
+    
+    // Custom Cursor with Three Dots
+    function initCustomCursor() {
+        const cursorDot = document.getElementById('cursor-dot');
+        const cursorDot2 = document.getElementById('cursor-dot-2');
+        const cursorDot3 = document.getElementById('cursor-dot-3');
+        
+        if (!cursorDot || !cursorDot2 || !cursorDot3) {
+            console.log('Cursor dots not found');
+            return;
+        }
+        
+        // Only show cursor on desktop
+        if (window.innerWidth <= 768) {
+            cursorDot.style.display = 'none';
+            cursorDot2.style.display = 'none';
+            cursorDot3.style.display = 'none';
+            return;
+        }
+        
+        // Function to update cursor colors for project pages
+        function updateProjectPageCursorColors() {
+            const isProjectPage = document.body.classList.contains('project-page');
+            if (isProjectPage) {
+                const isDarkMode = document.body.classList.contains('dark-mode');
+                const cursorColor = isDarkMode ? '#ffffff' : '#000000';
+                cursorDot.style.background = cursorColor;
+                cursorDot2.style.background = cursorColor;
+                cursorDot3.style.background = cursorColor;
+            }
+        }
+        
+        // Update cursor colors initially
+        updateProjectPageCursorColors();
+        
+        // Watch for theme changes
+        const themeObserver = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    updateProjectPageCursorColors();
+                }
+            });
+        });
+        themeObserver.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+        
+        // Try to get last cursor position from sessionStorage
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        
+        try {
+            const lastX = sessionStorage.getItem('cursorX');
+            const lastY = sessionStorage.getItem('cursorY');
+            if (lastX !== null && lastY !== null) {
+                const x = parseFloat(lastX);
+                const y = parseFloat(lastY);
+                // Only use stored position if it's within viewport bounds
+                if (x >= 0 && x <= window.innerWidth && y >= 0 && y <= window.innerHeight) {
+                    mouseX = x;
+                    mouseY = y;
+                }
+            }
+        } catch (e) {
+            // If sessionStorage is not available, use center
+        }
+        
+        let dot2X = mouseX;
+        let dot2Y = mouseY;
+        let dot3X = mouseX;
+        let dot3Y = mouseY;
+        
+        // Initialize cursor dots position and make them visible
+        cursorDot.style.left = mouseX + 'px';
+        cursorDot.style.top = mouseY + 'px';
+        cursorDot.style.display = 'block';
+        cursorDot.style.opacity = '1';
+        cursorDot.style.visibility = 'visible';
+        
+        cursorDot2.style.left = dot2X + 'px';
+        cursorDot2.style.top = dot2Y + 'px';
+        cursorDot2.style.display = 'block';
+        cursorDot2.style.opacity = '0.8';
+        cursorDot2.style.visibility = 'visible';
+        
+        cursorDot3.style.left = dot3X + 'px';
+        cursorDot3.style.top = dot3Y + 'px';
+        cursorDot3.style.display = 'block';
+        cursorDot3.style.opacity = '0.6';
+        cursorDot3.style.visibility = 'visible';
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Save position to sessionStorage
+            try {
+                sessionStorage.setItem('cursorX', mouseX.toString());
+                sessionStorage.setItem('cursorY', mouseY.toString());
+            } catch (e) {
+                // If sessionStorage is not available, ignore
+            }
+            
+            // First dot follows immediately
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
+        });
+        
+        function animate() {
+            // Smoothly interpolate position for second dot - slower catch up
+            dot2X += (mouseX - dot2X) * 0.2;
+            dot2Y += (mouseY - dot2Y) * 0.2;
+            cursorDot2.style.left = dot2X + 'px';
+            cursorDot2.style.top = dot2Y + 'px';
+            
+            // Smoothly interpolate position for third dot - even slower catch up
+            dot3X += (mouseX - dot3X) * 0.1;
+            dot3Y += (mouseY - dot3Y) * 0.1;
+            cursorDot3.style.left = dot3X + 'px';
+            cursorDot3.style.top = dot3Y + 'px';
+            
+            requestAnimationFrame(animate);
+        }
+        
+        // Start animation loop
+        animate();
+    }
+    
+    // Initialize custom cursor when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCustomCursor);
+    } else {
+        initCustomCursor();
+    }
     
     // Cool page load animations for records
     setTimeout(() => {
@@ -377,60 +812,154 @@ document.addEventListener('DOMContentLoaded', function() {
   // Check if we're using styles_test.css
   var isTestStyles = document.querySelector('link[href*="styles_test.css"]') !== null;
   
-  // Loader HTML
-  var loader = document.createElement('div');
-  loader.className = 'loading-overlay';
-  loader.setAttribute('data-theme', theme);
-  
-  if (isTestStyles) {
-    // Use red SVG for test styles
+  // Function to create and show loader
+  function createLoader() {
+    var loader = document.createElement('div');
+    loader.className = 'loading-overlay';
+    loader.setAttribute('data-theme', theme);
+    loader.style.display = 'flex'; // Ensure it's visible
+    loader.style.opacity = '1';
+    loader.style.visibility = 'visible';
+    
+    // Use three animated dots for loading screen
     loader.innerHTML = `
-      <div class="record-loader">
-        <svg class="record-svg-red" id="record-svg" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="45" cy="45" r="40" fill="#903232"/>
-          <!-- Even more gray, thin semicircle lines/arcs for spinning effect -->
-          <path d="M57 45a12 12 0 0 0-24 0" stroke="#bbbbbb" stroke-width="0.7" fill="none" stroke-linecap="round"/>
-          <path d="M63 45a18 18 0 0 0-36 0" stroke="#bbbbbb" stroke-width="0.5" fill="none" stroke-linecap="round"/>
-          <path d="M75 45a30 30 0 0 0-60 0" stroke="#bbbbbb" stroke-width="0.3" fill="none" stroke-linecap="round"/>
-          <circle cx="45" cy="45" r="14" fill="#111"/>
-          <circle cx="45" cy="45" r="3.5" fill="#fff"/>
-        </svg>
+      <div class="loading-dots">
+        <div class="loading-dot" style="background: #903232;"></div>
+        <div class="loading-dot" style="background: #C94949;"></div>
+        <div class="loading-dot" style="background: #DE7E7E;"></div>
       </div>
     `;
-  } else {
-    // Use original green SVG for regular styles
-    loader.innerHTML = `
-      <div class="record-loader">
-        <svg class="record-svg" id="record-svg" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="45" cy="45" r="40" fill="#15705b"/>
-          <!-- Even more gray, thin semicircle lines/arcs for spinning effect -->
-          <path d="M57 45a12 12 0 0 0-24 0" stroke="#bbbbbb" stroke-width="0.7" fill="none" stroke-linecap="round"/>
-          <path d="M63 45a18 18 0 0 0-36 0" stroke="#bbbbbb" stroke-width="0.5" fill="none" stroke-linecap="round"/>
-          <path d="M75 45a30 30 0 0 0-60 0" stroke="#bbbbbb" stroke-width="0.3" fill="none" stroke-linecap="round"/>
-          <circle cx="45" cy="45" r="14" fill="#111"/>
-          <circle cx="45" cy="45" r="3.5" fill="#fff"/>
-        </svg>
-      </div>
-    `;
+    return loader;
   }
-  document.body.appendChild(loader);
-
-  var record = document.getElementById('record-svg');
-  // Start slow, then speed up after 1s
-  setTimeout(function() {
-    record.classList.add('fast');
-  }, 1000);
+  
+  // Loader HTML - create immediately to show loading screen right away
+  var loader = createLoader();
+  
+  // Function to show loading screen
+  function showLoader() {
+    // Remove any existing loader first
+    var existingLoader = document.querySelector('.loading-overlay');
+    if (existingLoader) {
+      existingLoader.remove();
+    }
+    
+    // Create and show new loader
+    loader = createLoader();
+    // Ensure it's on top and visible
+    loader.style.zIndex = '99999';
+    loader.style.position = 'fixed';
+    
+    if (document.body) {
+      document.body.appendChild(loader);
+      // Force immediate visibility
+      loader.style.display = 'flex';
+      loader.style.opacity = '1';
+      loader.style.visibility = 'visible';
+    } else {
+      // If body doesn't exist, append to documentElement as fallback
+      if (document.documentElement) {
+        document.documentElement.appendChild(loader);
+        loader.style.display = 'flex';
+        loader.style.opacity = '1';
+        loader.style.visibility = 'visible';
+      }
+      // Also wait for body
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+          if (document.body && !document.body.querySelector('.loading-overlay')) {
+            if (loader.parentNode) loader.parentNode.removeChild(loader);
+            document.body.appendChild(loader);
+            loader.style.display = 'flex';
+            loader.style.opacity = '1';
+            loader.style.visibility = 'visible';
+          }
+        });
+      }
+    }
+  }
+  
+  // Insert loader immediately, even before DOM is ready
+  if (document.body) {
+    document.body.appendChild(loader);
+  } else {
+    // If body doesn't exist yet, wait for it
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!document.body.querySelector('.loading-overlay')) {
+        document.body.appendChild(loader);
+      }
+    });
+    // Also try to append immediately if body becomes available
+    if (document.readyState === 'loading') {
+      var checkBody = setInterval(function() {
+        if (document.body) {
+          document.body.appendChild(loader);
+          clearInterval(checkBody);
+        }
+      }, 10);
+    }
+  }
+  
+  // Intercept navigation links to show loading screen before navigation
+  function interceptNavigation() {
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', interceptNavigation);
+      return;
+    }
+    
+    // Get all navigation links (logo, nav links, work items, etc.)
+    var navLinks = document.querySelectorAll('a[href]');
+    
+    navLinks.forEach(function(link) {
+      var href = link.getAttribute('href');
+      // Only intercept internal navigation links (not anchors, mailto, or external)
+      if (href && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('http') && !href.startsWith('//')) {
+        link.addEventListener('click', function(e) {
+          // Don't intercept if it's already handled (like work links with special handling)
+          if (this.hasAttribute('data-no-loader')) {
+            return;
+          }
+          
+          // Show loading screen immediately before navigation
+          showLoader();
+          
+          // Allow navigation to proceed normally
+          // The loading screen will persist until the new page loads
+        }, true); // Use capture phase to ensure it fires before other handlers
+      }
+    });
+    
+    // Also intercept clicks on elements that navigate programmatically (like record clicks)
+    document.addEventListener('click', function(e) {
+      var target = e.target.closest('[data-project]');
+      if (target && target.hasAttribute('data-project')) {
+        // This is likely a work item or record that will navigate
+        // Show loader immediately
+        showLoader();
+      }
+    }, true);
+  }
+  
+  // Start intercepting navigation
+  interceptNavigation();
+  
+  // Also show loader when page is about to unload (catches programmatic navigation)
+  window.addEventListener('beforeunload', function() {
+    showLoader();
+  });
 
   // Hide loader when page is ready
   function hideLoader() {
-    loader.classList.add('hidden');
-    setTimeout(function() {
-      if (loader.parentNode) loader.parentNode.removeChild(loader);
-    }, 400);
+    if (loader && loader.parentNode) {
+      loader.classList.add('hidden');
+      setTimeout(function() {
+        if (loader.parentNode) loader.parentNode.removeChild(loader);
+      }, 400);
+    }
   }
   
   // Ensure loading screen shows for minimum duration
-  var minLoadTime = 1000; // 1 second minimum
+  var minLoadTime = 800; // 800ms minimum to ensure it's visible
   var startTime = Date.now();
   
   function checkAndHideLoader() {
@@ -442,10 +971,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
+  // Always wait for load event to ensure everything is ready
   if (document.readyState === 'complete') {
+    // Page already loaded, but still show loader for minimum time
     checkAndHideLoader();
   } else {
     window.addEventListener('load', checkAndHideLoader);
+    // Also check if DOM is ready
+    if (document.readyState === 'interactive') {
+      // DOM is ready, but wait for full load
+      window.addEventListener('load', checkAndHideLoader);
+    }
   }
 
   // Ensure default theme is light if not set
