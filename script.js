@@ -180,6 +180,35 @@
 //     }
 // })();
 
+// Ensure content is visible (remove content-hidden class if password was disabled)
+// Run immediately, not waiting for DOMContentLoaded
+(function() {
+    // Remove content-hidden class immediately
+    if (document.body) {
+        document.body.classList.remove('content-hidden');
+        document.body.style.overflow = '';
+        document.body.style.overflowX = 'hidden';
+        document.body.style.overflowY = 'auto';
+    }
+    
+    // Also run on DOMContentLoaded as backup
+    document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.remove('content-hidden');
+        document.body.style.overflow = '';
+        document.body.style.overflowX = 'hidden';
+        document.body.style.overflowY = 'auto';
+        
+        // Hide any password modal that might exist
+        const passwordModal = document.getElementById('passwordModal');
+        if (passwordModal) {
+            passwordModal.style.display = 'none';
+            passwordModal.style.visibility = 'hidden';
+            passwordModal.style.opacity = '0';
+            passwordModal.style.pointerEvents = 'none';
+        }
+    });
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing navigation...');
     
