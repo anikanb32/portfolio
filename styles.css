@@ -293,10 +293,10 @@ body.dark-mode .logo:hover {
 body.dark-mode .logo-nika {
   margin-right: 2px;
 }
-body.dark-mode .logo-a, 
+body.dark-mode .logo-a,
 body.dark-mode .logo-b {
   display: inline-block;
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 body.dark-mode .logo-nika, 
 body.dark-mode .logo-hagavatula {
@@ -912,7 +912,7 @@ main {
 }
 
 .intro {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Ovo', 'Playfair Display', serif;
     opacity: 0;
     transform: translateY(30px);
     transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1187,7 +1187,7 @@ body.dark-mode #brain-app {
     line-height: 1.1;
     margin-bottom: 2rem;
     width: 100%;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Ovo', 'Playfair Display', serif;
     color: #000;
 }
 
@@ -1869,7 +1869,7 @@ body.dark-mode .footer-content {
 
 /* Project Page Styles */
 .project-content {
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 4rem 60px;
     min-height: calc(100vh - 200px);
@@ -2002,7 +2002,7 @@ body.dark-mode .footer-content {
 
 
 .about-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Ovo', 'Playfair Display', serif;
     font-size: 5rem;
     font-weight: 700;
     line-height: 1.1;
@@ -2021,7 +2021,7 @@ body.dark-mode .footer-content {
 }
 
 .about-highlight-quote {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Ovo', 'Playfair Display', serif;
     font-size: 1.4rem;
     font-weight: 700;
     color: #000000;
@@ -2139,7 +2139,7 @@ body.dark-mode .footer-content {
 }
 
 .dj-section-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Ovo', 'Playfair Display', serif;
     font-size: 2.5rem;
     font-weight: 700;
     color: #000;
@@ -3567,7 +3567,7 @@ body.dark-mode .password-error {
     font-weight: 700;
     color: #000;
     margin-bottom: 0.5rem;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Ovo', 'Playfair Display', serif;
 }
 
 .test-project-description p {
@@ -3769,7 +3769,7 @@ body.dark-mode .dj-section-subtitle {
 }
 
 .vinyl-picks-header {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Ovo', 'Playfair Display', serif;
     text-align: right;
     max-width: 400px;
     margin-top: 1rem;
@@ -4343,7 +4343,7 @@ body.dark-mode .vinyl-record[data-color="#1e3a8a"] {
 }
 
 .resume-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Ovo', 'Playfair Display', serif;
     font-size: 6rem;
     font-weight: 700;
     line-height: 1.1;
@@ -4509,7 +4509,7 @@ body.dark-mode .vinyl-record[data-color="#1e3a8a"] {
 
 .timeline-card h4 {
     font-size: 1.4rem;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Ovo', 'Playfair Display', serif;
 
     font-weight: 700;
     color: #111;
@@ -4974,7 +4974,7 @@ body.dark-mode .mobile-nav .download-btn:hover {
 
 /* === CLASS CASE STUDY PAGE STYLES === */
 .class-main {
-    padding: 8rem 60px;
+    padding: 8rem 180px;
     margin: 0 auto;
     max-width: 1200px;
     width: 100%;
@@ -5005,17 +5005,36 @@ body.dark-mode .mobile-nav .download-btn:hover {
     flex: 1;
 }
 
+.organization-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
 .class-organization {
     font-size: 1.1rem;
     color: #2e2e2e;
     font-weight: 200;
-    margin-bottom: 1rem;
-    display: block;
+    display: inline-block;
+}
+
+.status-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #4A9FCA;
+    background-color: rgba(135, 206, 235, 0.3);
+    border-radius: 12px;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
 }
 
 .class-title {
     font-size: 4rem;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Ovo', 'Playfair Display', serif;
     font-weight: 700;
     line-height: 1.1;
     margin: 0;
@@ -5024,10 +5043,15 @@ body.dark-mode .mobile-nav .download-btn:hover {
 }
 
 .class-details {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    display: flex;
+    gap: 4rem;
     flex: 1;
+}
+
+.class-detail-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .class-detail-item h3 {
@@ -5303,7 +5327,7 @@ body.dark-mode .case-study-section h4 {
 #problem .problem-factor h4,
 #problem .problem-factor p {
     color: #ffffff;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Ovo', 'Playfair Display', serif;
 }
 
 #problem.xometry-problem .section-title,
@@ -5317,25 +5341,25 @@ body.dark-mode .case-study-section h4 {
 }
 
 #problem .section-content {
-    padding: 0 60px;
+    padding: 0 180px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 #problem .section-header {
-    padding: 0 60px;
+    padding: 0 180px;
     max-width: 1200px;
     margin: 0 auto 2rem auto;
 }
 
 .xometry-problem .section-content {
-    padding: 0 60px;
+    padding: 0 180px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .xometry-problem .section-header {
-    padding: 0 60px;
+    padding: 0 180px;
     max-width: 1200px;
     margin: 0 auto 2rem auto;
 }
@@ -5352,12 +5376,20 @@ body.dark-mode .case-study-section h4 {
     display: inline-block;
 }
 
+.class-section-title {
+    color: #64B7E5 !important;
+}
+
+body.dark-mode .class-section-title {
+    color: #64B7E5 !important;
+}
+
 .section-content {
     max-width: 100%;
 }
 
 .section-subtitle {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Ovo', 'Playfair Display', serif;
     font-size: 2rem;
     font-weight: 600;
     color: #000;
@@ -5747,6 +5779,11 @@ body.dark-mode .class-title {
 
 body.dark-mode .class-organization {
     color: #cccccc;
+}
+
+body.dark-mode .status-chip {
+    color: #87CEEB;
+    background-color: rgba(135, 206, 235, 0.25);
 }
 
 body.dark-mode .class-detail-item h3 {
@@ -7034,12 +7071,35 @@ body.dark-mode .feature-caption {
 .impact-image {
     width: 100%;
     height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-body.dark-mode .impact-image {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+/* Live Status Indicator */
+.live-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+
+    background-color: #B6D99F;
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    margin-top: 0%;
+    margin-bottom: 3%;
+    /* margin: 2rem 0; */
+}
+
+.live-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #6CBE45;
+    border-radius: 50%;
+}
+
+.live-text {
+    color: #6CBE45;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
 }
 
 .impact-metrics {
@@ -7457,8 +7517,8 @@ body.dark-mode .prototype-header {
     }
     
     .class-details {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 1.5rem;
+        flex-direction: column;
+        gap: 2rem;
     }
     
     .research-methods {
@@ -7534,8 +7594,8 @@ body.dark-mode .prototype-header {
     }
     
     .class-details {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+        flex-direction: column;
+        gap: 1.5rem;
     }
     
     .research-methods {
@@ -7977,7 +8037,7 @@ body.dark-mode .lazy-load {
 
 
 .project-name {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Ovo', 'Playfair Display', serif;
     font-size: 1.8rem;
     font-weight: 700;
     color: #111;
@@ -8662,6 +8722,19 @@ body.dark-mode .cta-content p {
     }
 }
 /* Solution Features Section - New Alternating Layout for CLASS */
+#solution {
+    background-color: #C4DFEE;
+    padding: 4rem 0;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%);
+}
+
+body.dark-mode #solution {
+    background-color: #C4DFEE;
+}
+
 .solution-features {
     display: flex;
     flex-direction: column;
@@ -8706,16 +8779,16 @@ body.dark-mode .cta-content p {
 
 .solution-category {
     font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     /* font-weight: 600; */
     /* text-transform: uppercase; */
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     color: #000000;
 }
 
 .solution-feature-title {
     font-size: 2rem;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Ovo', 'Playfair Display', serif;
     font-weight: 300;
     line-height: 1.3;
     color: var(--text-color);
@@ -8741,18 +8814,25 @@ body.dark-mode .solution-image:hover {
 
 /* Responsive styles for solution section */
 @media (max-width: 1024px) {
+    #solution {
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        padding-left: calc(50vw - 50% + 2rem);
+        padding-right: calc(50vw - 50% + 2rem);
+    }
+
     .solution-features {
         gap: 6rem;
     }
-    
+
     .solution-feature {
         gap: 3rem;
     }
-    
+
     .solution-feature-title {
         font-size: 1.75rem;
     }
-    
+
     .ideation-layout {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -8760,20 +8840,27 @@ body.dark-mode .solution-image:hover {
 }
 
 @media (max-width: 768px) {
+    #solution {
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        padding-left: calc(50vw - 50% + 1.5rem);
+        padding-right: calc(50vw - 50% + 1.5rem);
+    }
+
     .solution-features {
         gap: 4rem;
     }
-    
+
     .solution-feature,
     .solution-feature-reverse {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .solution-feature-title {
         font-size: 1.5rem;
     }
-    
+
     .solution-category {
         font-size: 0.85rem;
     }

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ovo&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -61,47 +61,55 @@
             <div class="class-header-content">
                 <div class="class-meta">
                     <h1 class="class-title fade-in">Program Management Dashboard</h1>
-                    <span class="class-organization fade-in-delay-1">Community Living and Support Services</span>
+                    <div class="organization-container fade-in-delay-1">
+                        <span class="class-organization">Community Living and Support Services</span>
+                        
+                    </div>
+                    <div class="status-chip">SHIPPED</div>
                 </div>
                 <div class="class-details fade-in-delay-2">
-                    <div class="class-detail-item">
-                        <h3>Role</h3>
-                        <p>UX Researcher, UX Designer, Product Strategy</p>
+                    <div class="class-detail-column">
+                        <div class="class-detail-item">
+                            <h3>Role</h3>
+                            <p>UX Designer,<br>Frontend Developer</p>
+                        </div>
+                        <div class="class-detail-item">
+                            <h3>Tools</h3>
+                            <p>Figma, HTML, CSS,<br>JavaScript</p>
+                        </div>
+                        <div class="class-detail-item">
+                            <h3>Team</h3>
+                            <p>1 Engineer, 2<br>Researchers, 1 Designer</p>
+                        </div>
                     </div>
-                    <div class="class-detail-item">
-                        <h3>Skills</h3>
-                        <p>User Research, User Interview, Observational Study, Affinity Diagrams, Sketch, Prototypes</p>
-                    </div>
-                    <div class="class-detail-item">
-                        <h3>Tools</h3>
-                        <p>Figma, Miro, HTML, CSS, JavaScript</p>
-                    </div>
-                    <div class="class-detail-item">
-                        <h3>Timeline</h3>
-                        <p>4 Months</p>
-                    </div>
-                    <div class="class-detail-item">
-                        <h3>Team</h3>
-                        <p>1 Engineer, 2 Researchers, 1 Designer </p>
+                    <div class="class-detail-column">
+                        <div class="class-detail-item">
+                            <h3>Skills</h3>
+                            <p>User Research<br>User Interview<br>Observational Study<br>Affinity Diagrams<br>Sketch<br>Prototypes</p>
+                        </div>
+                        <div class="class-detail-item">
+                            <h3>Timeline</h3>
+                            <p>5 Months</p>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="class-hero-image fade-in-delay-3">
-                <img src="../images/newestclassprev.png" alt="CLASS Program Management Dashboard" class="class-dashboard-image expandable-image" data-src="../images/newestclassprev.png">
+                <img src="../images/class/newestclasspreview.png" alt="CLASS Program Management Dashboard" class="class-dashboard-image expandable-image" data-src="../images/class/newestclasspreview.png">
             </div>
         </section>
 
         <!-- Case Study Sections -->
         <section class="case-study-section fade-in-delay-4" id="overview">
             <div class="section-header">
-                <h2 class="section-title">Overview</h2>
+                <h2 class="section-title class-section-title">Overview</h2>
             </div>
             <div class="section-content overview-flex">
                 <div class="overview-text">
-                    <h3 class="section-subtitle">A tool that supports overworked staff who work with individuals recovering from traumatic brain injuries</h3>
+                    <h3 class="section-subtitle">A Personalized Dashboard for Program Management</h3>
                     <div class="section-text">
-                        <p>For my HCI capstone project, I partnered with CLASS alongside a team of 4 other students. CLASS is a nonprofit in Pittsburgh, PA, that runs a Structured Day Program for individuals with TBI.</p>
-                        <p>I worked on designing a solution that reduces staff burden by consolidating participant information, empowering participants to engage with their goals and activities, and ensuring accessibility for a wide range of cognitive abilities.</p>
+                        <p>For my HCI capstone project, we partnered with Community Living and Support Services, also known as CLASS, a nonprofit in Pittsburgh, PA.</p>
+                        <p>We designed a solution that reduces staff burden by consolidating participant information, empowering participants to engage with their goals and activities and reduce staff admin work.</p>
                     </div>
                 </div>
                 <div class="overview-logo">
@@ -112,23 +120,26 @@
 
         <section class="case-study-section fade-in-delay-4" id="solution">
             <div class="section-header">
-                <h2 class="section-title">Solution</h2>
+                <h2 class="section-title class-section-title">Solution</h2>
             </div>
             
             <div class="solution-features">
                 <!-- Profiles Feature -->
                 <div class="solution-feature">
                     <div class="solution-mockup">
-                        <img src="../images/class/participantprofile.gif" alt="Profiles interface showing participant details" class="solution-image expandable-image" data-src="../images/class/participantprofile.gif">
+                        <img src="../images/class/survey.gif" alt="Profiles interface showing participant details" class="solution-image expandable-image" data-src="../images/class/survey.gif">
                     </div>
                     <div class="solution-text">
-                        <div class="solution-category">Profiles</div>
-                        <h3 class="solution-feature-title">Staff can reference back to participant details for day-to-day tasks</h3>
-                    </div>
+                        <div class="solution-category">Participant Survey</div>
+                        <h3 class="solution-feature-title">Participants choose activities of interest</h3>
+                        <div class="section-text">
+                            Through morning check-ins, participants can choose activities or add their own.                        </div>
+
+                         </div>
                 </div>
 
                 <!-- Attendance Feature -->
-                <div class="solution-feature solution-feature-reverse">
+                <!-- <div class="solution-feature solution-feature-reverse">
                     <div class="solution-text">
                         <div class="solution-category">Attendance</div>
                         <h3 class="solution-feature-title">Attendance can be managed by staff with one click</h3>
@@ -136,10 +147,10 @@
                     <div class="solution-mockup">
                         <img src="../images/class/attendees.gif" alt="Attendance management interface" class="solution-image expandable-image" data-src="../images/class/attendees.gif">
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Activity Planning Feature 1 -->
-                <div class="solution-feature">
+                <!-- <div class="solution-feature">
                     <div class="solution-mockup">
                         <img src="../images/class/activityinfo.gif" alt="Activity planning interface showing participant limitations" class="solution-image expandable-image" data-src="../images/class/activityinfo.gif">
                     </div>
@@ -147,14 +158,16 @@
                         <div class="solution-category">Activity Planning</div>
                         <h3 class="solution-feature-title">Staff can anticipate participant limitations while prepping an activity</h3>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Activity Planning Feature 2 -->
                 <div class="solution-feature solution-feature-reverse">
                     <div class="solution-text">
-                        <div class="solution-category">Activity Planning</div>
-                        <h3 class="solution-feature-title">Quickly find activities based on today's participants</h3>
-                    </div>
+                        <div class="solution-category">Activity Suggestions</div>
+                        <h3 class="solution-feature-title">Staff can plan activities efficiently</h3>
+                        <div class="section-text">
+                            Based on today’s participants, staff can plan  activities of interest and match skill levels.                        </div>
+                        </div>
                     <div class="solution-mockup">
                         <img src="../images/class/activities.gif" alt="Activity search and filtering interface" class="solution-image expandable-image" data-src="../images/class/activities.gif">
                     </div>
@@ -163,11 +176,14 @@
                 <!-- Participant Check-In Feature -->
                 <div class="solution-feature">
                     <div class="solution-mockup">
-                        <img src="../images/class/participantportal.gif" alt="Participant check-in interface" class="solution-image expandable-image" data-src="../images/class/participantportal.gif">
+                        <img src="../images/class/profile.gif" alt="Participant check-in interface" class="solution-image expandable-image" data-src="../images/class/profile.gif">
                     </div>
                     <div class="solution-text">
-                        <div class="solution-category">Participant Check-In</div>
-                        <h3 class="solution-feature-title">Participants can check in and choose their own activities of interest</h3>
+                        <div class="solution-category">Participant Profile</div>
+                        <h3 class="solution-feature-title">Quickly learn details about participants</h3>
+                        <div class="section-text">
+                            Staff can reference participant profiles to learn more about history, skills, and goals at a glance.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -175,30 +191,18 @@
 
         <section class="case-study-section" id="impact">
             <div class="section-header">
-                <h2 class="section-title">Impact</h2>
+                <h2 class="section-title class-section-title">Impact</h2>
             </div>
-            <h3 class="section-subtitle">Staff have  <span class="blue-highlight">more time</span> to spend with participants and participants have <span class="blue-highlight">more autonomy</span> over their daily activities.</h3>
-            <div class="section-text">The tool is live and is currently being used by the Structured Day Program and participants. CLASS is also working on expanding it to other programs.</div>
+            <h3 class="section-subtitle">Currently empowering <span class="blue-highlight">15+ individuals</span> with disabilities at CLASS to personalize their growth.</h3>
+            <div class="live-status">
+                <div class="live-dot"></div>
+                <span class="live-text">LIVE</span>
+            </div>
+            <div class="section-text">The tool is live and is currently being used by the Structured Day Program staff and participants.</div>
+            
             <div class="section-content">
                 <div class="impact-image-container">
-                    <img src="../images/class/impact.png" alt="Impact metrics and user feedback" class="impact-image expandable-image" data-src="../images/class/impact.png">
-                </div>
-
-                <div class="quotes-section">
-                    <div class="quotes-grid">
-                        <div class="quote-item">
-                            <p>"It's good that I can see recent activities just <strong>so I can plan</strong> what I should do next."</p>
-                            <span class="quote-attribution">- Staff S</span>
-                        </div>
-                        <div class="quote-item">
-                            <p>"I really like <strong>choosing activities</strong> that I want to do today."</p>
-                            <span class="quote-attribution">- Participant G</span>
-                        </div>
-                        <div class="quote-item">
-                            <p>"The skills area and goals look really good - straight <strong>from the participant skills assessment</strong>."</p>
-                            <span class="quote-attribution">- Staff S</span>
-                        </div>
-                    </div>
+                    <img src="../images/class/outcomes.png" alt="Impact metrics and user feedback" class="impact-image expandable-image" data-src="../images/class/outcomes.png">
                 </div>
             </div>
         </section>
@@ -206,7 +210,7 @@
 
         <section class="case-study-section" id="context">
             <div class="section-header">
-                <h2 class="section-title">Context</h2>
+                <h2 class="section-title class-section-title">Context</h2>
             </div>
             <div class="section-content">
                 <h3 class="section-subtitle"><span style="color: #64B7E5; font-weight: 700;">Communication is critical</span> for individuals with disabilities or cognitive impairments.</h3>
@@ -225,7 +229,7 @@
 
         <section class="case-study-section" id="research">
             <div class="section-header">
-                <h2 class="section-title">Research</h2>
+                <h2 class="section-title class-section-title">Research</h2>
             </div>
             <div class="section-content">
                 <h3 class="section-subtitle">How can we use technological interventions to effectively support <span class="blue-highlight">increased independence</span> and <span class="blue-highlight">quality of life</span> for individuals with Traumatic Brain Injuries?</h3>
@@ -258,7 +262,7 @@
             <div class="section-header">
                 <br>
                 <br>
-                <h2 class="section-title">Problem</h2>
+                <h2 class="section-title class-section-title">Problem</h2>
             </div>
             <div class="section-content">
                 
@@ -278,7 +282,7 @@
             <div class="section-header">
                 <br>
                 <br>
-                <h2 class="section-title">Ideation</h2>
+                <h2 class="section-title class-section-title">Ideation</h2>
             </div>
             <div class="section-content">
                 <div class="ideation-layout">
@@ -318,7 +322,7 @@
 
         <section class="case-study-section" id="prototyping">
             <div class="section-header">
-                <h2 class="section-title">Prototyping</h2>
+                <h2 class="section-title class-section-title">Prototyping</h2>
             </div>
             <div class="section-content">
                 <div class="section-text">
@@ -398,7 +402,7 @@
 
         <section class="case-study-section" id="usability-testing">
             <div class="section-header">
-                <h2 class="section-title">Usability Testing</h2>
+                <h2 class="section-title class-section-title">Usability Testing</h2>
             </div>
             <div class="section-content">
                 <div class="section-text">
@@ -416,7 +420,7 @@
         <section class="case-study-section" id="design">
             <div class="section-content">
                 <div class="section-header">
-                    <h2 class="section-title">Designs</h2>
+                    <h2 class="section-title class-section-title">Designs</h2>
                     <h3 class="section-subtitle">A new method of communication between staff and participants</h3>
                     <p class="section-text">Staff View</p>
                 </div>
@@ -439,7 +443,7 @@
 
         <section class="case-study-section" id="outcomes">
             <div class="section-header">
-                <h2 class="section-title">Outcomes</h2>
+                <h2 class="section-title class-section-title">Outcomes</h2>
             </div>
             <div class="section-content">
                 <div class="outcomes-image-container">
@@ -451,7 +455,7 @@
 
         <section class="case-study-section" id="final-thoughts">
             <div class="section-header">
-                <h2 class="section-title">Final Thoughts</h2>
+                <h2 class="section-title class-section-title">Final Thoughts</h2>
             </div>
             <div class="section-content">
                 <div class="final-thoughts-grid">
