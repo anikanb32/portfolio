@@ -6180,7 +6180,7 @@ body.dark-mode .testinginsights-light,
 }
 
 .iteration-image {
-    max-width: 50%;
+    max-width: 85%;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -8794,6 +8794,16 @@ body.dark-mode .cta-content p {
 
 body.dark-mode #solution {
     background-color: #C4DFEE;
+}
+
+body.dark-mode #solution .section-title,
+body.dark-mode #solution .section-subtitle,
+body.dark-mode #solution .section-text,
+body.dark-mode #solution p,
+body.dark-mode #solution h3,
+body.dark-mode #solution .solution-category,
+body.dark-mode #solution .solution-feature-title {
+    color: #000000 !important;
 }
 
 .solution-features {
