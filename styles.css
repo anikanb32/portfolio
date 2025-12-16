@@ -1726,16 +1726,17 @@ body.dark-mode .footer-content {
 
 .contact-info h3 {
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-bottom: 0.5rem;
     color: #000;
     transition: color 0.3s ease;
+    font-family: 'Ovo', 'Playfair Display', serif;
 }
 
 .contact-info a {
-    color: #666;
+    color: #000000;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 0.9rem;
     transition: color 0.3s ease;
     display: block;
     margin-bottom: 0;
