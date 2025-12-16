@@ -6180,7 +6180,7 @@ body.dark-mode .testinginsights-light,
 }
 
 .iteration-image {
-    max-width: 85%;
+    max-width: 50%;
     height: auto;
     display: block;
     margin: 0 auto;
