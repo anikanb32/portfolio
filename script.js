@@ -1567,9 +1567,23 @@ function initializeProgressIndicator() {
     // Get all sections that have IDs matching the progress steps
     progressSteps.forEach(step => {
         const sectionId = step.getAttribute('data-section');
-        const section = document.getElementById(sectionId);
-        if (section) {
-            sections.push({ element: section, step: step, id: sectionId });
+        const sectionIds = step.getAttribute('data-sections');
+
+        if (sectionIds) {
+            // Handle multiple sections (data-sections)
+            const ids = sectionIds.split(',');
+            ids.forEach(id => {
+                const section = document.getElementById(id.trim());
+                if (section) {
+                    sections.push({ element: section, step: step, id: id.trim() });
+                }
+            });
+        } else if (sectionId) {
+            // Handle single section (data-section)
+            const section = document.getElementById(sectionId);
+            if (section) {
+                sections.push({ element: section, step: step, id: sectionId });
+            }
         }
     });
 
@@ -1617,9 +1631,17 @@ function initializeProgressIndicator() {
     progressSteps.forEach(step => {
         step.addEventListener('click', () => {
             const sectionId = step.getAttribute('data-section');
-            const section = document.getElementById(sectionId);
+            const sectionIds = step.getAttribute('data-sections');
+
+            let targetId = sectionId;
+            if (sectionIds) {
+                // For multiple sections, scroll to the first one
+                targetId = sectionIds.split(',')[0].trim();
+            }
+
+            const section = document.getElementById(targetId);
             if (section) {
-                section.scrollIntoView({ 
+                section.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });

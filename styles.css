@@ -5028,7 +5028,7 @@ body.dark-mode .mobile-nav .download-btn:hover {
     color: #4A9FCA;
     background-color: rgba(135, 206, 235, 0.3);
     border-radius: 12px;
-    text-transform: lowercase;
+    text-transform: capitalize;
     letter-spacing: 0.5px;
 }
 
@@ -5105,6 +5105,15 @@ body.dark-mode .mobile-nav .download-btn:hover {
 /* Case Study Sections */
 .case-study-section {
     margin-bottom: 9.5rem;
+}
+
+/* Reduced spacing for Overview and Solution sections */
+#overview {
+    margin-bottom: 5rem;
+}
+
+#solution {
+    margin-bottom: 5rem;
 }
 
 /* Overview Flexbox Layout */
@@ -5203,7 +5212,7 @@ body.dark-mode .class-map-dark,
 }
 
 .insights-image {
-    max-width: 60%;
+    max-width: 85%;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -5374,6 +5383,7 @@ body.dark-mode .case-study-section h4 {
     color: #111;
     margin: 0 0 0 0;
     display: inline-block;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 .class-section-title {
@@ -6143,7 +6153,7 @@ body.dark-mode .infoconsolidation-dark,
 }
 
 .testinginsights-image {
-    max-width: 90%;
+    max-width: 50%;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -6161,6 +6171,38 @@ body.dark-mode .infoconsolidation-dark,
 body.dark-mode .testinginsights-light,
 [data-theme="dark"] .testinginsights-light {
     display: none !important;
+}
+
+/* Iteration Image Container */
+.iteration-image-container {
+    margin: 4rem 0;
+    text-align: center;
+}
+
+.iteration-image {
+    max-width: 85%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Theme-based image visibility for iteration */
+.iteration-light {
+    display: block !important;
+}
+
+.iteration-dark {
+    display: none !important;
+}
+
+body.dark-mode .iteration-light,
+[data-theme="dark"] .iteration-light {
+    display: none !important;
+}
+
+body.dark-mode .iteration-dark,
+[data-theme="dark"] .iteration-dark {
+    display: block !important;
 }
 
 body.dark-mode .testinginsights-dark,
@@ -6258,6 +6300,25 @@ body.dark-mode .hifipart-light,
 
 body.dark-mode .hifipart-dark,
 [data-theme="dark"] .hifipart-dark {
+    display: block !important;
+}
+
+/* Theme-based image visibility for hi-fi designs */
+.hifi-light {
+    display: block !important;
+}
+
+.hifi-dark {
+    display: none !important;
+}
+
+body.dark-mode .hifi-light,
+[data-theme="dark"] .hifi-light {
+    display: none !important;
+}
+
+body.dark-mode .hifi-dark,
+[data-theme="dark"] .hifi-dark {
     display: block !important;
 }
 
