@@ -988,7 +988,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Ensure loading screen shows for minimum duration
-  var minLoadTime = 800; // 800ms minimum to ensure it's visible
+  var minLoadTime = 400; // 400ms minimum to ensure it's visible
   var startTime = Date.now();
   
   function checkAndHideLoader() {
