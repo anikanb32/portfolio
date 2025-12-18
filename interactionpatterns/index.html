@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Context-Interaction Patterns | Anika's Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="../brain.svg">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ovo&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <a href="../" class="logo">
+          <span class="logo-a">a</span><span class="logo-nika">nika</span><span class="logo-b">b</span><span class="logo-hagavatula">hagavatula</span>
+        </a>
+        <nav class="nav">
+          <a href="../#work">work</a>
+          <a href="../about/">about</a>
+          <a href="../resume/">resume</a>
+          <div class="theme-toggle">
+            <button class="theme-toggle-btn" aria-label="Toggle dark mode">
+              <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+              </svg>
+              <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"/>
+              </svg>
+            </button>
+          </div>
+        </nav>
+        <button class="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </header>
+
+    <!-- Mobile Menu - Moved outside header for proper layering -->
+    <div class="mobile-nav" aria-label="Mobile menu">
+      <button class="mobile-close" aria-label="Close menu">×</button>
+      <div class="mobile-nav-content">
+        <a href="../#work">work</a>
+        <a href="../about/">about</a>
+        <a href="../resume/">resume</a>
+        <div class="theme-toggle mobile-theme-toggle">
+          <button class="theme-toggle-btn" aria-label="Toggle dark mode">
+            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+            </svg>
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <main class="ai-main">
+        <!-- Project Header -->
+        <section class="ai-header">
+            <div class="ai-header-content">
+                <div class="ai-meta">
+                    <h1 class="ai-title fade-in">AI Context Interaction Patterns</h1>
+                    <div class="organization-container fade-in-delay-1">
+                        <span class="ai-organization"><i>Conceptual Project</i> for <br>Anthropic's Claude</span>
+                        
+                    </div>
+                    <!-- <div class="status-chip">Shipped</div> -->
+                </div>
+                <div class="class-details fade-in-delay-2">
+                    <div class="class-detail-column">
+                        <div class="class-detail-item">
+                            <h3>Role</h3>
+                            <p>UX Designer,<br>UX Researcher</p>
+                        </div>
+                        <div class="class-detail-item">
+                            <h3>Tools</h3>
+                            <p>Figma, Miro</p>
+                        </div>
+                        <div class="class-detail-item">
+                            <h3>Team</h3>
+                            <p>2 Designers,<br> 1 Engineer, <br>1 Product Manager</p>
+                        </div>
+                    </div>
+                    <div class="class-detail-column">
+                        <div class="class-detail-item">
+                            <h3>Skills</h3>
+                            <p>User Research<br>User Interview<br>Observational Study<br>Affinity Diagrams<br>Sketch<br>Prototypes</p>
+                        </div>
+                        <div class="class-detail-item">
+                            <h3>Timeline</h3>
+                            <p>3 Months</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ai-hero-image fade-in-delay-3">
+                <img src="../images/aicontextmanagement/aicontext-preview.png" alt="AI Context-Interaction Patterns Preview" class="ai-dashboard-image expandable-image" data-src="../images/aicontextmanagement/aicontext-preview.png">
+            </div>
+        </section>
+
+        <!-- Case Study Sections -->
+        <section class="case-study-section fade-in-delay-4" id="overview">
+            <div class="section-header">
+                <h2 class="section-title ai-section-title">Overview</h2>
+            </div>
+            <div class="section-content overview-flex">
+                <div class="overview-text">
+                    <h3 class="section-subtitle">Improving AI Context-Interaction Patterns in Large Language Models</h3>
+                    <div class="section-text">
+                        <p>With the rise of easily accessible AI tools, users are required to adopt entirely new interaction patterns, which create usability challenges that don’t exist with deterministic software.</p>
+                        <p>We introduce several features to help users effectively add context into AI tools, while providing opportunities that help users control the context it uses in its outputs.</p>
+                    </div>
+                </div>
+                <div class="overview-logo">
+                    <img src="../images/aicontextmanagement/claudelogo.png" alt="Claude Logo" class="ai-logo">
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section fade-in-delay-4" id="solution">
+            <div class="section-header">
+                <h2 class="section-title ai-section-title">Solution</h2>
+            </div>
+            
+            <div class="solution-features">
+                <!-- Profiles Feature -->
+                <div class="solution-feature">
+                    <div class="solution-mockup">
+                        <img src="../images/aicontextmanagement/contextpanelimage.png" alt="Context panel interface" class="solution-image expandable-image" data-src="../images/aicontextmanagement/contextpanelimage.png">
+                    </div>
+                    <div class="solution-text">
+                        <div class="solution-category">Context Panel</div>
+                        <h3 class="solution-feature-title">Manage uploads through a context panel</h3>
+                        <div class="section-text">
+                            Breaks down files, allowing users to turn on and off layers, effectively shaping future outputs.</div>
+
+                         </div>
+                </div>
+
+                <!-- Attendance Feature -->
+                <!-- <div class="solution-feature solution-feature-reverse">
+                    <div class="solution-text">
+                        <div class="solution-category">Attendance</div>
+                        <h3 class="solution-feature-title">Attendance can be managed by staff with one click</h3>
+                    </div>
+                    <div class="solution-mockup">
+                        <img src="../images/class/attendees.gif" alt="Attendance management interface" class="solution-image expandable-image" data-src="../images/class/attendees.gif">
+                    </div>
+                </div> -->
+
+                <!-- Activity Planning Feature 1 -->
+                <!-- <div class="solution-feature">
+                    <div class="solution-mockup">
+                        <img src="../images/class/activityinfo.gif" alt="Activity planning interface showing participant limitations" class="solution-image expandable-image" data-src="../images/class/activityinfo.gif">
+                    </div>
+                    <div class="solution-text">
+                        <div class="solution-category">Activity Planning</div>
+                        <h3 class="solution-feature-title">Staff can anticipate participant limitations while prepping an activity</h3>
+                    </div>
+                </div> -->
+
+                <!-- Activity Planning Feature 2 -->
+                <div class="solution-feature solution-feature-reverse">
+                    <div class="solution-text">
+                        <div class="solution-category">Context Import</div>
+                        <h3 class="solution-feature-title">Import recently used context</h3>
+                        <div class="section-text">
+                            Recommended files from relevant projects can be easily imported, reducing cognitive load.  </div>
+                        </div>
+                    <div class="solution-mockup">
+                        <img src="../images/aicontextmanagement/contextimportimage.png" alt="Context import interface" class="solution-image expandable-image" data-src="../images/aicontextmanagement/contextimportimage.png">
+                    </div>
+                </div>
+
+                <!-- Participant Check-In Feature -->
+                <div class="solution-feature">
+                    <div class="solution-mockup">
+                        <img src="../images/aicontextmanagement/externalapplicationsimage.png" alt="External applications interface" class="solution-image expandable-image" data-src="../images/aicontextmanagement/externalapplicationsimage.png">
+                    </div>
+                    <div class="solution-text">
+                        <div class="solution-category">In-Line Commands</div>
+                        <h3 class="solution-feature-title">Connect external applications</h3>
+                        <div class="section-text">
+                            Affords users the ability to connect complex media  across applications.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="case-study-section" id="context">
+            <div class="section-header">
+                <h2 class="section-title ai-section-title">Research</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">LLMs rely on context demands and new user interaction patterns, <span style="color: #D9693D; font-weight: 700;">creating usability challenges that don't exist with deterministic software.</span></h3>
+                <div class="section-text">
+                    <p>Our first step to unpack this was to dive into research. It can be easy to let our experiences with AI tools drive our design direction, but we wanted to understand how the general user shares context with AI through strategies and mental models and learn how AI tools currently handle context sharing.</p>
+                    
+                    <div class="ai-map-container">
+                        <img src="../images/aicontextmanagement/deskresearch.png" alt="Desk Research" class="ai-map-image expandable-image" data-src="../images/aicontextmanagement/deskresearch.png">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section" id="research">
+            <div class="section-header">
+                <h2 class="section-title ai-section-title">User Interviews</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">Frustration with managing and controlling model outputs.</h3>
+                <div class="section-text">
+                    <p>We validated these frustrations with eight participants who highlighted issues with managing and controlling model outputs through chat-based sharing, and found three main insights.</p>
+                </div>
+                <div class="research-methods">
+                    <img src="../images/aicontextmanagement/quotes-light.png" alt="User interview quotes" class="research-methods-image research-methods-light expandable-image" data-src="../images/aicontextmanagement/quotes-light.png">
+                    <img src="../images/aicontextmanagement/quotes-dark.png" alt="User interview quotes" class="research-methods-image research-methods-dark expandable-image" data-src="../images/aicontextmanagement/quotes-dark.png">
+                        </div>
+
+                <div class="insights-image-container">
+                    <img src="../images/aicontextmanagement/researchinsights.png" alt="Research Insights" class="insights-image expandable-image" data-src="../images/aicontextmanagement/researchinsights.png">
+
+                </div>
+                <div class="section-text">
+                    <p> </p>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <section class="case-study-section" id="problem">
+            <div class="section-header">
+                <h2 class="section-title ai-section-title">Problem</h2>
+            </div>
+            <div class="section-content">
+                <div class="ai-problem-layout">
+                    <div class="ai-problem-text">
+                        <p>Without tools to manage and share context, users face a tedious system that <span class="orange-highlight">disrupts focus, slows their work, and reduces trust.</span></p>
+                    </div>
+                    <div class="ai-problem-image-container">
+                        <img src="../images/aicontextmanagement/problem-light.png" alt="Context management problem illustration" class="problem-image problem-light expandable-image" data-src="../images/aicontextmanagement/problem-light.png">
+                        <img src="../images/aicontextmanagement/problem-dark.png" alt="Context management problem illustration" class="problem-image problem-dark expandable-image" data-src="../images/aicontextmanagement/problem-dark.png">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+     
+
+        <section class="case-study-section" id="prototyping">
+            <div class="section-header">
+              <br>
+              <br>
+                <h2 class="section-title ai-section-title">Competitive Analysis</h2>
+            </div>
+            <div class="section-content">
+                <div class="section-text">
+                    <h3 class="section-subtitle">How might we help users better manage and share context to AI tools with transparency?</h3>
+                </div>
+                <div class="section-text">
+                            <p>So we started ideating spurred on by a synthesis from our interview notes, and evaluated our ideas across direct and indirect competitors.</p>
+                </div>
+
+
+                <div class="lofis-image-container">
+                    <img src="../images/aicontextmanagement/companalysis-light.png" alt="Competitive analysis" class="lofis-image lofis-light expandable-image" data-src="../images/aicontextmanagement/companalysis-light.png">
+                    <img src="../images/aicontextmanagement/companalysis-dark.png" alt="Competitive analysis" class="lofis-image lofis-dark expandable-image" data-src="../images/aicontextmanagement/companalysis-dark.png">
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section" id="prototyping">
+            <div class="section-header">
+                <h2 class="section-title ai-section-title">Prototyping</h2>
+            </div>
+            <div class="section-content">
+                <div class="section-text">
+                    <h3 class="section-subtitle">Gaps in current tools informed our prototyping directions. </h3>
+                </div>
+                <div class="section-text">
+                            <p>We landed on our top feature ideas, exploring context management through a panel, recommendations across chats, and pulling context through in-line commands. From our brainstorming session, we determined the most delightful prototype for users and the most feasible for implementation. </p>
+                </div>
+
+
+                <div class="lofis-image-container">
+                    <img src="../images/aicontextmanagement/lofi.png" alt="Lo-fi prototypes" class="lofis-image expandable-image" data-src="../images/aicontextmanagement/lofi.png">
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- <section class="case-study-section" id="takeaways">
+            <div class="section-header">
+                <h2 class="section-title">Lo-Fi Prototypes</h2>
+            </div>
+            <div class="section-content">
+                <div class="section-text">
+                    <p>Based on our research insights and card sorting exercise, we developed initial lo-fi prototypes to test our core concepts.</p>
+                </div>
+
+                
+                <div class="scroll-indicator">
+                    <span>Scroll horizontally to view all prototypes</span>
+                </div>
+                <div class="prototype-gallery">
+                    
+                    <h4 class="prototype-header">Staff Facing</h4>
+                    <div class="prototype-scroll-container">
+                        <img src="../images/stafflofi.png" alt="Staff-facing lo-fi prototype screens" class="prototype-image expandable-image" data-src="../images/stafflofi.png">
+                    </div>
+                    
+                </div>
+
+                <div class="prototype-gallery">
+                    <h4 class="prototype-header">Participant Facing</h4>
+                    <div class="prototype-scroll-container">
+                        <img src="../images/participantlofi.png" alt="Participant-facing lo-fi prototype screens" class="prototype-image expandable-image" data-src="../images/participantlofi.png">
+                    </div>
+                    
+                </div>
+            </div>
+        </section> -->
+
+        <section class="case-study-section" id="usability-testing">
+            <div class="section-header">
+                <h2 class="section-title ai-section-title">Usability Testing</h2>
+            </div>
+            <div class="section-content">
+                <div class="section-text">
+                    <h3 class="section-subtitle">Converging on a solution.</h3>
+                    <p> We interviewed 8 graduate university students to further evaluate the efficacy of our features on each  prototype, leading them through a series of scenarios. </p>
+                </div>
+
+                <div class="testinginsights-image-container">
+                    <img src="../images/aicontextmanagement/testingresults-light.png" alt="Usability testing results" class="testinginsights-image testinginsights-light expandable-image" data-src="../images/aicontextmanagement/testingresults-light.png">
+                    <img src="../images/aicontextmanagement/testingresults-dark.png" alt="Usability testing results" class="testinginsights-image testinginsights-dark expandable-image" data-src="../images/aicontextmanagement/testingresults-dark.png">
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section" id="iterations">
+            <div class="section-header">
+                <h2 class="section-title ai-section-title">Iterations</h2>
+            </div>
+            <div class="section-content">
+                <div class="section-text">
+                    <h3 class="section-subtitle">These features do not exist in isolation, so how do they interact? </h3>
+                    <div class="challenge-chip">Challenge</div>
+                    <p> Since users found elements of these prototypes critical in their workflow, we needed to find a way to combine context management and in-line commands together into one seamless experience. The idea was to let users move naturally between organizing their information and taking action, so we mapped out stages to view how users would interact with these features.</p>
+                </div>
+
+                <div class="iteration-image-container">
+                    <img src="../images/aicontextmanagement/timeline-light.png" alt="Timeline iteration design" class="iteration-image iteration-light expandable-image" data-src="../images/aicontextmanagement/timeline-light.png">
+                    <img src="../images/aicontextmanagement/timeline-dark.png" alt="Timeline iteration design" class="iteration-image iteration-dark expandable-image" data-src="../images/aicontextmanagement/timeline-dark.png">
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-section" id="design">
+            <div class="section-content">
+                <div class="section-header">
+                    <h2 class="section-title ai-section-title">Final Designs</h2>
+                    <br>
+                    <h3 class="section-subtitle">The Integrated Context System.</h3>
+                </div>
+                
+                <!-- Context Panel -->
+                <div class="design-feature-container">
+                    <div class="design-reasoning">
+                        <h3 class="section-subtitle">Context Panel</h3>
+                        <div class="design-insight">
+                            <div class="lightbulb-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z" fill="currentColor"/>
+                                    <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <p class="insight-text">Users need to view context more holistically, with more visual information given about each piece of context.</p>
+                        </div>
+                        <div class="design-decision">
+                            <div class="design-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="design-text-content">
+                                <p class="decision-label">Design</p>
+                                <p class="decision-text">Collapsible panel where users can turn off context and reset chats while offering another place to import suggested files.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="design-mockup">
+                        <img src="../images/aicontextmanagement/contextpanelimage.png" alt="Context panel interface" class="design-image expandable-image" data-src="../images/aicontextmanagement/contextpanelimage.png">
+                    </div>
+                </div>
+
+                <!-- Context Import -->
+                <div class="design-feature-container">
+                    <div class="design-reasoning">
+                        <h3 class="section-subtitle">Recent Context Import</h3>
+                        <div class="design-insight">
+                            <div class="lightbulb-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z" fill="currentColor"/>
+                                    <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <p class="insight-text">Users repeatedly upload similar context across multiple chats, leading to inefficiency.</p>
+                        </div>
+                        <div class="design-decision">
+                            <div class="design-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="design-text-content">
+                                <p class="decision-label">Design</p>
+                                <p class="decision-text">A large context import feature that recommends recently used files from relevant projects, reducing cognitive load.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="design-mockup">
+                        <img src="../images/aicontextmanagement/contextimportimage.png" alt="Context import interface" class="design-image expandable-image" data-src="../images/aicontextmanagement/contextimportimage.png">
+                    </div>
+                </div>
+
+                <!-- Saved Prompts -->
+                <div class="design-feature-container">
+                    <div class="design-reasoning">
+                        <h3 class="section-subtitle">Embedded Prompts</h3>
+                        <div class="design-insight">
+                            <div class="lightbulb-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z" fill="currentColor"/>
+                                    <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <p class="insight-text">Users frequently reuse similar prompts but have no way to save or template them efficiently.</p>
+                        </div>
+                        <div class="design-decision">
+
+
+                            <div class="design-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="design-text-content">
+                                <p class="decision-label">Design</p>
+                                <p class="decision-text">Saved prompts library where users can store, organize, and quickly access their frequently used prompts.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="design-mockup">
+                        <img src="../images/aicontextmanagement/savedprompts.png" alt="Saved prompts interface" class="design-image expandable-image" data-src="../images/aicontextmanagement/savedprompts.png">
+                    </div>
+                </div>
+
+                <!-- Tooltips -->
+                <div class="design-feature-container">
+                    <div class="design-reasoning">
+                        <h3 class="section-subtitle">Learning the ‘invisible’ Features</h3>
+                        <div class="design-insight">
+                            <div class="lightbulb-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z" fill="currentColor"/>
+                                    <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <p class="insight-text">Users need guidance on how to use commands and adopt new methods to manage context.</p>
+                        </div>
+                        <div class="design-decision">
+                            <div class="design-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="design-text-content">
+                                <p class="decision-label">Design</p>
+                                <p class="decision-text">Contextual tooltips that overview new features that are hidden behind invisible keyboard commands.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="design-mockup">
+                        <img src="../images/aicontextmanagement/tooltips.png" alt="Tooltips interface" class="design-image expandable-image" data-src="../images/aicontextmanagement/tooltips.png">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <section class="case-study-section" id="final-thoughts">
+            <div class="section-header">
+                <h2 class="section-title ai-section-title">Reflection</h2>
+            </div>
+            <div class="section-content">
+                <div class="final-thoughts-grid">
+                    <div class="thoughts-column">
+                        <h3 class="thoughts-title">
+                            <div class="thoughts-title-content">
+                                
+                                <h3 class="section-subtitle">Learning...</h3>
+                            </div>
+                        </h3>
+                        <div class="section-text">
+                            <p> <b>AI tools are rapidly changing </b>and have many open ended use cases, presenting adaptibility challenges to serve users' different needs. </p>
+                            <br>
+                            <p><b>Privacy concerns remains a key consideration </b> when users interact and provide information to AI tools. </p>
+                        </div>
+                    </div>
+                    
+                    <div class="thoughts-column">
+                        <h3 class="thoughts-title">
+                            <div class="thoughts-title-content">
+                                
+                                <h3 class="section-subtitle">With more time...</h3>
+                            </div>
+                        </h3>
+                        <div class="section-text">
+                            <p><b>Utilizing AI coding tools to implement the features </b>could better simulate real product behavior and receive better feedback.</p>
+                            <br>
+                            <p>
+                                <b>More prototype testing stages </b>of the process, especially when creating new interaction paradigms.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Progress Indicator -->
+    <div class="progress-indicator" id="progressIndicator">
+        <div class="progress-steps">
+            <div class="progress-step" data-section="overview">
+                <div class="step-dot"></div>
+                <span class="step-label">Overview</span>
+            </div>
+            <div class="progress-step" data-sections="solution,impact">
+                <div class="step-dot"></div>
+                <span class="step-label">Solution</span>
+            </div>
+            <div class="progress-step" data-sections="context,research,problem">
+                <div class="step-dot"></div>
+                <span class="step-label">Research</span>
+            </div>
+            <div class="progress-step" data-sections="ideation,prototyping,usability-testing,iterations">
+                <div class="step-dot"></div>
+                <span class="step-label">Prototyping</span>
+            </div>
+            <div class="progress-step" data-section="design">
+                <div class="step-dot"></div>
+                <span class="step-label">Design</span>
+            </div>
+            <div class="progress-step" data-sections="outcomes,final-thoughts">
+                <div class="step-dot"></div>
+                <span class="step-label">Reflection</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>thanks for stopping by :)</h3>
+                <div class="social-links">
+                    <a href="mailto:anikabhagavatula@berkeley.edu">anikabhagavatula@berkeley.edu</a>
+                    <a href="https://www.linkedin.com/in/anikabhagavatula" target="_blank" class="linkedin-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="image-modal-close">&times;</span>
+        <img class="image-modal-content" id="modalImage">
+    </div>
+
+    <!-- Custom Cursor Dots -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-dot" id="cursor-dot-2"></div>
+    <div class="cursor-dot" id="cursor-dot-3"></div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

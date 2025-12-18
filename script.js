@@ -368,6 +368,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 case 'class':
                     window.location.href = '../class/';
                     break;
+                case 'interactionpatterns':
+                    window.location.href = '../interactionpatterns/';
+                    break;
                 case 'noborders':
                     window.location.href = '../noborders/';
                     break;
@@ -1417,6 +1420,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 switch(project) {
                     case 'class':
                         window.location.href = '../class/';
+                        break;
+                    case 'interactionpatterns':
+                        window.location.href = '../interactionpatterns/';
                         break;
                     case 'quantframe':
                         window.location.href = '../quantframe/';
