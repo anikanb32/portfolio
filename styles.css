@@ -1726,10 +1726,6 @@ body.dark-mode .play-pause-btn:hover {
 .btn-icon {
     width: 18px;
     height: 18px;
-    color: #b0b0b0;
-}
-
-.btn-icon.brain-icon {
     filter: invert(0.7);
 }
 
@@ -8947,12 +8943,12 @@ body.dark-mode .prototype-header {
 
 .highlight-word.active {
     color: #C45050;
-    background-color: rgba(196, 80, 80, 0.15);
+    /* background-color: rgba(196, 80, 80, 0.15); */
 }
 
 body.dark-mode .highlight-word.active {
     color: #E07070;
-    background-color: rgba(224, 112, 112, 0.15);
+    /* background-color: rgba(224, 112, 112, 0.15); */
 }
 .work-subtitle:not(.fade-in-delay-2) {
     transition: color 0.3s ease;
