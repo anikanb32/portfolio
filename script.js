@@ -1466,6 +1466,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 10);
         }
 
+        // Word highlight elements
+        const wordPerception = document.getElementById('word-perception');
+        const wordEmotion = document.getElementById('word-emotion');
+        const wordTechnology = document.getElementById('word-technology');
+        
+        function clearWordHighlights() {
+            if (wordPerception) wordPerception.classList.remove('active');
+            if (wordEmotion) wordEmotion.classList.remove('active');
+            if (wordTechnology) wordTechnology.classList.remove('active');
+        }
+
         function showScreen(screenId) {
             // Hide all screens
             screenPrompt.classList.add('hidden');
@@ -1476,14 +1487,20 @@ document.addEventListener('DOMContentLoaded', function() {
             // Reset animations
             resetAnimations();
             
-            // Show selected screen
+            // Clear all word highlights first
+            clearWordHighlights();
+            
+            // Show selected screen and highlight corresponding word
             if (screenId === 'brain') {
                 screenBrain.classList.add('active');
                 generateBrainDots();
+                if (wordPerception) wordPerception.classList.add('active');
             } else if (screenId === 'design') {
                 screenDesign.classList.add('active');
+                if (wordEmotion) wordEmotion.classList.add('active');
             } else if (screenId === 'code') {
                 screenCode.classList.add('active');
+                if (wordTechnology) wordTechnology.classList.add('active');
             }
         }
 
@@ -1502,6 +1519,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     screenDesign.classList.remove('active');
                     screenCode.classList.remove('active');
                     resetAnimations();
+                    clearWordHighlights();
                 } else {
                     this.classList.add('active');
                     showScreen(screenId);

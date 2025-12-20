@@ -2137,7 +2137,7 @@ body.dark-mode .intro h1 {
         color: #903232; /* Dark red */
     }
     50% {
-        color: #C94949; /* Medium coral */
+        color: #903232; /* Medium coral */
     }
 }
 
@@ -2151,7 +2151,7 @@ body.dark-mode .breathing-text {
         color: #C94949; /* Medium coral - lighter for dark mode */
     }
     50% {
-        color: #DE7E7E; /* Light coral */
+        color: #C94949; /* Light coral */
     }
 }
 
@@ -8935,6 +8935,24 @@ body.dark-mode .prototype-header {
     max-width: 60%;
     line-height: 1.6;
     transition: color 0.3s ease; /* Always transition color at same speed as title */
+}
+
+/* Highlight words for computer button interaction */
+.highlight-word {
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 2px 6px;
+    margin: -2px -6px;
+    border-radius: 12px;
+}
+
+.highlight-word.active {
+    color: #C45050;
+    background-color: rgba(196, 80, 80, 0.15);
+}
+
+body.dark-mode .highlight-word.active {
+    color: #E07070;
+    background-color: rgba(224, 112, 112, 0.15);
 }
 .work-subtitle:not(.fade-in-delay-2) {
     transition: color 0.3s ease;
