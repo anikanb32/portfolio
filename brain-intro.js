@@ -3,13 +3,13 @@
   // Adaptive dot count based on device performance
   const getOptimalDotCount = () => {
     // Check device capabilities
-    const isHighPerf = navigator.hardwareConcurrency >= 8 && 
+    const isHighPerf = navigator.hardwareConcurrency >= 8 &&
                        (window.devicePixelRatio || 1) <= 2;
     // Reduce dots on mobile or low-end devices
     if (window.innerWidth < 768 || !isHighPerf) {
-      return 8000; // Lower count for mobile/low-end
+      return 3000; // Lower count for mobile/low-end
     }
-    return 12000; // Higher count for desktop (with smaller dots, more can fit)
+    return 5000; // Reduced count for faster loading
   };
   const NUM_DOTS = getOptimalDotCount();
   const BASE_SIZE = 3.0;
@@ -608,11 +608,11 @@
     let moved = false;
     const DRIFT_EASE = 0.065;
     const MAX_STEP = 1.6;
-    const breath = 1.0 + 0.50 * (0.5 * (1.0 + Math.sin(now * (2.0 * Math.PI / 5.5))));
-    
+    const breath = 1.0; // Disable breathing animation
+
     // Count how many dots are actually being rendered (not off-screen)
     let visibleDotsCount = 0;
-    
+
     for (let i = 0; i < NUM_DOTS; i++) {
       // Skip dots that are off-screen (uninitialized)
       const i3 = i * 3;
@@ -620,25 +620,9 @@
       visibleDotsCount++;
       const bx = basePositions[i3 + 0];
       const by = basePositions[i3 + 1];
-      const dirx = driftDirs[i * 2 + 0];
-      const diry = driftDirs[i * 2 + 1];
-      const amp = driftAmps[i] * breath;
-      const spd = driftSpeeds[i];
-      const ph = phases[i];
-      let ox = dirx * Math.sin(now * spd + ph) * amp;
-      let oy = diry * Math.cos(now * spd + ph) * amp;
-      let nx = bx + ox;
-      let ny = by + oy;
-      if (!isInsideBrain(nx, ny)) {
-        ox *= 0.5;
-        oy *= 0.5;
-        nx = bx + ox;
-        ny = by + oy;
-        if (!isInsideBrain(nx, ny)) {
-          nx = bx;
-          ny = by;
-        }
-      }
+      // Disable drift animation - dots stay at base position
+      let nx = bx;
+      let ny = by;
       
       // Dramatic gravitational pull toward mouse position
       if (pointer.inside) {

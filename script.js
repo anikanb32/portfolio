@@ -329,9 +329,22 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 100);
         });
         
-                // Click event for navigation to project pages
-        record.addEventListener('click', function() {
+                // Click event for navigation to project pages - ONLY on explicit click
+        record.addEventListener('click', function(e) {
+            // Only respond to real user clicks (not synthetic events)
+            if (!e.isTrusted) {
+                console.log('Ignoring synthetic click event');
+                return;
+            }
+            
             const project = this.getAttribute('data-project');
+            
+            // Don't navigate if no project defined
+            if (!project) {
+                console.log('No project defined, not navigating');
+                return;
+            }
+            
             console.log(`Clicked on project: ${project}`);
             
             // Navigate to the appropriate project page
@@ -937,8 +950,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Also intercept clicks on elements that navigate programmatically (like record clicks)
     document.addEventListener('click', function(e) {
+      // Only respond to real user clicks
+      if (!e.isTrusted) return;
+      
       var target = e.target.closest('[data-project]');
       if (target && target.hasAttribute('data-project')) {
+        // Skip coming-soon items - they don't navigate
+        if (target.classList.contains('coming-soon')) {
+          return;
+        }
         // This is likely a work item or record that will navigate
         // Show loader immediately
         showLoader();
@@ -1304,6 +1324,62 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Initialize Record Player on Main Page
+    if (document.getElementById('intro-record-player')) {
+        const vinylRecord = document.getElementById('vinyl-record');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const playIcon = playPauseBtn.querySelector('.play-icon');
+        const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+        let isPlaying = false;
+
+        // Toggle play/pause
+        playPauseBtn.addEventListener('click', function() {
+            isPlaying = !isPlaying;
+            
+            if (isPlaying) {
+                vinylRecord.classList.add('spinning');
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+            } else {
+                vinylRecord.classList.remove('spinning');
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+            }
+        });
+
+        // Click vinyl record to play/pause
+        vinylRecord.addEventListener('click', function() {
+            playPauseBtn.click();
+        });
+
+        // Color control buttons - change vinyl color
+        const colorButtons = document.querySelectorAll('.record-control-btn[data-color]');
+        const vinylColors = {
+            '1': { c1: '#8B2020', c2: '#A03030', c3: '#6a1a1a' },
+            '2': { c1: '#642a2a', c2: '#753232', c3: '#452424' },
+            '3': { c1: '#4a1515', c2: '#5a2020', c3: '#351010' }
+        };
+
+        colorButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const colorId = this.getAttribute('data-color');
+                
+                // Remove active class from all buttons
+                colorButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Change vinyl color using CSS variables for smooth transition
+                if (vinylColors[colorId]) {
+                    vinylRecord.style.setProperty('--vinyl-color-1', vinylColors[colorId].c1);
+                    vinylRecord.style.setProperty('--vinyl-color-2', vinylColors[colorId].c2);
+                    vinylRecord.style.setProperty('--vinyl-color-3', vinylColors[colorId].c3);
+                }
+            });
+        });
+    }
+
         // Fallback: restore default cursor if custom cursor fails - COMMENTED OUT
     // setTimeout(() => {
     //   if (!mainDot || !trail1 || !trail2) {
@@ -1328,7 +1404,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.querySelector('.work-filters')) {
         const filterButtons = document.querySelectorAll('.filter-btn');
         const workItems = document.querySelectorAll('.work-item');
-        
+
+        // Ensure all work items are visible on page load (since "All" filter is active by default)
+        workItems.forEach(item => {
+            item.classList.remove('hidden');
+            item.style.display = 'block';
+        });
+
         filterButtons.forEach(button => {
             button.addEventListener('click', function() {
                 const filter = this.getAttribute('data-filter');
@@ -1384,10 +1466,45 @@ document.addEventListener('DOMContentLoaded', function() {
         // Initialize counts (commented out since counts are not displayed)
         // updateFilterCounts('all');
         
-        // Add click navigation for work items
+        // Track if user is scrolling to prevent accidental navigation
+        let isScrolling = false;
+        let scrollTimeout;
+        window.addEventListener('scroll', function() {
+            isScrolling = true;
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(function() {
+                isScrolling = false;
+            }, 100);
+        }, { passive: true });
+        
+        // Add click navigation for work items - ONLY on explicit click, not hover
         workItems.forEach(item => {
-            item.addEventListener('click', function() {
+            // Skip coming-soon items entirely - no click handler
+            if (item.classList.contains('coming-soon')) {
+                return;
+            }
+            
+            item.addEventListener('click', function(e) {
+                // Only respond to real user clicks (not synthetic events)
+                if (!e.isTrusted) {
+                    console.log('Ignoring synthetic click event');
+                    return;
+                }
+                
+                // Ignore clicks that happen while scrolling (accidental touches)
+                if (isScrolling) {
+                    console.log('Ignoring click during scroll');
+                    return;
+                }
+                
                 const project = this.getAttribute('data-project');
+                
+                // Don't navigate if no project defined
+                if (!project) {
+                    console.log('No project defined, not navigating');
+                    return;
+                }
+                
                 console.log(`Clicked on work item: ${project}`);
                 
                 // Navigate to the appropriate project page
@@ -1725,6 +1842,24 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(function() {
                 bmwVideo.play();
             }, 2000); // 2 second delay before replay
+        });
+    }
+});
+
+// Back Button Scroll Visibility
+document.addEventListener('DOMContentLoaded', function() {
+    const backButton = document.querySelector('.back-button');
+    if (backButton) {
+        // Show/hide back button based on scroll position
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            const heroHeight = window.innerHeight; // Assume hero is full viewport height
+
+            if (scrollPosition > heroHeight * 0.8) {
+                backButton.classList.add('visible');
+            } else {
+                backButton.classList.remove('visible');
+            }
         });
     }
 });

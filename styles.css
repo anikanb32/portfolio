@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 
+/* Register CSS properties for smooth color transitions */
+@property --vinyl-color-1 {
+    syntax: '<color>';
+    initial-value: #642a2a;
+    inherits: false;
+}
+
+@property --vinyl-color-2 {
+    syntax: '<color>';
+    initial-value: #753232;
+    inherits: false;
+}
+
+@property --vinyl-color-3 {
+    syntax: '<color>';
+    initial-value: #452424;
+    inherits: false;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -1101,6 +1120,24 @@ main {
     transition-delay: 0.7s;
 }
 
+.work-grid.fade-in-stagger.loaded .work-item:nth-child(8) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.8s;
+}
+
+.work-grid.fade-in-stagger.loaded .work-item:nth-child(9) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.9s;
+}
+
+.work-grid.fade-in-stagger.loaded .work-item:nth-child(10) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1.0s;
+}
+
   /* Intro Section */
   .intro {
       padding: 8rem 60px;
@@ -1132,6 +1169,485 @@ main {
 
 .intro-text * {
     pointer-events: auto; /* Re-enable pointer events for text content */
+}
+
+/* Interactive Neuron Network */
+.intro-neuron-network {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 45%;
+    height: 100vh;
+    margin-top: 0;
+    padding: 3rem 3rem 3rem 0;
+    z-index: 1;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Record Player on Main Page */
+.intro-record-player {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 45%;
+    height: 100vh;
+    margin-top: 0;
+    padding: 0 3rem 3rem 0;
+    z-index: 1;
+    overflow: visible;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 0;
+}
+
+/* Tablet styles for record player */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .intro {
+        padding: 6rem 40px;
+    }
+
+    .intro-content {
+        flex-direction: column;
+        align-items: flex-start;
+        min-height: auto;
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    .intro-text {
+        position: relative;
+        top: auto;
+        left: auto;
+        max-width: 100%;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 2rem;
+    }
+
+    .intro-record-player {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        height: auto;
+        padding: 0;
+        margin-top: 1rem;
+        justify-content: flex-start;
+    }
+
+    .record-player-deck {
+        width: 380px;
+        height: 380px;
+    }
+
+    .intro h1 {
+        font-size: 2.2rem;
+    }
+
+    .intro .work-subtitle {
+        text-align: left;
+        max-width: 600px;
+    }
+}
+
+.record-player-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 0;
+}
+
+.record-player-deck {
+    background: linear-gradient(145deg, #8a8a8a 0%, #6a6a6a 50%, #4a4a4a 100%);
+    border-radius: 16px;
+    box-shadow: 
+        0 8px 32px rgba(0,0,0,0.15),
+        inset 0 1px 0 rgba(255,255,255,0.1),
+        inset 0 -1px 0 rgba(0,0,0,0.2);
+    padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+    width: 450px;
+    height: 450px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.1);
+    /* transition: background 0.3s ease; */
+}
+
+body.dark-mode .record-player-deck {
+    background: linear-gradient(145deg, #5a5a5a 0%, #3a3a3a 50%, #2a2a2a 100%);
+}
+
+.vinyl-record {
+    width: 80%;
+    height: 80%;
+    --vinyl-color-1: #642a2a;
+    --vinyl-color-2: #753232;
+    --vinyl-color-3: #452424;
+    background: radial-gradient(circle at center, var(--vinyl-color-1) 0%, var(--vinyl-color-2) 8%, var(--vinyl-color-3) 8%, #2a2a2a 100%);
+    border-radius: 50%;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 0 0 8px rgba(0,0,0,0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: --vinyl-color-1 0.5s ease, --vinyl-color-2 0.5s ease, --vinyl-color-3 0.5s ease;
+}
+
+/* Grey circle behind the black center */
+.record-player-deck .vinyl-record::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 22%;
+    height: 22%;
+    background: #1f1d1d;
+    border-radius: 50%;
+}
+
+/* Black center circle of the vinyl */
+.record-player-deck .vinyl-record::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8%;
+    height: 8%;
+    background: #000;
+    border-radius: 50%;
+}
+
+
+
+
+
+.vinyl-record.spinning {
+    animation: vinyl-spin 2s linear infinite;
+}
+
+@keyframes vinyl-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
+
+.record-player-bottom-controls {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.5rem;
+}
+
+.record-control-btn {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(145deg, #6a6a6a 0%, #4a4a4a 100%);
+    border-radius: 6px;
+    box-shadow: 
+        0 2px 4px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.1),
+        inset 0 -1px 0 rgba(0,0,0,0.2);
+    border: 1px solid rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.record-control-btn:hover {
+    background: linear-gradient(145deg, #7a7a7a 0%, #5a5a5a 100%);
+    box-shadow: 
+        0 3px 6px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.15),
+        inset 0 -1px 0 rgba(0,0,0,0.25);
+}
+
+.record-control-btn:active {
+    background: linear-gradient(145deg, #8a8a8a 0%, #6a6a6a 100%);
+    box-shadow: 
+        0 2px 4px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.2),
+        inset 0 -1px 0 rgba(0,0,0,0.3);
+}
+
+/* Active/pressed state for control buttons */
+.record-control-btn.active {
+    background: linear-gradient(145deg, #5a5a5a 0%, #3a3a3a 100%);
+    box-shadow: 
+        inset 0 2px 4px rgba(0,0,0,0.5),
+        inset 0 -1px 0 rgba(255,255,255,0.05);
+    transform: translateY(1px);
+}
+
+
+.tone-arm {
+    position: absolute;
+    top: 18%;
+    right: 12%;
+    width: 140px;
+    height: 8px;
+    background: linear-gradient(90deg, #6a6a6a 0%, #4a4a4a 50%, #3a3a3a 100%);
+    border-radius: 4px;
+    transform-origin: right center;
+    transform: rotate(-90deg);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: transform 1.5s ease-in-out !important;
+    z-index: 3;
+}
+
+.vinyl-record.spinning ~ .tone-arm {
+    transform: rotate(-65deg);
+}
+
+.tone-arm::before {
+    content: '';
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: radial-gradient(circle, #4a4a4a 0%, #2a2a2a 100%);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.tone-arm::after {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: radial-gradient(circle, #8a8a8a 0%, #6a6a6a 100%);
+    border-radius: 50%;
+}
+
+.record-player-controls {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    z-index: 10;
+}
+
+.play-pause-btn {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(145deg, #6a6a6a 0%, #4a4a4a 100%);
+    border-radius: 50%;
+    border: none;
+    box-shadow: 
+        0 2px 8px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.1),
+        inset 0 -1px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    color: #838383;
+}
+
+.play-pause-btn:hover {
+    background: linear-gradient(145deg, #7a7a7a 0%, #5a5a5a 100%);
+    box-shadow: 
+        0 6px 16px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.15),
+        inset 0 -1px 0 rgba(0,0,0,0.25);
+    /* transform: translateY(-2px); */
+}
+
+.play-pause-btn:active {
+    transform: translateY(0);
+    box-shadow: 
+        0 2px 8px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.2),
+        inset 0 -1px 0 rgba(0,0,0,0.3);
+}
+
+body.dark-mode .play-pause-btn {
+    background: linear-gradient(145deg, #5a5a5a 0%, #3a3a3a 100%);
+    color: #7f7f7f;
+}
+
+body.dark-mode .play-pause-btn:hover {
+    background: linear-gradient(145deg, #6a6a6a 0%, #4a4a4a 100%);
+}
+
+.neuron-svg {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .neuron-svg {
+    color: #fff;
+}
+
+/* Brain dots */
+.brain-dots circle {
+    fill: currentColor;
+    opacity: 0.25;
+    transition: all 0.3s ease;
+}
+
+.brain-dots.active circle {
+    opacity: 0.45;
+}
+
+/* Synapse dots */
+.synapse circle {
+    fill: currentColor;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.synapse.active circle {
+    opacity: 0.6;
+    animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 0.9;
+    }
+}
+
+/* Neuron buttons - clickable areas */
+.neuron-button {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.neuron-button:hover .neuron-node {
+    stroke-width: 3;
+    filter: drop-shadow(0 0 8px currentColor);
+}
+
+.neuron-button:hover .neuron-core {
+    opacity: 0.6;
+}
+
+/* Active state for clicked neurons */
+.neuron-button.active .neuron-node {
+    stroke-width: 3;
+    filter: drop-shadow(0 0 12px currentColor);
+    animation: neuron-pulse 1.5s ease-in-out infinite;
+}
+
+.neuron-button.active .neuron-core {
+    opacity: 0.8;
+    animation: core-pulse 1.5s ease-in-out infinite;
+}
+
+/* Central neuron pulse animation when active */
+.central-neuron.active {
+    animation: central-pulse 1.5s ease-in-out infinite;
+}
+
+.central-core.active {
+    opacity: 0.5;
+    animation: core-pulse 1.5s ease-in-out infinite;
+}
+
+/* Synapse animations */
+.synapse {
+    transition: all 0.4s ease;
+}
+
+.synapse.active {
+    opacity: 1 !important;
+    stroke-width: 3;
+    filter: drop-shadow(0 0 8px currentColor);
+    animation: synapse-flow 1.2s ease-in-out infinite;
+}
+
+/* Neurotransmitter label */
+.neurotransmitter-label {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #000;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+body.dark-mode .neurotransmitter-label {
+    color: #fff;
+}
+
+.neurotransmitter-label.visible {
+    opacity: 1;
+}
+
+/* Animations */
+@keyframes neuron-pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes core-pulse {
+    0%, 100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.4;
+    }
+}
+
+@keyframes central-pulse {
+    0%, 100% {
+        stroke-width: 2;
+    }
+    50% {
+        stroke-width: 3;
+        filter: drop-shadow(0 0 12px currentColor);
+    }
+}
+
+@keyframes synapse-flow {
+    0% {
+        stroke-dasharray: 0 200;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 100 200;
+        stroke-dashoffset: -100;
+    }
+    100% {
+        stroke-dasharray: 0 200;
+        stroke-dashoffset: -200;
+    }
 }
 
 .intro-brain {
@@ -1494,6 +2010,11 @@ body.dark-mode .highlight-phrase {
     }
     
     /* Keep desktop layout for tablets - only change for mobile (768px and below) */
+    .intro-neuron-network {
+        height: 100vh;
+        width: 100%;
+    }
+
     .intro-brain {
         height: 100vh;
         width: 100%;
@@ -1528,6 +2049,120 @@ body.dark-mode .highlight-phrase {
         position: relative;
     }
     
+    .intro-neuron-network {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        height: 60vh;
+        right: auto;
+        top: auto;
+        order: 1;
+        margin-top: 2rem;
+    }
+
+    .intro-record-player {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: 350px;
+        right: auto;
+        top: auto;
+        order: 1;
+        margin-top: 1rem;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .record-player-container {
+        gap: 1rem;
+    }
+
+    .record-player-deck {
+        width: 280px;
+        height: 280px;
+        padding: 1rem;
+    }
+
+    .vinyl-record {
+        width: 85%;
+        height: 85%;
+    }
+
+    .tone-arm {
+        width: 80px;
+        top: 15%;
+        right: 10%;
+    }
+
+    .tone-arm::before {
+        width: 18px;
+        height: 18px;
+        right: -8px;
+    }
+
+    .tone-arm::after {
+        width: 12px;
+        height: 12px;
+        left: -6px;
+    }
+
+    .play-pause-btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    .record-control-btn {
+        width: 20px;
+        height: 20px;
+    }
+
+    .record-player-bottom-controls {
+        gap: 1rem;
+        padding-top: 0.3rem;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 400px) {
+    .intro h1 {
+        font-size: 1.5rem;
+    }
+
+    .intro h1 span {
+        font-size: 1.5rem;
+    }
+
+    .intro h1 .poppins-text {
+        font-size: 1.3rem;
+    }
+
+    .record-player-deck {
+        width: 240px;
+        height: 240px;
+        padding: 0.8rem;
+    }
+
+    .tone-arm {
+        width: 65px;
+    }
+
+    .play-pause-btn {
+        width: 24px;
+        height: 24px;
+    }
+
+    .record-control-btn {
+        width: 18px;
+        height: 18px;
+    }
+
+    .record-player-bottom-controls {
+        gap: 0.8rem;
+    }
+
     .intro-brain {
         position: relative; /* Change from absolute to relative for mobile */
         width: 100%;
@@ -1540,33 +2175,42 @@ body.dark-mode .highlight-phrase {
     }
     
     .intro-text {
-        position: relative; /* Change from absolute to relative for mobile */
+        position: relative;
         width: 100%;
-        top: auto; /* Remove absolute positioning */
-        left: auto; /* Remove absolute positioning */
+        top: auto;
+        left: auto;
         padding: 0;
         max-width: 100%;
-        order: 0; /* Show text first on mobile */
+        order: 0;
+        text-align: center;
     }
     
     .intro h1 {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
         width: 100%;
+        line-height: 1.3;
     }
     
     .intro h1 span {
-        font-size: 3rem;
+        font-size: 1.8rem;
+    }
+
+    .intro h1 .poppins-text {
+        font-size: 1.6rem;
     }
     
     .intro p {
         max-width: 100%;
-        font-size: 1rem;
+        font-size: 0.95rem;
         color: #000000;
         transition: color 0.3s ease;
+        text-align: center;
     }
     
-    .intro p.fade-in-delay-2 {
+    .intro p.fade-in-delay-2,
+    .intro .work-subtitle {
         font-size: 0.9rem;
+        text-align: center;
     }
     
     /* Mobile dark mode for paragraph text */
@@ -2866,7 +3510,7 @@ body.dark-mode .footer-content {
     padding: 0;
 }
 
-.vinyl-record {
+.vinyl-collection .vinyl-record {
     position: relative;
     width: 200px;
     height: 200px;
@@ -2876,12 +3520,12 @@ body.dark-mode .footer-content {
     transform-style: preserve-3d;
 }
 
-.vinyl-record:hover {
+.vinyl-collection .vinyl-record:hover {
     transform: translateY(-15px) rotateY(15deg) scale(1.1);
     filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
 }
 
-.vinyl-record::before {
+.vinyl-collection .vinyl-record::before {
     content: '';
     position: absolute;
     top: 0;
@@ -2895,7 +3539,7 @@ body.dark-mode .footer-content {
         inset 0 2px 0 rgba(255,255,255,0.1);
 }
 
-.vinyl-record::after {
+.vinyl-collection .vinyl-record::after {
     content: '';
     position: absolute;
     top: 10px;
@@ -2909,7 +3553,7 @@ body.dark-mode .footer-content {
     animation-play-state: paused;
 }
 
-.vinyl-record:hover::after {
+.vinyl-collection .vinyl-record:hover::after {
     animation-play-state: running;
 }
 
@@ -2963,7 +3607,7 @@ body.dark-mode .footer-content {
     pointer-events: none;
 }
 
-.vinyl-record:hover .vinyl-info {
+.vinyl-collection .vinyl-record:hover .vinyl-info {
     opacity: 1;
     transform: translateX(-50%) translateY(-10px);
 }
@@ -8041,6 +8685,7 @@ body.dark-mode .prototype-header {
 
 .work-item.coming-soon {
     cursor: default;
+    pointer-events: none;
 }
 
 .work-item.coming-soon .project-image-container {
@@ -8396,6 +9041,17 @@ body.dark-mode .cta-content p {
         position: relative;
     }
     
+    .intro-neuron-network {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        height: 50vh;
+        right: auto;
+        top: auto;
+        order: 1;
+        margin-top: 2rem;
+    }
+
     .intro-brain {
         position: relative; /* Change from absolute to relative for small mobile */
         width: 100%;
@@ -8478,6 +9134,76 @@ body.dark-mode .cta-content p {
     .cta-button {
         padding: 0.8rem 1.5rem;
         font-size: 1rem;
+    }
+}
+
+/* Back Button */
+.back-button {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 1001;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #000;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+}
+
+.back-button.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.back-button::before {
+    content: "←";
+    font-size: 1.1rem;
+}
+
+body.dark-mode .back-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+body.dark-mode .back-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 768px) {
+    .back-button {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .back-button {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
     }
 }
 
@@ -11351,3 +12077,5 @@ body.dark-mode .metric-card code {
 .ai-main #problem .section-impact,
 .ai-main #problem h3,
 .ai-main #problem p {
+    color: inherit;
+}

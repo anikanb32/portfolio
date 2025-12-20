@@ -71,10 +71,30 @@
                        allows me to approach design from multiple perspectives: understanding user psychology, 
                        working within technical constraints, and always considering the broader system. -->
                 </div>
-                <!-- <div class="intro-brain">
-                    <div id="brain-bg"></div>
-                    <div id="brain-app"></div>
-                </div> -->
+                <div class="intro-record-player" id="intro-record-player">
+                    <div class="record-player-container">
+                        <div class="record-player-deck">
+                            <div class="vinyl-record" id="vinyl-record">
+                            </div>
+                            <div class="tone-arm" id="tone-arm"></div>
+                            <div class="record-player-bottom-controls">
+                                <div class="record-control-btn" data-color="1"></div>
+                                <div class="record-control-btn active" data-color="2"></div>
+                                <div class="record-control-btn" data-color="3"></div>
+                            </div>
+                            <div class="record-player-controls">
+                                <button class="play-pause-btn" id="play-pause-btn" aria-label="Play/Pause">
+                                    <svg class="play-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                    <svg class="pause-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -170,14 +190,11 @@
               </div>
           </div> -->
 
-          <div class="work-item" data-project="coachpro" data-category="design">
+          <div class="work-item coming-soon" data-category="design">
               <div class="project-image-container">
                   <video autoplay loop muted playsinline class="project-image" preload="metadata">
                       <source src="../images/work/coachpro.mp4" type="video/mp4">
                   </video>
-                  <div class="project-overlay">
-                      <span class="view-project">view project</span>
-                  </div>
               </div>
               <h2 class="project-name">CoachPro</h2>
               <p class="project-description">A comprehensive platform for tennis academies to manage operations, track player development, and build meaningful coach-player relationships.</p>
@@ -199,21 +216,6 @@
               <div class="project-tags">
                   <span class="tag">Frontend Development</span>
               </div>
-          </div>
-
-          
-          <div class="work-item coming-soon" data-category="programming">
-              <div class="project-image-container">
-                  <video autoplay loop muted playsinline class="project-image" preload="metadata">
-                      <source src="../images/work/neuro.mp4" type="video/mp4">
-                  </video>
-              </div>
-              <h2 class="project-name">Neurologic</h2>
-              <p class="project-description">An interactive neuroscience educational platform that provides insights into cognitive processes and neuroscience principles.</p>
-              <div class="project-tags">
-                      <span class="tag">Frontend Development</span>
-                      <span class="tag">Accessible Design</span>
-                  </div>
           </div>
 
           <div class="work-item" data-project="context-aware-vr" data-category="research">
@@ -245,6 +247,45 @@
                   <span class="tag">Research</span>
                   <span class="tag">AR/VR</span>
               </div>
+          </div>
+
+          <div class="work-item coming-soon" data-category="programming">
+              <div class="project-image-container">
+                  <video autoplay loop muted playsinline class="project-image" preload="metadata">
+                      <source src="../images/margin/margin.mp4" type="video/mp4">
+                  </video>
+              </div>
+              <h2 class="project-name">margin</h2>
+              <p class="project-description">A tool to help designers understand what their code is doing and how it works.</p>
+              <div class="project-tags">
+                  <span class="tag">Frontend Development</span>
+              </div>
+          </div>
+
+          <div class="work-item coming-soon" data-category="programming">
+              <div class="project-image-container">
+                  <img src="images/vantage/vantage.jpeg" alt="Vantage Project" class="project-image">
+              </div>
+              <h2 class="project-name">Vantage</h2>
+              <p class="project-description">A journey-based navigation system that organizes XR design elements according to when they appear during the user experience.</p>
+              <div class="project-tags">
+                  <span class="tag">Frontend Development</span>
+                  <span class="tag">AR/VR</span>
+              </div>
+          </div>
+
+          <div class="work-item coming-soon" data-category="programming">
+              <div class="project-image-container">
+                  <video autoplay loop muted playsinline class="project-image" preload="metadata">
+                      <source src="../images/work/neuro.mp4" type="video/mp4">
+                  </video>
+              </div>
+              <h2 class="project-name">Neurologic</h2>
+              <p class="project-description">An interactive neuroscience educational platform that provides insights into cognitive processes and neuroscience principles.</p>
+              <div class="project-tags">
+                      <span class="tag">Frontend Development</span>
+                      <span class="tag">Accessible Design</span>
+                  </div>
           </div>
 
           
@@ -293,8 +334,6 @@
     <div class="cursor-dot" id="cursor-dot-2"></div>
     <div class="cursor-dot" id="cursor-dot-3"></div>
 
-    <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-    <script src="brain-intro.js"></script>
     <script src="script.js"></script>
 </body>
 </html> 
