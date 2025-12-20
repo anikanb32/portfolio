@@ -1516,7 +1516,7 @@ body.dark-mode .play-pause-btn:hover {
 }
 
 .monitor-bezel {
-    background: linear-gradient(145deg, #8a8a8a 0%, #6a6a6a 50%, #4a4a4a 100%);
+    background: #6a6a6a;
     border-radius: 20px;
     padding: 20px 20px 10px 20px;
 }
@@ -1702,7 +1702,7 @@ body.dark-mode .play-pause-btn:hover {
 .comp-btn {
     width: 36px;
     height: 36px;
-    background: linear-gradient(145deg, #7a7a7a 0%, #5a5a5a 100%);
+    background: #5a5a5a;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -1713,14 +1713,14 @@ body.dark-mode .play-pause-btn:hover {
 }
 
 .comp-btn:hover {
-    background: linear-gradient(145deg, #8a8a8a 0%, #6a6a6a 100%);
+    background: #707070;
 }
 
 .comp-btn:active {
 }
 
 .comp-btn.active {
-    background: linear-gradient(145deg, #903232 0%, #702828 100%);
+    background: #8B3A3A;
 }
 
 .btn-icon {
@@ -1744,7 +1744,7 @@ body.dark-mode .play-pause-btn:hover {
 .monitor-logo {
     width: 24px;
     height: 16px;
-    background: linear-gradient(145deg, #5a5a5a 0%, #3a3a3a 100%);
+    background: #4a4a4a;
     border-radius: 3px;
     opacity: 0.6;
 }
@@ -1759,28 +1759,28 @@ body.dark-mode .play-pause-btn:hover {
 .stand-neck {
     width: 50px;
     height: 60px;
-    background: linear-gradient(180deg, #6a6a6a 0%, #5a5a5a 50%, #4a4a4a 100%);
+    background: #4a4a4a;
 }
 
 .stand-base {
     width: 180px;
     height: 12px;
-    background: linear-gradient(145deg, #7a7a7a 0%, #5a5a5a 50%, #3a3a3a 100%);
+    background: #4a4a4a;
     border-radius: 6px 6px 10px 10px;
 }
 
 
 /* Dark mode adjustments */
 body.dark-mode .monitor-bezel {
-    background: linear-gradient(145deg, #5a5a5a 0%, #3a3a3a 50%, #2a2a2a 100%);
+    background: #3a3a3a;
 }
 
 body.dark-mode .stand-neck {
-    background: linear-gradient(180deg, #4a4a4a 0%, #3a3a3a 50%, #2a2a2a 100%);
+    background: #2a2a2a;
 }
 
 body.dark-mode .stand-base {
-    background: linear-gradient(145deg, #5a5a5a 0%, #3a3a3a 50%, #2a2a2a 100%);
+    background: #2a2a2a;
 }
 
 /* Tablet responsiveness */
@@ -3409,12 +3409,8 @@ body.dark-mode .footer-content {
     transform: translateX(0);
 }
 .dj-turntable {
-    background: linear-gradient(145deg, #8a8a8a 0%, #6a6a6a 50%, #4a4a4a 100%);
+    background: #6a6a6a;
     border-radius: 16px;
-    box-shadow: 
-        0 8px 32px rgba(0,0,0,0.15),
-        inset 0 1px 0 rgba(255,255,255,0.1),
-        inset 0 -1px 0 rgba(0,0,0,0.2);
     padding: 2rem;
     width: 550px;
     min-height: 280px;
@@ -3446,7 +3442,7 @@ body.dark-mode .footer-content {
     height: 120px;
     background: radial-gradient(circle at center, #2a2a2a 0%, #2a2a2a 20%, #4a4a4a 20%, #4a4a4a 100%);
     border-radius: 50%;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 0 0 8px rgba(0,0,0,0.10);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
     cursor: grab;
     display: flex;
     align-items: center;
@@ -3478,18 +3474,7 @@ body.dark-mode .footer-content {
 }
 
 .turntable-record::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    margin: auto;
-    width: 91.67%; /* 110px / 120px = 91.67% */
-    height: 91.67%;
-    border-radius: 50%;
-    box-shadow: 0 0 24px 8px rgba(0,0,0,0.18), 0 0 32px 12px rgba(0,0,0,0.10);
-    pointer-events: none;
-    opacity: 0.7;
-    z-index: 0;
-    /* This will rotate with the record via JS */
+    display: none;
 }
 
 .turntable-sliders {
@@ -3502,7 +3487,8 @@ body.dark-mode .footer-content {
 .slider {
     width: 32px;
     height: 32px;
-    background: linear-gradient(145deg, #6a6a6a 0%, #4a4a4a 100%);
+    background: #5a5a5a;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
     border-radius: 50%;
     box-shadow: 
         0 2px 8px rgba(0,0,0,0.3),
@@ -3553,12 +3539,8 @@ body.dark-mode .footer-content {
 .center-screen {
     width: 140px;
     height: 85px;
-    background: linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 100%);
+    background: #1a1a1a;
     border-radius: 6px;
-    box-shadow: 
-        0 3px 8px rgba(0,0,0,0.5),
-        inset 0 1px 0 rgba(255,255,255,0.1),
-        inset 0 -1px 0 rgba(0,0,0,0.3);
     border: 2px solid #333;
     display: flex;
     align-items: center;
@@ -3568,14 +3550,7 @@ body.dark-mode .footer-content {
 }
 
 .center-screen::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.02) 50%, transparent 100%);
-    pointer-events: none;
+    display: none;
 }
 
 .screen-text {
@@ -3606,31 +3581,22 @@ body.dark-mode .footer-content {
 .center-button {
     width: 24px;
     height: 24px;
-    background: linear-gradient(145deg, #6a6a6a 0%, #4a4a4a 100%);
+    background: #5a5a5a;
     border-radius: 4px;
-    box-shadow: 
-        0 2px 4px rgba(0,0,0,0.3),
-        inset 0 1px 0 rgba(255,255,255,0.1),
-        inset 0 -1px 0 rgba(0,0,0,0.2);
-    border: 1px solid rgba(0,0,0,0.3);
+    border: none;
     cursor: pointer;
     transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .center-button:hover {
-    background: linear-gradient(145deg, #7a7a7a 0%, #5a5a5a 100%);
-    box-shadow: 
-        0 3px 6px rgba(0,0,0,0.4),
-        inset 0 1px 0 rgba(255,255,255,0.15),
-        inset 0 -1px 0 rgba(0,0,0,0.25);
+    background: #707070;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.4);
 }
 
 .center-button.active {
-    background: linear-gradient(145deg, #8a8a8a 0%, #6a6a6a 100%);
-    box-shadow: 
-        0 2px 4px rgba(0,0,0,0.4),
-        inset 0 1px 0 rgba(255,255,255,0.2),
-        inset 0 -1px 0 rgba(0,0,0,0.3);
+    background: #8B3A3A;
+    box-shadow: none;
 }
 
 
