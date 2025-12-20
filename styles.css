@@ -9555,7 +9555,7 @@ body.dark-mode .cta-content p {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: none;
     border-radius: 12px;
     padding: 0.75rem 1.5rem;
     font-size: 0.95rem;
@@ -9590,7 +9590,7 @@ body.dark-mode .cta-content p {
 
 body.dark-mode .back-button {
     background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: none;
     color: #fff;
 }
 
