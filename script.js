@@ -223,33 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize test page functionality
     initializeTestPage();
-    
-    // Lazy loading for images
-    const lazyImages = document.querySelectorAll('img[data-src]');
-    
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy-load');
-                    img.classList.add('loaded');
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
-        
-        lazyImages.forEach(img => imageObserver.observe(img));
-    } else {
-        // Fallback for browsers without IntersectionObserver
-        lazyImages.forEach(img => {
-            img.src = img.dataset.src;
-            img.classList.remove('lazy-load');
-            img.classList.add('loaded');
-        });
-    }
-    
+
     // Hamburger menu functionality
     const hamburger = document.querySelector('.hamburger');
     const mobileNav = document.querySelector('.mobile-nav');
@@ -1742,3 +1716,15 @@ function initializeTestPage() {
         });
     }
 }
+
+// BMW Logo Video with Replay Delay
+document.addEventListener('DOMContentLoaded', function() {
+    const bmwVideo = document.querySelector('.bmw-logo-video');
+    if (bmwVideo) {
+        bmwVideo.addEventListener('ended', function() {
+            setTimeout(function() {
+                bmwVideo.play();
+            }, 2000); // 2 second delay before replay
+        });
+    }
+});

@@ -6821,6 +6821,25 @@ body.dark-mode .metric-card code {
     text-align: center;
 }
 
+/* Context-aware page specific - Allow class-details to wrap for logo */
+.context-aware-vr-page .class-details {
+    flex-wrap: wrap;
+}
+
+/* XR Logo styling */
+.xr-logo-container {
+    flex-basis: 100%;
+    padding-top: 2rem;
+
+    text-align: center;
+}
+
+.xr-logo {
+    max-width: 40%;
+    width: 100%;
+    height: auto;
+}
+
 /* Feature GIFs - Rounded borders */
 .design-features img {
     border-radius: 5px;
@@ -8020,6 +8039,19 @@ body.dark-mode .prototype-header {
     transition: opacity 0.3s ease;
 }
 
+.work-item.coming-soon {
+    cursor: default;
+}
+
+.work-item.coming-soon .project-image-container {
+    cursor: default;
+    pointer-events: none;
+}
+
+.work-item.coming-soon .project-image-container:hover .project-image {
+    transform: none;
+}
+
 .project-image-container {
     position: relative;
     overflow: hidden;
@@ -8038,31 +8070,6 @@ body.dark-mode .prototype-header {
 }
 
 /* Lazy loading styles */
-.lazy-load {
-    opacity: 0;
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-    background-size: 200% 100%;
-    animation: loading 1.5s infinite;
-}
-
-.lazy-load.loaded {
-    opacity: 1;
-    animation: none;
-}
-
-@keyframes loading {
-    0% {
-        background-position: 200% 0;
-    }
-    100% {
-        background-position: -200% 0;
-    }
-}
-
-body.dark-mode .lazy-load {
-    background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
-    background-size: 200% 100%;
-}
 
 .project-image-container:hover .project-image {
     transform: scale(1.05);
