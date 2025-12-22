@@ -1387,6 +1387,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const screenBrain = document.getElementById('screen-brain');
         const screenDesign = document.getElementById('screen-design');
         const screenCode = document.getElementById('screen-code');
+        const screenDraw = document.getElementById('screen-draw');
+        const monitorScreen = document.querySelector('.monitor-screen');
         
         // Brain SVG path from brain.svg
         const brainPathData = "M 786.058594 479.933594 C 783.480469 497.070312 776.949219 513.371094 766.988281 527.558594 C 757.027344 541.742188 743.910156 553.414062 728.664062 561.65625 C 724.441406 564 720.015625 565.964844 715.453125 567.53125 C 721.253906 644.429688 599.054688 672.390625 533.203125 654.074219 L 557.667969 739.644531 L 494.753906 741.878906 L 384.648438 584.238281 C 347.527344 594.722656 303.695312 599.757812 275.382812 554.316406 C 272.808594 550.144531 270.476562 545.824219 268.390625 541.382812 C 261.1875 542.851562 253.859375 543.601562 246.507812 543.621094 C 225.535156 543.621094 190.582031 537.328125 172.828125 525.027344 C 158.75 515.691406 147.582031 502.585938 140.597656 487.207031 C 102.777344 492.378906 70.691406 483.5 49.71875 461.550781 C 23.152344 434.214844 15.601562 389.054688 29.445312 340.609375 C 47.691406 275.945312 103.199219 203.101562 213.511719 175.765625 C 223.082031 163.871094 234.535156 153.621094 247.417969 145.425781 C 316.695312 101.035156 429.179688 97.191406 514.535156 139.34375 C 547.628906 133.179688 581.789062 136.449219 613.105469 148.78125 C 674.484375 171.78125 719.085938 219.878906 727.476562 268.742188 C 744.09375 277.355469 757.695312 290.8125 766.484375 307.332031 C 784.871094 341.867188 787.457031 376.472656 775.082031 404.433594 C 786.738281 427.777344 790.589844 454.246094 786.058594 479.933594 Z M 740.757812 443.582031 C 730.984375 448.742188 720.105469 451.441406 709.054688 451.441406 C 698.003906 451.441406 687.125 448.742188 677.351562 443.582031 L 682.453125 409.679688 C 703.988281 411.773438 721.535156 405.0625 730.691406 391.292969 C 740.96875 375.984375 739.359375 353.261719 726.355469 328.863281 C 711.816406 301.53125 680.425781 297.195312 663.019531 296.988281 L 661.902344 296.988281 C 618.28125 296.988281 573.816406 321.804688 555.851562 354.171875 L 529.707031 341.65625 C 534.847656 324.984375 543.578125 309.640625 555.292969 296.707031 C 545.207031 288.144531 537.585938 277.054688 533.214844 264.570312 C 528.839844 252.085938 527.871094 238.664062 530.40625 225.679688 L 556.203125 223.304688 C 557.382812 233.804688 561.722656 243.695312 568.652344 251.675781 C 575.582031 259.652344 584.773438 265.335938 595 267.976562 C 616.519531 258.371094 639.882812 253.597656 663.441406 253.992188 C 666.796875 253.992188 670.011719 254.34375 673.296875 254.550781 C 656.582031 224.917969 630.09375 202.011719 598.355469 189.746094 C 520.898438 159.6875 468.675781 206.316406 456.722656 222.394531 C 427.921875 260.984375 446.375 297.476562 460.425781 321.175781 L 437.359375 342.148438 C 417.265625 324.769531 403.785156 300.988281 399.1875 274.824219 C 369.617188 283.703125 329.910156 281.816406 307.679688 243.855469 L 328.652344 229.457031 C 352.210938 247.074219 389.609375 245.535156 407.367188 223.792969 C 411.597656 214.179688 416.949219 205.097656 423.304688 196.738281 C 433.402344 183.40625 445.582031 171.792969 459.378906 162.34375 C 401.425781 146.542969 319.5625 149.132812 270.066406 180.871094 C 256.695312 188.636719 245.683594 199.894531 238.222656 213.441406 C 230.757812 226.992188 227.121094 242.3125 227.703125 257.769531 C 227.703125 282.726562 247.277344 322.152344 273.632812 328.304688 L 258.324219 358.015625 C 241.507812 354.121094 226.242188 345.285156 214.492188 332.640625 L 191.769531 361.582031 L 169.050781 350.535156 L 191.28125 292.371094 C 187.648438 281.074219 185.789062 269.285156 185.757812 257.417969 C 185.816406 248.023438 186.796875 238.65625 188.695312 229.457031 C 118.789062 258.328125 84.253906 306.355469 71.601562 350.257812 C 61.882812 384.023438 65.65625 414.5 81.597656 430.859375 C 94.25 443.863281 113.613281 446.9375 131.859375 445.75 L 180.796875 407.652344 L 196.875 421.210938 L 182.332031 468.890625 C 189.953125 493.148438 214.910156 505.660156 260.421875 496.851562 C 262.78125 477.550781 270.398438 459.269531 282.441406 444.003906 C 291.273438 431.292969 302.957031 420.835938 316.558594 413.453125 L 340.464844 349.066406 L 364.375 348.019531 L 361.789062 400.800781 C 401.984375 396.675781 446.933594 404.855469 488.808594 398.5625 L 496.5 426.527344 C 435.121094 454.910156 372.273438 408.628906 315.296875 469.660156 C 294.816406 491.609375 302.644531 510.695312 315.296875 529.917969 C 333.542969 557.394531 367.800781 540.894531 402.824219 529.917969 C 455.882812 513.699219 494.402344 501.957031 567.035156 507.898438 C 549.699219 474.972656 551.378906 435.195312 574.585938 391.433594 L 608.773438 404.925781 C 584.792969 460.222656 607.234375 492.238281 622.753906 506.359375 C 646.730469 528.171875 682.804688 534.742188 706.644531 521.601562 C 715.773438 516.558594 723.625 509.484375 729.585938 500.929688 C 735.550781 492.371094 739.464844 482.558594 741.039062 472.246094 C 742.609375 462.746094 742.492188 453.042969 740.6875 443.582031 Z M 740.757812 443.582031";
@@ -1477,19 +1479,141 @@ document.addEventListener('DOMContentLoaded', function() {
             if (wordTechnology) wordTechnology.classList.remove('active');
         }
 
+        // Drawing canvas functionality
+        let isDrawing = false;
+        let canvasInitialized = false;
+        let strokes = [];
+        let currentStroke = null;
+        let animationFrameId = null;
+
+        function initDrawCanvas() {
+            if (canvasInitialized) return;
+
+            const canvas = screenDraw;
+            const ctx = canvas.getContext('2d');
+
+            // Set canvas size to match monitor screen
+            const rect = monitorScreen.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+
+            // Drawing event handlers
+            const startDrawing = (e) => {
+                isDrawing = true;
+                const rect = canvas.getBoundingClientRect();
+                currentStroke = {
+                    points: [{
+                        x: e.clientX - rect.left,
+                        y: e.clientY - rect.top
+                    }],
+                    opacity: 1,
+                    startTime: Date.now(),
+                    fadeStartTime: null
+                };
+            };
+
+            const draw = (e) => {
+                if (!isDrawing || !currentStroke) return;
+                const rect = canvas.getBoundingClientRect();
+                currentStroke.points.push({
+                    x: e.clientX - rect.left,
+                    y: e.clientY - rect.top
+                });
+                redrawCanvas();
+            };
+
+            const stopDrawing = () => {
+                if (isDrawing && currentStroke) {
+                    // Set fade start time to 3 seconds after drawing started
+                    currentStroke.fadeStartTime = currentStroke.startTime + 3000;
+                    strokes.push(currentStroke);
+                    currentStroke = null;
+                }
+                isDrawing = false;
+            };
+
+            const redrawCanvas = () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const now = Date.now();
+
+                // Draw all strokes including current one
+                const allStrokes = currentStroke ? [...strokes, currentStroke] : strokes;
+
+                allStrokes.forEach((stroke, index) => {
+                    if (stroke.points.length < 2) return;
+
+                    // Calculate opacity based on fade timing
+                    let opacity = 1;
+                    if (stroke.fadeStartTime && now >= stroke.fadeStartTime) {
+                        const fadeElapsed = now - stroke.fadeStartTime;
+                        const fadeDuration = 3000; // 3 second fade
+                        opacity = Math.max(0, 1 - (fadeElapsed / fadeDuration));
+
+                        // Remove stroke if fully faded
+                        if (opacity === 0) {
+                            strokes.splice(strokes.indexOf(stroke), 1);
+                            return;
+                        }
+                    }
+
+                    ctx.globalAlpha = opacity;
+                    ctx.strokeStyle = '#903232';
+                    ctx.lineWidth = 3;
+                    ctx.lineCap = 'round';
+                    ctx.lineJoin = 'round';
+
+                    ctx.beginPath();
+                    ctx.moveTo(stroke.points[0].x, stroke.points[0].y);
+                    for (let i = 1; i < stroke.points.length; i++) {
+                        ctx.lineTo(stroke.points[i].x, stroke.points[i].y);
+                    }
+                    ctx.stroke();
+                });
+
+                ctx.globalAlpha = 1;
+            };
+
+            // Animation loop to handle fading
+            const animate = () => {
+                if (strokes.length > 0 || currentStroke) {
+                    redrawCanvas();
+                    animationFrameId = requestAnimationFrame(animate);
+                }
+            };
+
+            // Start animation when first stroke is added
+            const startAnimation = () => {
+                if (!animationFrameId) {
+                    animationFrameId = requestAnimationFrame(animate);
+                }
+            };
+
+            canvas.addEventListener('mousedown', startDrawing);
+            canvas.addEventListener('mousemove', (e) => {
+                draw(e);
+                startAnimation();
+            });
+            canvas.addEventListener('mouseup', stopDrawing);
+            canvas.addEventListener('mouseleave', stopDrawing);
+
+            canvasInitialized = true;
+        }
+
         function showScreen(screenId) {
             // Hide all screens
             screenPrompt.classList.add('hidden');
             screenBrain.classList.remove('active');
             screenDesign.classList.remove('active');
             screenCode.classList.remove('active');
-            
+            screenDraw.classList.remove('active');
+            monitorScreen.classList.remove('draw-mode');
+
             // Reset animations
             resetAnimations();
-            
+
             // Clear all word highlights first
             clearWordHighlights();
-            
+
             // Show selected screen and highlight corresponding word
             if (screenId === 'brain') {
                 screenBrain.classList.add('active');
@@ -1501,6 +1625,21 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (screenId === 'code') {
                 screenCode.classList.add('active');
                 if (wordTechnology) wordTechnology.classList.add('active');
+            } else if (screenId === 'draw') {
+                // Clear the canvas when returning to draw mode
+                const canvas = screenDraw;
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                strokes = [];
+                currentStroke = null;
+                if (animationFrameId) {
+                    cancelAnimationFrame(animationFrameId);
+                    animationFrameId = null;
+                }
+
+                screenDraw.classList.add('active');
+                monitorScreen.classList.add('draw-mode');
+                initDrawCanvas();
             }
         }
 
@@ -1518,6 +1657,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     screenBrain.classList.remove('active');
                     screenDesign.classList.remove('active');
                     screenCode.classList.remove('active');
+                    screenDraw.classList.remove('active');
+                    monitorScreen.classList.remove('draw-mode');
                     resetAnimations();
                     clearWordHighlights();
                 } else {

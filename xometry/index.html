@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ovo&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="xometry-page project-page">
     <header class="header">
         <a href="../" class="logo">
           <span class="logo-a">a</span><span class="logo-nika">nika</span><span class="logo-b">b</span><span class="logo-hagavatula">hagavatula</span>
@@ -65,7 +65,7 @@
                 <div class="class-meta">
                     <h1 class="class-title fade-in">Optimizing the Request-For-Quote Module</h1>
                     <div class="organization-container fade-in-delay-1">
-                        <span class="class-organization">Xometry</span>
+                        <span class="class-organization">Internship | Xometry</span>
                         
                     </div>
                     <div class="status-chip">shipped</div>
@@ -78,17 +78,18 @@
                         </div>
                         <div class="class-detail-item">
                             <h3>Tools</h3>
-                            <p>Javascript, ReactJS,<br>Node.js, Figma</p>
+                            <p>Javascript, React,<br>Node.js, Figma</p>
                         </div>
                         <div class="class-detail-item">
                             <h3>Team</h3>
-                            <p>Robert Sprung, Jack Ni</p>
+                            <p>2 developers, 1 designer, 1 PM</p>
                         </div>
                     </div>
                     <div class="class-detail-column">
                         <div class="class-detail-item">
                             <h3>Skills</h3>
-                            <p>User Flow<br>Design Translations</p>
+                            <p>User Flow<br>Design Translations<br>Software Development</p>
+                            
                         </div>
                         <div class="class-detail-item">
                             <h3>Timeline</h3>
@@ -108,17 +109,26 @@
                 <h2 class="section-title">Overview</h2>
             </div>
             <div class="section-content">
-                <h3 class="section-subtitle">Translating Figma designs to update the interface, streamlining the Request-For-Quote process, refactoring the codebase to React.</h3>
+                <h3 class="section-subtitle">Streamlining the Request-For-Quote process and refactoring the codebase.</h3>
                 <div class="section-text">
                     <p>Xometry is an AI-powered marketplace that connects clients with partners to source manufactured parts and assemblies.</p>
-                    <p>Our work focused on <b>streamlining the Request-For-Quote process</b> which consists of the Manual Quotes workflow. Through this, Xometry staff sends quote requests to manufacturing partners on behalf of clients/buyers which can optimize the order and production.</p>
-                    <p>As a frontend software developer, I worked along with other software development interns, a senior software engineer, product design interns, and a product manager. We communicated directly with product designers to work on <b>design translations</b>. We also refactored the frontend repository in order to <b>unify code</b> and designs.</p>
+                    <p>Our work focused on <b>streamlining the Request-For-Quote process</b> which consists of the Manual Quotes workflow. Through this, Xometry staff sends quote requests to manufacturing partners on behalf of clients and buyers which can optimize production.</p>
+                    <p>As a frontend software developer, I worked along with other software development interns, a senior software engineer, a product design intern, and a product manager. We communicated directly with product designers to work on <b>design translations</b>. We also refactored the frontend repository in order to <b>unify code</b> for reproducibility and scalability.</p>
+            
                 </div>
+            </div>
+        </section>
+
+        <!-- Timeline Image -->
+        <section class="case-study-section">
+            <div class="section-content">
+                <img src="../images/xometry/timeline.png" alt="Project Timeline" class="timeline-image expandable-image" data-src="../images/xometry/timeline.png">
             </div>
         </section>
 
         <section class="case-study-section xometry-problem" id="problem">
             <div class="section-header">
+                   
                 <h2 class="section-title">Problem</h2>
             </div>
             <div class="section-content">
@@ -127,19 +137,20 @@
                     <p>The existing RFQ system was originally designed for customer-facing interactions, but had evolved to serve primarily internal staff users. This fundamental mismatch created lots of pain points that significantly impacted staff productivity.</p>
                     
                     
-                    <p>We analyzed the workflow to understand the specific pain points staff faced daily.</p>
+                    <p>So we analyzed the workflow to understand the specific pain points staff faced daily.</p>
                 </div>
             </div>
         </section>
 
         <section class="case-study-section" id="context">
             <div class="section-header">
+                <br>
                 <h2 class="section-title">The RFQ Process</h2>
             </div>
             <div class="section-content">
                 <h3 class="section-subtitle">How can we simplify the staff user experience for efficient quoting?</h3>
                 <div class="section-text">
-                    <p>Since the tool was mainly used by Xometry staff, but was created as customer-facing, there were several features that needed to be updated and re-evaluated. The RFQ form, Overview Page, and Partner Page was outdated and needed to be optimized for staff users.</p>
+                    <p>Since the tool was mainly used by Xometry staff, but was created as customer-facing, there were several features that needed to be re-evaluated. The RFQ form, Overview Page, and Partner Page was outdated and needed to be optimized for internal staff.</p>
                 </div>
                 <div class="rfq-comparison">
                     <div class="rfq-old">
@@ -159,7 +170,7 @@
                 <h2 class="section-title">Translating Designs</h2>
             </div>
             <div class="section-content">
-                <h3 class="section-subtitle">We used Figma designs to make changes and communicated back and forth with our product designers to discuss feasibility of designs.</h3>
+                <h3 class="section-subtitle">We communicated with our product designers to evaluate feasibility and implement the final flows.</h3>
                 <div class="section-text">
                     <!-- <p>We used Figma designs as a template to make the design changes and communicated back and forth with our product designers to confirm and discuss feasibility of designs.</p> -->
                 </div>
@@ -182,12 +193,13 @@
                     <div class="translation-section">
                         <h4>Overview Page</h4>
                         <div class="translation-content">
+                            
+                            <div class="translation-image">
+                                <img src="../images/newrfqoverview.png" alt="New Overview Page design" class="translation-img expandable-image" data-src="../images/newrfqoverview.png">
+                            </div>
                             <div class="translation-text">
                                 <p>We worked on making the RFQ Overview page more organized with information on the left side and actionable items on the right side.</p>
                                 <p>We also integrated information about the RFQ recipients from the backend repository to display on the overview page for users to be able to access directly.</p>
-                            </div>
-                            <div class="translation-image">
-                                <img src="../images/newrfqoverview.png" alt="New Overview Page design" class="translation-img expandable-image" data-src="../images/newrfqoverview.png">
                             </div>
                         </div>
                     </div>
@@ -196,7 +208,7 @@
                         <h4>Partner Tables</h4>
                         <div class="translation-content">
                             <div class="translation-text">
-                                <p>We worked on adding color coding as well as feedback flags for statuses when new information was submitted.</p>
+                                <p>We added color coding as well as feedback flags for statuses when new information was submitted.</p>
                             </div>
                             <div class="translation-image">
                                 <img src="../images/newrfqpartner2.png" alt="Partner tables with color coding" class="translation-img expandable-image" data-src="../images/newrfqpartner2.png">
@@ -212,9 +224,10 @@
                 <h2 class="section-title">Refactoring the Interface</h2>
             </div>
             <div class="section-content">
-                <h3 class="section-subtitle">Throughout this process, we converted the initial interface rendering, which was in Javascript, to React. Our goal was to make each component more intuitive and organized within the quoting repository and backend repository.</h3>
+                <h3 class="section-subtitle">Throughout this process, we converted the initial interface rendering from JavaScript to React.</h3>
+                <img src="../images/xometry/goals.png" alt="Project Goals" class="goals-image expandable-image" data-src="../images/xometry/goals.png">
                 <div class="section-text">
-                    <p>We collaborated across teams to edit and refine the codebase as well as modify designs based on feasibility of connecting the previous codebase with the updated version.</p>
+                    <p>We collaborated across teams to edit and refine the codebase as well as modify designs based on feasibility.</p>
                     <p>The refactoring process involved breaking down monolithic JavaScript components into reusable React components, implementing proper state management, and ensuring better code organization for maintainability and scalability.</p>
                 </div>
             </div>
@@ -233,7 +246,8 @@
                             </div>
                         </h3>
                         <div class="thoughts-content">
-                            <p>Working at Xometry as a frontend development intern taught me the importance of cross-team collaboration and communication. I learned how to effectively translate design requirements into functional code. It gave me some amazing insight into the full product development lifecycle, from design to implementation, and how user experience considerations need to be balanced with technical constraints.</p>
+                            <p>Working at Xometry as a frontend development intern taught me the importance of cross-team collaboration and communication. 
+                                <br><br>I learned how to effectively translate design requirements into functional code. It gave me some amazing insight into the full product development lifecycle, from design to implementation, and how user experience considerations need to be balanced with technical constraints.</p>
                         </div>
                     </div>
                     
@@ -244,7 +258,7 @@
                             </div>
                         </h3>
                         <div class="thoughts-content">
-                            <p>I would have loved to dive deeper into the user research aspect of the RFQ process optimization. With more time, I would have wanted to work with product designers toconduct more comprehensive usability testing with Xometry staff to evaluate the changes we made. I would also explore more advanced React patterns and state management solutions to create an even more robust and scalable frontend architecture.</p>
+                            <p>I would have loved to dive deeper into the user research aspect of the RFQ process optimization.</p><br> <p>With more time, I would have wanted to work with product designers toconduct more comprehensive usability testing with Xometry staff to evaluate the changes we made. </p><br><p>I would also explore more advanced React patterns and state management solutions to create an even more robust and scalable frontend architecture.</p>
                         </div>
                     </div>
                 </div>
