@@ -6555,6 +6555,45 @@ body.dark-mode .status-chip.xometry-shipped {
     /* Hover effects removed - keeping image flat */
 }
 
+.image-caption,
+p.image-caption,
+.section-text p.image-caption {
+    font-size: 0.75rem !important;
+    color: #666 !important;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    line-height: 1.5 !important;
+}
+
+body.dark-mode .image-caption,
+body.dark-mode p.image-caption,
+body.dark-mode .section-text p.image-caption {
+    color: #999 !important;
+}
+
+.widget-note {
+    display: inline-block;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.widget-note::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: #4A9FCA;
+    border-radius: 50%;
+}
+
+body.dark-mode .widget-note::before {
+    background-color: #87CEEB;
+}
+
 /* Theme-based image visibility for structured day map */
 .class-map-light {
     display: block !important;
@@ -6845,10 +6884,23 @@ body.dark-mode .problem-dark,
 
 .section-text li {
     margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+    line-height: 2;
 }
 
 /* Make llmstructure image larger */
 .class-map-image[src*="llmstructure.png"] {
+    max-width: 1200px;
+}
+
+/* Make pipeline image larger */
+.class-map-image[src*="pipeline.png"] {
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Make calculations image larger */
+.class-map-image[src*="calculations.png"] {
     max-width: 1200px;
 }
 
@@ -8187,6 +8239,24 @@ body.dark-mode .metric-card code {
     margin: 1rem auto;
 }
 
+/* Make pipeline image BIG - override the class-main restriction */
+.class-main .class-map-container .class-map-image[src*="pipeline.png"] {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Make calculations image BIG - override the class-main restriction */
+.class-main .class-map-container .class-map-image[src*="calculations.png"] {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Make samplepipeline images smaller */
+.class-main .class-map-container .class-map-image[src*="samplepipeline.png"],
+.class-main .class-map-container .class-map-image[src*="samplepipeline2.png"] {
+    max-width: 350px !important;
+}
+
 /* Context-aware page specific - Center only the "Coming Soon..." text */
 .context-aware-vr-page .coming-soon-subtitle {
     text-align: center;
@@ -8205,8 +8275,13 @@ body.dark-mode .metric-card code {
 .xr-logo-container {
     flex-basis: 100%;
     padding-top: 2rem;
-
+    background-color: #ffffff;
     text-align: center;
+    border-radius: 10px;
+}
+
+body.dark-mode .xr-logo-container {
+    background-color: #ffffff;
 }
 
 .xr-logo {
@@ -11514,6 +11589,8 @@ body.dark-mode .problem-dark,
 
 .section-text li {
     margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+    line-height: 2;
 }
 
 /* Make llmstructure image larger */

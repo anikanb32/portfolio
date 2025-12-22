@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Context-Aware Virtual Reality Interfaces | Anika's Portfolio</title>
+    <title>Context-Aware XR Interfaces | Anika's Portfolio</title>
     <link rel="icon" type="image/svg+xml" href="../brain.svg">
     <link rel="stylesheet" href="../styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,20 +57,21 @@
         </div>
       </div>
     </div>
+   
 
     <main class="class-main">
         <!-- Project Header -->
         <section class="class-header">
             <div class="class-header-content">
                 <div class="class-meta">
-                    <h1 class="class-title fade-in">Context-Aware Extended Reality Interfaces</h1>
-                    <span class="class-organization fade-in-delay-1">Research at CMU HCII + Meta Reality Labs</span>
+                    <h1 class="class-title fade-in">Context-Aware XR Interfaces</h1>
+                    <span class="class-organization fade-in-delay-1">Research Intern at CMU HCII + Meta Reality Labs</span>
                 </div>
                 <div class="class-details fade-in-delay-2">
                     <div class="class-detail-column">
                         <div class="class-detail-item">
                             <h3>Role</h3>
-                            <p>Researcher, Developer</p>
+                            Researcher, Developer
                         </div>
                         <div class="class-detail-item">
                             <h3>Tools</h3>
@@ -88,7 +89,7 @@
                         </div>
                         <div class="class-detail-item">
                             <h3>Timeline</h3>
-                            <p>12 Weeks</p>
+                            <p>14 Weeks</p>
                         </div>
                     </div>
                     
@@ -130,14 +131,14 @@
                     <div class="step-dot"></div>
                     <span class="step-label">Development</span>
                 </div>
-                <div class="progress-step" data-section="Experimentation">
+                <!-- <div class="progress-step" data-section="Experimentation">
                     <div class="step-dot"></div>
                     <span class="step-label">Experimentation</span>
-                </div>
-                <div class="progress-step" data-section="final-thoughts">
+                </div> -->
+                <!-- <div class="progress-step" data-section="final-thoughts">
                     <div class="step-dot"></div>
                     <span class="step-label">Reflection</span>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -158,13 +159,12 @@
                 <h2 class="section-title">Overview</h2>
             </div>
             <div class="section-content">
-                <h3 class="section-subtitle">Augmented Reality and Extended Reality</h3>
+                <h3 class="section-subtitle">Data-Driven Interface Design.</h3>
                 <div class="section-text">
-                    <p>XR offers engaging user experiences and have a broad range of applications.</p>
                     <p>The Augmented Perception Lab developed MineXR, a design mining workflow
-                        and data platform that is used for collecting and analyzing personalized XR user interaction and experiences.  </p>
+                        and data platform that is used for collecting and analyzing personalized Extended Reality (XR) user interaction and experiences.  </p>
                     <p>
-                        This research project focuses on leveraging the MineXR dataset to develop an LLM pipeline that outputs User Interface components based on an initial given context to create context-aware AR/VR headsets. The work was conducted as a research internship at Carnegie Mellon University's Human-Computer Interaction Institute in collaboration with Meta.
+                        This research project focuses on leveraging the MineXR dataset to develop an LLM pipeline that outputs user interface components based on an initial given context to create context-aware AR/VR headsets. The work was conducted as a research internship at Carnegie Mellon University's Human-Computer Interaction Institute in collaboration with Meta Reality Labs.
                     </p>
                 </div>
             </div>
@@ -177,7 +177,7 @@
                 <h2 class="section-title">Research Question</h2>
             </div>
             <div class="section-content">
-                <h3 class="section-subtitle">How can we develop a personalized context-aware user interface with LLMs, informed by MineXR data?</h3>
+                <h3 class="section-subtitle">How might we develop a personalized context-aware user interface with LLMs, informed by MineXR data?</h3>
                 <!-- <div class="section-text">
                     <p>The challenge was to design a platform that could handle sophisticated data processing while presenting information in an accessible, intuitive way.</p>
                     <p>Through extensive user research and stakeholder interviews, we identified key pain points in existing solutions and opportunities for innovation in data visualization and user experience design.</p>
@@ -194,19 +194,21 @@
                 <h2 class="section-title">Context</h2>
             </div>
             <div class="section-content">
-                <h3 class="section-subtitle">Understanding LLM Pipelines</h3>
+                <h3 class="section-subtitle">Understanding LLM Pipelines.</h3>
                 <div class="section-text">
-                    <p>While brainstorming our workflow and developing each LLM agent, we referenced several papers that have generated UI components using LLMs as well as in different contexts. 
+                    <p>While brainstorming our workflow and developing each LLM agent, we referenced several papers that generate UI components using LLMs. We also explored examples of adaptive interfaces in various contexts. 
 
-                        From the paper BISCUIT: Scaffolding LLM-Generated Code with Ephemeral UIs in Computational Notebooks, we examined the use of specific LLM agents for the purpose of testing code, making changes, and rendering those changes in a visual interface for the user. While this paper was within the context of teaching coding and programming to users, we examined the LLM agent structure to inform our own pipeline. </p>
+                        From the paper <i>BISCUIT: Scaffolding LLM-Generated Code with Ephemeral UIs in Computational Notebooks</i>, we examined the use of specific LLM agents for the purpose of testing code, making changes, and rendering those changes in a visual interface for the user. While this paper was within the context of teaching coding and programming to users, we examined the LLM agent structure to inform our own pipeline. </p>
                     
                      <div class="class-map-container">
                          <img src="../images/samplepipeline.png" alt="Sample Pipeline" class="class-map-image expandable-image" data-src="../images/samplepipeline.png">
+                         <p class="image-caption">BISCUIT LLM pipeline</p>
                      </div>
                     
-                    <p> We also referred to the paper LLMR: Real-time Prompting of Interactive Worlds using Large Language Models which focuses on the generation of UI components using an LLM pipeline, while also ultimately creating a VR interface. This helped inform us about how to create components in an AR/VR context. One LLM agent we examined to develop in our pipeline was the code generator which can be built in Unity, referencing the Microsoft Mixed Reality Toolkit. ​</p>
+                    <p> We also referred to the paper <i>LLMR: Real-time Prompting of Interactive Worlds using Large Language Models</i> which focuses on the generation of UI components using an LLM pipeline to design VR interfaces. This helped inform us about how to create components in an AR/VR context. One LLM agent we planned to develop in our pipeline was the code generator which can be built in Unity, referencing the Microsoft Mixed Reality Toolkit. ​</p>
                     <div class="class-map-container">
                         <img src="../images/samplepipeline2.png" alt="Sample Pipeline 2" class="class-map-image expandable-image" data-src="../images/samplepipeline2.png">
+                        <p class="image-caption">LLMR pipeline</p>
                     </div>
                 </div>
             </div>
@@ -222,7 +224,7 @@
                 <h2 class="section-title">Research</h2>
             </div>
             <div class="section-content">
-                <h3 class="section-subtitle">Exploring the MineXR Dataset</h3>
+                <h3 class="section-subtitle">Exploring the MineXR Dataset.</h3>
                 <div class="left-right-container">
                     <div class="section-text">
                         <br>
@@ -230,7 +232,7 @@
                         <br>
                         <p>I examined the MineXR workflow which enables researchers to collect and analyze users' personalized XR interfaces in various contexts.
                             I focused on the MineXR dataset for our integration with LLMs, consisting of 695 XR widgets in 109 unique XR layouts.
-                            *Widgets are defined as cropped app interfaces 
+                            <br><span class="widget-note">Widgets: cropped app interfaces</span>
                         </p>
                         
                         
@@ -238,6 +240,7 @@
                     
                     <div class="class-map-container">
                         <img src="../images/minexr.png" alt="Sample Pipeline" class="class-map-image expandable-image" data-src="../images/minexr.png">
+                        <p class="image-caption">MineXR Data Types</p>
                     </div>
                 </div>
                 <br>
@@ -247,6 +250,7 @@
                     
                     <div class="class-map-container">
                          <img src="../images/spreadsheet.png" alt="Sample Pipeline 2" class="class-map-image expandable-image" data-src="../images/spreadsheet.png">
+                         <p class="image-caption">Extracted MineXR Dataset</p>
                     </div>
                     <div class="section-text">
                         <br>
@@ -266,27 +270,27 @@
                 <h2 class="section-title">Exploration</h2>
             </div>
             <div class="section-content">
-                <h3 class="section-subtitle">Planning the Workflow</h3>
+                <h3 class="section-subtitle">Planning the Workflow.</h3>
                 <div class="left-right-container">
                 <div class="section-text">
                     <p>
-                        I first explored LLMs and different LLM agents by asking questions, creating prompts of varying specificity, and documenting our findings. Based on these explorations, we developed an initial framework for the pipeline and defined the desired input and output of each LLM agent.
+                        We first explored LLMs and different LLM agents by asking questions, creating prompts of varying specificity, and documenting our findings. Based on these explorations, we developed an initial framework for the pipeline and defined the desired input and output of each LLM agent.
                     </p>
                     <p>
                         This pipeline contains three initial components: 
                         <ol>
                             <li>
-                                <b>Task Generator:</b> The input is the context which includes the environment and task. The output is a list of tasks that would be useful based on the context
+                                <b>Task Generator:</b> The input is the context which includes the environment and task. The output is a list of tasks that would be useful based on the given context.
                                 
                             </li> 
                             <br>
                             <li>
-                                <b>Application Planner: </b>The input is the output of the task generator. The output is an example of apps based on the input tasks 
+                                <b>Application Planner: </b> The output is an example of apps based on the input tasks.
                                 
                             </li>
                             <br>
                             <li>
-                                <b>Functionality Planner:</b>  The input is the output of the application planner. The output is a list of functionalities for each app type and a categorization of each app type as primary, periphery, or ambient]
+                                <b>Functionality Planner:</b> The output is a list of functionalities for each app type and a categorization of each app type as primary, periphery, or ambient.
                             
                             </li>
                         </ol>
@@ -311,13 +315,13 @@
                 <h2 class="section-title">Development</h2>
             </div>
             <div class="section-content">
-                <h3 class="section-subtitle">Developing the Pipeline</h3>
+                <h3 class="section-subtitle">Developing the Pipeline.</h3>
                 <div class="section-text">
                     <p>
                         The goal was to leverage the MineXR dataset within the pipeline to make the outputs (functionalities) more well informed and relatively parallel to the dataset. 
                     </p>
                     <p>
-                        To this end, we experimented with introducing the dataset in multiple places in the pipeline
+                        To this end, we experimented with introducing the dataset in multiple points in the pipeline
                         <ul class = "section-text">
                             <li class = "section-text">
                                 as an example within a prompt
@@ -328,12 +332,15 @@
                         </ul>
                     </p>
                     <p>
-                        We then figured out how to implement the dataset into the pipeline with an LLM agent which makes the most sense and produces the most ideal and precise results. This included datasets with a varying number of locations and tasks.
+                        We implemented an LLM agent pipeline that effectively integrates the MineXR dataset to generate precise, context-aware interface components across diverse locations and task scenarios.
+
                     </p>
                     
                      <div class="class-map-container">
-                         <img src="../images/llminterface/llmstructure.png" alt="Sample Pipeline" class="class-map-image expandable-image" data-src="../images/llminterface/llmstructure.png">
-                     </div>
+                         <img src="../images/llminterface/pipeline.png" alt="Sample Pipeline" class="class-map-image expandable-image" data-src="../images/llminterface/pipeline.png">
+                     <p class="image-caption">Click to expand</p>
+                        </div>
+                    
                     
                      
                 </div>
@@ -347,7 +354,7 @@
                 <h2 class="section-title">Experimentation</h2>
             </div>
             <div class="section-content">
-                <h3 class="section-subtitle">Testing and Optimizing the Workflow</h3>
+                <h3 class="section-subtitle">Testing and Optimizing the Workflow.</h3>
                 <div class="section-text">
                     <p>
                         I first developed a score for quantifying the quality of our output to compare how well the pipeline produced outputs. This was dependent on three calculations and factors. One was the overlap of app categories in the functionality output. Another being the semantic similarity of the functionalities themselves. The last factor is the primary overlap of apps in the LLM output and the Dataset.                    </p>
@@ -355,7 +362,7 @@
                         
                     
                      <div class="class-map-container">
-                         <img src="../images/llminterface/quantify.png" alt="Sample Pipeline" class="class-map-image expandable-image" data-src="../images/llminterface/quantify.png">
+                         <img src="../images/llminterface/calculations.png" alt="Sample Pipeline" class="class-map-image expandable-image" data-src="../images/llminterface/calculations.png">
                      </div>
                     
                      <p>
@@ -381,7 +388,8 @@
                             </div>
                         </h3>
                         <div class="section-text">
-                            <p>Building <b>structure from ambiguity</b> was a challenge throughout this research project. It was difficult to tame something as unstructured as LLM outputs and find a way to create more deterministic, reproducible outputs for our pipeline. I learned more about semantic similarity scoring and how best to quantify seemingly subjective metrics.</p>
+                            <p>Building <b>structure from ambiguity</b> was a challenge throughout this research project. It was difficult to tame something as unstructured as LLM outputs and find a way to create more deterministic, reproducible outputs for our pipeline. 
+                                <br><br>I learned more about semantic similarity scoring and how best to quantify seemingly subjective metrics.</p>
                         </div>
                     </div>
                     
@@ -393,7 +401,7 @@
                             </div>
                         </h3>
                         <div class="section-text">
-                            <p>I would <b>test UI outputs more</b> to understand how reproducible and similar outputs are to the initial dataset layouts. It would be great to understand how more modern frameworks and AI agents would also perform, now that newer LLM models have fine tuning capabilities. Considering <b>different interaction patterns and user context</b> would also be interesting, in educational settings or in collaborative use. </p>
+                            <p>I would <b>test UI outputs more</b> to understand how reproducible and similar outputs are to the initial dataset layouts. <br><br>It would be great to understand how more modern frameworks and AI agents would also perform, now that newer LLM models have fine tuning capabilities. <br><br> Considering <b>different interaction patterns and user context</b> would also be interesting, in educational settings or in collaborative use. </p>
                         </div>
                     </div>
                 </div>
@@ -558,6 +566,12 @@
             <path d="M18 15l-6-6-6 6"/>
         </svg>
     </button>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="image-modal-close">&times;</span>
+        <img class="image-modal-content" id="modalImage">
+    </div>
 
     <!-- Custom Cursor Dots -->
     <div class="cursor-dot" id="cursor-dot"></div>
