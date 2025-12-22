@@ -6384,6 +6384,30 @@ body.dark-mode .mobile-nav .download-btn:hover {
     letter-spacing: 0.5px;
 }
 
+/* CLASS shipped chip on home page */
+.status-chip.class-shipped {
+    color: #4A9FCA;
+    background-color: rgba(135, 206, 235, 0.3);
+    border-radius: 20px;
+}
+
+body.dark-mode .status-chip.class-shipped {
+    color: #87CEEB;
+    background-color: rgba(135, 206, 235, 0.25);
+}
+
+/* Xometry shipped chip on home page */
+.status-chip.xometry-shipped {
+    color: #7493BA;
+    background-color: rgba(116, 147, 186, 0.15);
+    border-radius: 20px;
+}
+
+body.dark-mode .status-chip.xometry-shipped {
+    color: #7493BA;
+    background-color: rgba(116, 147, 186, 0.2);
+}
+
 .class-title {
     font-size: 4rem;
     font-family: 'Ovo', 'Playfair Display', serif;
