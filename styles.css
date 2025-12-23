@@ -1492,12 +1492,12 @@ body.dark-mode .play-pause-btn:hover {
 /* ===== MAC COMPUTER WITH EYE ===== */
 .intro-computer {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -3rem;
+    right: -5%;
     width: 45%;
     height: auto;
     margin-top: 0;
-    padding: 0 3rem 0 0;
+    padding: 3rem 3rem 3rem 3rem;
     z-index: 1;
     overflow: visible;
     display: flex;
@@ -2734,22 +2734,23 @@ body.dark-mode .highlight-phrase {
     .records-container {
         gap: -30px;
     }
-    
+
     .record-image {
         max-width: 450px;
         max-height: 450px;
     }
-    
+
     .record:nth-child(2),
     .record:nth-child(3),
     .record:nth-child(4) {
         margin-left: -180px;
     }
-    
+
     .intro-content {
         gap: 0;
+        flex-direction: column;
     }
-    
+
     /* Keep desktop layout for tablets - only change for mobile (768px and below) */
     .intro-neuron-network {
         height: 100vh;
@@ -2760,10 +2761,21 @@ body.dark-mode .highlight-phrase {
         height: 100vh;
         width: 100%;
     }
-    
+
     .intro-text {
-        left: 0; /* Align with left edge (intro section already has 60px padding) */
-        max-width: none;
+        position: relative;
+        left: 0;
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .intro-computer {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        margin-top: 2rem;
     }
 }
 
@@ -9499,6 +9511,28 @@ body.dark-mode .highlight-word.active {
     margin-bottom: 4rem;
     opacity: 1;
     transition: opacity 0.3s ease;
+    text-decoration: none !important;
+}
+
+.work-item:visited,
+.work-item:visited * {
+    text-decoration: none !important;
+}
+
+.work-item:visited .project-name {
+    color: #111 !important;
+}
+
+.work-item:visited .project-description {
+    color: #666 !important;
+}
+
+body.dark-mode .work-item:visited .project-name {
+    color: #ffffff !important;
+}
+
+body.dark-mode .work-item:visited .project-description {
+    color: #999999 !important;
 }
 
 .work-item.hidden {
@@ -10316,7 +10350,7 @@ body.dark-mode.xometry-page .status-chip {
 /* Timeline image styling */
 .timeline-image {
     width: 100%;
-    max-width: 900px;
+    max-width: 550px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -10325,7 +10359,7 @@ body.dark-mode.xometry-page .status-chip {
 /* Goals image styling */
 .goals-image {
     width: 100%;
-    max-width: 750px;
+    max-width: 500px;
     height: auto;
     display: block;
     margin: 2rem auto;
@@ -10397,7 +10431,7 @@ body.dark-mode.xometry-page .status-chip {
     }
 }
 /* Solution Features Section - New Alternating Layout for CLASS */
-#solution {
+.class-main #solution {
     background-color: #C4DFEE;
     padding: 4rem 0;
     margin-left: calc(-50vw + 50%);
@@ -10406,17 +10440,17 @@ body.dark-mode.xometry-page .status-chip {
     padding-right: calc(50vw - 50%);
 }
 
-body.dark-mode #solution {
+body.dark-mode .class-main #solution {
     background-color: #C4DFEE;
 }
 
-body.dark-mode #solution .section-title,
-body.dark-mode #solution .section-subtitle,
-body.dark-mode #solution .section-text,
-body.dark-mode #solution p,
-body.dark-mode #solution h3,
-body.dark-mode #solution .solution-category,
-body.dark-mode #solution .solution-feature-title {
+body.dark-mode .class-main #solution .section-title,
+body.dark-mode .class-main #solution .section-subtitle,
+body.dark-mode .class-main #solution .section-text,
+body.dark-mode .class-main #solution p,
+body.dark-mode .class-main #solution h3,
+body.dark-mode .class-main #solution .solution-category,
+body.dark-mode .class-main #solution .solution-feature-title {
     color: #000000 !important;
 }
 
@@ -10499,7 +10533,7 @@ body.dark-mode .solution-image:hover {
 
 /* Responsive styles for solution section */
 @media (max-width: 1024px) {
-    #solution {
+    .class-main #solution {
         margin-left: calc(-50vw + 50%);
         margin-right: calc(-50vw + 50%);
         padding-left: calc(50vw - 50% + 2rem);
@@ -10525,7 +10559,7 @@ body.dark-mode .solution-image:hover {
 }
 
 @media (max-width: 768px) {
-    #solution {
+    .class-main #solution {
         margin-left: calc(-50vw + 50%);
         margin-right: calc(-50vw + 50%);
         padding-left: calc(50vw - 50% + 1.5rem);
@@ -12960,4 +12994,385 @@ body.dark-mode .metric-card code {
 .ai-main #problem h3,
 .ai-main #problem p {
     color: inherit;
+}
+
+/* === MARGIN CASE STUDY PAGE STYLES === */
+.margin-page {
+    cursor: none;
+}
+
+.margin-page * {
+    text-decoration: none !important;
+    cursor: none !important;
+}
+
+.margin-page h1,
+.margin-page h2,
+.margin-page h3,
+.margin-page p,
+.margin-page span:not(.challenge-badge) {
+    color: inherit !important;
+}
+
+/* Margin page cursor - black in light mode, white in dark mode */
+body.margin-page .cursor-dot {
+    background: #000000;
+}
+
+body.margin-page.dark-mode .cursor-dot {
+    background: #ffffff;
+}
+
+.margin-main {
+    padding: 8rem 180px;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.margin-header {
+    margin-bottom: 6rem;
+    padding: 4rem 0rem;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    left: 0;
+    right: 0;
+    transform: none;
+}
+
+.margin-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.margin-meta {
+    flex: 1;
+}
+
+.margin-organization {
+    font-size: 1.1rem;
+    color: #2e2e2e;
+    font-weight: 200;
+    display: inline-block;
+    text-decoration: none !important;
+}
+
+.margin-organization:visited {
+    color: #2e2e2e;
+    text-decoration: none !important;
+}
+
+.margin-logo-container {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.margin-logo {
+    max-width: 150px;
+    height: auto;
+}
+
+.margin-title {
+    font-size: 4rem;
+    font-family: 'Ovo', 'Playfair Display', serif;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
+    padding-bottom: 2rem;
+    color: #111;
+    text-decoration: none !important;
+}
+
+body.dark-mode .margin-title {
+    color: #ffffff;
+}
+
+.margin-title:visited {
+    color: #111;
+    text-decoration: none !important;
+}
+
+body.dark-mode .margin-title:visited {
+    color: #ffffff;
+}
+
+.margin-details {
+    display: flex;
+    gap: 4rem;
+    flex: 1;
+}
+
+.margin-detail-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.margin-detail-item h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+body.dark-mode .margin-detail-item h3 {
+    color: #ffffff;
+}
+
+.margin-detail-item p {
+    font-size: 0.9rem;
+    color: #000;
+    line-height: 1.5;
+    margin: 0;
+}
+
+body.dark-mode .margin-detail-item p {
+    color: #ffffff;
+}
+
+body.dark-mode .margin-organization {
+    color: #ffffff;
+}
+
+.margin-section {
+    margin-bottom: 9.5rem;
+}
+
+.margin-section-title {
+    font-size: .8rem;
+    font-weight: 200;
+    color: #5B4FB8 !important;
+    margin: 0 0 2% 0;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+body.dark-mode .margin-section-title {
+    color: #8B7FD8 !important;
+}
+
+.margin-section-subtitle {
+    font-family: 'Ovo', 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 2rem;
+    line-height: 1.3;
+    text-decoration: none !important;
+}
+
+body.dark-mode .margin-section-subtitle {
+    color: #ffffff;
+}
+
+.margin-section-subtitle:visited {
+    color: #000;
+    text-decoration: none !important;
+}
+
+body.dark-mode .margin-section-subtitle:visited {
+    color: #ffffff;
+}
+
+.margin-section-text {
+    margin-bottom: 3rem;
+    font-size: 0.9rem;
+    line-height: 2;
+    color: #000;
+}
+
+body.dark-mode .margin-section-text {
+    color: #ffffff;
+}
+
+.margin-section-text p {
+    font-size: 0.9rem;
+    line-height: 2;
+    color: #000;
+    margin-bottom: 1rem;
+}
+
+body.dark-mode .margin-section-text p {
+    color: #ffffff;
+}
+
+/* Margin Preview Image */
+.margin-preview-container {
+    margin: 4rem 0;
+    text-align: center;
+}
+
+.margin-preview-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .margin-preview-image {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Margin Image Styling */
+.margin-image-container {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.margin-image {
+    width: 70%;
+    max-width: 70%;
+    height: auto;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Challenge Components */
+.challenge-item {
+    margin: 3rem 0;
+}
+
+.challenge-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.challenge-badge {
+    background: #5B4FB8;
+    color: #ffffff !important;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+}
+
+.challenge-badge::before {
+    content: '●';
+    margin-right: 0.5rem;
+    font-size: 0.6rem;
+    color: #ffffff !important;
+}
+
+body.dark-mode .challenge-badge {
+    background: #DCDBEF;
+    color: #000000 !important;
+}
+
+body.dark-mode .challenge-badge::before {
+    color: #000000 !important;
+}
+
+.challenge-title {
+    font-family: 'Ovo', 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000;
+    margin: 0;
+    line-height: 1.3;
+}
+
+body.dark-mode .challenge-title {
+    color: #ffffff;
+}
+
+.challenge-description {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #000;
+    margin-bottom: 1.5rem;
+}
+
+body.dark-mode .challenge-description {
+    color: #ffffff;
+}
+
+.challenge-solution {
+    background: #E8E4F3;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #000;
+}
+
+.challenge-solution strong {
+    font-weight: 600;
+}
+
+body.dark-mode .challenge-solution {
+    background: #2D2640;
+    color: #ffffff;
+}
+
+/* Responsive Design for Margin Page */
+@media (max-width: 1024px) {
+    .margin-main {
+        padding: 6rem 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .margin-main {
+        padding: 4rem 40px;
+    }
+
+    .margin-header {
+        margin-bottom: 4rem;
+        padding: 2rem 0;
+    }
+
+    .margin-header-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .margin-details {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .margin-title {
+        font-size: 2.5rem;
+        padding-bottom: 1rem;
+    }
+
+    .margin-section {
+        margin-bottom: 6rem;
+    }
+
+    .margin-section-subtitle {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .margin-main {
+        padding: 3rem 20px;
+    }
+
+    .margin-title {
+        font-size: 2rem;
+    }
+
+    .margin-section {
+        margin-bottom: 4rem;
+    }
+
+    .margin-section-subtitle {
+        font-size: 1.3rem;
+    }
 }
