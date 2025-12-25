@@ -2160,3 +2160,269 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// ===== WHITEBOARD INTERACTIVE DRAGGING =====
+document.addEventListener('DOMContentLoaded', function() {
+    const whiteboardSurface = document.querySelector('.whiteboard-surface');
+    if (!whiteboardSurface) return;
+
+    const draggables = whiteboardSurface.querySelectorAll('.sticky-note, .push-pin');
+
+    draggables.forEach(element => {
+        let isDragging = false;
+        let currentX;
+        let currentY;
+        let initialX;
+        let initialY;
+        let xOffset = 0;
+        let yOffset = 0;
+
+        // Get initial position from inline styles
+        const initialTop = element.style.top || '0%';
+        const initialLeft = element.style.left || '0%';
+
+        // Convert percentage to actual position
+        const surfaceRect = whiteboardSurface.getBoundingClientRect();
+        const topPercent = parseFloat(initialTop);
+        const leftPercent = parseFloat(initialLeft);
+
+        xOffset = (leftPercent / 100) * surfaceRect.width;
+        yOffset = (topPercent / 100) * surfaceRect.height;
+
+        element.style.cursor = 'grab';
+        element.style.position = 'absolute';
+        element.style.left = initialLeft;
+        element.style.top = initialTop;
+
+        element.addEventListener('mousedown', dragStart);
+        element.addEventListener('touchstart', dragStart);
+
+        function dragStart(e) {
+            if (e.type === 'touchstart') {
+                initialX = e.touches[0].clientX - xOffset;
+                initialY = e.touches[0].clientY - yOffset;
+            } else {
+                initialX = e.clientX - xOffset;
+                initialY = e.clientY - yOffset;
+            }
+
+            if (e.target === element) {
+                isDragging = true;
+                element.style.cursor = 'grabbing';
+            }
+
+            document.addEventListener('mousemove', drag);
+            document.addEventListener('touchmove', drag);
+            document.addEventListener('mouseup', dragEnd);
+            document.addEventListener('touchend', dragEnd);
+        }
+
+        function drag(e) {
+            if (isDragging) {
+                e.preventDefault();
+
+                if (e.type === 'touchmove') {
+                    currentX = e.touches[0].clientX - initialX;
+                    currentY = e.touches[0].clientY - initialY;
+                } else {
+                    currentX = e.clientX - initialX;
+                    currentY = e.clientY - initialY;
+                }
+
+                xOffset = currentX;
+                yOffset = currentY;
+
+                // Get surface boundaries
+                const surfaceRect = whiteboardSurface.getBoundingClientRect();
+                const elementRect = element.getBoundingClientRect();
+
+                // Calculate percentage positions
+                let leftPercent = (xOffset / surfaceRect.width) * 100;
+                let topPercent = (yOffset / surfaceRect.height) * 100;
+
+                // Constrain to whiteboard boundaries
+                const maxLeftPercent = ((surfaceRect.width - elementRect.width) / surfaceRect.width) * 100;
+                const maxTopPercent = ((surfaceRect.height - elementRect.height) / surfaceRect.height) * 100;
+
+                leftPercent = Math.max(0, Math.min(leftPercent, maxLeftPercent));
+                topPercent = Math.max(0, Math.min(topPercent, maxTopPercent));
+
+                element.style.left = leftPercent + '%';
+                element.style.top = topPercent + '%';
+            }
+        }
+
+        function dragEnd(e) {
+            if (isDragging) {
+                initialX = currentX;
+                initialY = currentY;
+                isDragging = false;
+                element.style.cursor = 'grab';
+            }
+
+            document.removeEventListener('mousemove', drag);
+            document.removeEventListener('touchmove', drag);
+            document.removeEventListener('mouseup', dragEnd);
+            document.removeEventListener('touchend', dragEnd);
+        }
+    });
+});
+
+// ===== SKETCHBOOK CLOSE/OPEN (PAUSED) =====
+// document.addEventListener('DOMContentLoaded', function() {
+//     const sketchbook = document.querySelector('.sketchbook');
+//     if (!sketchbook) return;
+
+//     let isClosed = false;
+
+//     // Click anywhere on sketchbook to toggle
+//     sketchbook.addEventListener('click', function(e) {
+//         e.stopPropagation();
+//         isClosed = !isClosed;
+
+//         if (isClosed) {
+//             sketchbook.classList.add('closed');
+//         } else {
+//             sketchbook.classList.remove('closed');
+//         }
+//     });
+// });
+
+// ===== WHITEBOARD DRAWING =====
+document.addEventListener('DOMContentLoaded', function() {
+    const canvas = document.getElementById('whiteboard-canvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    const whiteboardSurface = document.querySelector('.whiteboard-surface');
+
+    let isDrawing = false;
+    let strokes = [];
+    let currentStroke = null;
+    let animationFrameId = null;
+
+    // Set canvas size to match whiteboard surface
+    function resizeCanvas() {
+        const rect = whiteboardSurface.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+    }
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Drawing event handlers
+    const startDrawing = (e) => {
+        // Don't start drawing if clicking on sticky note or push pin
+        if (e.target.classList.contains('sticky-note') || e.target.classList.contains('push-pin')) {
+            return;
+        }
+
+        isDrawing = true;
+        const rect = canvas.getBoundingClientRect();
+        currentStroke = {
+            points: [{
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top
+            }],
+            opacity: 1,
+            startTime: Date.now(),
+            fadeStartTime: null
+        };
+    };
+
+    const draw = (e) => {
+        if (!isDrawing || !currentStroke) return;
+        const rect = canvas.getBoundingClientRect();
+        currentStroke.points.push({
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top
+        });
+        redrawCanvas();
+    };
+
+    const stopDrawing = () => {
+        if (isDrawing && currentStroke) {
+            // Set fade start time to 3 seconds after drawing started
+            currentStroke.fadeStartTime = currentStroke.startTime + 3000;
+            strokes.push(currentStroke);
+            currentStroke = null;
+        }
+        isDrawing = false;
+    };
+
+    const redrawCanvas = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const now = Date.now();
+
+        // Draw all strokes including current one
+        const allStrokes = currentStroke ? [...strokes, currentStroke] : strokes;
+
+        allStrokes.forEach((stroke, index) => {
+            if (stroke.points.length < 2) return;
+
+            // Calculate opacity based on fade timing
+            let opacity = 1;
+            if (stroke.fadeStartTime && now >= stroke.fadeStartTime) {
+                const fadeElapsed = now - stroke.fadeStartTime;
+                const fadeDuration = 3000; // 3 second fade
+                opacity = Math.max(0, 1 - (fadeElapsed / fadeDuration));
+
+                // Remove stroke if fully faded
+                if (opacity === 0) {
+                    strokes.splice(strokes.indexOf(stroke), 1);
+                    return;
+                }
+            }
+
+            ctx.globalAlpha = opacity;
+            ctx.strokeStyle = '#903232';
+            ctx.lineWidth = 3;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+
+            ctx.beginPath();
+            ctx.moveTo(stroke.points[0].x, stroke.points[0].y);
+            for (let i = 1; i < stroke.points.length; i++) {
+                ctx.lineTo(stroke.points[i].x, stroke.points[i].y);
+            }
+            ctx.stroke();
+        });
+
+        ctx.globalAlpha = 1;
+    };
+
+    // Animation loop to handle fading
+    const animate = () => {
+        if (strokes.length > 0 || currentStroke) {
+            redrawCanvas();
+            animationFrameId = requestAnimationFrame(animate);
+        }
+    };
+
+    // Start animation when first stroke is added
+    const startAnimation = () => {
+        if (!animationFrameId) {
+            animationFrameId = requestAnimationFrame(animate);
+        }
+    };
+
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mousemove', (e) => {
+        draw(e);
+        startAnimation();
+    });
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('mouseleave', stopDrawing);
+
+    // Clear whiteboard every 5 seconds
+    setInterval(() => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        strokes = [];
+        currentStroke = null;
+        if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+        }
+    }, 5000);
+});

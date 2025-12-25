@@ -809,11 +809,11 @@ body.menu-open {
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .nav {
-        display: none;
+        display: none !important;
     }
     
     .hamburger {
-        display: flex;
+        display: flex !important;
     }
     
     .mobile-nav.active {
@@ -1490,17 +1490,178 @@ body.dark-mode .play-pause-btn:hover {
 }
 
 /* ===== MAC COMPUTER WITH EYE ===== */
-.intro-computer {
+/* Workspace container */
+.intro-workspace {
     position: absolute;
     top: -3rem;
     right: -5%;
-    width: 45%;
+    width: 50%;
     height: auto;
     margin-top: 0;
-    padding: 3rem 3rem 3rem 3rem;
+    padding: 2rem;
     z-index: 1;
     overflow: visible;
     display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+/* Whiteboard */
+.whiteboard {
+    width: 70%;
+    max-width: 500px;
+}
+
+.whiteboard-frame {
+    background: linear-gradient(135deg, #878787 0%, #828282 100%);
+    border-radius: 12px;
+    padding: 12px;
+    position: relative;
+}
+
+.whiteboard-surface {
+    background: #f8f8f8;
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    position: relative;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.dark-mode .whiteboard-surface {
+    background: #ffffff;
+}
+
+.whiteboard-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    color: #b8b8b8;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.whiteboard-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+    z-index: 1;
+}
+
+.sticky-note {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #efc5c5;
+    border-radius: 2px;
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
+    transform: rotate(-3deg);
+    cursor: grab;
+    user-select: none;
+    transition: box-shadow 0.2s ease, transform 0.1s ease;
+    z-index: 5;
+    pointer-events: auto;
+}
+
+.sticky-note:active {
+    cursor: grabbing;
+    box-shadow: 4px 6px 12px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.sticky-note:nth-child(3) {
+    transform: rotate(5deg);
+}
+
+.sticky-note:nth-child(4) {
+    transform: rotate(-8deg);
+}
+
+.push-pin {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: radial-gradient(circle, #a85a5a 0%, #8b3838 100%);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    cursor: grab;
+    user-select: none;
+    transition: box-shadow 0.2s ease;
+    z-index: 5;
+    pointer-events: auto;
+}
+
+.push-pin:active {
+    cursor: grabbing;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+/* Whiteboard markers on ledge */
+.whiteboard-markers {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    display: flex;
+    gap: 6px;
+    align-items: flex-end;
+    z-index: 5;
+}
+
+.marker {
+    width: 8px;
+    border-radius: 2px;
+    position: relative;
+}
+
+.marker-1 {
+    height: 45px;
+    background: linear-gradient(180deg, #3a3a3a 0%, #3a3a3a 15%, #d4a5a5 15%, #d4a5a5 100%);
+}
+
+.marker-2 {
+    height: 40px;
+    background: linear-gradient(180deg, #3a3a3a 0%, #3a3a3a 18%, #b87b7b 18%, #b87b7b 100%);
+}
+
+body.dark-mode .marker-1 {
+    background: linear-gradient(180deg, #2a2a2a 0%, #2a2a2a 15%, #d4a5a5 15%, #d4a5a5 100%);
+}
+
+body.dark-mode .marker-2 {
+    background: linear-gradient(180deg, #2a2a2a 0%, #2a2a2a 18%, #b87b7b 18%, #b87b7b 100%);
+}
+
+.push-pin::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: #6b2828;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.intro-computer {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    margin-top: 0;
+    padding: 0;
+    z-index: 1;
+    overflow: visible;
+    display: flex;
+    align-self: flex-start;
     align-items: flex-start;
     justify-content: center;
 }
@@ -1522,9 +1683,9 @@ body.dark-mode .play-pause-btn:hover {
 }
 
 .monitor-screen {
-    width: 380px;
-    height: 260px;
-    background: #e8e8e8;
+    width: 280px;
+    height: 190px;
+    background: #f9f9f9;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -1598,8 +1759,8 @@ body.dark-mode .play-pause-btn:hover {
     height: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    padding: 25px;
+    gap: 4px;
+    padding: 15px;
     align-items: center;
     justify-content: center;
     align-content: center;
@@ -1615,14 +1776,14 @@ body.dark-mode .play-pause-btn:hover {
 
 /* Mobile wireframe - portrait */
 .shape-1 {
-    width: 45px;
-    height: 80px;
-    border-radius: 6px;
+    width: 35px;
+    height: 60px;
+    border-radius: 5px;
     animation-delay: 0s;
     display: flex;
     flex-direction: column;
-    padding: 4px;
-    gap: 3px;
+    padding: 3px;
+    gap: 2px;
 }
 
 .shape-1::before {
@@ -1643,14 +1804,14 @@ body.dark-mode .play-pause-btn:hover {
 
 /* Desktop/Website wireframe - landscape */
 .shape-2 {
-    width: 80px;
-    height: 60px;
+    width: 60px;
+    height: 45px;
     border-radius: 3px;
     animation-delay: 0.1s;
     display: flex;
     flex-direction: column;
-    padding: 4px;
-    gap: 3px;
+    padding: 3px;
+    gap: 2px;
 }
 
 .shape-2::before {
@@ -1671,14 +1832,14 @@ body.dark-mode .play-pause-btn:hover {
 
 /* Tablet wireframe */
 .shape-3 {
-    width: 55px;
-    height: 70px;
+    width: 42px;
+    height: 55px;
     border-radius: 4px;
     animation-delay: 0.2s;
     display: flex;
     flex-direction: column;
-    padding: 4px;
-    gap: 3px;
+    padding: 3px;
+    gap: 2px;
 }
 
 .shape-3::before {
@@ -1699,14 +1860,14 @@ body.dark-mode .play-pause-btn:hover {
 
 /* Card/Component wireframe */
 .shape-4 {
-    width: 50px;
-    height: 55px;
+    width: 38px;
+    height: 42px;
     border-radius: 3px;
     animation-delay: 0.3s;
     display: flex;
     flex-direction: column;
-    padding: 3px;
-    gap: 3px;
+    padding: 2px;
+    gap: 2px;
 }
 
 .shape-4::before {
@@ -1727,13 +1888,13 @@ body.dark-mode .play-pause-btn:hover {
 
 /* Mobile landscape wireframe */
 .shape-5 {
-    width: 70px;
-    height: 45px;
+    width: 55px;
+    height: 35px;
     border-radius: 4px;
     animation-delay: 0.4s;
     display: flex;
     flex-direction: column;
-    padding: 3px;
+    padding: 2px;
     gap: 2px;
 }
 
@@ -1755,14 +1916,14 @@ body.dark-mode .play-pause-btn:hover {
 
 /* Small widget wireframe */
 .shape-6 {
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
     border-radius: 3px;
     animation-delay: 0.5s;
     display: flex;
     flex-direction: column;
-    padding: 3px;
-    gap: 3px;
+    padding: 2px;
+    gap: 2px;
 }
 
 .shape-6::before {
@@ -1785,7 +1946,7 @@ body.dark-mode .play-pause-btn:hover {
 .shape-7 {
     width: 40px;
     height: 50px;
-    border-radius: 8px;
+    border-radius: 3px;
     animation-delay: 0.6s;
     display: flex;
     flex-direction: column;
@@ -1811,14 +1972,14 @@ body.dark-mode .play-pause-btn:hover {
 
 /* Small card wireframe */
 .shape-8 {
-    width: 55px;
-    height: 50px;
+    width: 42px;
+    height: 38px;
     border-radius: 3px;
     animation-delay: 0.7s;
     display: flex;
     flex-direction: column;
-    padding: 3px;
-    gap: 3px;
+    padding: 2px;
+    gap: 2px;
 }
 
 .shape-8::before {
@@ -1839,14 +2000,14 @@ body.dark-mode .play-pause-btn:hover {
 
 /* Tall component wireframe */
 .shape-9 {
-    width: 38px;
-    height: 65px;
+    width: 30px;
+    height: 50px;
     border-radius: 3px;
     animation-delay: 0.8s;
     display: flex;
     flex-direction: column;
-    padding: 3px;
-    gap: 3px;
+    padding: 2px;
+    gap: 2px;
 }
 
 .shape-9::before {
@@ -1974,7 +2135,7 @@ body.dark-mode .play-pause-btn:hover {
 .btn-icon {
     width: 14px;
     height: 14px;
-    filter: brightness(0.91) saturate(0);
+    filter: brightness(0) invert(0.7);
 }
 
 .plus-icon {
@@ -1987,7 +2148,7 @@ body.dark-mode .plus-icon {
 }
 
 body.dark-mode .btn-icon {
-    filter: brightness(0) invert(0.1);
+    filter: brightness(0) invert(0.7);
 }
 
 #screen-draw {
@@ -2034,6 +2195,390 @@ body.dark-mode .btn-icon {
     border-radius: 6px 6px 10px 10px;
 }
 
+/* Bottom Row */
+.workspace-bottom-row {
+    display: flex;
+    gap: 0;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+/* Desk Items */
+.desk-items {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-end;
+    align-self: flex-start;
+    margin-right: 2rem;
+}
+
+/* Sketchbook */
+.sketchbook {
+    width: 160px;
+    position: relative;
+    margin-top: 0;
+    margin-left: 3rem;
+    cursor: pointer;
+}
+
+.sketchbook-cover {
+    position: relative;
+    display: flex;
+    gap: 0;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+/* Gray book covers that flip */
+.book-cover-left,
+.book-cover-right {
+    width: 65px;
+    height: 85px;
+    background: #b8b8b8;
+    border-radius: 6px;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95), z-index 0s;
+    transform-style: preserve-3d;
+}
+
+body.dark-mode .book-cover-left,
+body.dark-mode .book-cover-right {
+    background: #a0a0a0;
+}
+
+.book-cover-left {
+    transform-origin: right center;
+}
+
+.book-cover-right {
+    transform-origin: left center;
+}
+
+/* White pages that flip */
+.page {
+    width: 60px;
+    height: 73px;
+    background: #ffffff;
+    border-radius: 3px;
+    position: absolute;
+    top: 6px;
+    transition: transform 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95), opacity 0.8s ease, z-index 0s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    z-index: 2;
+    backface-visibility: hidden;
+}
+
+body.dark-mode .page {
+    background: #f5f5f5;
+}
+
+.page-left {
+    left: 30px;
+    transform-origin: right center;
+}
+
+.page-right {
+    right: 30px;
+    transform-origin: left center;
+}
+
+/* Closed state - left cover and page flip over to close on right side */
+.sketchbook.closed .book-cover-left {
+    transform: rotateY(180deg);
+    z-index: 10;
+}
+
+.sketchbook.closed .page-left {
+    transform: rotateY(180deg);
+    z-index: 9;
+}
+
+.sketchbook.closed .page-right {
+    opacity: 0;
+}
+
+.page-content {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+}
+
+/* Sketch elements */
+.sketch-line {
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background: #d0d0d0;
+    top: 20px;
+    left: 10px;
+}
+
+.sketch-line-2 {
+    top: 30px;
+    width: 25px;
+}
+
+.sketch-circle {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #d0d0d0;
+    border-radius: 50%;
+    top: 40px;
+    left: 15px;
+}
+
+.sketch-circle-2 {
+    top: 25px;
+    left: 20px;
+    width: 12px;
+    height: 12px;
+}
+
+.sketch-square {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #d0d0d0;
+    top: 30px;
+    left: 15px;
+}
+
+.sketch-triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 17px solid #d0d0d0;
+    top: 15px;
+    left: 18px;
+}
+
+.sketchbook-binding {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 15px 0;
+    z-index: 3;
+}
+
+.binding-line {
+    width: 12px;
+    height: 1.5px;
+    background: #888;
+    position: relative;
+}
+
+.binding-line::before,
+.binding-line::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #888;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.binding-line::before {
+    left: -2px;
+}
+
+.binding-line::after {
+    right: -2px;
+}
+
+body.dark-mode .binding-line {
+    background: #666;
+}
+
+body.dark-mode .binding-line::before,
+body.dark-mode .binding-line::after {
+    background: #666;
+}
+
+/* Flowerpot */
+.flowerpot {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flowerpot img {
+    width: 80px;
+    height: auto;
+}
+
+/* Posters */
+.posters {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 1rem;
+    margin-top: 0.25rem;
+    margin-right: 1rem;
+    justify-content: start;
+}
+
+.poster {
+    border-radius: 3px;
+}
+
+.poster-1 {
+    width: 45px;
+    height: 50px;
+    background:  #b87b7b;
+}
+
+.poster-2 {
+    width: 50px;
+    height: 65px;
+    background:  #d49090;
+}
+
+.poster-3 {
+    width: 40px;
+    height: 40px;
+    background: #e8b5b5;
+    grid-column: 1 / -1;
+    justify-self: end;
+}
+
+body.dark-mode .poster-1 {
+    background: #8b3838;
+}
+
+body.dark-mode .poster-2 {
+    background: #a85858;
+}
+
+/* Flowerpot Section */
+.flowerpot-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flowerpot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.flower-group {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    position: relative;
+    z-index: 2;
+}
+
+.flower {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flower-1 {
+    margin-bottom: 10px;
+}
+
+.flower-2 {
+    margin-bottom: 25px;
+}
+
+.flower-3 {
+    margin-bottom: 5px;
+}
+
+.petal {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #b87b7b;
+    border-radius: 50% 50% 0 50%;
+}
+
+.petal:nth-child(1) { transform: rotate(0deg) translateY(-10px); }
+.petal:nth-child(2) { transform: rotate(72deg) translateY(-10px); }
+.petal:nth-child(3) { transform: rotate(144deg) translateY(-10px); }
+.petal:nth-child(4) { transform: rotate(216deg) translateY(-10px); }
+.petal:nth-child(5) { transform: rotate(288deg) translateY(-10px); }
+
+.flower-center {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    background: #8b5a5a;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.stem {
+    position: absolute;
+    bottom: -15px;
+    width: 3px;
+    background: #7a7a7a;
+}
+
+.stem-1 {
+    height: 35px;
+    left: 8px;
+}
+
+.stem-2 {
+    height: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.stem-3 {
+    height: 30px;
+    right: 8px;
+}
+
+.pot {
+    width: 80px;
+    height: 50px;
+    background: linear-gradient(180deg, #c8c8c8 0%, #b0b0b0 100%);
+    border-radius: 0 0 8px 8px;
+    position: relative;
+    margin-top: -15px;
+    clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
+}
+
+body.dark-mode .pot {
+    background: linear-gradient(180deg, #a8a8a8 0%, #909090 100%);
+}
+
+.ledge {
+    width: 100%;
+    max-width: 200px;
+    height: 18px;
+    background: linear-gradient(180deg, #888 0%, #707070 100%);
+    border-radius: 8px;
+    margin-top: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+body.dark-mode .ledge {
+    background: linear-gradient(180deg, #606060 0%, #505050 100%);
+}
 
 /* Dark mode adjustments */
 body.dark-mode .monitor-bezel {
@@ -2050,6 +2595,28 @@ body.dark-mode .stand-base {
 
 /* Tablet responsiveness */
 @media (max-width: 1024px) and (min-width: 769px) {
+    .intro-workspace {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        margin-top: 3rem;
+        padding: 1rem;
+    }
+
+    .whiteboard {
+        width: 80%;
+    }
+
+    .workspace-bottom-row {
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .desk-items {
+        margin-right: 0;
+    }
+
     .intro-computer {
         position: relative;
         top: auto;
@@ -2083,13 +2650,54 @@ body.dark-mode .stand-base {
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
+    .intro-workspace {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        margin-top: 0.5rem;
+        padding: 0.5rem;
+        transform: scale(0.7);
+        transform-origin: top center;
+    }
+
+    .whiteboard {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .whiteboard-surface {
+        min-height: 120px;
+        padding: 1.5rem 1rem;
+    }
+
+    .whiteboard-text {
+        font-size: 1.8rem;
+    }
+
+    .sticky-note {
+        width: 50px;
+        height: 50px;
+    }
+
+    .workspace-bottom-row {
+        gap: 0.5rem;
+    }
+
+    .desk-items {
+        margin-right: 0.5rem;
+    }
+
+    .sketchbook {
+        margin-top: 0;
+    }
+
     .intro-computer {
         position: relative;
         width: 100%;
         height: auto;
-        padding: 1rem;
-        margin-top: 1rem;
-        order: 1;
+        padding: 0;
+        margin-top: 0;
         justify-content: center;
     }
 

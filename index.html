@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anika's Portfolio</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/svg+xml" href="brain.svg">
-    <link rel="shortcut icon" type="image/svg+xml" href="brain.svg">
-    <link rel="apple-touch-icon" href="brain.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Ovo&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -96,9 +100,77 @@
                     </div>
                 </div> -->
                 
-                <!-- Mac Computer -->
-                <div class="intro-computer" id="intro-computer">
-                    <div class="computer-container">
+                <!-- Interactive Workspace -->
+                <div class="intro-workspace" id="intro-workspace">
+                    <!-- Whiteboard -->
+                    <div class="whiteboard">
+                        <div class="whiteboard-frame">
+                            <div class="whiteboard-surface">
+                                <span class="whiteboard-text"></span>
+                                <!-- Drawing canvas -->
+                                <canvas id="whiteboard-canvas" class="whiteboard-canvas"></canvas>
+                                <!-- Sticky notes -->
+                                <div class="sticky-note" style="top: 15%; left: 20%;"></div>
+                                <div class="sticky-note" style="top: 35%; left: 30%;"></div>
+                                <div class="sticky-note" style="top: 55%; left: 18%;"></div>
+                                <!-- Push pins -->
+                                <div class="push-pin" style="top: 10%; left: 10%;"></div>
+                                <div class="push-pin" style="top: 25%; left: 15%;"></div>
+                                <div class="push-pin" style="top: 10%; right: 10%;"></div>
+                            </div>
+                            <!-- Markers on bottom ledge -->
+                            <div class="whiteboard-markers">
+                                <div class="marker marker-1"></div>
+                                <div class="marker marker-2"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Row: Desk Items and Computer -->
+                    <div class="workspace-bottom-row">
+                        <!-- Sketchbook and Flowerpot Section -->
+                        <div class="desk-items">
+                            <!-- Sketchbook -->
+                            <div class="sketchbook">
+                                <div class="sketchbook-cover">
+                                    <!-- Left book cover (fixed gray) -->
+                                    <div class="book-cover-left"></div>
+
+                                    <!-- Right book cover (fixed gray) -->
+                                    <div class="book-cover-right"></div>
+
+                                    <!-- White pages that flip -->
+                                    <div class="page page-left"></div>
+                                    <div class="page page-right"></div>
+
+                                    <!-- Binding lines in center -->
+                                    <div class="sketchbook-binding">
+                                        <div class="binding-line"></div>
+                                        <div class="binding-line"></div>
+                                        <div class="binding-line"></div>
+                                        <div class="binding-line"></div>
+                                        <div class="binding-line"></div>
+                                        <div class="binding-line"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Flowerpot -->
+                            <div class="flowerpot">
+                                <img src="flowerpot.png" alt="Flowerpot">
+                            </div>
+
+                            <!-- Posters -->
+                            <!-- <div class="posters">
+                                <div class="poster poster-1"></div>
+                                <div class="poster poster-2"></div>
+                                <div class="poster poster-3"></div>
+                            </div> -->
+                        </div>
+
+                        <!-- Mac Computer -->
+                        <div class="intro-computer" id="intro-computer">
+                        <div class="computer-container">
                         <div class="computer-monitor">
                             <div class="monitor-bezel">
                                 <div class="monitor-screen">
@@ -121,7 +193,7 @@
                                             <div class="design-shape shape-4"></div>
                                             <div class="design-shape shape-5"></div>
                                             <div class="design-shape shape-6"></div>
-                                            <!-- <div class="design-shape shape-7"></div> -->
+                                            <div class="design-shape shape-7"></div>
                                             <div class="design-shape shape-8"></div>
                                             <div class="design-shape shape-9"></div>
                                         </div>
@@ -158,11 +230,11 @@
                                         <button class="comp-btn" data-screen="code" title="Code">
                                             <img class="btn-icon" src="newcode.svg" alt="Code">
                                         </button>
-                                        <button class="comp-btn" data-screen="draw" title="Draw">
+                                        <!-- <button class="comp-btn" data-screen="draw" title="Draw">
                                             <svg class="btn-icon plus-icon" viewBox="0 0 24 24" fill="currentColor">
                                                 <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                                             </svg>
-                                        </button>
+                                        </button> -->
                                     </div>
                                 </div>
                             </div>
@@ -171,6 +243,7 @@
                             <div class="stand-neck"></div>
                             <div class="stand-base"></div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
