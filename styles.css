@@ -1148,8 +1148,8 @@ main {
     display: flex;
     align-items: flex-start;
     gap: 0;
-    padding-top:10%;
-    margin-top: 5%;
+    padding-top: 5%;
+    margin-top: 2%;
     width: 100%;
     position: relative;
     min-height: 100vh; /* Full viewport height */
@@ -13982,5 +13982,623 @@ body.dark-mode .challenge-solution {
 
     .margin-section-subtitle {
         font-size: 1.3rem;
+    }
+}
+
+/* ===== VANTAGE PROJECT STYLES ===== */
+
+.vantage-main {
+    padding: 8rem 180px;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.vantage-header {
+    margin-bottom: 6rem;
+    padding: 4rem 0rem;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    left: 0;
+    right: 0;
+    transform: none;
+}
+
+.vantage-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.vantage-meta {
+    flex: 1;
+}
+
+.vantage-title {
+    font-size: 4rem;
+    font-family: 'Ovo', 'Playfair Display', serif;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
+    padding-bottom: 2rem;
+    color: #111;
+}
+
+body.dark-mode .vantage-title {
+    color: #ffffff;
+}
+
+.vantage-details {
+    display: flex;
+    gap: 4rem;
+    flex: 1;
+}
+
+.vantage-detail-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.vantage-detail-item h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+body.dark-mode .vantage-detail-item h3 {
+    color: #ffffff;
+}
+
+.vantage-detail-item p {
+    font-size: 1rem;
+    color: #000;
+    line-height: 1.5;
+    margin: 0;
+}
+
+body.dark-mode .vantage-detail-item p {
+    color: #cccccc;
+}
+
+.vantage-hero-image {
+    width: 100%;
+    margin-top: 4rem;
+}
+
+.vantage-dashboard-image {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: zoom-in;
+    transition: all 0.3s ease;
+}
+
+.vantage-dashboard-image:hover {
+    transform: scale(1.01);
+}
+
+.vantage-section-title {
+    color: #111 !important;
+}
+
+body.dark-mode .vantage-section-title {
+    color: #ffffff !important;
+}
+
+/* Overview Stats */
+.overview-stats {
+    display: flex;
+    gap: 2rem;
+    margin: 3rem 0;
+    justify-content: center;
+}
+
+.stat-box {
+    background: #000000;
+    color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 200px;
+}
+
+body.dark-mode .stat-box {
+    background: #1a1a1a;
+    border: 1px solid #333;
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    font-family: 'Ovo', 'Playfair Display', serif;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+/* Research Insights */
+.research-insights {
+    display: flex;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.insight-card {
+    flex: 1;
+    background: #D3D3D3;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+body.dark-mode .insight-card {
+    background: #2a2a2a;
+}
+
+.insight-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.insight-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #000;
+    line-height: 1.4;
+}
+
+body.dark-mode .insight-text {
+    color: #ffffff;
+}
+
+/* Directions Container */
+.directions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.direction-card {
+    background: #D3D3D3;
+    padding: 2rem;
+    border-radius: 12px;
+    position: relative;
+}
+
+body.dark-mode .direction-card {
+    background: #2a2a2a;
+}
+
+.direction-card.direction-selected {
+    border: 2px solid #E89A5A;
+}
+
+body.dark-mode .direction-card.direction-selected {
+    border: 2px solid #E89A5A;
+}
+
+.direction-label {
+    background: #000000;
+    color: #ffffff;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+body.dark-mode .direction-label {
+    background: #ffffff;
+    color: #000000;
+}
+
+.direction-card h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+    margin: 1rem 0;
+}
+
+body.dark-mode .direction-card h4 {
+    color: #ffffff;
+}
+
+.direction-card p {
+    color: #000;
+    line-height: 1.6;
+    margin: 1rem 0;
+}
+
+body.dark-mode .direction-card p {
+    color: #cccccc;
+}
+
+.direction-image-placeholder {
+    background: #ffffff;
+    min-height: 200px;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.dark-mode .direction-image-placeholder {
+    background: #ffffff;
+}
+
+.direction-challenge,
+.direction-rationale {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #666;
+    margin-top: 1rem;
+}
+
+body.dark-mode .direction-challenge,
+body.dark-mode .direction-rationale {
+    color: #999;
+}
+
+.selected-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: #E89A5A;
+    color: #ffffff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+body.dark-mode .selected-badge {
+    background: #E89A5A;
+    color: #ffffff;
+}
+
+/* Phases Grid */
+.phases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.phase-card {
+    background: #D3D3D3;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+body.dark-mode .phase-card {
+    background: #2a2a2a;
+}
+
+.phase-badge {
+    background: #000000;
+    color: #ffffff;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+body.dark-mode .phase-badge {
+    background: #ffffff;
+    color: #000000;
+}
+
+.phase-card h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #000;
+    margin: 0.5rem 0;
+}
+
+body.dark-mode .phase-card h4 {
+    color: #ffffff;
+}
+
+.phase-subtitle {
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0.5rem 0 1rem 0;
+    font-style: italic;
+}
+
+body.dark-mode .phase-subtitle {
+    color: #999;
+}
+
+.phase-description {
+    color: #000;
+    line-height: 1.6;
+}
+
+body.dark-mode .phase-description {
+    color: #cccccc;
+}
+
+/* Radial Menu Example */
+.radial-menu-example {
+    background: #f5f5f5;
+    padding: 2.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+}
+
+body.dark-mode .radial-menu-example {
+    background: #f5f5f5;
+}
+
+.radial-menu-example h4 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 2rem;
+}
+
+body.dark-mode .radial-menu-example h4 {
+    color: #000000;
+}
+
+.metadata-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+body.dark-mode .metadata-item {
+    border-bottom: 1px solid #ddd;
+}
+
+.metadata-item:last-child {
+    border-bottom: none;
+}
+
+.metadata-item strong {
+    color: #000;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+body.dark-mode .metadata-item strong {
+    color: #000000;
+}
+
+.metadata-item {
+    color: #333;
+}
+
+body.dark-mode .metadata-item {
+    color: #333333;
+}
+
+/* Responsive Styles for Vantage */
+@media (max-width: 1024px) {
+    .vantage-main {
+        padding: 6rem 60px;
+    }
+    
+    .vantage-header-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .vantage-details {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .vantage-main {
+        padding: 2rem;
+    }
+
+    .vantage-header {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        position: relative;
+        left: 0;
+        right: 0;
+        transform: none;
+        padding-left: 0rem;
+        padding-right: 2rem;
+    }
+
+    .vantage-title {
+        font-size: 2.5rem;
+    }
+
+    .vantage-details {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .overview-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .stat-box {
+        min-width: auto;
+    }
+
+    .research-insights {
+        flex-direction: column;
+    }
+
+    .phases-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vantage-main #problem .section-content,
+    .vantage-main #problem .section-header {
+        padding: 0 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .vantage-main {
+        padding: 1.5rem;
+    }
+
+    .vantage-header {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        position: relative;
+        left: 0;
+        right: 0;
+        transform: none;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .vantage-title {
+        font-size: 2rem;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.5rem;
+    }
+}
+
+/* Vantage Problem Section - Black background in light mode, white in dark mode */
+.vantage-main #problem {
+    background: #000000 !important;
+    padding: 3rem 0;
+    margin: 2rem 0;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+body.dark-mode .vantage-main #problem {
+    background: #ffffff !important;
+}
+
+.vantage-main #problem .section-title,
+.vantage-main #problem .section-subtitle,
+.vantage-main #problem .section-text,
+.vantage-main #problem .section-text p {
+    color: #ffffff !important;
+}
+
+body.dark-mode .vantage-main #problem .section-title,
+body.dark-mode .vantage-main #problem .section-subtitle,
+body.dark-mode .vantage-main #problem .section-text,
+body.dark-mode .vantage-main #problem .section-text p {
+    color: #000000 !important;
+}
+
+.vantage-main #problem .section-content {
+    padding: 0 180px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.vantage-main #problem .section-header {
+    padding: 0 180px;
+    max-width: 1200px;
+    margin: 0 auto 2rem auto;
+}
+
+@media (max-width: 1024px) {
+    .vantage-main #problem .section-content,
+    .vantage-main #problem .section-header {
+        padding: 0 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .vantage-main #problem .section-content,
+    .vantage-main #problem .section-header {
+        padding: 0 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .vantage-main #problem .section-content,
+    .vantage-main #problem .section-header {
+        padding: 0 1.5rem;
+    }
+}
+
+/* Vantage Insights Image */
+.vantage-insights-image-container {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.vantage-insights-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .vantage-insights-image-container {
+        margin: 2rem 0;
+    }
+}
+
+/* Vantage h4 lighter font weight */
+.vantage-main .case-study-section h4 {
+    font-weight: 400;
+}
+
+/* Direction image placeholder updates */
+.direction-image-placeholder img {
+    max-width: 70%;
+    width: auto;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .direction-image-placeholder img {
+        max-width: 85%;
+    }
+}
+
+@media (max-width: 480px) {
+    .direction-image-placeholder img {
+        max-width: 100%;
     }
 }

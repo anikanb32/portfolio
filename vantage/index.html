@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vantage | Anika's Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="../brain.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
+    <link rel="manifest" href="../favicon_io/site.webmanifest">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ovo&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="project-page">
+    <header class="header">
+        <a href="../" class="logo">
+          <span class="logo-a">a</span><span class="logo-nika">nika</span><span class="logo-b">b</span><span class="logo-hagavatula">hagavatula</span>
+        </a>
+        <nav class="nav">
+          <a href="../#work">work</a>
+          <a href="../about/">about</a>
+          <a href="../resume/">resume</a>
+          <div class="theme-toggle">
+            <button class="theme-toggle-btn" aria-label="Toggle dark mode">
+              <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+              </svg>
+              <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"/>
+              </svg>
+            </button>
+          </div>
+        </nav>
+        <button class="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </header>
+
+    <!-- Back Button -->
+    <a href="../#work" class="back-button">Back</a>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-nav" aria-label="Mobile menu">
+      <button class="mobile-close" aria-label="Close menu">×</button>
+      <div class="mobile-nav-content">
+        <a href="../#work">work</a>
+        <a href="../about/">about</a>
+        <a href="../resume/">resume</a>
+        <div class="theme-toggle mobile-theme-toggle">
+          <button class="theme-toggle-btn" aria-label="Toggle dark mode">
+            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+            </svg>
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <main class="vantage-main">
+        <!-- Project Header -->
+        <section class="vantage-header">
+            <div class="vantage-header-content">
+                <div class="vantage-meta">
+                    <h1 class="vantage-title fade-in">Vantage: navigating design in XR</h1>
+                    <span class="class-organization fade-in-delay-1">Research Project</span>
+                </div>
+                <div class="vantage-details fade-in-delay-2">
+                    <div class="vantage-detail-column">
+                        <div class="vantage-detail-item">
+                            <h3>Role</h3>
+                            <p>UX Researcher,<br>Designer, Frontend<br>Developer</p>
+                        </div>
+                        <div class="vantage-detail-item">
+                            <h3>Tools</h3>
+                            <p>Figma, HTML, CSS,<br>JavaScript</p>
+                        </div>
+                    </div>
+                    <div class="vantage-detail-column">
+                        <div class="vantage-detail-item">
+                            <h3>Skills</h3>
+                            <p>User Interviews<br>Contextual Inquiry<br>Card Sorting<br>Affinity Diagrams<br>Sketch<br>Prototypes</p>
+                        </div>
+                        <div class="vantage-detail-item">
+                            <h3>Timeline</h3>
+                            <p>2 Months</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="vantage-hero-image fade-in-delay-3">
+                <img src="../images/vantage/vantagepreview.png" alt="Vantage Navigation System" class="vantage-dashboard-image expandable-image" data-src="../images/vantage/vantagepreview.png">
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section class="case-study-section fade-in-delay-4" id="overview">
+            <div class="section-header">
+                <h2 class="section-title vantage-section-title">Overview</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">Trying to design for XR feels like searching for something in the dark</h3>
+                <div class="section-text">
+                    <p>When I started exploring XR design, I kept running into the same frustrating problem: I'd be looking for information about how to design a specific interaction or interface element, and I'd end up with fifteen tabs open, none of which quite answered my question. One article would talk about "gaze-based controls," another would call it "eye tracking," and a third would reference "head-based input," all describing similar concepts but organized completely differently.</p>
+                </div>
+
+                <div class="overview-stats">
+                    <div class="stat-box">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">User Interviews</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">110</div>
+                        <div class="stat-label">Design Elements</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">Journey Phases</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Section -->
+        <section class="case-study-section" id="problem">
+            <div class="section-header">
+                <h2 class="section-title vantage-section-title">Problem</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">"There's no unified design guidelines for extended reality spaces. Everyone's just figuring it out as they go."</h3>
+                <div class="section-text">
+                    <p>XR design is fundamentally different from screen-based UI design. We need to think about physical safety, spatial awareness, and whether they might experience motion sickness. Traditional UI categories don't capture this complexity. Designers were relying on personal experience, scattered tutorials, and platform-specific guidelines that didn't talk to each other.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Research Section -->
+        <section class="case-study-section" id="research">
+            <div class="section-header">
+                <br>
+                <br>
+                <h2 class="section-title vantage-section-title">User Research</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">Learning from individuals who <i>create</i> XR experiences</h3>
+
+                <h4>Starting with what's already out there</h4>
+                
+                <div class="section-text">
+                    <p>Before talking to anyone, I dug into academic papers and design articles to understand the current landscape. The paper <i>Virtual Reality User Interface Design: Best Practices and Implementation</i> (Mehmedova et al.) explicitly states there's a lack of unified design guidelines for XR and proposes categories like general VR principles, ergonomic design, onboarding, and cybersickness prevention. <br><br>Davari's <i>Towards Context-Aware Adaptation in Extended Reality </i>offered a different lens, organizing XR interfaces by how they adapt to context through content design, presentation design, and input design, helping me see XR elements as interconnected systems rather than isolated components. Finally, Sahu's practitioner-focused article "Designing for the Immersive World: A UX Designer's Guide to AR, VR, and XR" provided a more approachable framework organized around devices, core UX principles (accessibility, comfort, spatial information, natural interactions), and use cases.<br><br> These gave me some critical insights: there's no standard way to organize XR knowledge, different frameworks serve different purposes, and the best approaches acknowledge that XR design is contextual and interconnected. But the literature didn't tell me how actual designers and developers think about organizing this information when they're doing their work? That's where user research came in.</p>
+                </div>
+
+                <h4>User Interviews</h4>
+                <div class="section-text">
+                    <p>I interviewed 6 individuals, 3 designers and 3 developers from Carnegie Mellon and UC Berkeley who have experience working on XR projects. I wanted to understand how they conceptualize interface components, what resources they use, and how they make design decisions.</p>
+                </div>
+
+                <h4>Then card sorting</h4>
+                <div class="section-text">
+                    <p>I had participants organize 105 XR design elements into categories that made sense to them. I gave them cards with terms like "gaze control," "radial menus," "boundary feedback," "motion sickness prevention", all the nitty-gritty stuff that goes into designing XR experiences.</p>
+                    <p>The messiness was actually the most critical insight. XR elements don't fit into neat boxes because the decisions are contextual, embodied, and interdependent.</p>
+                </div>
+
+                <div class="vantage-insights-image-container">
+                    <img src="../images/vantage/insights.png" alt="Research insights" class="vantage-insights-image expandable-image" data-src="../images/vantage/insights.png">
+                </div>
+            </div>
+        </section>
+
+        <!-- Ideation Section -->
+        <section class="case-study-section" id="ideation">
+            <div class="section-header">
+                <h2 class="section-title vantage-section-title">Ideation</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">Exploring different directions.</h3>
+                <div class="section-text">
+                    <p>Based on what I learned, I sketched out three different approaches to organizing XR design information. Each one tried to address different aspects of what I'd heard in the research.</p>
+                </div>
+
+                <div class="directions-container">
+                    <div class="direction-card">
+                        <div class="direction-label">Direction 1</div>
+                        <h4>Multi-dimensional Faceted System</h4>
+                        <p>Create a system where each XR element can be tagged across multiple independent dimensions. Start with safety and accessibility filters, then progressively narrow by interaction type, spatial relationship, UI component type, etc.</p>
+                        <div class="direction-image-placeholder">
+                            <img src="../images/vantage/direction1.png" alt="Direction 1: Multi-dimensional Faceted System" class="expandable-image" data-src="../images/vantage/direction1.png">
+                        </div>
+                        <p class="direction-challenge">Challenge: Would require consistent tagging across many facets. Complex to maintain and might replicate the fragmentation problem we're trying to solve.</p>
+                    </div>
+
+                    <div class="direction-card direction-selected">
+                        <div class="direction-label">Direction 2</div>
+                        <h4>User Journey Architecture</h4>
+                        <p>Organize XR elements according to when and how they're encountered in the user experience. Match the structure to actual design workflows—setup, onboarding, active use, sustained engagement, error handling.</p>
+                        <div class="direction-image-placeholder">
+                            <img src="../images/vantage/direction2.png" alt="Direction 2: User Journey Architecture" class="expandable-image" data-src="../images/vantage/direction2.png">
+                        </div>
+                        <div class="selected-badge">Selected</div>
+                        <p class="direction-rationale">Matches how users actually think and work. Creates clear entry points without oversimplifying the complexity. Feasible to implement and test.</p>
+                    </div>
+
+                    <div class="direction-card">
+                        <div class="direction-label">Direction 3</div>
+                        <h4>Role-based Entry Points</h4>
+                        <p>Multiple parallel taxonomies connecting to the same knowledge base. A designer view might see "gaze-based control" under natural interactions, while a developer sees "eye tracking implementation" under input systems.</p>
+                        <div class="direction-image-placeholder">
+                            <img src="../images/vantage/direction3.png" alt="Direction 3: Role-based Entry Points" class="expandable-image" data-src="../images/vantage/direction3.png">
+                        </div>
+                        <p class="direction-challenge">Challenge: Maintaining parallel taxonomies and a complex knowledge graph. High implementation cost and might not effectively solve the scattered information problem.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation Section -->
+        <section class="case-study-section" id="implementation">
+            <div class="section-header">
+                <h2 class="section-title vantage-section-title">Implementation</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">A journey-based navigation system.</h3>
+                <h4>Organizing XR design elements by when they matter in the user experience</h4>
+                <div class="section-text">
+                    <p>I built Vantage around six phases that map to both the designer's workflow and the user's journey through an XR experience. Each phase represents a distinct context where different design elements become relevant.</p>
+                </div>
+
+                <div class="phases-grid">
+                    <div class="phase-card">
+                        <div class="phase-badge">Phase 1</div>
+                        <h4>Pre-Experience Setup</h4>
+                        <p class="phase-subtitle">Foundation for safe, accessible, and personalized XR use</p>
+                        <div class="phase-description">Before anything else, what device are we using? What accessibility settings need to be configured? These are the unsexy but critical questions that set the entire experience up for success. Get these answers first before moving forward to ensure designers consider safety and inclusivity from the start.</div>
+                    </div>
+
+                    <div class="phase-card">
+                        <div class="phase-badge">Phase 2</div>
+                        <h4>Onboarding</h4>
+                        <p class="phase-subtitle">Introducing users to XR interaction patterns</p>
+                        <div class="phase-description">First-time tutorials, ghost hands showing gestures, contextual hints, spatial orientation cues. This is when users build their mental model of how to interact with this new environment.</div>
+                    </div>
+
+                    <div class="phase-card">
+                        <div class="phase-badge">Phase 3</div>
+                        <h4>Active Interaction</h4>
+                        <p class="phase-subtitle">Primary engagement with XR content and interface elements</p>
+                        <div class="phase-description">The meat of the experience: input methods (hand gestures, gaze, voice, UI components (buttons, menus), spatial navigation. Organized by what users are actually doing.</div>
+                    </div>
+
+                    <div class="phase-card">
+                        <div class="phase-badge">Phase 4</div>
+                        <h4>Sustained Engagement</h4>
+                        <p class="phase-subtitle">Supporting prolonged use</p>
+                        <div class="phase-description">Guiding interactions, travel mechanics, techniques for managing complex interaction techniques. These elements become important as users spend more time in the experience and start doing more sophisticated tasks.</div>
+                    </div>
+
+                    <div class="phase-card">
+                        <div class="phase-badge">Phase 5</div>
+                        <h4>Error + Recovery</h4>
+                        <p class="phase-subtitle">Handling mistakes and system failures</p>
+                        <div class="phase-description">Error states, undo options, recalibration flows. Often under-documented but critical for real-world use.</div>
+                    </div>
+
+                    <div class="phase-card">
+                        <div class="phase-badge">Phase 6</div>
+                        <h4>Persistent Considerations</h4>
+                        <p class="phase-subtitle">Elements that span the entire experience</p>
+                        <div class="phase-description">Accessibility, cybersickness prevention, comfort, safety, privacy. These aren't confined to a single phase—they're continuous concerns that influence everything.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Relationships Section -->
+        <section class="case-study-section" id="relationships">
+            <div class="section-content">
+                <div class="section-text">
+                    <h4>The relationships between phases and elements</h4>
+                    <p>Each element in Vantage includes a metadata schema that captures relationships and context. For example, 'Radial Menus' contains:</p>
+                </div>
+
+                <div class="radial-menu-example">
+                    <h4>Radial Menus</h4>
+                    <div class="metadata-item">
+                        <strong>Primary Phase:</strong> Phase 3 › Active Interaction › Navigation Components
+                    </div>
+                    <div class="metadata-item">
+                        <strong>Secondary Phases:</strong> Also appears in Phase 4 (Sustained Engagement) and Phase 2 (Onboarding)
+                    </div>
+                    <div class="metadata-item">
+                        <strong>Prerequisites:</strong> Gaze control or hand tracking calibration, understanding of basic selection gestures, spatial orientation established
+                    </div>
+                    <div class="metadata-item">
+                        <strong>Complements:</strong> Works well with haptic feedback, visual affordances, gesture controllers
+                    </div>
+                    <div class="metadata-item">
+                        <strong>Conflicts:</strong> Doesn't pair well with hierarchical nested menus or voice as the primary input
+                    </div>
+                    <div class="metadata-item">
+                        <strong>Accessibility Impact:</strong> May be difficult for users with limited hand mobility; can be adapted for gaze-based selection
+                    </div>
+                    <div class="metadata-item">
+                        <strong>Comfort/Safety Level:</strong> Medium concern
+                    </div>
+                </div>
+
+                <div class="section-text">
+                    <p>This metadata creates a web of relationships without forcing everything into a single rigid hierarchy. Elements can appear in multiple phases, reference each other, and carry important contextual information that helps designers make informed decisions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation Section -->
+        <section class="case-study-section" id="system-development">
+            <div class="section-header">
+                <h2 class="section-title vantage-section-title">Implementation</h2>
+            </div>
+            <div class="section-content">
+                <h3 class="section-subtitle">The system development</h3>
+                <div class="section-text">
+                    <p>I started building out the actual system using JSON to structure the data. Each of the 110 elements gets its own entry with all the metadata which is... a lot of work to implement.</p>
+                    <br>
+                    <p>I also designed an interface in Figma that shows how designers would actually navigate this system. You can browse by phase, search for specific elements, and see how different components relate to each other. The goal was to make it feel less like reading documentation and more like exploring a knowledge space.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reflection Section -->
+        <section class="case-study-section" id="final-thoughts">
+            <div class="section-header">
+                <h2 class="section-title vantage-section-title">Reflection</h2>
+            </div>
+            <div class="section-content">
+                <div class="final-thoughts-grid">
+                    <div class="thoughts-column">
+                        <h3 class="section-subtitle">Learnings...</h3>
+                        <div class="section-text">
+                            <p>I also learned that sometimes the messy, contextual nature of a domain is a feature, not a bug. XR design elements don't fit into neat categories because decisions are inherently interconnected.</p>
+                            <br>
+                            <p>Working on this project reinforced my belief that good information architecture is deeply user-centered work. You have to organize them in ways that match how people search, learn, and make decisions.</p>
+                        </div>
+                    </div>
+
+                    <div class="thoughts-column">
+                        <h3 class="section-subtitle">With more time...</h3>
+                        <div class="section-text">
+                            <p>The obvious next step is completing the entire set of 110 elements and test it with XR designers to see if the journey-based organization actually helps them find what they need.</p>
+                            <br>
+                            <p>I'm curious about adding scenario-based entry points on top of the phase structure. Like, "I'm designing a training simulation" or "I'm building a social VR experience", different use cases that would surface relevant elements across multiple phases.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Progress Indicator -->
+    <div class="progress-indicator" id="progressIndicator">
+        <div class="progress-steps">
+            <div class="progress-step" data-section="overview">
+                <div class="step-dot"></div>
+                <span class="step-label">Overview</span>
+            </div>
+            <div class="progress-step" data-sections="problem,research">
+                <div class="step-dot"></div>
+                <span class="step-label">Research</span>
+            </div>
+            <div class="progress-step" data-section="ideation">
+                <div class="step-dot"></div>
+                <span class="step-label">Ideation</span>
+            </div>
+            <div class="progress-step" data-sections="implementation,relationships">
+                <div class="step-dot"></div>
+                <span class="step-label">Design</span>
+            </div>
+            <div class="progress-step" data-section="final-thoughts">
+                <div class="step-dot"></div>
+                <span class="step-label">Reflection</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>thanks for stopping by :)</h3>
+                <div class="social-links">
+                    <a href="mailto:anikabhagavatula@berkeley.edu">anikabhagavatula@berkeley.edu</a>
+                    <a href="https://www.linkedin.com/in/anikabhagavatula" target="_blank" class="linkedin-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="image-modal-close">&times;</span>
+        <img class="image-modal-content" id="modalImage">
+    </div>
+
+    <!-- Custom Cursor Dots -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-dot" id="cursor-dot-2"></div>
+    <div class="cursor-dot" id="cursor-dot-3"></div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
