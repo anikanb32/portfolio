@@ -211,18 +211,26 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing navigation...');
-    
+
     // Detect if we're on a project page and add class to body
     const projectPages = ['quantframe', 'xometry', 'neurologic', 'class', 'context-aware-vr', 'coachpro', 'noborders'];
     const pathname = window.location.pathname;
     const isProjectPage = projectPages.some(page => pathname.includes('/' + page + '/') || pathname.includes('/' + page + '.html'));
-    
+
     if (isProjectPage) {
         document.body.classList.add('project-page');
     }
-    
+
     // Initialize test page functionality
     initializeTestPage();
+
+    // Trigger workspace fade-in animations
+    const workspace = document.getElementById('intro-workspace');
+    if (workspace) {
+        setTimeout(() => {
+            workspace.classList.add('loaded');
+        }, 300);
+    }
 
     // Hamburger menu functionality
     const hamburger = document.querySelector('.hamburger');
@@ -657,7 +665,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-            
+
             // Save position to sessionStorage
             try {
                 sessionStorage.setItem('cursorX', mouseX.toString());
@@ -665,10 +673,29 @@ document.addEventListener('DOMContentLoaded', function() {
             } catch (e) {
                 // If sessionStorage is not available, ignore
             }
-            
+
+            // Show cursor dots when mouse moves
+            cursorDot.style.opacity = '1';
+            cursorDot2.style.opacity = '0.8';
+            cursorDot3.style.opacity = '0.6';
+
             // First dot follows immediately
             cursorDot.style.left = mouseX + 'px';
             cursorDot.style.top = mouseY + 'px';
+        });
+
+        // Hide cursor when mouse leaves the viewport
+        document.addEventListener('mouseleave', () => {
+            cursorDot.style.opacity = '0';
+            cursorDot2.style.opacity = '0';
+            cursorDot3.style.opacity = '0';
+        });
+
+        // Show cursor when mouse enters the viewport
+        document.addEventListener('mouseenter', () => {
+            cursorDot.style.opacity = '1';
+            cursorDot2.style.opacity = '0.8';
+            cursorDot3.style.opacity = '0.6';
         });
         
         function animate() {
@@ -1698,7 +1725,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Initialize work page filtering if on work page
-    if (document.querySelector('.work-filters')) {
+    if (document.querySelector('.filter-container')) {
         const filterButtons = document.querySelectorAll('.filter-btn');
         const workItems = document.querySelectorAll('.work-item');
 
@@ -2426,3 +2453,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 5000);
 });
+
+// Digital Clock - Real-time update with user's timezone
+function updateClock() {
+    const clockDisplay = document.getElementById('clock-display');
+    if (clockDisplay) {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        clockDisplay.textContent = `${hours}:${minutes}`;
+    }
+}
+
+// Update clock immediately and then every second
+updateClock();
+setInterval(updateClock, 1000);
+

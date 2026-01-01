@@ -34,6 +34,7 @@ body {
     overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
     cursor: none;
+    font-weight: 250;
 }
 
 /* Content visibility for password modal transition */
@@ -623,7 +624,7 @@ body.dark-mode .linkedin-icon:hover {
   .nav a {
     text-decoration: none;
     color: inherit;
-    font-weight: 500;
+    font-weight: 250;
     transition: color 0.2s;
     display: inline-flex;
     align-items: center;
@@ -935,7 +936,6 @@ main {
     opacity: 0;
     transform: translateY(30px);
     transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
-    min-height: 100vh; /* Full viewport height */
     position: relative;
 }
 
@@ -1144,6 +1144,135 @@ main {
       max-width: 100%;
   }
 
+/* Workspace fade-in animations */
+.workspace-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    position: relative;
+}
+
+.intro-workspace.loaded .workspace-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.workspace-delay-1 {
+    transition-delay: 0.2s;
+}
+
+.workspace-delay-2 {
+    transition-delay: 0.5s;
+}
+
+.workspace-delay-3 {
+    transition-delay: 0.8s;
+}
+
+/* Workspace tooltips */
+.workspace-tooltip {
+    position: absolute;
+    left: 50%;
+    background: transparent;
+    color: #000;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+    overflow: hidden;
+    width: 0;
+    transition: opacity 0.2s ease, width 0s 0.3s;
+}
+
+/* Typewriter effect */
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Whiteboard tooltip - above */
+.whiteboard .workspace-tooltip {
+    top: -3rem;
+    left: 50%;
+    margin-left: -6ch;
+}
+
+.whiteboard:hover .workspace-tooltip {
+    opacity: 1;
+    width: auto;
+    animation: typewriter 0.6s steps(25) forwards;
+    transition: opacity 0.2s ease;
+}
+
+/* Teapot tooltip - above */
+.teapot-tooltip {
+    top: -1.5rem;
+    left: 55%;
+    margin-left: -5ch;
+}
+
+.teapot-container:hover .teapot-tooltip {
+    opacity: 1;
+    width: auto;
+    animation: typewriter 0.6s steps(25) forwards;
+    transition: opacity 0.2s ease;
+}
+
+/* Record tooltip - below */
+.record-tooltip {
+    bottom: -2.5rem;
+    left: 50%;
+    margin-left: -5ch;
+}
+
+.record-player-container:hover .record-tooltip {
+    opacity: 1;
+    width: auto;
+    animation: typewriter 0.6s steps(25) forwards;
+    transition: opacity 0.2s ease;
+}
+
+/* Computer tooltip - below */
+.intro-computer .workspace-tooltip {
+    bottom: -3rem;
+    left: 50%;
+    margin-left: -6ch;
+}
+
+.intro-computer:hover .workspace-tooltip {
+    opacity: 1;
+    width: auto;
+    animation: typewriter 0.6s steps(25) forwards;
+    transition: opacity 0.2s ease;
+}
+
+/* AR Goggles tooltip - below */
+.ar-goggles .workspace-tooltip {
+    bottom: -2.5rem;
+    left: 60%;
+    margin-left: -6ch;
+}
+
+.ar-goggles:hover .workspace-tooltip {
+    opacity: 1;
+    width: auto;
+    animation: typewriter 0.6s steps(25) forwards;
+    transition: opacity 0.2s ease;
+}
+
+body.dark-mode .workspace-tooltip {
+    background: transparent;
+    color: #fff;
+}
+
 .intro-content {
     display: flex;
     align-items: flex-start;
@@ -1152,7 +1281,7 @@ main {
     margin-top: 2%;
     width: 100%;
     position: relative;
-    min-height: 100vh; /* Full viewport height */
+    min-height: 60vh;
 }
 
 .intro-text {
@@ -1493,18 +1622,20 @@ body.dark-mode .play-pause-btn:hover {
 /* Workspace container */
 .intro-workspace {
     position: absolute;
-    top: -3rem;
-    right: -5%;
+    top: 0rem;
+    right: 5%;
     width: 50%;
     height: auto;
     margin-top: 0;
-    padding: 2rem;
+    /* padding: 2rem; */
     z-index: 1;
     overflow: visible;
     display: flex;
     flex-direction: column;
     gap: 2rem;
     align-items: center;
+    transform: scale(0.7);
+    transform-origin: top right;
 }
 
 /* Whiteboard */
@@ -1557,7 +1688,7 @@ body.dark-mode .whiteboard-surface {
     position: absolute;
     width: 60px;
     height: 60px;
-    background: #efc5c5;
+    background: #c98a8a;
     border-radius: 2px;
     box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
     transform: rotate(-3deg);
@@ -1664,6 +1795,81 @@ body.dark-mode .marker-2 {
     align-self: flex-start;
     align-items: flex-start;
     justify-content: center;
+}
+
+/* Polaroid Stack */
+.polaroid-stack {
+    position: absolute;
+    right: -120px;
+    top: 20%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+}
+
+.polaroid {
+    position: relative;
+    width: 60px;
+    cursor: pointer;
+    transition: transform 0.3s ease, z-index 0s;
+}
+
+.polaroid-frame {
+    background: #ffffff;
+    padding: 5px 5px 15px 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    transition: box-shadow 0.3s ease;
+}
+
+.polaroid-photo {
+    width: 100%;
+    aspect-ratio: 1;
+    background: #f0f0f0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+}
+
+.polaroid-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Individual polaroid rotations */
+.polaroid-1 {
+    transform: rotate(-8deg);
+}
+
+.polaroid-2 {
+    transform: rotate(5deg);
+    margin-left: 10px;
+}
+
+.polaroid-3 {
+    transform: rotate(-3deg);
+    margin-left: -5px;
+}
+
+/* Hover effects */
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.15) !important;
+    z-index: 101;
+}
+
+.polaroid:hover .polaroid-frame {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark mode polaroids */
+body.dark-mode .polaroid-frame {
+    background: #f5f5f5;
 }
 
 .computer-container {
@@ -2655,50 +2861,14 @@ body.dark-mode .stand-base {
         top: auto;
         right: auto;
         width: 100%;
-        margin-top: 0.5rem;
-        padding: 0.5rem;
-        transform: scale(0.7);
+        margin-top: 2rem;
+        padding: 0;
+        transform: scale(0.6);
         transform-origin: top center;
-    }
-
-    .whiteboard {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .whiteboard-surface {
-        min-height: 120px;
-        padding: 1.5rem 1rem;
-    }
-
-    .whiteboard-text {
-        font-size: 1.8rem;
-    }
-
-    .sticky-note {
-        width: 50px;
-        height: 50px;
-    }
-
-    .workspace-bottom-row {
-        gap: 0.5rem;
-    }
-
-    .desk-items {
-        margin-right: 0.5rem;
     }
 
     .sketchbook {
         margin-top: 0;
-    }
-
-    .intro-computer {
-        position: relative;
-        width: 100%;
-        height: auto;
-        padding: 0;
-        margin-top: 0;
-        justify-content: center;
     }
 
     .monitor-bezel {
@@ -3047,8 +3217,8 @@ body.dark-mode #brain-app {
   }
 
 .intro h1 {
-    font-size: 4rem;
-    font-weight: 700;
+    font-size: 3.5rem;
+    font-weight: 500;
     line-height: 1.1;
     margin-bottom: 2rem;
     width: 100%;
@@ -3062,7 +3232,26 @@ body.dark-mode .intro h1 {
 
 .intro h1 > span {
     display: block;
-    font-size: 5rem;
+    font-size: 4rem;
+}
+
+/* Gradient effect for interdisciplinary */
+.intro h1 i {
+    font-style: italic;
+    background: linear-gradient(135deg, #903333, #C94949, #903333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    padding-bottom: 0.1em;
+    padding-right: 0.15em;
+}
+
+body.dark-mode .intro h1 i {
+    background: linear-gradient(135deg, #C94949, #E06666, #C94949);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Breathing color animation for product designer text */
@@ -3099,7 +3288,7 @@ body.dark-mode .breathing-text {
 .intro p {
     font-size: 1.2rem;
     line-height: 1.6;
-    font-weight: 400;
+    font-weight: 250;
     max-width: 100%;
     color: #000000;
     transition: color 0.3s ease;
@@ -3107,6 +3296,44 @@ body.dark-mode .breathing-text {
 
 .intro p.fade-in-delay-2 {
     font-size: 1rem;
+}
+
+/* Intro roles section */
+.intro-roles {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 2rem;
+}
+
+.role-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 250;
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+.role-icon {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    color: #903333;
+}
+
+body.dark-mode .role-icon {
+    color: #C94949;
+}
+
+.role-text {
+    line-height: 1.5;
+}
+
+body.dark-mode .role-item {
+    color: #ffffff;
 }
 
 /* Highlight phrases styling */
@@ -3134,7 +3361,7 @@ body.dark-mode .highlight-phrase {
 
 .slogan {
     font-size: 1.8rem;
-    font-weight: 500;
+    font-weight: 250;
     color: #000000;
     margin: 1.5rem 0;
     letter-spacing: 0.5px;
@@ -3402,12 +3629,31 @@ body.dark-mode .highlight-phrase {
     .intro {
         padding: 2rem !important;
     }
-    
+
     .intro-content {
         flex-direction: column;
         gap: 2rem;
         min-height: auto;
         position: relative;
+    }
+
+    .intro-text {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        order: 0;
+        text-align: center;
+        padding: 0;
+    }
+
+    .intro-workspace {
+        position: relative;
+        width: 100%;
+        transform: scale(0.5);
+        transform-origin: top center;
+        right: auto;
+        order: 1;
+        margin-top: 2rem;
     }
     
     .intro-neuron-network {
@@ -3489,15 +3735,29 @@ body.dark-mode .highlight-phrase {
 /* Extra small screens */
 @media (max-width: 400px) {
     .intro h1 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     .intro h1 span {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     .intro h1 .poppins-text {
-        font-size: 1.3rem;
+        font-size: 1.8rem;
+    }
+
+    .intro p {
+        font-size: 0.9rem;
+    }
+
+    .role-item {
+        font-size: 0.85rem;
+    }
+
+    .work-title,
+    .about-title,
+    .resume-title {
+        font-size: 1.8rem;
     }
 
     .record-player-deck {
@@ -3547,33 +3807,43 @@ body.dark-mode .highlight-phrase {
     }
     
     .intro h1 {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
         width: 100%;
         line-height: 1.3;
     }
-    
+
     .intro h1 span {
-        font-size: 1.8rem;
+        font-size: 2.5rem;
     }
 
     .intro h1 .poppins-text {
-        font-size: 1.6rem;
+        font-size: 2.2rem;
     }
-    
+
     .intro p {
         max-width: 100%;
-        font-size: 0.95rem;
+        font-size: 1rem;
         color: #000000;
         transition: color 0.3s ease;
         text-align: center;
     }
-    
+
     .intro p.fade-in-delay-2,
     .intro .work-subtitle {
         font-size: 0.9rem;
         text-align: center;
     }
-    
+
+    .role-item {
+        font-size: 0.95rem;
+    }
+
+    .work-title,
+    .about-title,
+    .resume-title {
+        font-size: 2.2rem;
+    }
+
     /* Mobile dark mode for paragraph text */
     body.dark-mode .intro p {
         color: #ffffff;
@@ -3930,7 +4200,7 @@ body.dark-mode .footer-content {
 }
 
 .project-details p {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     color: #000;
     margin-bottom: 1rem;
@@ -4009,8 +4279,8 @@ body.dark-mode .footer-content {
 
 .about-title {
     font-family: 'Ovo', 'Playfair Display', serif;
-    font-size: 5rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 500;
     line-height: 1.1;
     margin: 0 0 2rem 0;
     padding: 0;
@@ -4061,7 +4331,7 @@ body.dark-mode .footer-content {
 }
 .about-hats h3 {
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: 250;
     margin: 0;
     padding: 0;
 }
@@ -4826,7 +5096,7 @@ body.dark-mode .footer-content {
 .music-subtitle {
     font-size: 1.1rem;
     color: #64748b;
-    font-weight: 500;
+    font-weight: 250;
 }
 
 .vinyl-collection {
@@ -4949,7 +5219,7 @@ body.dark-mode .footer-content {
 .vinyl-info p {
     font-size: 0.9rem;
     color: #64748b;
-    font-weight: 500;
+    font-weight: 250;
 }
 
 .music-player {
@@ -5000,7 +5270,7 @@ body.dark-mode .footer-content {
 .track-artist {
     font-size: 1rem;
     color: #cbd5e1;
-    font-weight: 500;
+    font-weight: 250;
 }
 
 .player-controls {
@@ -5561,7 +5831,7 @@ body.dark-mode .password-error {
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 250;
 }
 
 .test-project-preview {
@@ -6196,7 +6466,7 @@ body.dark-mode .gradcap-icon svg {
 .song-artist {
     font-size: 0.9rem;
     color: #666;
-    font-weight: 500;
+    font-weight: 250;
 }
 
 @keyframes slideInLeft {
@@ -6316,8 +6586,8 @@ body.dark-mode .vinyl-record[data-color="#1e3a8a"] {
 
 .resume-title {
     font-family: 'Ovo', 'Playfair Display', serif;
-    font-size: 6rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 500;
     line-height: 1.1;
     margin: 0;
     padding: 0;
@@ -6459,7 +6729,7 @@ body.dark-mode .vinyl-record[data-color="#1e3a8a"] {
 .date {
     font-size: 1rem;
     color: #666;
-    font-weight: 500;
+    font-weight: 250;
     background: rgba(144, 50, 50, 0.1);
     padding: 0.4rem 1rem;
     border-radius: 20px;
@@ -6509,7 +6779,7 @@ body.dark-mode .vinyl-record[data-color="#1e3a8a"] {
     color: #000;
     line-height: 1.6;
     margin-top: 1rem;
-    font-weight: 400;
+    font-weight: 250;
 }
 
 /* Removed job-item styles as they're no longer needed */
@@ -6527,6 +6797,7 @@ body.dark-mode .vinyl-record[data-color="#1e3a8a"] {
     margin-bottom: 0.8rem;
     padding-left: 1.5rem;
     position: relative;
+    font-weight: 250;
 }
 
 .timeline-card li::before {
@@ -6996,7 +7267,7 @@ body.dark-mode .mobile-nav .download-btn:hover {
     align-items: center;
     padding: 0.25rem 0.75rem;
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 250;
     color: #4A9FCA;
     background-color: rgba(135, 206, 235, 0.3);
     border-radius: 12px;
@@ -7060,7 +7331,7 @@ body.dark-mode .status-chip.xometry-shipped {
 }
 
 .class-detail-item p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #000;
     line-height: 1.5;
     margin: 0;
@@ -7546,7 +7817,8 @@ body.dark-mode .problem-dark,
     }
 }
 
-.section-text p {
+.section-text p,
+p.section-text {
     font-size: 0.9rem;
     line-height: 2;
     color: #000;
@@ -7651,11 +7923,11 @@ body.dark-mode .research-methods-dark,
 }
 
 .insight p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #000000;
     line-height: 1.6;
     margin: 0;
-    font-weight: 500;
+    font-weight: 250;
 }
 
 /* Problem Statement */
@@ -7822,11 +8094,11 @@ body.dark-mode .research-methods-dark,
 }
 
 .problem-factor p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #000;
     line-height: 1.6;
     margin: 0;
-    font-weight: 500;
+    font-weight: 250;
 }
 
 /* Dark Mode Styles for CLASS Page */
@@ -8072,7 +8344,7 @@ body.dark-mode .problem-factor:last-child::after {
 
 .question-item p {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     color: #000;
 }
@@ -8531,7 +8803,7 @@ body.dark-mode .question-item p {
 
 .takeaway-item p {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     color: #000;
 }
@@ -9104,7 +9376,7 @@ body.dark-mode .video-container {
     font-size: 0.7rem;
     color: var(--text-secondary, #666);
     text-transform: lowercase;
-    font-weight: 500;
+    font-weight: 250;
     letter-spacing: 0.5px;
 }
 
@@ -9296,7 +9568,7 @@ body.dark-mode .feature-caption {
 
 .quotes-title {
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: 250;
     color: var(--text-color, #000);
     margin-bottom: 2rem;
     text-align: center;
@@ -9326,7 +9598,7 @@ body.dark-mode .feature-caption {
 .quote-attribution {
     font-size: 0.85rem;
     color: var(--text-color, #666);
-    font-weight: 500;
+    font-weight: 250;
 }
 
 /* Final Thoughts Section */
@@ -9339,7 +9611,7 @@ body.dark-mode .feature-caption {
 
 .thoughts-title {
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: 250;
     color: var(--text-color, #000);
     margin-bottom: 2rem;
 }
@@ -9503,7 +9775,7 @@ body.dark-mode .caption-icon {
     color: white;
     text-decoration: none;
     border-radius: 8px;
-    font-weight: 500;
+    font-weight: 250;
     transition: all 0.3s ease;
 }
 
@@ -9945,7 +10217,7 @@ body.dark-mode .prototype-header {
 
 /* === WORK PAGE STYLES === */
 .work-main {
-    padding: 8rem 60px;
+    padding: 0rem 60px;
     margin: 0;
 }
 
@@ -9954,19 +10226,46 @@ body.dark-mode .prototype-header {
     margin-bottom: 4rem;
 }
 
+.work-header-divider {
+    width: 100%;
+    height: 1px;
+    background: #ddd;
+    margin-bottom: 2rem;
+}
+
+body.dark-mode .work-header-divider {
+    background: #444;
+}
+
+.work-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.work-header-content .about-title {
+    margin: 0;
+}
+
+.work-header-content .filter-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
 #work {
-    scroll-margin-top: 8rem;
+    scroll-margin-top: 5rem;
 }
 
 @media (max-width: 768px) {
     #work {
-        scroll-margin-top: 2rem;
+        scroll-margin-top: 4rem;
     }
 }
 
 .work-title {
-    font-size: 5rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 500;
     line-height: 1.1;
     margin: 0 0 1rem 0;
     padding: 0;
@@ -10033,14 +10332,10 @@ body.dark-mode .highlight-word.active {
 /* Work sections on index page (not inside .work-main) */
 .intro + .work-header {
     padding: 0 60px;
-    margin-top: 10rem;
+    margin-top: 0;
 }
 
-.intro + .work-header + .work-filters {
-    padding: 0 60px;
-}
-
-.intro + .work-header + .work-filters + .work-grid {
+.intro + .work-header + .work-grid {
     padding: 0 60px;
 }
 
@@ -10056,8 +10351,8 @@ body.dark-mode .highlight-word.active {
 .filter-btn {
     background: #f5f5f5;
     border: none;
-    border-radius: 8px;
-    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    padding: 0.6rem 1.2rem;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
@@ -10065,7 +10360,7 @@ body.dark-mode .highlight-word.active {
     gap: 0.8rem;
     font-family: inherit;
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 250;
     color: #000;
     position: relative;
     overflow: hidden;
@@ -10085,7 +10380,7 @@ body.dark-mode .highlight-word.active {
 }
 
 .filter-text {
-    font-weight: 600;
+    font-weight: 250;
     white-space: nowrap;
 }
 
@@ -10240,6 +10535,7 @@ body.dark-mode .work-item:visited .project-description {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .tag {
@@ -10249,7 +10545,7 @@ body.dark-mode .work-item:visited .project-description {
     padding: 0.4rem 0.8rem;
     border-radius: 20px;
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 250;
 }
 
 
@@ -10395,17 +10691,13 @@ body.dark-mode .cta-content p {
     .intro + .work-header {
         padding: 0 2rem;
     }
-    
-    .intro + .work-header + .work-filters {
+
+    .intro + .work-header + .work-grid {
         padding: 0 2rem;
     }
-    
-    .intro + .work-header + .work-filters + .work-grid {
-        padding: 0 2rem;
-    }
-    
+
     .work-title {
-        font-size: 3rem;
+        font-size: 2.2rem;
     }
     
     .work-subtitle {
@@ -10544,11 +10836,7 @@ body.dark-mode .cta-content p {
         padding: 0 1.5rem;
     }
     
-    .intro + .work-header + .work-filters {
-        padding: 0 1.5rem;
-    }
-    
-    .intro + .work-header + .work-filters + .work-grid {
+    .intro + .work-header + .work-grid {
         padding: 0 1.5rem;
     }
     
@@ -10616,7 +10904,7 @@ body.dark-mode .cta-content p {
     border-radius: 12px;
     padding: 0.75rem 1.5rem;
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 250;
     color: #000;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -10746,7 +11034,7 @@ body.dark-mode .back-button:hover {
 
 .step-label {
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 250;
     color: #666;
     transition: all 0.3s ease;
     white-space: nowrap;
@@ -10786,7 +11074,7 @@ body.dark-mode .back-button:hover {
 
 [data-theme="light"] .step-label {
     color: #666;
-    font-weight: 500;
+    font-weight: 250;
     font-size: 0.75rem;
 }
 
@@ -10823,7 +11111,7 @@ body.dark-mode .back-button:hover {
 
 [data-theme="dark"] .step-label {
     color: #ffffff;
-    font-weight: 500;
+    font-weight: 250;
     font-size: 0.75rem;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
     opacity: 0.7;
@@ -11436,7 +11724,7 @@ body.dark-mode .live-site-icon {
 .notice-content a {
     color: #ffffff;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 250;
 }
 
 .notice-content a:hover {
@@ -11533,7 +11821,7 @@ body.dark-mode .live-site-icon {
     align-items: center;
     padding: 0.25rem 0.75rem;
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 250;
     color: #4A9FCA;
     background-color: rgba(135, 206, 235, 0.3);
     border-radius: 12px;
@@ -11573,7 +11861,7 @@ body.dark-mode .live-site-icon {
 }
 
 .ai-detail-item p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #000;
     line-height: 1.5;
     margin: 0;
@@ -11824,7 +12112,7 @@ body.dark-mode .lofis-dark,
     background-color: #E1BAAB;
     color: #BC6949;
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 250;
     border-radius: 20px;
     margin: 1rem 0;
 }
@@ -12267,7 +12555,8 @@ body.dark-mode .problem-dark,
     }
 }
 
-.section-text p {
+.section-text p,
+p.section-text {
     font-size: 0.9rem;
     line-height: 2;
     color: #000;
@@ -12372,11 +12661,11 @@ body.dark-mode .research-methods-dark,
 }
 
 .insight p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #000000;
     line-height: 1.6;
     margin: 0;
-    font-weight: 500;
+    font-weight: 250;
 }
 
 /* Problem Statement */
@@ -12543,11 +12832,11 @@ body.dark-mode .research-methods-dark,
 }
 
 .problem-factor p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #000;
     line-height: 1.6;
     margin: 0;
-    font-weight: 500;
+    font-weight: 250;
 }
 
 /* Dark Mode Styles for CLASS Page */
@@ -12793,7 +13082,7 @@ body.dark-mode .problem-factor:last-child::after {
 
 .question-item p {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     color: #000;
 }
@@ -13252,7 +13541,7 @@ body.dark-mode .question-item p {
 
 .takeaway-item p {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     color: #000;
 }
@@ -13867,7 +14156,7 @@ body.dark-mode .margin-preview-image {
     padding: 0.5rem 1.5rem;
     border-radius: 50px;
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 250;
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
@@ -14064,7 +14353,7 @@ body.dark-mode .vantage-detail-item h3 {
 }
 
 .vantage-detail-item p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #000;
     line-height: 1.5;
     margin: 0;
@@ -14946,44 +15235,162 @@ body.dark-mode .steam {
     }
 }
 
-/* Desk Setup Image */
-.desk-setup {
+/* Desk Items Container */
+.desk-items {
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
 }
 
-.desk-setup img {
+/* Ledge Items - Clock and Cup on the same shelf */
+.ledge-items {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 0;
+}
+
+/* Digital Clock Container */
+.digital-clock-container {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    z-index: 10;
+}
+
+.digital-clock {
+    background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+    border: 2px solid #4a4a4a;
+    border-radius: 6px;
+    padding: 8px 12px;
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.clock-display {
+    font-family: 'Courier New', monospace;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ff6b6b;
+    text-shadow:
+        0 0 10px rgba(255, 107, 107, 0.5),
+        0 0 20px rgba(255, 107, 107, 0.3);
+    letter-spacing: 0.08em;
+    user-select: none;
+}
+
+/* Clock tooltip positioning */
+.clock-tooltip {
+    top: -1.8rem;
+    left: 50%;
+    margin-left: -5.5ch;
+}
+
+.digital-clock-container:hover .clock-tooltip {
+    opacity: 1;
+    width: auto;
+    animation: typewriter 0.6s steps(25) forwards;
+    transition: opacity 0.2s ease;
+}
+
+/* Dark mode for clock */
+body.dark-mode .digital-clock {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+    border-color: #333;
+}
+
+body.dark-mode .clock-display {
+    color: #ff8787;
+}
+
+/* Teapot Container */
+.teapot-container {
+    position: relative;
+    width: auto;
+}
+
+.teapot-container img {
     width: auto;
     max-width: 200px;
     height: auto;
     display: block;
 }
 
+/* Record Player Container */
+.record-player-container {
+    position: relative;
+    width: auto;
+    margin-top: 35px;
+    align-self: flex-end;
+}
+
+.record-player-container img {
+    width: auto;
+    max-width: 80px;
+    height: auto;
+    display: block;
+}
+
+/* AR Goggles */
+.ar-goggles {
+    position: absolute;
+    top: 5%;
+    right: -5%;
+    width: auto;
+}
+
+.ar-goggles img {
+    width: auto;
+    max-width: 120px;
+    height: auto;
+    display: block;
+    transform-origin: top center;
+    animation: goggles-swing 3s ease-in-out infinite;
+}
+
+@keyframes goggles-swing {
+    0%, 100% {
+        transform: rotate(-2deg);
+    }
+    50% {
+        transform: rotate(2deg);
+    }
+}
+
 @media (max-width: 768px) {
-    .desk-setup img {
+    .teapot-container img,
+    .record-player-container img {
         max-width: 150px;
+    }
+
+    .ar-goggles img {
+        max-width: 90px;
     }
 }
 
 @media (max-width: 480px) {
-    .desk-setup img {
+    .teapot-container img,
+    .record-player-container img {
         max-width: 120px;
     }
-}
 
-/* Update desk-setup to be relative for steam and record positioning */
-.desk-setup {
-    position: relative;
+    .ar-goggles img {
+        max-width: 70px;
+    }
 }
 
 /* Spinning record overlay positioned over the record player */
 .setup-record-container {
     position: absolute;
-    bottom: 7%;
-    right: 12%;
-    width: 50px;
-    height: 50px;
+    bottom: 25%;
+    right: 16%;
+    width: 57px;
+    height: 57px;
     pointer-events: none;
 }
 
@@ -15065,10 +15472,10 @@ body.dark-mode .setup-spinning-record {
         );
 }
 
-/* Steam container positioned over the coffee cup */
+/* Steam container positioned over the teapot */
 .setup-steam-container {
     position: absolute;
-    bottom: 58%;
+    bottom: 42%;
     right: 20%;
     width: 20px;
     height: 50px;
@@ -15111,6 +15518,17 @@ body.dark-mode .setup-spinning-record {
     }
     20% {
         opacity: 0.6;
+        transform: translateX(-55%) scale(1.05);
+    }
+    40% {
+        transform: translateX(-45%) scale(1.1);
+    }
+    60% {
+        transform: translateX(-55%) scale(1.15);
+    }
+    80% {
+        opacity: 0.3;
+        transform: translateX(-45%) scale(1.25);
     }
     100% {
         bottom: 50px;

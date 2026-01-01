@@ -65,15 +65,32 @@
                 <div class="intro-text">
                     <h1 class="fade-in">
                         <span class="poppins-text">hi there, i'm anika! </span>
-                        <span>a <span class="breathing-text">product designer</span> and <span class="breathing-text">researcher</span>.</span>
+                        <span>an <i>interdisciplinary</i> product designer and researcher.</span>
                        
                     </h1>
+                     <span class="breathing-text"></span>
                     <!-- <div class="work-subtitle fade-in-delay-2"><b>decoding the mind + encoding experiences</b></div> -->
                     <br>
-                    <p class="work-subtitle fade-in-delay-2">I love exploring where <span id="word-perception" class="highlight-word">perception,</span> <span id="word-emotion" class="highlight-word">design,</span> and <span id="word-technology" class="highlight-word">technology</span> meet, building experiences that allow people to see, feel, and express themselves. It's what makes me eager to find what really clicks with people. </p>
-                       <!-- My diverse background 
-                       allows me to approach design from multiple perspectives: understanding user psychology, 
-                       working within technical constraints, and always considering the broader system. -->
+                    <!-- <p class="work-subtitle fade-in-delay-2">I love exploring where <span id="word-perception" class="highlight-word">perception,</span> <span id="word-emotion" class="highlight-word">design,</span> and <span id="word-technology" class="highlight-word">technology</span> meet, building experiences that allow people to see, feel, and express themselves. It's what makes me eager to find what really clicks with people. </p> -->
+
+                    <div class="intro-roles fade-in-delay-2">
+                        <div class="role-item">
+                            <svg class="role-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="9" y1="3" x2="9" y2="21"/>
+                            </svg>
+                            <span class="role-text">HCI and AI Design @ UC Berkeley</span>
+                        </div>
+                        <div class="role-item">
+                            <svg class="role-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                            </svg>
+                            <span class="role-text">Previously Neuroscience and HCI @ CMU</span>
+                        </div>
+                    </div>
+
                 </div>
                 <!-- <div class="intro-record-player" id="intro-record-player">
                     <div class="record-player-container">
@@ -102,8 +119,12 @@
                 
                 <!-- Interactive Workspace -->
                 <div class="intro-workspace" id="intro-workspace">
+                    <!-- Wall Lamp -->
+                    
+
                     <!-- Whiteboard -->
-                    <div class="whiteboard">
+                    <div class="whiteboard workspace-fade-in workspace-delay-1">
+                        <div class="workspace-tooltip">Move things around and doodle!</div>
                         <div class="whiteboard-frame">
                             <div class="whiteboard-surface">
                                 <span class="whiteboard-text"></span>
@@ -126,28 +147,53 @@
                         </div>
                     </div>
 
+                    <!-- AR Goggles hanging to the right of whiteboard -->
+                    <div class="ar-goggles workspace-fade-in workspace-delay-1">
+                        <!-- <div class="workspace-tooltip">AR Research</div> -->
+                        <img src="vrgoggles.png" alt="AR Goggles">
+                    </div>
+
                     <!-- Bottom Row: Desk Items and Computer -->
                     <div class="workspace-bottom-row">
                         <!-- Desk Setup Section -->
-                        <div class="desk-items">
-                            <!-- Desk Setup Image -->
-                            <div class="desk-setup">
-                                <img src="setup.png" alt="Desk Setup">
+                        <div class="desk-items workspace-fade-in workspace-delay-2">
+                            <!-- Ledge items row -->
+                            <div class="ledge-items">
+                                <!-- Digital Clock on left -->
+                                <div class="digital-clock-container">
+                                    <!-- <div class="workspace-tooltip clock-tooltip">Current time</div> -->
+                                    <div class="digital-clock">
+                                        <div class="clock-display" id="clock-display">00:00</div>
+                                    </div>
+                                </div>
+
+                                <!-- Teapot/Cup on right -->
+                                <div class="teapot-container">
+                                    <!-- <div class="workspace-tooltip teapot-tooltip">Green tea...</div> -->
+                                    <img src="teapot.png" alt="Teapot">
+                                    <!-- Steam effect -->
+                                    <div class="setup-steam-container">
+                                        <div class="setup-steam setup-steam-1"></div>
+                                        <div class="setup-steam setup-steam-2"></div>
+                                        <div class="setup-steam setup-steam-3"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Record player below teapot -->
+                            <div class="record-player-container">
+                                <!-- <div class="workspace-tooltip record-tooltip">Vinyl collection</div> -->
+                                <img src="recordplayer.png" alt="Record Player">
                                 <!-- Spinning record overlay -->
                                 <div class="setup-record-container">
                                     <div class="setup-spinning-record"></div>
-                                </div>
-                                <!-- Steam effect -->
-                                <div class="setup-steam-container">
-                                    <div class="setup-steam setup-steam-1"></div>
-                                    <div class="setup-steam setup-steam-2"></div>
-                                    <div class="setup-steam setup-steam-3"></div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Mac Computer -->
-                        <div class="intro-computer" id="intro-computer">
+                        <div class="intro-computer workspace-fade-in workspace-delay-3" id="intro-computer">
+                        <!-- <div class="workspace-tooltip">Decoding brains</div> -->
                         <div class="computer-container">
                         <div class="computer-monitor">
                             <div class="monitor-bezel">
@@ -222,36 +268,56 @@
                             <div class="stand-base"></div>
                         </div>
                     </div>
+
+                    <!-- Polaroid Photos -->
+                    <div class="polaroid-stack workspace-fade-in workspace-delay-4">
+                        <div class="polaroid polaroid-1">
+                            <div class="polaroid-frame">
+                                <div class="polaroid-photo">
+                                    <img src="fashion.png" alt="Polaroid 1" class="polaroid-img">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="polaroid polaroid-2">
+                            <div class="polaroid-frame">
+                                <div class="polaroid-photo">
+                                    <img src="mountains.png" alt="Polaroid 2" class="polaroid-img">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="polaroid polaroid-3">
+                            <div class="polaroid-frame">
+                                <div class="polaroid-photo">
+                                    <img src="flowers.png" alt="Polaroid 3" class="polaroid-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="work" class="work-header">
-            <h1 class="about-title fade-in">selected work<span class="work-dot">.</span></h1>
-            <!-- <p class="work-subtitle fade-in-delay-2">A collection of projects that showcase my approach to design, from concept to execution.</p> -->
+            <!-- <div class="work-header-divider"></div> -->
+            <div class="work-header-content">
+                <h1 class="about-title fade-in">selected work<span class="work-dot">.</span></h1>
+                <div class="filter-container fade-in-delay-3">
+                    <button class="filter-btn active" data-filter="all">
+                        <span class="filter-text">All</span>
+                    </button>
+                    <button class="filter-btn" data-filter="design">
+                        <span class="filter-text">Product & UX Design</span>
+                    </button>
+                    <button class="filter-btn" data-filter="programming">
+                        <span class="filter-text">Frontend Development</span>
+                    </button>
+                    <button class="filter-btn" data-filter="research">
+                        <span class="filter-text">Research</span>
+                    </button>
+                </div>
+            </div>
         </section>
-
-        <section class="work-filters fade-in-delay-3">
-          <div class="filter-container">
-              <button class="filter-btn active" data-filter="all">
-                  <span class="filter-text">All</span>
-                  <!-- <span class="filter-count">6</span> -->
-              </button>
-              <button class="filter-btn" data-filter="design">
-                  <span class="filter-text">Product & UX Design</span>
-                  <!-- <span class="filter-count">3</span> -->
-              </button>
-              <button class="filter-btn" data-filter="programming">
-                  <span class="filter-text">Frontend Development</span>
-                  <!-- <span class="filter-count">3</span> -->
-              </button>
-              <button class="filter-btn" data-filter="research">
-                  <span class="filter-text">Research</span>
-                  <!-- <span class="filter-count">1</span> -->
-              </button>
-          </div>
-      </section>
 
       <section class="work-grid fade-in-stagger">
           <div class="work-item" data-project="class" data-category="design">
@@ -264,13 +330,13 @@
                   </div>
               </div>
               <h2 class="project-name">Community Living and Support Services</h2>
-              <p class="project-description">An tool to centralize critical information for the Structured Day program, supporting individuals recovering from Traumatic Brain Injuries.</p>
               <div class="project-tags">
                   <span class="status-chip class-shipped">shipped</span>
                   <span class="tag">UX Design</span>
                   <span class="tag">User Research</span>
                   <span class="tag">Frontend Development</span>
               </div>
+              <p class="project-description">An tool to centralize critical information for the Structured Day program, supporting individuals recovering from Traumatic Brain Injuries.</p>
           </div>
           <div class="work-item" data-project="interactionpatterns" data-category="design">
               <div class="project-image-container">
@@ -282,12 +348,12 @@
                   </div>
               </div>
               <h2 class="project-name">AI Context-Interaction Patterns</h2>
-              <p class="project-description">Research exploring interaction patterns and context management in AI-powered interfaces.</p>
               <div class="project-tags">
                   <span class="tag">UX Design</span>
                   <span class="tag">AI Interaction</span>
                   <span class="tag">Research</span>
               </div>
+              <p class="project-description">Research exploring interaction patterns and context management in AI-powered interfaces.</p>
           </div>
 
           <!-- <div class="work-item" data-project="noborders" data-category="design">
@@ -327,11 +393,11 @@
                   </video>
               </div>
               <h2 class="project-name">CoachPro</h2>
-              <p class="project-description">A comprehensive platform for tennis academies to manage operations, track player development, and build meaningful coach-player relationships.</p>
               <div class="project-tags">
                   <span class="tag">Product Design</span>
                   <span class="tag">User Research</span>
               </div>
+              <p class="project-description">A comprehensive platform for tennis academies to manage operations, track player development, and build meaningful coach-player relationships.</p>
           </div>
 
           <div class="work-item" data-project="xometry" data-category="programming">
@@ -342,11 +408,11 @@
                   </div>
               </div>
               <h2 class="project-name">Xometry</h2>
-              <p class="project-description">Implementations to streamline the process of matching custom manufacturing parts through AI-powered instant quoting.</p>
               <div class="project-tags">
                   <span class="status-chip xometry-shipped">shipped</span>
                   <span class="tag">Frontend Development</span>
               </div>
+              <p class="project-description">Implementations to streamline the process of matching custom manufacturing parts through AI-powered instant quoting.</p>
           </div>
 
           <div class="work-item" data-project="context-aware-vr" data-category="research">
@@ -357,12 +423,12 @@
                   </div>
               </div>
               <h2 class="project-name">Context-Aware Virtual Reality Interfaces</h2>
-              <p class="project-description">Developing an LLM pipeline to build personalized context-aware AR/VR interfaces.</p>
               <div class="project-tags">
                   <span class="tag">Research</span>
                   <span class="tag">LLMs</span>
                   <span class="tag">AR/VR</span>
               </div>
+              <p class="project-description">Developing an LLM pipeline to build personalized context-aware AR/VR interfaces.</p>
           </div>
 
           <div class="work-item coming-soon" data-category="research">
@@ -372,12 +438,12 @@
                   </video>
               </div>
               <h2 class="project-name">Immersive Automotive Experiences</h2>
-              <!-- <p class="project-description">Exploring immersive experiences for context-based user journeys.</p> -->
-              <p class="project-description">Coming soon...</p>
               <div class="project-tags">
                   <span class="tag">Research</span>
                   <span class="tag">AR/VR</span>
               </div>
+              <!-- <p class="project-description">Exploring immersive experiences for context-based user journeys.</p> -->
+              <p class="project-description">Coming soon...</p>
           </div>
 
           <a href="margin/" class="work-item" data-category="programming">
@@ -390,10 +456,10 @@
                   </div>
               </div>
               <h2 class="project-name">margin</h2>
-              <p class="project-description">A tool to help designers understand what their code is doing and how it works.</p>
               <div class="project-tags">
                   <span class="tag">Frontend Development</span>
               </div>
+              <p class="project-description">A tool to help designers understand what their code is doing and how it works.</p>
           </a>
 
           <a href="vantage/" class="work-item" data-category="programming">
@@ -404,11 +470,11 @@
                   </div>
               </div>
               <h2 class="project-name">Vantage</h2>
-              <p class="project-description">A journey-based navigation system that organizes XR design elements according to when they appear during the user experience.</p>
               <div class="project-tags">
                   <span class="tag">Frontend Development</span>
                   <span class="tag">AR/VR</span>
               </div>
+              <p class="project-description">A journey-based navigation system that organizes XR design elements according to when they appear during the user experience.</p>
           </a>
 
           <!-- <div class="work-item coming-soon" data-category="programming">
