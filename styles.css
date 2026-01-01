@@ -937,6 +937,7 @@ main {
     transform: translateY(30px);
     transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    padding-top: 6rem;
 }
 
 .intro.loaded {
@@ -1140,7 +1141,7 @@ main {
 
   /* Intro Section */
   .intro {
-      padding: 8rem 60px;
+      padding: 10rem 60px 8rem 60px;
       max-width: 100%;
   }
 
