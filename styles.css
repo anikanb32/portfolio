@@ -15809,6 +15809,9 @@ body.dark-mode .playground-item:active {
 .playground-fade-in.playground-delay-11 {
     transition-delay: 2.2s;
 }
+.playground-fade-in.playground-delay-12 {
+    transition-delay: 2.4s;
+}
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
