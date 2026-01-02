@@ -10436,7 +10436,7 @@ body.dark-mode .work-item:visited .project-name {
 }
 
 body.dark-mode .work-item:visited .project-description {
-    color: #999999 !important;
+    color: #cccccc !important;
 }
 
 .work-item.hidden {
@@ -15624,5 +15624,274 @@ body.dark-mode .setup-steam {
             opacity: 0;
             transform: translateX(-50%) scale(1.3);
         }
+    }
+}
+
+/* ===== PLAYGROUND PAGE ===== */
+.playground-main {
+    padding: 8rem 60px;
+    min-height: calc(100vh - 200px);
+    background-image: radial-gradient(circle, #d0d0d0 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0;
+}
+
+body.dark-mode .playground-main {
+    background-image: radial-gradient(circle, #404040 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0;
+}
+
+/* Playground page header and footer dots */
+body.playground-page .header {
+    background-image: radial-gradient(circle, #d0d0d0 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-color: transparent;
+}
+
+body.playground-page footer {
+    background-image: radial-gradient(circle, #d0d0d0 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-color: transparent;
+}
+
+body.playground-page.dark-mode .header {
+    background-image: radial-gradient(circle, #404040 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-color: transparent;
+}
+
+body.playground-page.dark-mode footer {
+    background-image: radial-gradient(circle, #404040 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-color: transparent;
+}
+
+.playground-section {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.playground-title {
+    font-family: 'Ovo', 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1.1;
+    margin: 0 0 2rem 0;
+    padding: 0;
+    color: #000;
+}
+
+.playground-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+    color: #666;
+}
+
+body.dark-mode .playground-title {
+    color: #fff;
+}
+
+body.dark-mode .playground-subtitle {
+    color: #aaa;
+}
+
+.playground-canvas {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    margin-top: 3rem;
+}
+
+.playground-item {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    background-color: #d9d9d9;
+    border-radius: 8px;
+    cursor: grab;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    overflow: hidden;
+}
+
+.playground-item img,
+.playground-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    pointer-events: none;
+    user-select: none;
+}
+
+.playground-item:active {
+    cursor: grabbing;
+}
+
+.playground-item:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.playground-item:active {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .playground-item {
+    background-color: #4a4a4a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .playground-item:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .playground-item:active {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Playground fade-in animations */
+.playground-fade-in {
+    opacity: 0;
+    animation: playgroundFadeIn 0.6s ease forwards;
+}
+
+.playground-title.playground-fade-in,
+.playground-subtitle.playground-fade-in {
+    transform: translateY(20px);
+}
+
+@keyframes playgroundFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* For items with inline rotate transform, use a different animation */
+.playground-item.playground-fade-in {
+    animation-name: playgroundItemFadeIn;
+}
+
+@keyframes playgroundItemFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.playground-delay-1 { animation-delay: 0.1s; }
+.playground-delay-2 { animation-delay: 0.2s; }
+.playground-delay-3 { animation-delay: 0.3s; }
+.playground-delay-4 { animation-delay: 0.4s; }
+.playground-delay-5 { animation-delay: 0.5s; }
+.playground-delay-6 { animation-delay: 0.6s; }
+.playground-delay-7 { animation-delay: 0.7s; }
+.playground-delay-8 { animation-delay: 0.8s; }
+.playground-delay-9 { animation-delay: 0.9s; }
+.playground-delay-10 { animation-delay: 1.0s; }
+.playground-delay-11 { animation-delay: 1.1s; }
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .playground-section {
+        padding: 0;
+    }
+
+    .playground-title {
+        font-size: 2.5rem;
+    }
+
+    .playground-canvas {
+        height: 550px;
+    }
+
+    .playground-item {
+        width: 180px;
+        height: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .playground-main {
+        padding: 4rem 3rem;
+        background-position: 0 0;
+    }
+
+    .playground-section {
+        padding: 0;
+    }
+
+    .playground-title {
+        font-size: 2.2rem;
+    }
+
+    .playground-subtitle {
+        font-size: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    .playground-canvas {
+        height: 500px;
+        margin-top: 2rem;
+    }
+
+    .playground-item {
+        width: 140px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .playground-main {
+        padding: 2rem;
+        background-position: 0 0;
+    }
+
+    .playground-section {
+        padding: 0;
+    }
+
+    .playground-main {
+        padding: 1.5rem;
+    }
+
+    .playground-title {
+        font-size: 1.8rem;
+    }
+
+    .playground-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+    }
+
+    .playground-canvas {
+        height: 400px;
+    }
+
+    .playground-item {
+        width: 110px;
+        height: 140px;
+        border-radius: 6px;
+        /* Constrain items to stay within viewport */
+        max-width: calc(100vw - 60px);
+    }
+
+    /* Override inline left positions for mobile to prevent overflow */
+    .playground-canvas {
+        overflow: hidden;
+    }
+
+    .playground-item[style*="left: 70%"],
+    .playground-item[style*="left: 72%"],
+    .playground-item[style*="left: 75%"],
+    .playground-item[style*="left: 78%"] {
+        left: 55% !important;
     }
 }

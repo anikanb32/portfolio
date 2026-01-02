@@ -2469,3 +2469,98 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
+// Playground Drag and Drop Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const playgroundItems = document.querySelectorAll('.playground-item');
+
+    playgroundItems.forEach(item => {
+        let isDragging = false;
+        let isHovering = false;
+        let currentX;
+        let currentY;
+        let initialX;
+        let initialY;
+        let xOffset = 0;
+        let yOffset = 0;
+
+        // Get original rotation
+        const originalTransform = item.style.transform;
+        const rotateMatch = originalTransform.match(/rotate\(([^)]+)\)/);
+        const originalRotation = rotateMatch ? parseFloat(rotateMatch[1]) : 0;
+
+        item.addEventListener('mousedown', dragStart);
+        item.addEventListener('touchstart', dragStart);
+        item.addEventListener('mouseenter', handleHover);
+        item.addEventListener('mouseleave', handleLeave);
+
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('touchmove', drag);
+
+        document.addEventListener('mouseup', dragEnd);
+        document.addEventListener('touchend', dragEnd);
+
+        function handleHover() {
+            isHovering = true;
+            updateTransform();
+        }
+
+        function handleLeave() {
+            isHovering = false;
+            updateTransform();
+        }
+
+        function dragStart(e) {
+            if (e.type === 'touchstart') {
+                initialX = e.touches[0].clientX - xOffset;
+                initialY = e.touches[0].clientY - yOffset;
+            } else {
+                initialX = e.clientX - xOffset;
+                initialY = e.clientY - yOffset;
+            }
+
+            if (e.target === item) {
+                isDragging = true;
+                // Disable transition during drag
+                item.style.transition = 'box-shadow 0.3s ease';
+                updateTransform();
+            }
+        }
+
+        function drag(e) {
+            if (isDragging) {
+                e.preventDefault();
+
+                if (e.type === 'touchmove') {
+                    currentX = e.touches[0].clientX - initialX;
+                    currentY = e.touches[0].clientY - initialY;
+                } else {
+                    currentX = e.clientX - initialX;
+                    currentY = e.clientY - initialY;
+                }
+
+                xOffset = currentX;
+                yOffset = currentY;
+
+                updateTransform();
+            }
+        }
+
+        function dragEnd(e) {
+            initialX = currentX;
+            initialY = currentY;
+            isDragging = false;
+            // Re-enable transition for smooth tilt
+            item.style.transition = 'box-shadow 0.3s ease, transform 0.3s ease';
+            updateTransform();
+        }
+
+        function updateTransform() {
+            const tilt = (isHovering || isDragging) ? 5 : 0;
+            const rotation = originalRotation + tilt;
+            const translate = xOffset || yOffset ? `translate(${xOffset}px, ${yOffset}px) ` : '';
+
+            item.style.transform = `${translate}rotate(${rotation}deg)`;
+        }
+    });
+});
+
