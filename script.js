@@ -548,19 +548,25 @@ document.addEventListener('DOMContentLoaded', function() {
         // Get all elements with fade-in classes
         const fadeInElements = document.querySelectorAll('.fade-in, .fade-in-delay-1, .fade-in-delay-2, .fade-in-delay-3, .fade-in-delay-4, .fade-in-delay-5, .fade-in-delay-6');
         const staggerElements = document.querySelectorAll('.fade-in-stagger');
-        
+        const playgroundFadeIns = document.querySelectorAll('.playground-fade-in');
+
         // Animate individual fade-in elements - respect CSS transition delays
         fadeInElements.forEach((element) => {
             // Add loaded class immediately - CSS will handle the timing with transition-delay
             element.classList.add('loaded');
         });
-        
+
+        // Animate playground fade-in elements
+        playgroundFadeIns.forEach((element) => {
+            element.classList.add('loaded');
+        });
+
         // Specifically handle the highlight quote
         const highlightQuote = document.querySelector('.about-highlight-quote');
         if (highlightQuote) {
             highlightQuote.classList.add('loaded');
         }
-        
+
         // Animate staggered elements
         staggerElements.forEach((container, containerIndex) => {
             setTimeout(() => {
@@ -2487,6 +2493,21 @@ document.addEventListener('DOMContentLoaded', function() {
         const originalTransform = item.style.transform;
         const rotateMatch = originalTransform.match(/rotate\(([^)]+)\)/);
         const originalRotation = rotateMatch ? parseFloat(rotateMatch[1]) : 0;
+
+        // Wait for fade-in to complete before setting drag transitions
+        // Check if item has playground-delay class to determine when fade-in finishes
+        let maxDelay = 0;
+        for (let i = 1; i <= 11; i++) {
+            if (item.classList.contains(`playground-delay-${i}`)) {
+                maxDelay = i * 0.2; // Each delay is 0.2s increments
+                break;
+            }
+        }
+
+        setTimeout(() => {
+            // Set transition for hover/drag after fade-in completes
+            item.style.transition = 'box-shadow 0.3s ease, transform 0.3s ease, opacity 0.8s ease';
+        }, (maxDelay + 0.8) * 1000); // Wait for delay + fade duration
 
         item.addEventListener('mousedown', dragStart);
         item.addEventListener('touchstart', dragStart);
