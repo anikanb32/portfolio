@@ -2497,7 +2497,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Wait for fade-in to complete before setting drag transitions
         // Check if item has playground-delay class to determine when fade-in finishes
         let maxDelay = 0;
-        for (let i = 1; i <= 12; i++) {
+        for (let i = 1; i <= 13; i++) {
             if (item.classList.contains(`playground-delay-${i}`)) {
                 maxDelay = i * 0.2; // Each delay is 0.2s increments
                 break;
