@@ -4071,7 +4071,7 @@ body.dark-mode .footer-content {
     .contact-info h3 {
         margin: 0 !important;
         padding: 0 !important;
-        font-size: 0.8rem;
+        font-size: 1.3rem;
     }
     
     .contact-info a {
@@ -4290,7 +4290,7 @@ body.dark-mode .footer-content {
     color: #111;
 }
 .about-intro {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     margin: 0;
     padding: 0;
     color: #222;
@@ -4315,7 +4315,7 @@ body.dark-mode .footer-content {
     transform: translateY(0);
 }
 .about-edu {
-    font-size: 1rem;
+    font-size: 0.95rem;
     margin: 0;
     padding: 0;
     color: #222;
@@ -4425,10 +4425,10 @@ body.dark-mode .footer-content {
 }
 
 .dj-section-subtitle {
-    font-size: 1.1rem;
-    color: #666;
+    font-size: 0.95rem;
+    color: #000000;
     line-height: 1.5;
-    font-weight: 400;
+    font-weight: 100;
 }
 .dj-layout {
     display: flex;
@@ -4908,7 +4908,7 @@ body.dark-mode .footer-content {
     }
     
     .about-intro {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 }
 
@@ -4950,17 +4950,19 @@ body.dark-mode .footer-content {
     }
     
     .about-edu {
+        font-size: 0.85rem;
         text-align: left;
     }
     
     .about-edu-right {
+        font-size: 0.85rem;
         text-align: left;
         align-self: flex-start;
     }
     
     
     .about-intro {
-        font-size: 1rem;
+        font-size: 0.85rem;
         max-width: 100%;
         text-align: left;
         margin-top: 0;
@@ -4989,7 +4991,7 @@ body.dark-mode .footer-content {
     }
     
     .dj-section-subtitle {
-        font-size: 1rem;
+        font-size: 0.85rem;
     }
     .dj-turntable {
         width: 100%;
@@ -6261,7 +6263,7 @@ body.dark-mode .dj-image-caption {
 .about-edu-right {
     text-align: right;
     margin-top: 1.5rem;
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: #222;
     width: 100%;
 }
@@ -6776,7 +6778,7 @@ body.dark-mode .vinyl-record[data-color="#1e3a8a"] {
 }
 
 .timeline-card .summary {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: #000;
     line-height: 1.6;
     margin-top: 1rem;
@@ -7154,6 +7156,9 @@ body.dark-mode .mobile-nav .download-btn:hover {
 }
 
 @media (max-width: 480px) {
+    .timeline-card .summary {
+    font-size: 0.85rem;
+    }
     .resume-main {
         padding: 1.5rem;
     }
@@ -10524,7 +10529,7 @@ body.dark-mode .work-item:visited .project-description {
 
 
 .project-description {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: #666;
     line-height: 1.6;
     margin-bottom: 1.5rem;
@@ -10870,7 +10875,7 @@ body.dark-mode .cta-content p {
     }
     
     .project-description {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
     
     .tag {
@@ -14859,7 +14864,7 @@ body.dark-mode .vantage-main #problem .section-text p {
 }
 
 .vantage-insights-image {
-    max-width: 100%;
+    max-width: 70%;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -15686,7 +15691,7 @@ body.playground-page.dark-mode footer {
 
 .playground-subtitle {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     font-weight: 300;
     margin-bottom: 3rem;
     color: #666;
@@ -15851,7 +15856,7 @@ body.dark-mode .playground-item:active {
     }
 
     .playground-subtitle {
-        font-size: 1rem;
+        font-size: 0.85rem;
         margin-bottom: 3rem;
     }
 
@@ -15885,7 +15890,7 @@ body.dark-mode .playground-item:active {
     }
 
     .playground-subtitle {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         margin-bottom: 2rem;
     }
 
