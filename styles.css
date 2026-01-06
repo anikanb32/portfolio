@@ -11020,7 +11020,7 @@ body.dark-mode .back-button:hover {
     height: 10px;
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.2);
-    border: 2px solid rgba(0, 0, 0, 0.3);
+    border: none;
     transition: all 0.3s ease;
     flex-shrink: 0;
     cursor: none !important;
@@ -11075,7 +11075,7 @@ body.dark-mode .back-button:hover {
 
 [data-theme="light"] .step-dot {
     background: rgba(0, 0, 0, 0.3);
-    border-color: rgba(0, 0, 0, 0.4);
+    border: none;
 }
 
 [data-theme="light"] .step-label {
@@ -11112,7 +11112,7 @@ body.dark-mode .back-button:hover {
 
 [data-theme="dark"] .step-dot {
     background: rgba(255, 255, 255, 0.4);
-    border-color: rgba(255, 255, 255, 0.6);
+    border: none;
 }
 
 [data-theme="dark"] .step-label {
