@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Add closing class for animation
                 mobileNav.classList.add('closing');
                 mobileNav.classList.remove('active');
-                
+
                 // Wait for animation to complete before hiding
                 setTimeout(() => {
                     mobileNav.classList.remove('closing');
@@ -292,6 +292,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 400); // Match the CSS transition duration
             });
         }
+
+        // Close menu when clicking outside of mobile-nav-content
+        mobileNav.addEventListener('click', function(e) {
+            // Check if the click was on the mobile-nav itself (the overlay), not on its children
+            if (e.target === mobileNav && mobileNav.classList.contains('active')) {
+                mobileNav.classList.add('closing');
+                mobileNav.classList.remove('active');
+
+                setTimeout(() => {
+                    mobileNav.classList.remove('closing');
+                    document.body.classList.remove('menu-open');
+                }, 400);
+            }
+        });
     }
     
     const records = document.querySelectorAll('.record');
@@ -2478,6 +2492,7 @@ setInterval(updateClock, 1000);
 // Playground Drag and Drop Functionality
 document.addEventListener('DOMContentLoaded', function() {
     const playgroundItems = document.querySelectorAll('.playground-item');
+    let highestZIndex = 1000; // Track the highest z-index
 
     playgroundItems.forEach(item => {
         let isDragging = false;
@@ -2509,10 +2524,16 @@ document.addEventListener('DOMContentLoaded', function() {
             item.style.transition = 'box-shadow 0.3s ease, transform 0.3s ease, opacity 0.8s ease';
         }, (maxDelay + 0.8) * 1000); // Wait for delay + fade duration
 
-        item.addEventListener('mousedown', dragStart);
-        item.addEventListener('touchstart', dragStart);
+        item.addEventListener('mousedown', dragStart, true);
+        item.addEventListener('touchstart', dragStart, true);
         item.addEventListener('mouseenter', handleHover);
         item.addEventListener('mouseleave', handleLeave);
+
+        // Also add click listener to ensure item comes forward
+        item.addEventListener('click', function() {
+            highestZIndex++;
+            item.style.zIndex = highestZIndex;
+        }, true);
 
         document.addEventListener('mousemove', drag);
         document.addEventListener('touchmove', drag);
@@ -2539,8 +2560,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 initialY = e.clientY - yOffset;
             }
 
-            if (e.target === item) {
+            if (e.target === item || item.contains(e.target)) {
                 isDragging = true;
+                // Bring item to front permanently when clicked
+                highestZIndex++;
+                item.style.zIndex = highestZIndex;
                 // Disable transition during drag
                 item.style.transition = 'box-shadow 0.3s ease';
                 updateTransform();
