@@ -278,7 +278,8 @@ body.project-page .solution-gif:focus {
 
 /* Dark Mode Styles */
 body.dark-mode {
-    background: #1a1a1a;
+    background: #010101 !important;
+    background-color: #010101 !important;
     color: #ffffff;
 }
 
@@ -291,7 +292,7 @@ body.dark-mode *:not(.fade-in):not(.fade-in-delay-1):not(.fade-in-delay-2):not(.
 }
 
 body.dark-mode .header {
-    background: #1a1a1a;
+    background: #010101; /* #1a1a1a */
     opacity: 0;
     transform: translateY(-20px);
 }
@@ -431,7 +432,7 @@ body.dark-mode .mobile-nav a.active {
 }
 
 body.dark-mode footer {
-    background: #1a1a1a;
+    background: #010101;
 }
 
 body.dark-mode .contact-info h3 {
@@ -876,7 +877,9 @@ body.menu-open {
     }
     
     body.dark-mode .header {
-        background: rgba(26, 26, 26, 0.75);
+        background: rgba(1, 1, 1, 0.75);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
     }
     
     .header .logo {
@@ -5829,7 +5832,7 @@ body.dark-mode .password-error {
   transition: opacity 0.4s;
 }
 .loading-overlay[data-theme="dark"] {
-  background: rgba(26, 26, 26, 0.97);
+  background: rgba(1, 1, 1, 0.97);
 }
 .loading-overlay[data-theme="light"] {
   background: rgba(255,255,255,0.95);
@@ -7660,13 +7663,9 @@ body.dark-mode .status-chip.xometry-shipped {
     .overview-flex {
         flex-direction: column;
         gap: 2rem;
-        text-align: center;
+        text-align: left;
     }
-    
-    .overview-logo {
-        order: -1;
-    }
-    
+
     .class-logo {
         max-width: 300px;
     }
@@ -7977,6 +7976,10 @@ body.dark-mode .class-section-title {
     height: auto;
     display: block;
     margin: 0;
+}
+
+.problem-statement-text {
+    display: none;
 }
 
 /* Theme-based image visibility for problem section (flipped) */
@@ -10205,85 +10208,222 @@ body.dark-mode .prototype-header {
 }
 
 @media (max-width: 768px) {
+    /* Simple rule: class-main has 0 padding, everything aligns to 1.5rem from screen edge */
     .class-main {
-        padding: 2rem;
+        padding: 0;
     }
-    
-    #problem .section-content {
-        padding: 0 2rem;
-    }
-    
-    #problem .section-header {
-        padding: 0 2rem;
-    }
-    
-    #problem.xometry-problem .section-content {
-        padding: 0 2rem;
-    }
-    
-    #problem.xometry-problem .section-header {
-        padding: 0 2rem;
-    }
-    
+
+    /* Header, sections, and content all get same 1.5rem left padding */
     .class-header {
-        margin-left: 0;
-        margin-right: 0;
-        width: 100%;
-        position: relative;
-        left: 0;
-        right: 0;
-        transform: none;
-        padding-left: 0rem;
-        padding-right: 2rem;
+        padding: 2rem 1.5rem 0 1.5rem;
     }
-    
+
+    .section-header {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    /* Solution section already has padding, don't double up */
+    #solution .section-header {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .section-content {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .problem-statement {
+        padding: 2rem 1.5rem;
+    }
+
+    /* Problem section mobile - show text, hide image, fix alignment */
+    #problem .section-header {
+        padding: 0 !important;
+        padding-left: 2.8rem !important;
+        max-width:80%;
+        margin: 0 0 2rem 0 !important;
+    }
+
+    #problem .section-content {
+        padding: 0 !important;
+        padding-left: 2.5rem !important;
+        max-width: none !important;
+        margin: 0 !important;
+    }
+
+    .problem-statement-text {
+        display: block !important;
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+    }
+
+    .problem-image-container {
+        display: none;
+    }
+
+    /* Font sizes */
     .class-title {
         font-size: 2.5rem;
-        
     }
-    
+
+    .class-organization {
+        font-size: 0.85rem;
+    }
+
     .section-title {
         font-size: 0.9rem;
     }
-    
+
     .section-subtitle {
         font-size: 1.4rem;
     }
-    
+
     #problem .section-subtitle {
         font-size: 2rem;
         margin-bottom: 2.5rem;
     }
-    
+
     #problem.xometry-problem .section-subtitle {
         font-size: 2rem;
         margin-bottom: 2.5rem;
     }
-    
-    .class-details {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    
-    .research-methods {
-        margin: 2rem 0;
-    }
-    
-    .research-methods-image {
-        max-width: 100%;
-    }
-    
-    .problem-statement {
-        padding: 2rem 1rem;
-    }
-    
+
     .problem-statement h3 {
         font-size: 1.5rem;
     }
-    
+
+    /* Layout adjustments */
+    .class-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem 2rem;
+    }
+
+    .class-detail-column {
+        gap: 1.5rem;
+    }
+
+    /* Overview section - logo below text on mobile */
+    .overview-flex {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .overview-text {
+        order: 1 !important;
+    }
+
+    .overview-logo {
+        order: 2 !important;
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    .class-logo {
+        max-width: 300px;
+    }
+
+    .research-methods {
+        margin: 2rem 0;
+    }
+
+    .research-methods-image {
+        width: 100%;
+        max-width: none;
+        height: auto;
+        transform: scale(1.2);
+    }
+
+    /* Insights image - bigger on mobile */
+    .insights-image-container {
+        margin: 1rem 0 2rem 0;
+        padding-top: 0 !important;
+    }
+
+    .insights-image {
+        width: 100%;
+        max-width: none;
+        height: auto;
+        transform: scale(1.3);
+    }
+
+    /* Problem image - much bigger on mobile */
+    .problem-image-container {
+        margin: 2rem 0;
+        text-align: left;
+    }
+
+    .problem-image {
+        max-width: 100% !important;
+        width: 100% !important;
+        height: auto;
+        display: block;
+        margin: 0 !important;
+    }
+
+    /* Impact image - bigger on mobile */
+    .impact-image-container {
+        margin: 2rem 0;
+    }
+
+    .impact-image {
+        width: 120%;
+        max-width: 120%;
+        margin-left: -10%;
+    }
+
     .case-study-section {
-        margin-bottom: 6rem;
-     
+        margin-bottom: 4rem !important;
+    }
+
+    /* Hero image - full width, cropped with zoom */
+    .class-hero-image {
+        overflow: hidden;
+        width: 100vw;
+        margin-left: calc(-1 * (100vw - 100%) / 2);
+        height: 250px;
+    }
+
+    .class-dashboard-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        transform: scale(1.15);
+        transform-origin: center top;
+    }
+
+    /* AI Page Mobile Styles - Same clean approach as class page */
+    .ai-main {
+        padding: 0 !important;
+    }
+
+    .ai-header {
+        padding: 2rem 1.5rem 0 1.5rem;
+    }
+
+    .ai-title {
+        font-size: 2.5rem;
+    }
+
+    /* AI class-details two-column grid layout */
+    .ai-main .class-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem 2rem;
+    }
+
+    .ai-main .class-detail-column {
+        gap: 1.5rem;
+    }
+
+    .case-study-section {
+        margin-bottom: 4rem !important;
     }
 }
 
@@ -10291,7 +10431,7 @@ body.dark-mode .prototype-header {
     .class-main {
         padding: 1.5rem;
     }
-    
+
     .class-header {
         margin-left: 0;
         margin-right: 0;
@@ -10354,19 +10494,27 @@ body.dark-mode .prototype-header {
         padding: 1.5rem;
     }
     
-    /* Ideation responsive */
+    /* Ideation responsive - text first, image below with reduced spacing */
     .ideation-layout {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0 !important;
         margin: 2rem 0;
     }
-    
-    .ideation-image-container {
-        margin: 0;
+
+    .ideation-text {
+        order: 1 !important;
+        margin-bottom: 1rem !important;
     }
-    
+
+    .ideation-image-container {
+        order: 2 !important;
+        margin: 0 !important;
+    }
+
     .ideation-image {
         max-width: 100%;
+        margin-top: 0 !important;
     }
     
     .infoconsolidation-image {
@@ -10456,6 +10604,15 @@ body.dark-mode .prototype-header {
     
     .prototype-header {
         font-size: 1.1rem;
+    }
+
+    /* AI Page 480px Mobile Styles */
+    .ai-main {
+        padding: 1.5rem !important;
+    }
+
+    .ai-title {
+        font-size: 2rem;
     }
 }
 
@@ -11368,25 +11525,37 @@ body.dark-mode .back-button:hover {
     border: none;
 }
 
+[data-theme="dark"] .progress-step.active .step-dot {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .progress-step.completed .step-dot {
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+}
+
 [data-theme="dark"] .step-label {
     color: #ffffff;
     font-weight: 250;
     font-size: 0.75rem;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
-    opacity: 0.7;
+    opacity: 1;
 }
 
 [data-theme="dark"] .progress-step.active .step-label {
     color: #ffffff;
     font-weight: 700;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+    opacity: 1;
 }
 
 [data-theme="dark"] .progress-step.completed .step-label {
-    color: #808080;
-    font-weight: 700;
+    color: #ffffff;
+    font-weight: 400;
     text-shadow: none;
-    opacity: 1;
+    opacity: 0.6;
 }
 
 /* Xometry Page Specific Styles */
@@ -11727,8 +11896,20 @@ body.dark-mode .solution-image:hover {
 
     .solution-feature,
     .solution-feature-reverse {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 2rem;
+    }
+
+    /* Always show image first, then text on mobile */
+    .solution-feature .solution-mockup,
+    .solution-feature-reverse .solution-mockup {
+        order: 1;
+    }
+
+    .solution-feature .solution-text,
+    .solution-feature-reverse .solution-text {
+        order: 2;
     }
 
     .solution-feature-title {
@@ -12176,7 +12357,7 @@ body.dark-mode .live-site-icon {
 .overview-flex {
     display: flex;
     align-items: flex-start;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .overview-text {
@@ -12205,7 +12386,7 @@ body.dark-mode .live-site-icon {
     .overview-flex {
         flex-direction: column;
         gap: 2rem;
-        text-align: center;
+        text-align: left;
     }
     
     .overview-logo {
@@ -12741,6 +12922,10 @@ body.dark-mode .ai-section-title {
     height: auto;
     display: block;
     margin: 0;
+}
+
+.problem-statement-text {
+    display: none;
 }
 
 /* Theme-based image visibility for problem section (flipped) */
