@@ -3934,12 +3934,12 @@ body.dark-mode .highlight-phrase {
     }
 
     .intro h1 .poppins-text {
-        font-size: 2.2rem;
+        font-size: 2.3rem;
     }
 
     .intro p {
         max-width: 100%;
-        font-size: 1rem;
+        font-size: 0.9rem;
         color: #000000;
         transition: color 0.3s ease;
         text-align: left;

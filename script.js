@@ -239,22 +239,28 @@ document.addEventListener('DOMContentLoaded', function() {
     if (hamburger && mobileNav) {
         hamburger.addEventListener('click', function() {
             console.log('Hamburger clicked!');
-            
+
             if (mobileNav.classList.contains('active')) {
                 // Closing the menu
                 mobileNav.classList.add('closing');
                 mobileNav.classList.remove('active');
-                
+
                 setTimeout(() => {
                     mobileNav.classList.remove('closing');
                     document.body.classList.remove('menu-open');
+                    // Restore scroll position
+                    const scrollY = document.body.style.top;
+                    document.body.style.top = '';
+                    window.scrollTo(0, parseInt(scrollY || '0') * -1);
                 }, 400);
             } else {
-                // Opening the menu
+                // Opening the menu - save scroll position
+                const scrollY = window.scrollY;
+                document.body.style.top = `-${scrollY}px`;
                 mobileNav.classList.add('active');
                 document.body.classList.add('menu-open');
             }
-            
+
             console.log('Mobile nav active:', mobileNav.classList.contains('active'));
             console.log('Mobile nav display:', window.getComputedStyle(mobileNav).display);
             console.log('Mobile nav z-index:', window.getComputedStyle(mobileNav).zIndex);
@@ -289,6 +295,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(() => {
                     mobileNav.classList.remove('closing');
                     document.body.classList.remove('menu-open');
+                    // Restore scroll position
+                    const scrollY = document.body.style.top;
+                    document.body.style.top = '';
+                    window.scrollTo(0, parseInt(scrollY || '0') * -1);
                 }, 400); // Match the CSS transition duration
             });
         }
@@ -303,6 +313,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(() => {
                     mobileNav.classList.remove('closing');
                     document.body.classList.remove('menu-open');
+                    // Restore scroll position
+                    const scrollY = document.body.style.top;
+                    document.body.style.top = '';
+                    window.scrollTo(0, parseInt(scrollY || '0') * -1);
                 }, 400);
             }
         });
