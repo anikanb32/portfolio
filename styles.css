@@ -3706,6 +3706,19 @@ body.dark-mode .highlight-phrase {
         margin-bottom: 2rem;
     }
 
+    .intro h1 {
+        font-size: 2.5rem;
+    }
+
+    .intro h1 > span,
+    .intro h1 span {
+        font-size: 2.8rem;
+    }
+
+    .intro h1 .poppins-text {
+        font-size: 2.5rem;
+    }
+
     .intro-computer {
         position: relative;
         top: auto;
@@ -3924,17 +3937,18 @@ body.dark-mode .highlight-phrase {
     }
     
     .intro h1 {
-        font-size: 1.8rem;
+        font-size: 1.8rem !important;
         width: 100%;
         line-height: 1.3;
     }
 
+    .intro h1 > span,
     .intro h1 span {
-        font-size: 2rem;
+        font-size: 2rem !important;
     }
 
     .intro h1 .poppins-text {
-        font-size: 1.6rem;
+        font-size: 2rem !important;
     }
 
     .intro p {
