@@ -8033,8 +8033,8 @@ body.dark-mode .problem-dark,
 
 /* Make pipeline image larger */
 .class-map-image[src*="pipeline.png"] {
-    max-width: 100%;
-    width: 100%;
+    max-width: 120%;
+    width: 120%;
 }
 
 /* Make calculations image larger */
@@ -8058,9 +8058,20 @@ body.dark-mode .problem-dark,
         flex-direction: column;
         gap: 1rem;
     }
-    
+
+    .left-right-container .section-text {
+        order: 2;
+    }
+
     .left-right-container .class-map-container {
         align-self: center;
+        order: 1;
+        width: 100%;
+    }
+
+    .class-map-image[src*="pipeline.png"] {
+        max-width: 100% !important;
+        width: 100% !important;
     }
 }
 
@@ -10208,6 +10219,11 @@ body.dark-mode .prototype-header {
 }
 
 @media (max-width: 768px) {
+    /* Move back button down on mobile */
+    .back-button {
+        top: 4rem;
+    }
+
     /* Simple rule: class-main has 0 padding, everything aligns to 1.5rem from screen edge */
     .class-main {
         padding: 0;
@@ -10232,6 +10248,14 @@ body.dark-mode .prototype-header {
     .section-content {
         padding-left: 1.5rem;
         padding-right: 1.5rem;
+    }
+
+    /* VR page logo container - center vertically on mobile */
+    .xr-logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
     }
 
     .problem-statement {
@@ -10403,12 +10427,46 @@ body.dark-mode .prototype-header {
         padding: 0 !important;
     }
 
-    .ai-header {
-        padding: 2rem 1.5rem 0 1.5rem;
+    .ai-main .ai-header {
+        padding: 8rem 1.5rem 0 1.5rem !important;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
     }
 
-    .ai-title {
-        font-size: 2.5rem;
+    .ai-main .ai-header-content {
+        padding-left: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ai-main .ai-meta {
+        order: 1;
+    }
+
+    .ai-main .ai-hero-image {
+        order: 2;
+        margin: 2rem 0;
+    }
+
+    .ai-main .class-details {
+        order: 3;
+    }
+
+    /* AI title and organization - same sizes as class page */
+    .ai-main .ai-title {
+        font-size: 2.5rem !important;
+    }
+
+    .ai-main .ai-organization {
+        font-size: 0.85rem !important;
+    }
+
+    /* AI header content - stack vertically on mobile */
+    .ai-header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
     }
 
     /* AI class-details two-column grid layout */
@@ -10424,6 +10482,14 @@ body.dark-mode .prototype-header {
 
     .case-study-section {
         margin-bottom: 4rem !important;
+    }
+
+    /* AI page solution section - match left indent with rest of page */
+    .ai-main #solution {
+        margin-left: calc(-50vw + 50%) !important;
+        margin-right: calc(-50vw + 50%) !important;
+        padding-left: calc(50vw - 50% + 1.5rem) !important;
+        padding-right: calc(50vw - 50% + 1.5rem) !important;
     }
 }
 
@@ -10460,10 +10526,14 @@ body.dark-mode .prototype-header {
         font-size: 1.8rem;
         margin-bottom: 2rem;
     }
-    
+
     #problem.xometry-problem .section-subtitle {
-        font-size: 1.8rem;
+        font-size: 1.7rem !important;
         margin-bottom: 2rem;
+    }
+
+    #problem.xometry-problem .section-content {
+        padding-right: 1.5rem !important;
     }
     
     .section-text p {
@@ -10611,8 +10681,12 @@ body.dark-mode .prototype-header {
         padding: 1.5rem !important;
     }
 
-    .ai-title {
-        font-size: 2rem;
+    .ai-main .ai-title {
+        font-size: 1.8rem !important;
+    }
+
+    .ai-main .ai-organization {
+        font-size: 0.85rem !important;
     }
 }
 
@@ -12505,13 +12579,55 @@ body.dark-mode .ai-main .ai-problem-text {
 
 /* Mobile responsiveness for AI problem section */
 @media (max-width: 768px) {
+    .ai-main #problem .section-header {
+        padding: 0 2.5rem !important;
+        margin: 0 0 2rem 0 !important;
+        max-width: 100% !important;
+    }
+
+    .ai-main #problem .section-content {
+        padding: 0 2.5rem !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+    }
+
+    .ai-main #problem .section-title {
+        color: #ffffff !important;
+    }
+
+    body.dark-mode .ai-main #problem .section-title {
+        color: #000000 !important;
+    }
+
     .ai-main .ai-problem-layout {
         flex-direction: column;
         gap: 2rem;
+        padding: 0;
+    }
+
+    .ai-main .ai-problem-text {
+        font-size: 1.5rem;
     }
 
     .ai-main .ai-problem-image-container {
         text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .ai-main .ai-problem-image-container .problem-image {
+        max-width: 80% !important;
+    }
+
+    /* Iterations section - make images much smaller for mobile */
+    .ai-main .iteration-image {
+        max-width: 100% !important;
+    }
+
+    /* Final designs section - make insight text smaller for mobile */
+    .ai-main .insight-text {
+        font-size: 0.75rem !important;
+        line-height: 2 !important;
     }
 }
 
@@ -12882,11 +12998,11 @@ body.dark-mode .case-study-section h4 {
 }
 
 .ai-section-title {
-    color: #D9693D !important;
+    color: #000000 !important;
 }
 
 body.dark-mode .ai-section-title {
-    color: #D9693D !important;
+    color: #ffffff !important;
 }
 
 .section-content {
@@ -14673,22 +14789,33 @@ body.dark-mode .challenge-solution {
 
 @media (max-width: 768px) {
     .margin-main {
-        padding: 4rem 40px;
+        padding: 0 !important;
     }
 
     .margin-header {
         margin-bottom: 4rem;
-        padding: 2rem 0;
+        padding: 8rem 1.5rem 0 1.5rem;
     }
 
     .margin-header-content {
         flex-direction: column;
         gap: 2rem;
+        padding-left: 1rem;
     }
 
+    .margin-meta {
+        flex: 1;
+    }
+
+    /* Margin details - two column grid like CLASS page */
     .margin-details {
-        flex-direction: column;
-        gap: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem 2rem;
+    }
+
+    .margin-detail-column {
+        gap: 1.5rem;
     }
 
     .margin-title {
@@ -14698,10 +14825,34 @@ body.dark-mode .challenge-solution {
 
     .margin-section {
         margin-bottom: 6rem;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
     }
 
     .margin-section-subtitle {
         font-size: 1.5rem;
+    }
+
+    /* Larger left padding for all sections */
+    .margin-main .section-header {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+
+    .margin-main .section-content {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+
+    /* Make margin images larger on mobile */
+    .margin-image-container {
+        overflow: visible;
+        transform: scale(1.1);
+    }
+
+    .margin-image {
+        width: 100% !important;
+        max-width: 100% !important;
     }
 }
 
@@ -14720,6 +14871,32 @@ body.dark-mode .challenge-solution {
 
     .margin-section-subtitle {
         font-size: 1.3rem;
+    }
+
+    .challenge-title {
+        font-size: 1rem
+    }
+    
+    .challenge-badge {
+    background: #5B4FB8;
+    color: #ffffff !important;
+    padding: 0.2rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 250;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    }
+
+    .challenge-description {
+    font-size: 0.85rem;
+    }
+    .challenge-solution {
+        font-size: 0.85rem;
+    }
+    .margin-section-title {
+        padding-bottom: 2%;
     }
 }
 
@@ -15171,18 +15348,35 @@ body.dark-mode .metadata-item {
         font-size: 2.5rem;
     }
 
+    /* Vantage details - two column grid like CLASS page */
     .vantage-details {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem 2rem;
+    }
+
+    .vantage-detail-column {
         gap: 1.5rem;
     }
 
     .overview-stats {
         flex-direction: column;
         gap: 1rem;
+        align-items: center;
     }
 
     .stat-box {
         min-width: auto;
+        max-width: 60%;
+        padding: 1rem;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
     }
 
     .research-insights {
@@ -15196,6 +15390,54 @@ body.dark-mode .metadata-item {
     .vantage-main #problem .section-content,
     .vantage-main #problem .section-header {
         padding: 0 2rem;
+    }
+
+    .vantage-main #problem .section-subtitle {
+        font-size: 1.3rem;
+        padding-right: 1.5rem;
+    }
+
+    .vantage-main #problem .section-text {
+        padding-right: 1.5rem;
+    }
+
+    .direction-card h4 {
+        font-size: 1.2rem;
+    }
+
+    .direction-card p {
+        font-size: 0.8rem;
+    }
+
+    .direction-label {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.8rem;
+    }
+
+    .selected-badge {
+        font-size: 0.7rem;
+        margin-top: 0.2rem;
+        padding: 0.5rem 0.8rem;
+        background: transparent;
+        color: #E89A5A;
+    }
+
+    /* Phase styles - mirror direction styles */
+    .phase-badge {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.8rem;
+    }
+
+    .phase-subtitle {
+        font-size: 1rem;
+    }
+
+    .phase-description {
+        font-size: 0.8rem;
+    }
+
+    .vantage-main .section-content h4 {
+        font-size: 1.1rem;
     }
 }
 
@@ -15218,16 +15460,23 @@ body.dark-mode .metadata-item {
         padding-bottom: 2rem;
     }
 
+    .metadata-item {
+        font-size: 0.75rem;
+    }
+
     .vantage-title {
         font-size: 2rem;
     }
     
     .stat-number {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     
     .section-subtitle {
         font-size: 1.5rem;
+    }
+    .stat-box {
+
     }
 }
 
@@ -15293,6 +15542,7 @@ body.dark-mode .vantage-main #problem .section-text p {
     .vantage-main #problem .section-header {
         padding: 0 1.5rem;
     }
+    
 }
 
 /* Vantage Insights Image */
@@ -15312,6 +15562,12 @@ body.dark-mode .vantage-main #problem .section-text p {
 @media (max-width: 768px) {
     .vantage-insights-image-container {
         margin: 2rem 0;
+        overflow: visible;
+    }
+
+    .vantage-insights-image {
+        max-width: 100%;
+        transform: scale(1.1);
     }
 }
 
