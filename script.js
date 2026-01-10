@@ -611,19 +611,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Custom Cursor with Three Dots
     function initCustomCursor() {
         const cursorDot = document.getElementById('cursor-dot');
-        const cursorDot2 = document.getElementById('cursor-dot-2');
-        const cursorDot3 = document.getElementById('cursor-dot-3');
-        
-        if (!cursorDot || !cursorDot2 || !cursorDot3) {
-            console.log('Cursor dots not found');
+        // const cursorDot2 = document.getElementById('cursor-dot-2');
+        // const cursorDot3 = document.getElementById('cursor-dot-3');
+
+        if (!cursorDot) {
+            console.log('Cursor dot not found');
             return;
         }
-        
+
         // Only show cursor on desktop
         if (window.innerWidth <= 768) {
             cursorDot.style.display = 'none';
-            cursorDot2.style.display = 'none';
-            cursorDot3.style.display = 'none';
+            // cursorDot2.style.display = 'none';
+            // cursorDot3.style.display = 'none';
             return;
         }
         
@@ -632,10 +632,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const isProjectPage = document.body.classList.contains('project-page');
             if (isProjectPage) {
                 const isDarkMode = document.body.classList.contains('dark-mode');
-                const cursorColor = isDarkMode ? '#ffffff' : '#000000';
-                cursorDot.style.background = cursorColor;
-                cursorDot2.style.background = cursorColor;
-                cursorDot3.style.background = cursorColor;
+                const backgroundColor = isDarkMode ? '#000000' : '#ffffff';
+                const borderColor = isDarkMode ? '#ffffff' : '#000000';
+                cursorDot.style.background = backgroundColor;
+                cursorDot.style.borderColor = borderColor;
+                // cursorDot2.style.background = backgroundColor;
+                // cursorDot2.style.borderColor = borderColor;
+                // cursorDot3.style.background = backgroundColor;
+                // cursorDot3.style.borderColor = borderColor;
             }
         }
         
@@ -672,29 +676,29 @@ document.addEventListener('DOMContentLoaded', function() {
             // If sessionStorage is not available, use center
         }
         
-        let dot2X = mouseX;
-        let dot2Y = mouseY;
-        let dot3X = mouseX;
-        let dot3Y = mouseY;
-        
-        // Initialize cursor dots position and make them visible
+        // let dot2X = mouseX;
+        // let dot2Y = mouseY;
+        // let dot3X = mouseX;
+        // let dot3Y = mouseY;
+
+        // Initialize cursor dot position and make it visible
         cursorDot.style.left = mouseX + 'px';
         cursorDot.style.top = mouseY + 'px';
         cursorDot.style.display = 'block';
         cursorDot.style.opacity = '1';
         cursorDot.style.visibility = 'visible';
-        
-        cursorDot2.style.left = dot2X + 'px';
-        cursorDot2.style.top = dot2Y + 'px';
-        cursorDot2.style.display = 'block';
-        cursorDot2.style.opacity = '0.8';
-        cursorDot2.style.visibility = 'visible';
-        
-        cursorDot3.style.left = dot3X + 'px';
-        cursorDot3.style.top = dot3Y + 'px';
-        cursorDot3.style.display = 'block';
-        cursorDot3.style.opacity = '0.6';
-        cursorDot3.style.visibility = 'visible';
+
+        // cursorDot2.style.left = dot2X + 'px';
+        // cursorDot2.style.top = dot2Y + 'px';
+        // cursorDot2.style.display = 'block';
+        // cursorDot2.style.opacity = '0.8';
+        // cursorDot2.style.visibility = 'visible';
+
+        // cursorDot3.style.left = dot3X + 'px';
+        // cursorDot3.style.top = dot3Y + 'px';
+        // cursorDot3.style.display = 'block';
+        // cursorDot3.style.opacity = '0.6';
+        // cursorDot3.style.visibility = 'visible';
         
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
@@ -708,12 +712,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 // If sessionStorage is not available, ignore
             }
 
-            // Show cursor dots when mouse moves
+            // Show cursor dot when mouse moves
             cursorDot.style.opacity = '1';
-            cursorDot2.style.opacity = '0.8';
-            cursorDot3.style.opacity = '0.6';
+            // cursorDot2.style.opacity = '0.8';
+            // cursorDot3.style.opacity = '0.6';
 
-            // First dot follows immediately
+            // Dot follows immediately
             cursorDot.style.left = mouseX + 'px';
             cursorDot.style.top = mouseY + 'px';
         });
@@ -721,35 +725,35 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hide cursor when mouse leaves the viewport
         document.addEventListener('mouseleave', () => {
             cursorDot.style.opacity = '0';
-            cursorDot2.style.opacity = '0';
-            cursorDot3.style.opacity = '0';
+            // cursorDot2.style.opacity = '0';
+            // cursorDot3.style.opacity = '0';
         });
 
         // Show cursor when mouse enters the viewport
         document.addEventListener('mouseenter', () => {
             cursorDot.style.opacity = '1';
-            cursorDot2.style.opacity = '0.8';
-            cursorDot3.style.opacity = '0.6';
+            // cursorDot2.style.opacity = '0.8';
+            // cursorDot3.style.opacity = '0.6';
         });
-        
-        function animate() {
-            // Smoothly interpolate position for second dot - slower catch up
-            dot2X += (mouseX - dot2X) * 0.2;
-            dot2Y += (mouseY - dot2Y) * 0.2;
-            cursorDot2.style.left = dot2X + 'px';
-            cursorDot2.style.top = dot2Y + 'px';
-            
-            // Smoothly interpolate position for third dot - even slower catch up
-            dot3X += (mouseX - dot3X) * 0.1;
-            dot3Y += (mouseY - dot3Y) * 0.1;
-            cursorDot3.style.left = dot3X + 'px';
-            cursorDot3.style.top = dot3Y + 'px';
-            
-            requestAnimationFrame(animate);
-        }
-        
+
+        // function animate() {
+        //     // Smoothly interpolate position for second dot - slower catch up
+        //     dot2X += (mouseX - dot2X) * 0.2;
+        //     dot2Y += (mouseY - dot2Y) * 0.2;
+        //     cursorDot2.style.left = dot2X + 'px';
+        //     cursorDot2.style.top = dot2Y + 'px';
+
+        //     // Smoothly interpolate position for third dot - even slower catch up
+        //     dot3X += (mouseX - dot3X) * 0.1;
+        //     dot3Y += (mouseY - dot3Y) * 0.1;
+        //     cursorDot3.style.left = dot3X + 'px';
+        //     cursorDot3.style.top = dot3Y + 'px';
+
+        //     requestAnimationFrame(animate);
+        // }
+
         // Start animation loop
-        animate();
+        // animate();
     }
     
     // Initialize custom cursor when DOM is ready
@@ -902,11 +906,17 @@ document.addEventListener('DOMContentLoaded', function() {
     loader.style.visibility = 'visible';
     
     // Use three animated dots for loading screen
+    // Use theme variable to set appropriate colors
+    const isDarkMode = theme === 'dark';
+    const dot1Color = isDarkMode ? '#ffffff' : '#000000';
+    const dot2Color = isDarkMode ? '#b0b0b0' : '#4a4a4a';
+    const dot3Color = isDarkMode ? '#808080' : '#808080';
+
     loader.innerHTML = `
       <div class="loading-dots">
-        <div class="loading-dot" style="background: #903232;"></div>
-        <div class="loading-dot" style="background: #C94949;"></div>
-        <div class="loading-dot" style="background: #DE7E7E;"></div>
+        <div class="loading-dot" style="background: ${dot1Color};"></div>
+        <div class="loading-dot" style="background: ${dot2Color};"></div>
+        <div class="loading-dot" style="background: ${dot3Color};"></div>
       </div>
     `;
     return loader;

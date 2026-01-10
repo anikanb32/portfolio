@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 /* Register CSS properties for smooth color transitions */
 @property --vinyl-color-1 {
@@ -104,7 +104,8 @@ a {
     position: fixed;
     width: 14px;
     height: 14px;
-    background: #903232;
+    background: #ffffff;
+    border: 2px solid #000000;
     border-radius: 50%;
     pointer-events: none;
     z-index: 99999;
@@ -113,6 +114,13 @@ a {
     top: 0;
     opacity: 1;
     display: block !important;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    mix-blend-mode: difference;
+}
+
+body.dark-mode .cursor-dot {
+    background: #000000;
+    border-color: #ffffff;
 }
 
 #cursor-dot {
@@ -219,7 +227,7 @@ body.project-page .solution-gif:focus {
     cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='rgba(173,216,230,0.6)' stroke='rgba(173,216,230,0.9)' stroke-width='1'/%3E%3Ccircle cx='16' cy='16' r='8' fill='rgba(173,216,230,0.4)' stroke='rgba(173,216,230,0.8)' stroke-width='0.5'/%3E%3Ccircle cx='16' cy='16' r='2' fill='rgba(0,0,0,0.6)'/%3E%3C/svg%3E") 16 16, pointer;
 } */
 .logo {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
 }
 /* Theme Toggle Button - Simple Icon */
 .theme-toggle {
@@ -234,7 +242,7 @@ body.project-page .solution-gif:focus {
     position: relative;
     width: 32px;
     height: 32px;
-    background: rgba(232, 179, 179, 0.2);
+    background: rgba(0, 0, 0, 0.05);
     border: none;
     border-radius: 50%;
     transition: all 0.2s ease;
@@ -246,11 +254,11 @@ body.project-page .solution-gif:focus {
 }
 
 .theme-toggle-btn:hover {
-    background: rgba(222, 126, 126, 0.3);
+    background: rgba(0, 0, 0, 0.1);
 }
 
 .sun-icon, .moon-icon {
-    color: #C94949;
+    color: #000000;
     transition: all 0.2s ease;
     width: 22px;
     height: 22px;
@@ -344,15 +352,15 @@ body.dark-mode .logo:hover .logo-hagavatula {
 }
 
 body.dark-mode .nav a {
-    color: #ffffff;
+    color: #666666;
 }
 
 body.dark-mode .nav a:hover {
-    color: #C94949;
+    color: #999999;
 }
 
 body.dark-mode .nav a.active {
-    color: #903232;
+    color: #ffffff;
 }
 
 body.dark-mode .nav a.active.download-btn {
@@ -360,16 +368,16 @@ body.dark-mode .nav a.active.download-btn {
 }
 
 body.dark-mode .theme-toggle-btn {
-    background: rgba(144, 50, 50, 0.2);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 body.dark-mode .theme-toggle-btn:hover {
-    background: rgba(201, 73, 73, 0.3);
+    background: rgba(255, 255, 255, 0.1);
 }
 
-body.dark-mode .sun-icon, 
+body.dark-mode .sun-icon,
 body.dark-mode .moon-icon {
-    color: #E8B3B3;
+    color: #ffffff;
 }
 
 body.dark-mode .hamburger span {
@@ -655,20 +663,20 @@ body.dark-mode .linkedin-icon:hover {
   
   .nav a {
     text-decoration: none;
-    color: inherit;
-    font-weight: 250;
-    transition: color 0.2s;
+    color: #9f9f9f;
+    font-weight: 200;
+    transition: color 0.3s ease;
     display: inline-flex;
     align-items: center;
     line-height: 1;
 }
-  
+
   .nav a:hover {
-    color: #C94949;
+    color: #666666;
 }
 
   .nav a.active {
-    color: #903232;
+    color: #000000;
   }
 
   .nav a.active.download-btn {
@@ -1035,7 +1043,7 @@ main {
 }
 
 .intro {
-    font-family: 'Ovo', 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
     opacity: 0;
     transform: translateY(30px);
     transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1497,7 +1505,7 @@ body.dark-mode .workspace-tooltip {
 
 .record-player-deck {
     background: linear-gradient(145deg, #8a8a8a 0%, #6a6a6a 50%, #4a4a4a 100%);
-    border-radius: 16px;
+    border-radius: 4px;
     box-shadow: 
         0 8px 32px rgba(0,0,0,0.15),
         inset 0 1px 0 rgba(255,255,255,0.1),
@@ -3326,7 +3334,7 @@ body.dark-mode #brain-app {
     line-height: 1.1;
     margin-bottom: 2rem;
     width: 100%;
-    font-family: 'Ovo', 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
     color: #000;
 }
 
@@ -3342,7 +3350,7 @@ body.dark-mode .intro h1 {
 /* Gradient effect for interdisciplinary */
 .intro h1 i {
     font-style: italic;
-    background: linear-gradient(135deg, #903333, #C94949, #903333);
+    background: linear-gradient(135deg, #000000 0%, #4a4a4a 50%, #000000 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -3352,7 +3360,7 @@ body.dark-mode .intro h1 {
 }
 
 body.dark-mode .intro h1 i {
-    background: linear-gradient(135deg, #C94949, #E06666, #C94949);
+    background: linear-gradient(135deg, #ffffff 0%, #b0b0b0 50%, #ffffff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -3425,11 +3433,20 @@ body.dark-mode .breathing-text {
     flex-shrink: 0;
     width: 16px;
     height: 16px;
-    color: #903333;
+    color: #000000;
 }
 
 body.dark-mode .role-icon {
-    color: #C94949;
+    color: #ffffff;
+}
+
+/* For img tags with role-icon class */
+img.role-icon {
+    filter: none;
+}
+
+body.dark-mode img.role-icon {
+    filter: invert(1) brightness(1);
 }
 
 .role-text {
@@ -4134,12 +4151,12 @@ body.dark-mode .footer-content {
 }
 
 .contact-info h3 {
-    font-weight: 600;
+    font-weight: 400;
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
     color: #000;
     transition: color 0.3s ease;
-    font-family: 'Ovo', 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
 }
 
 .contact-info a {
@@ -4467,7 +4484,7 @@ body.dark-mode .email-icon:hover {
 
 
 .about-title {
-    font-family: 'Ovo', 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
     font-size: 3rem;
     font-weight: 500;
     line-height: 1.1;
@@ -4486,7 +4503,7 @@ body.dark-mode .email-icon:hover {
 }
 
 .about-highlight-quote {
-    font-family: 'Ovo', 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
     font-size: 1.4rem;
     font-weight: 700;
     color: #000000;
@@ -4559,7 +4576,7 @@ body.dark-mode .email-icon:hover {
     width: 500px;
     height: 480px;
     object-fit: cover;
-    border-radius: 28px;
+    border-radius: 8px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.10);
     background: #f7f7f7;
 }
@@ -4604,9 +4621,9 @@ body.dark-mode .email-icon:hover {
 }
 
 .dj-section-title {
-    font-family: 'Ovo', 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
     color: #000;
     margin-bottom: 0.5rem;
     line-height: 1.2;
@@ -5175,8 +5192,8 @@ body.dark-mode .email-icon:hover {
     }
     
     .dj-section-title {
-        font-size: 2rem;
-        font-weight: 100;
+        font-size: 1.8rem;
+        font-weight: 400;
     }
     
     .dj-section-subtitle {
@@ -6001,7 +6018,7 @@ body.dark-mode .password-error {
     font-weight: 700;
     color: #000;
     margin-bottom: 0.5rem;
-    font-family: 'Ovo', 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
 }
 
 .test-project-description p {
@@ -6203,7 +6220,7 @@ body.dark-mode .dj-section-subtitle {
 }
 
 .vinyl-picks-header {
-    font-family: 'Ovo', 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
     text-align: right;
     max-width: 400px;
     margin-top: 1rem;
@@ -6244,7 +6261,7 @@ body.dark-mode .dj-section-subtitle {
 .vinyl-album-cover {
     width: 80px;
     height: 80px;
-    border-radius: 8px;
+    border-radius: 4px;
     overflow: hidden;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -6788,7 +6805,7 @@ body.dark-mode .vinyl-record[data-color="#1e3a8a"] {
 }
 
 .resume-title {
-    font-family: 'Ovo', 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
     font-size: 3rem;
     font-weight: 500;
     line-height: 1.1;
@@ -6801,21 +6818,22 @@ body.dark-mode .vinyl-record[data-color="#1e3a8a"] {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    background: #E8B3B3;
-    color: rgb(0, 0, 0);
-    padding: 1rem 2rem;
-    border-radius: 10px;
+    background: #000000;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
+    font-weight: 500;
+    font-size: 1rem;
     transition: all 0.3s ease;
-    border: 2px solid #E8B3B3;
+    border: 1px solid #000000;
 }
 
 .download-btn:hover {
-    background: #DE7E7E;
-    border-color: #DE7E7E;
-    transform: translateY(-2px);
+    background: #333333;
+    border-color: #333333;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .download-btn svg {
@@ -6823,7 +6841,7 @@ body.dark-mode .vinyl-record[data-color="#1e3a8a"] {
 }
 
 .download-btn:hover svg {
-    transform: translateY(-2px);
+    transform: translateX(2px);
 }
 
 /* Timeline Styles */
@@ -6860,7 +6878,7 @@ body.dark-mode .vinyl-record[data-color="#1e3a8a"] {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(180deg, #5A1C1C 0%, #903232 50%, #2A0909 100%);
+    background: linear-gradient(180deg, #cccccc 0%, #000000 50%, #cccccc 100%);
     transform: translateX(-50%);
     z-index: 1;
 }
@@ -6886,18 +6904,18 @@ body.dark-mode .vinyl-record[data-color="#1e3a8a"] {
     top: 2rem;
     width: 16px;
     height: 16px;
-    background: #903232;
+    background: #000000;
     border: 4px solid white;
     border-radius: 50%;
     transform: translateX(-50%);
     z-index: 2;
-    box-shadow: 0 0 0 4px rgba(144, 50, 50, 0.2);
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
 
 .timeline-item:hover .timeline-node {
     transform: translateX(-50%) scale(1.2);
-    box-shadow: 0 0 0 6px rgba(201, 73, 73, 0.3);
+    box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 .timeline-content {
@@ -6954,7 +6972,7 @@ body.dark-mode .vinyl-record[data-color="#1e3a8a"] {
 
 .timeline-card h4 {
     font-size: 1.4rem;
-    font-family: 'Ovo', 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
 
     font-weight: 700;
     color: #111;
@@ -7134,19 +7152,19 @@ body.dark-mode .timeline-card li {
 
 /* Dark mode for timeline line and nodes */
 body.dark-mode .timeline-line {
-    background: linear-gradient(180deg, #2A0909 0%, #903232 50%, #5A1C1C 100%);
+    background: linear-gradient(180deg, #4a4a4a 0%, #ffffff 50%, #4a4a4a 100%);
 }
 
 body.dark-mode .timeline-node {
-    background: #903232;
+    background: #ffffff;
     border: 4px solid #000000;
-    box-shadow: 0 0 0 4px rgba(144, 50, 50, 0.3);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
     transition: all 0.3s ease;
 }
 
 body.dark-mode .timeline-item:hover .timeline-node {
     transform: translateX(-50%) scale(1.2);
-    box-shadow: 0 0 0 6px rgba(201, 73, 73, 0.4);
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.4);
 }
 
 body.dark-mode .skill-category h3 {
@@ -7170,14 +7188,15 @@ body.dark-mode .skills-title {
 /* Removed job-item dark mode styles as they're no longer needed */
 
 body.dark-mode .download-btn {
-    background: #E8B3B3;
-    border-color: #E8B3B3;
-    color: rgb(0, 0, 0);
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #000000;
 }
 
 body.dark-mode .download-btn:hover {
-    background: #DE7E7E;
-    border-color: #DE7E7E;
+    background: #e0e0e0;
+    border-color: #e0e0e0;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
 }
 
 /* Mobile nav download button styles - styled as regular nav link */
@@ -7261,19 +7280,19 @@ body.dark-mode .mobile-nav .download-btn:hover {
     
     /* Mobile dark mode for timeline elements */
     body.dark-mode .timeline-line {
-        background: linear-gradient(180deg, #2A0909 0%, #903232 50%, #5A1C1C 100%);
+        background: linear-gradient(180deg, #4a4a4a 0%, #ffffff 50%, #4a4a4a 100%);
     }
-    
+
     body.dark-mode .timeline-node {
-        background: #903232;
+        background: #ffffff;
         border: 4px solid #000000;
-        box-shadow: 0 0 0 4px rgba(144, 50, 50, 0.3);
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
         transition: all 0.3s ease;
     }
-    
+
     body.dark-mode .timeline-item:hover .timeline-node {
         transform: scale(1.2);
-        box-shadow: 0 0 0 6px rgba(201, 73, 73, 0.4);
+        box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.4);
     }
     
     .timeline-content {
@@ -7332,18 +7351,18 @@ body.dark-mode .mobile-nav .download-btn:hover {
     /* Small mobile dark mode for timeline elements */
     body.dark-mode .timeline-node {
         border: 3px solid #000000;
-        box-shadow: 0 0 0 3px rgba(144, 50, 50, 0.3);
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
         transition: all 0.3s ease;
     }
-    
+
     .timeline-item:hover .timeline-node {
         transform: scale(1.2);
-        box-shadow: 0 0 0 5px rgba(201, 73, 73, 0.3);
+        box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.3);
     }
-    
+
     body.dark-mode .timeline-item:hover .timeline-node {
         transform: scale(1.2);
-        box-shadow: 0 0 0 5px rgba(201, 73, 73, 0.4);
+        box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.4);
     }
     
     .timeline-content {
@@ -7412,18 +7431,18 @@ body.dark-mode .mobile-nav .download-btn:hover {
     /* Extra small mobile dark mode for timeline elements */
     body.dark-mode .timeline-node {
         border: 2px solid #000000;
-        box-shadow: 0 0 0 2px rgba(144, 50, 50, 0.3);
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
         transition: all 0.3s ease;
     }
-    
+
     .timeline-item:hover .timeline-node {
         transform: scale(1.2);
-        box-shadow: 0 0 0 4px rgba(201, 73, 73, 0.3);
+        box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.3);
     }
-    
+
     body.dark-mode .timeline-item:hover .timeline-node {
         transform: scale(1.2);
-        box-shadow: 0 0 0 4px rgba(201, 73, 73, 0.4);
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.4);
     }
     
     .timeline-content {
@@ -7517,7 +7536,7 @@ body.dark-mode .mobile-nav .download-btn:hover {
     font-weight: 250;
     color: #4A9FCA;
     background-color: rgba(135, 206, 235, 0.3);
-    border-radius: 12px;
+    border-radius: 5px;
     text-transform: capitalize;
     letter-spacing: 0.5px;
 }
@@ -7526,7 +7545,7 @@ body.dark-mode .mobile-nav .download-btn:hover {
 .status-chip.class-shipped {
     color: #4A9FCA;
     background-color: rgba(135, 206, 235, 0.3);
-    border-radius: 20px;
+    border-radius: 5px;
 }
 
 body.dark-mode .status-chip.class-shipped {
@@ -7538,7 +7557,7 @@ body.dark-mode .status-chip.class-shipped {
 .status-chip.xometry-shipped {
     color: #7493BA;
     background-color: rgba(116, 147, 186, 0.15);
-    border-radius: 20px;
+    border-radius: 5px;
 }
 
 body.dark-mode .status-chip.xometry-shipped {
@@ -7548,8 +7567,8 @@ body.dark-mode .status-chip.xometry-shipped {
 
 .class-title {
     font-size: 4rem;
-    font-family: 'Ovo', 'Playfair Display', serif;
-    font-weight: 700;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
+    font-weight: 400;
     line-height: 1.1;
     margin: 0;
     padding-bottom: 2rem;
@@ -7885,7 +7904,7 @@ body.dark-mode .case-study-section h4 {
 #problem .problem-factor h4,
 #problem .problem-factor p {
     color: #ffffff;
-    font-family: 'Ovo', 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
 }
 
 #problem.xometry-problem .section-title,
@@ -7948,9 +7967,9 @@ body.dark-mode .class-section-title {
 }
 
 .section-subtitle {
-    font-family: 'Ovo', 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 400;
     color: #000;
     margin-bottom: 2rem;
     line-height: 1.3;
@@ -8264,7 +8283,7 @@ body.dark-mode .research-methods-dark,
     max-width: 95%;
     max-height: 95%;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius: 4px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     -webkit-tap-highlight-color: transparent;
     tap-highlight-color: transparent;
@@ -8393,7 +8412,7 @@ body.dark-mode .section-subtitle {
 /* Special styling for problem section subtitle */
 #problem .section-subtitle {
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: 500;
     color: #000000;
     line-height: 1.2;
     margin-bottom: 3rem;
@@ -8403,7 +8422,7 @@ body.dark-mode .section-subtitle {
 
 #problem.xometry-problem .section-subtitle {
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: 400;
     color: #ffffff !important;
     line-height: 1.2;
     margin-bottom: 3rem;
@@ -10816,7 +10835,7 @@ body.dark-mode .highlight-word.active {
 
 .filter-container {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     flex-wrap: wrap;
     align-items: center;
     border: none;
@@ -10824,56 +10843,49 @@ body.dark-mode .highlight-word.active {
 }
 
 .filter-btn {
-    background: #f5f5f5;
+    background: transparent;
     border: none;
-    border-radius: 50px;
-    padding: 0.6rem 1.2rem;
+    border-radius: 0;
+    padding: 0.5rem 0;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.5rem;
     font-family: inherit;
-    font-size: 0.95rem;
-    font-weight: 250;
-    color: #000;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #cccccc;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .filter-btn:hover {
-    background: #e8e8e8;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    background: transparent;
+    transform: none;
+    box-shadow: none;
+    color: #666666;
 }
 
 .filter-btn.active {
-    background: #333;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    background: transparent;
+    color: #000000;
+    transform: none;
+    box-shadow: none;
+    font-weight: 400;
 }
 
 .filter-text {
-    font-weight: 250;
+    font-weight: inherit;
     white-space: nowrap;
 }
 
 .filter-count {
-    background: rgba(255, 255, 255, 0.2);
-    color: inherit;
-    padding: 0.2rem 0.6rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    min-width: 20px;
-    text-align: center;
-    line-height: 1;
+    display: none;
 }
 
 .filter-btn:not(.active) .filter-count {
-    background: #ddd;
-    color: #666;
+    display: none;
 }
 
 .work-grid {
@@ -10938,13 +10950,13 @@ body.dark-mode .work-item:visited .project-description {
     overflow: hidden;
     margin-bottom: 1.5rem;
     cursor: pointer;
-    border-radius: 12px;
+    border-radius: 8px;
 }
 
 .project-image {
     width: 100%;
     height: 400px;
-    border-radius: 12px;
+    border-radius: 8px;
     object-fit: cover;
     display: block;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
@@ -10954,7 +10966,7 @@ body.dark-mode .work-item:visited .project-description {
 
 .project-image-container:hover .project-image {
     transform: scale(1.05);
-    border-radius: 12px;
+    border-radius: 8px;
 }
 
 .project-overlay {
@@ -10968,13 +10980,13 @@ body.dark-mode .work-item:visited .project-description {
     align-items: center;
     justify-content: center;
     opacity: 0;
-    border-radius: 12px;
+    border-radius: 8px;
     transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-image-container:hover .project-overlay {
     opacity: 1;
-    border-radius: 12px;
+    border-radius: 8px;
 }
 
 .view-project {
@@ -10987,9 +10999,9 @@ body.dark-mode .work-item:visited .project-description {
 
 
 .project-name {
-    font-family: 'Ovo', 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
     font-size: 1.8rem;
-    font-weight: 700;
+    font-weight: 400;
     color: #111;
     margin-bottom: 1rem;
     line-height: 1.2;
@@ -11018,7 +11030,7 @@ body.dark-mode .work-item:visited .project-description {
     color: #000;
     border: none;
     padding: 0.4rem 0.8rem;
-    border-radius: 20px;
+    border-radius: 5px;
     font-size: 0.85rem;
     font-weight: 250;
 }
@@ -11101,23 +11113,23 @@ body.dark-mode .work-subtitle.fade-in-delay-2.loaded {
 }
 
 body.dark-mode .filter-btn {
-    background: #2a2a2a;
-    color: #e0e0e0;
+    background: transparent;
+    color: #666666;
     border: none;
 }
 
 body.dark-mode .filter-btn:hover {
-    background: #333333;
+    background: transparent;
+    color: #999999;
 }
 
 body.dark-mode .filter-btn.active {
-    background: #ffffff;
-    color: #000000;
+    background: transparent;
+    color: #ffffff;
 }
 
 body.dark-mode .filter-btn:not(.active) .filter-count {
-    background: #555555;
-    color: #cccccc;
+    display: none;
 }
 
 
@@ -11905,7 +11917,7 @@ body.dark-mode .class-main #solution .solution-feature-title {
 
 .solution-feature-title {
     font-size: 2rem;
-    font-family: 'Ovo', 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
     font-weight: 300;
     line-height: 1.3;
     color: var(--text-color);
@@ -12338,15 +12350,15 @@ body.dark-mode .live-site-icon {
     font-weight: 250;
     color: #4A9FCA;
     background-color: rgba(135, 206, 235, 0.3);
-    border-radius: 12px;
+    border-radius: 5px;
     text-transform: capitalize;
     letter-spacing: 0.5px;
 }
 
 .ai-title {
     font-size: 4rem;
-    font-family: 'Ovo', 'Playfair Display', serif;
-    font-weight: 700;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
+    font-weight: 400;
     line-height: 1.1;
     margin: 0;
     padding-bottom: 2rem;
@@ -12555,7 +12567,7 @@ body.dark-mode .ai-main #problem {
     flex: 1;
     font-size: 2rem;
     line-height: 1.6;
-    font-family: 'Ovo', serif;
+    font-family: 'Space Grotesk', serif;
 }
 
 body.dark-mode .ai-main .ai-problem-text {
@@ -12947,7 +12959,7 @@ body.dark-mode .case-study-section h4 {
 #problem .problem-factor h4,
 #problem .problem-factor p {
     color: #ffffff;
-    font-family: 'Ovo', 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
 }
 
 #problem.xometry-problem .section-title,
@@ -13010,9 +13022,9 @@ body.dark-mode .ai-section-title {
 }
 
 .section-subtitle {
-    font-family: 'Ovo', 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 400;
     color: #000;
     margin-bottom: 2rem;
     line-height: 1.3;
@@ -13304,7 +13316,7 @@ body.dark-mode .research-methods-dark,
     max-width: 95%;
     max-height: 95%;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius: 4px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     -webkit-tap-highlight-color: transparent;
     tap-highlight-color: transparent;
@@ -14542,8 +14554,8 @@ body.margin-page.dark-mode .cursor-dot {
 
 .margin-title {
     font-size: 4rem;
-    font-family: 'Ovo', 'Playfair Display', serif;
-    font-weight: 700;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
+    font-weight: 400;
     line-height: 1.1;
     margin: 0;
     padding-bottom: 2rem;
@@ -14622,9 +14634,9 @@ body.dark-mode .margin-section-title {
 }
 
 .margin-section-subtitle {
-    font-family: 'Ovo', 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 400;
     color: #000;
     margin-bottom: 2rem;
     line-height: 1.3;
@@ -14739,7 +14751,7 @@ body.dark-mode .challenge-badge::before {
 }
 
 .challenge-title {
-    font-family: 'Ovo', 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
     font-size: 1.5rem;
     font-weight: 600;
     color: #000;
@@ -14936,8 +14948,8 @@ body.dark-mode .challenge-solution {
 
 .vantage-title {
     font-size: 4rem;
-    font-family: 'Ovo', 'Playfair Display', serif;
-    font-weight: 700;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
+    font-weight: 400;
     line-height: 1.1;
     margin: 0;
     padding-bottom: 2rem;
@@ -15038,7 +15050,7 @@ body.dark-mode .stat-box {
 .stat-number {
     font-size: 3.5rem;
     font-weight: 700;
-    font-family: 'Ovo', 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
     margin-bottom: 0.5rem;
 }
 
@@ -16390,7 +16402,7 @@ body.playground-page.dark-mode footer {
 }
 
 .playground-title {
-    font-family: 'Ovo', 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Playfair Display', serif;
     font-size: 3rem;
     font-weight: 500;
     line-height: 1.1;
