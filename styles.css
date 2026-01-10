@@ -9554,27 +9554,27 @@ body.dark-mode .xr-logo-container {
 
 /* Problem section - Black background in light mode, white in dark mode */
 .class-main #problem {
-    background: #000000;
-    color: #ffffff;
+    background: #000000 !important;
+    color: #ffffff !important;
 }
 
 .class-main #problem .section-title,
 .class-main #problem .section-impact,
 .class-main #problem h3,
 .class-main #problem p {
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 body.dark-mode .class-main #problem {
-    background: #ffffff;
-    color: #000000;
+    background: #ffffff !important;
+    color: #000000 !important;
 }
 
 body.dark-mode .class-main #problem .section-title,
 body.dark-mode .class-main #problem .section-impact,
 body.dark-mode .class-main #problem h3,
 body.dark-mode .class-main #problem p {
-    color: #000000;
+    color: #000000 !important;
 }
 
 /* Responsive adjustments for research page */
@@ -11502,7 +11502,7 @@ body.dark-mode .cta-content p {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: none;
-    border-radius: 12px;
+    border-radius: 6px;
     padding: 0.75rem 1.5rem;
     font-size: 0.95rem;
     font-weight: 250;
@@ -11573,7 +11573,7 @@ body.dark-mode .back-button:hover {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: none;
-    border-radius: 20px;
+    border-radius: 8px;
     padding: 1.5rem 1rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
@@ -11941,7 +11941,7 @@ body.dark-mode.xometry-page .status-chip {
 }
 /* Solution Features Section - New Alternating Layout for CLASS */
 .class-main #solution {
-    background-color: #C4DFEE;
+    background-color: #C4DFEE !important;
     padding: 4rem 0;
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
@@ -11950,7 +11950,7 @@ body.dark-mode.xometry-page .status-chip {
 }
 
 body.dark-mode .class-main #solution {
-    background-color: #C4DFEE;
+    background-color: #C4DFEE !important;
 }
 
 body.dark-mode .class-main #solution .section-title,
@@ -12622,7 +12622,7 @@ body.dark-mode .ai-map-dark,
 
 /* AI Solution Section Background */
 .ai-main #solution {
-    background-color: #E1BAAB;
+    background-color: #E1BAAB !important;
     padding: 4rem 0;
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
@@ -12631,7 +12631,7 @@ body.dark-mode .ai-map-dark,
 }
 
 body.dark-mode .ai-main #solution {
-    background-color: #E1BAAB;
+    background-color: #E1BAAB !important;
 }
 
 /* AI Solution Images - Larger Size */
@@ -12647,11 +12647,13 @@ body.dark-mode .ai-main #solution {
 
 /* AI Problem Section Background Colors */
 .ai-main #problem {
-    background-color: #000000;
+    background-color: #000000 !important;
+    color: #ffffff !important;
 }
 
 body.dark-mode .ai-main #problem {
-    background-color: #ffffff;
+    background-color: #ffffff !important;
+    color: #000000 !important;
 }
 
 /* AI Problem Section Layout */
@@ -14558,15 +14560,27 @@ body.dark-mode .metric-card code {
 
 /* Problem section - Black background in light mode, white in dark mode */
 .ai-main #problem {
-    background: #000000;
-    color: #ffffff;
+    background: #000000 !important;
+    color: #ffffff !important;
 }
 
 .ai-main #problem .section-title,
 .ai-main #problem .section-impact,
 .ai-main #problem h3,
 .ai-main #problem p {
-    color: inherit;
+    color: #ffffff !important;
+}
+
+body.dark-mode .ai-main #problem {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+body.dark-mode .ai-main #problem .section-title,
+body.dark-mode .ai-main #problem .section-impact,
+body.dark-mode .ai-main #problem h3,
+body.dark-mode .ai-main #problem p {
+    color: #000000 !important;
 }
 
 /* === MARGIN CASE STUDY PAGE STYLES === */

@@ -1397,6 +1397,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
+
+        // Automatically activate Travel Mode on page load
+        const travelButton = document.getElementById('btn-4');
+        if (travelButton) {
+            // Use a small timeout to ensure all elements are ready
+            setTimeout(() => {
+                travelButton.click();
+            }, 100);
+        }
     }
 
     // Initialize Record Player on Main Page
