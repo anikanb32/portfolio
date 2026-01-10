@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Ovo&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="home-page">
     <header class="header">
-        <a href="/" class="logo">
+        <a href="../" class="logo">
           <span class="logo-a">a</span><span class="logo-nika">nika</span><span class="logo-b">b</span><span class="logo-hagavatula">hagavatula</span>
         </a>
         <nav class="nav">
@@ -63,6 +63,7 @@
 
     <main>
         <section class="intro">
+            <div id="canvas-container"></div>
             <div class="intro-content">
                 <div class="intro-text">
                     <h1 class="fade-in">
@@ -83,7 +84,7 @@
                             <svg class="role-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M3.299 17.596c.432 1.332 1.745 2.182 3.146 2.182H6.5A2.78 2.78 0 0 0 9.223 22c.457 0 .884-.115 1.262-.313a.992.992 0 0 0 .515-.882V3.027a.997.997 0 0 0-.785-.983 2.324 2.324 0 0 0-1.479.201c-.744.356-1.18 1.151-1.18 1.978v.055a2.778 2.778 0 0 0-2.744 4.433A3.327 3.327 0 0 0 2 12c0 1.178.611 2.211 1.533 2.812-.43.771-.571 1.746-.234 2.784zm15.889-8.885a2.778 2.778 0 0 0-2.744-4.433v-.055c0-.826-.437-1.622-1.181-1.978a2.32 2.32 0 0 0-1.478-.201.998.998 0 0 0-.785.983v17.777c0 .365.192.712.516.882.378.199.804.314 1.261.314a2.78 2.78 0 0 0 2.723-2.223h.056c1.4 0 2.714-.85 3.146-2.182.337-1.038.196-2.013-.234-2.784A3.35 3.35 0 0 0 22 12a3.327 3.327 0 0 0-2.812-3.289z"/>
                             </svg>
-                            <span class="role-text">Previously learning about the brain @ CMU</span>
+                            <span class="role-text">Previously studied the brain @ CMU</span>
                         </div>
                     </div>
 
@@ -113,185 +114,7 @@
                     </div>
                 </div> -->
                 
-                <!-- Interactive Workspace -->
-                <div class="intro-workspace" id="intro-workspace">
-                    <!-- Wall Lamp -->
-                    
-
-                    <!-- Whiteboard -->
-                    <div class="whiteboard workspace-fade-in workspace-delay-1">
-                        <div class="workspace-tooltip">Move things around and doodle!</div>
-                        <div class="whiteboard-frame">
-                            <div class="whiteboard-surface">
-                                <span class="whiteboard-text"></span>
-                                <!-- Drawing canvas -->
-                                <canvas id="whiteboard-canvas" class="whiteboard-canvas"></canvas>
-                                <!-- Sticky notes -->
-                                <div class="sticky-note" style="top: 15%; left: 20%;"></div>
-                                <div class="sticky-note" style="top: 35%; left: 30%;"></div>
-                                <div class="sticky-note" style="top: 55%; left: 18%;"></div>
-                                <!-- Push pins -->
-                                <div class="push-pin" style="top: 10%; left: 10%;"></div>
-                                <div class="push-pin" style="top: 25%; left: 15%;"></div>
-                                <div class="push-pin" style="top: 10%; right: 10%;"></div>
-                            </div>
-                            <!-- Markers on bottom ledge -->
-                            <div class="whiteboard-markers">
-                                <div class="marker marker-1"></div>
-                                <div class="marker marker-2"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- AR Goggles hanging to the right of whiteboard -->
-                    <div class="ar-goggles workspace-fade-in workspace-delay-1">
-                        <!-- <div class="workspace-tooltip">AR Research</div> -->
-                        <img src="vrgoggles.png" alt="AR Goggles">
-                    </div>
-
-                    <!-- Bottom Row: Desk Items and Computer -->
-                    <div class="workspace-bottom-row">
-                        <!-- Desk Setup Section -->
-                        <div class="desk-items workspace-fade-in workspace-delay-2">
-                            <!-- Ledge items row -->
-                            <div class="ledge-items">
-                                <!-- Digital Clock on left -->
-                                <div class="digital-clock-container">
-                                    <!-- <div class="workspace-tooltip clock-tooltip">Current time</div> -->
-                                    <div class="digital-clock">
-                                        <div class="clock-display" id="clock-display">00:00</div>
-                                    </div>
-                                </div>
-
-                                <!-- Teapot/Cup on right -->
-                                <div class="teapot-container">
-                                    <!-- <div class="workspace-tooltip teapot-tooltip">Green tea...</div> -->
-                                    <img src="teapot.png" alt="Teapot">
-                                    <!-- Steam effect -->
-                                    <div class="setup-steam-container">
-                                        <div class="setup-steam setup-steam-1"></div>
-                                        <div class="setup-steam setup-steam-2"></div>
-                                        <div class="setup-steam setup-steam-3"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Record player below teapot -->
-                            <div class="record-player-container">
-                                <!-- <div class="workspace-tooltip record-tooltip">Vinyl collection</div> -->
-                                <img src="recordplayer.png" alt="Record Player">
-                                <!-- Spinning record overlay -->
-                                <div class="setup-record-container">
-                                    <div class="setup-spinning-record"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Mac Computer -->
-                        <div class="intro-computer workspace-fade-in workspace-delay-3" id="intro-computer">
-                        <!-- <div class="workspace-tooltip">Decoding brains</div> -->
-                        <div class="computer-container">
-                        <div class="computer-monitor">
-                            <div class="monitor-bezel">
-                                <div class="monitor-screen">
-                                    <!-- Default prompt -->
-                                    <div class="screen-prompt" id="screen-prompt">
-                                        <span>click buttons below!</span>
-                                    </div>
-                                    <!-- Brain animation -->
-                                    <div class="screen-content" id="screen-brain">
-                                        <svg class="brain-dots-svg" viewBox="0 0 200 200">
-                                            <!-- Brain outline dots -->
-                                        </svg>
-                                    </div>
-                                    <!-- Design animation -->
-                                    <div class="screen-content" id="screen-design">
-                                        <div class="design-elements">
-                                            <div class="design-shape shape-1"></div>
-                                            <div class="design-shape shape-2"></div>
-                                            <div class="design-shape shape-3"></div>
-                                            <div class="design-shape shape-4"></div>
-                                            <div class="design-shape shape-5"></div>
-                                            <div class="design-shape shape-6"></div>
-                                            <div class="design-shape shape-7"></div>
-                                            <div class="design-shape shape-8"></div>
-                                            <div class="design-shape shape-9"></div>
-                                        </div>
-                                    </div>
-                                    <!-- Code animation -->
-                                    <div class="screen-content" id="screen-code">
-                                        <div class="code-lines">
-                                            <div class="code-line"></div>
-                                            <div class="code-line"></div>
-                                            <div class="code-line"></div>
-                                            <div class="code-line"></div>
-                                            <div class="code-line"></div>
-                                            <div class="code-line"></div>
-                                            <div class="code-line"></div>
-                                            <div class="code-line"></div>
-                                            <div class="code-line"></div>
-                                            <div class="code-line"></div>
-                                            <div class="code-line"></div>
-                                            <div class="code-line"></div>
-                                        </div>
-                                    </div>
-                                    <!-- Draw canvas -->
-                                    <canvas class="screen-content" id="screen-draw"></canvas>
-                                </div>
-                                <div class="monitor-chin">
-                                    <!-- Computer buttons -->
-                                    <div class="computer-buttons">
-                                        <button class="comp-btn" data-screen="brain" title="Neuroscience">
-                                            <img class="btn-icon" src="brain.svg" alt="Brain">
-                                        </button>
-                                        <button class="comp-btn" data-screen="design" title="Design">
-                                            <img class="btn-icon" src="images/paintbrush.svg" alt="Design">
-                                        </button>
-                                        <button class="comp-btn" data-screen="code" title="Code">
-                                            <img class="btn-icon" src="newcode.svg" alt="Code">
-                                        </button>
-                                        <!-- <button class="comp-btn" data-screen="draw" title="Draw">
-                                            <svg class="btn-icon plus-icon" viewBox="0 0 24 24" fill="currentColor">
-                                                <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                            </svg>
-                                        </button> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="computer-stand">
-                            <div class="stand-neck"></div>
-                            <div class="stand-base"></div>
-                        </div>
-                    </div>
-
-                    <!-- Polaroid Photos -->
-                    <div class="polaroid-stack workspace-fade-in workspace-delay-4">
-                        <div class="polaroid polaroid-1">
-                            <div class="polaroid-frame">
-                                <div class="polaroid-photo">
-                                    <img src="fashion.png" alt="Polaroid 1" class="polaroid-img">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="polaroid polaroid-2">
-                            <div class="polaroid-frame">
-                                <div class="polaroid-photo">
-                                    <img src="mountains.png" alt="Polaroid 2" class="polaroid-img">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="polaroid polaroid-3">
-                            <div class="polaroid-frame">
-                                <div class="polaroid-photo">
-                                    <img src="flowers.png" alt="Polaroid 3" class="polaroid-img">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
+               
         </section>
 
         <section id="work" class="work-header">
@@ -543,5 +366,258 @@
     <div class="cursor-dot" id="cursor-dot-3"></div> -->
 
     <script src="script.js"></script>
+<script type="module">
+    import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+
+    // --- CONFIGURATION ---
+    const container = document.getElementById('canvas-container');
+    
+    // Define your colors
+    const themes = {
+        light: {
+            bg: 0xffffff, // White Background
+            dotColor1: new THREE.Vector3(0.05, 0.05, 0.05), // Very Dark Gray dots (low points)
+            dotColor2: new THREE.Vector3(0.0, 0.0, 0.0)  // Pure Black dots (high points)
+        },
+        dark: {
+            bg: 0x000000, // Black Background
+            dotColor1: new THREE.Vector3(0.15, 0.15, 0.15), // Lighter Gray dots (low points)
+            dotColor2: new THREE.Vector3(0.35, 0.35, 0.35)  // Light Gray dots (high points)
+        }
+    };
+
+    // 1. SETUP SCENE
+    const scene = new THREE.Scene();
+
+    // Check theme from localStorage first, then body class, then system preference
+    const savedTheme = localStorage.getItem('theme');
+    let isDarkMode = false;
+    if (savedTheme === 'dark') {
+        isDarkMode = true;
+    } else if (savedTheme === 'light') {
+        isDarkMode = false;
+    } else {
+        // Fallback to body class or system preference
+        isDarkMode = document.body.classList.contains('dark-mode') || window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    let currentTheme = isDarkMode ? themes.dark : themes.light;
+
+    scene.background = new THREE.Color(currentTheme.bg);
+
+    const camera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 0.1, 100);
+    camera.position.set(0, -4, 4); // Tilted view
+    camera.lookAt(0, 0, 0);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    container.appendChild(renderer.domElement);
+
+    // 2. GEOMETRY (Dense Grid)
+    const geometry = new THREE.PlaneGeometry(16, 16, 200, 200);
+
+    // 3. SHADER
+    const material = new THREE.ShaderMaterial({
+        vertexShader: `
+            uniform float uTime;
+            uniform vec2 uMouse;
+            varying float vElevation;
+
+            // Simplex Noise
+            vec3 permute(vec3 x) { return mod(((x*34.0)+1.0)*x, 289.0); }
+            float snoise(vec2 v){
+                const vec4 C = vec4(0.211324865405187, 0.366025403784439,
+                        -0.577350269189626, 0.024390243902439);
+                vec2 i  = floor(v + dot(v, C.yy) );
+                vec2 x0 = v -   i + dot(i, C.xx);
+                vec2 i1;
+                i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+                vec4 x12 = x0.xyxy + C.xxzz;
+                x12.xy -= i1;
+                i = mod(i, 289.0);
+                vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 ))
+                    + i.x + vec3(0.0, i1.x, 1.0 ));
+                vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+                m = m*m ;
+                m = m*m ;
+                vec3 x = 2.0 * fract(p * C.www) - 1.0;
+                vec3 h = abs(x) - 0.5;
+                vec3 ox = floor(x + 0.5);
+                vec3 a0 = x - ox;
+                m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );
+                vec3 g;
+                g.x  = a0.x  * x0.x  + h.x  * x0.y;
+                g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+                return 130.0 * dot(m, g);
+            }
+
+            float random(vec2 st) {
+                return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
+            }
+
+            void main() {
+                vec3 pos = position;
+
+                // Jitter (Organic feel)
+                float jitterAmount = 0.03; 
+                pos.x += (random(pos.xy) - 0.5) * jitterAmount;
+                pos.y += (random(pos.yx) - 0.5) * jitterAmount;
+
+                // Waves - slowed down animation
+                float timeScale = uTime * 0.15;
+                float noiseScale = 1.2;
+                float elevation = snoise(vec2(pos.x * noiseScale + timeScale, pos.y * noiseScale)) * 0.4;
+                elevation += snoise(vec2(pos.x * noiseScale * 2.0 - timeScale, pos.y * noiseScale * 2.0)) * 0.15;
+
+                // Interaction - smoother ripple
+                float dist = distance(pos.xy, uMouse);
+                float interactionArea = 1.0 - smoothstep(0.0, 3.5, dist);
+                float ripple = sin(dist * 4.0 - uTime * 1.5) * 0.15;
+                elevation += ripple * interactionArea;
+
+                pos.z += elevation;
+                vElevation = elevation;
+
+                vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
+                gl_Position = projectionMatrix * mvPosition;
+
+                // Size - much larger dots for better visibility
+                gl_PointSize = 13.0 * (1.0 / -mvPosition.z);
+            }
+        `,
+        fragmentShader: `
+            uniform vec3 uColor1;
+            uniform vec3 uColor2;
+            varying float vElevation;
+
+            void main() {
+                float r = distance(gl_PointCoord, vec2(0.5));
+                if (r > 0.5) discard;
+
+                // Mix colors based on elevation (Low points vs High points)
+                float mixStrength = smoothstep(-0.5, 0.5, vElevation);
+                vec3 finalColor = mix(uColor1, uColor2, mixStrength);
+                
+                gl_FragColor = vec4(finalColor, 1.0); 
+            }
+        `,
+        uniforms: {
+            uTime: { value: 0 },
+            uMouse: { value: new THREE.Vector2(9999, 9999) },
+            uColor1: { value: currentTheme.dotColor1 },
+            uColor2: { value: currentTheme.dotColor2 }
+        },
+        transparent: true,
+        depthWrite: false
+    });
+
+    const waterPlane = new THREE.Points(geometry, material);
+    scene.add(waterPlane);
+
+    // 4. INTERACTION & EVENTS
+    const raycaster = new THREE.Raycaster();
+    const mouseVector = new THREE.Vector2();
+    const planeMesh = new THREE.Mesh(
+        new THREE.PlaneGeometry(30, 30), // Invisible plane for raycasting
+        new THREE.MeshBasicMaterial({ visible: false }) 
+    );
+    scene.add(planeMesh);
+
+    // Mouse Move
+    window.addEventListener('mousemove', (event) => {
+        // Calculate mouse relative to the CONTAINER, not the window
+        const rect = container.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+        const y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+        mouseVector.set(x, y);
+        raycaster.setFromCamera(mouseVector, camera);
+        const intersects = raycaster.intersectObject(planeMesh);
+        if (intersects.length > 0) {
+            material.uniforms.uMouse.value.copy(intersects[0].point);
+        }
+    });
+
+    // Resize
+    window.addEventListener('resize', () => {
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+    });
+
+    // 5. THEME SWITCHER WITH SMOOTH TRANSITION
+    // Store transition state
+    let isTransitioning = false;
+    let transitionStartTime = 0;
+    let startBgColor = null;
+    let startColor1 = null;
+    let startColor2 = null;
+    let targetBgColor = null;
+    let targetColor1 = null;
+    let targetColor2 = null;
+    const transitionDuration = 300; // 0.3s - matches CSS transition exactly
+
+    // Listen for theme change event - fires IMMEDIATELY when toggle is clicked!
+    window.addEventListener('themechange', (event) => {
+        const isDark = event.detail.isDark;
+        const targetTheme = isDark ? themes.dark : themes.light;
+
+        // Store current colors FIRST
+        startBgColor = scene.background.clone();
+        startColor1 = material.uniforms.uColor1.value.clone();
+        startColor2 = material.uniforms.uColor2.value.clone();
+
+        // Store target colors
+        targetBgColor = new THREE.Color(targetTheme.bg);
+        targetColor1 = targetTheme.dotColor1.clone();
+        targetColor2 = targetTheme.dotColor2.clone();
+
+        // Start transition with timestamp BEFORE setting flag
+        // This ensures the very next frame starts at progress 0
+        transitionStartTime = performance.now();
+        isTransitioning = true;
+
+        // Force immediate render to start transition in current frame
+        renderer.render(scene, camera);
+    });
+
+
+    // 6. ANIMATION LOOP
+    const clock = new THREE.Clock();
+    function animate() {
+        requestAnimationFrame(animate);
+
+        // Handle color transition
+        if (isTransitioning) {
+            const elapsed = performance.now() - transitionStartTime;
+            const progress = Math.min(elapsed / transitionDuration, 1.0);
+
+            // CSS "ease" timing function - cubic-bezier(0.25, 0.1, 0.25, 1.0)
+            // Simplified approximation that closely matches CSS ease
+            const easeProgress = progress < 0.5
+                ? 2 * progress * progress
+                : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+            // Interpolate background color
+            scene.background.lerpColors(startBgColor, targetBgColor, easeProgress);
+
+            // Interpolate dot colors
+            material.uniforms.uColor1.value.lerpVectors(startColor1, targetColor1, easeProgress);
+            material.uniforms.uColor2.value.lerpVectors(startColor2, targetColor2, easeProgress);
+
+            // End transition when complete
+            if (progress >= 1.0) {
+                isTransitioning = false;
+            }
+        }
+
+        material.uniforms.uTime.value = clock.getElapsedTime();
+        renderer.render(scene, camera);
+    }
+    animate();
+
+</script>
+</body>
+</html>
 </body>
 </html> 

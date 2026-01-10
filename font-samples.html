@@ -3,159 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Font Samples</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Manrope:wght@300;400;600;700&family=DM+Sans:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;600;700&family=Outfit:wght@300;400;600;700&family=Crimson+Pro:wght@300;400;600;700&family=Lora:wght@300;400;600;700&family=Cormorant:wght@300;400;600;700&family=Ovo&display=swap" rel="stylesheet">
+    <title>Interactive Brain Particles</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #ffffff;
-            color: #000000;
-            padding: 4rem 2rem;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .font-sample {
-            margin-bottom: 4rem;
-            padding: 3rem;
-            border: 1px solid #e0e0e0;
-            background: #fafafa;
-        }
-
-        .font-name {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #666;
-            margin-bottom: 1.5rem;
-            font-family: 'Inter', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .sample-heading {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .sample-subheading {
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .sample-body {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: #555;
-        }
-
-        /* Font families */
-        .inter { font-family: 'Inter', sans-serif; }
-        .manrope { font-family: 'Manrope', sans-serif; }
-        .dm-sans { font-family: 'DM Sans', sans-serif; }
-        .space-grotesk { font-family: 'Space Grotesk', sans-serif; }
-        .outfit { font-family: 'Outfit', sans-serif; }
-        .crimson-pro { font-family: 'Crimson Pro', serif; }
-        .lora { font-family: 'Lora', serif; }
-        .cormorant { font-family: 'Cormorant', serif; }
-        .ovo { font-family: 'Ovo', serif; }
+        body { margin: 0; overflow: hidden; background-color: #111; }
+        canvas { display: block; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Font Samples Comparison</h1>
 
-        <!-- Current: Ovo -->
-        <div class="font-sample">
-            <div class="font-name">Current: Ovo (Serif)</div>
-            <h2 class="sample-heading ovo">Designing Context-Aware Experiences</h2>
-            <h3 class="sample-subheading ovo">Lead Product Designer at Anthropic</h3>
-            <p class="sample-body ovo">I'm a product designer focused on creating intuitive interfaces that help users interact with complex AI systems. My work spans research, interaction design, and prototyping.</p>
-        </div>
+<script type="module">
+    import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
 
-        <!-- Inter -->
-        <div class="font-sample">
-            <div class="font-name">Inter (Sans-serif) - Recommended</div>
-            <h2 class="sample-heading inter">Designing Context-Aware Experiences</h2>
-            <h3 class="sample-subheading inter">Lead Product Designer at Anthropic</h3>
-            <p class="sample-body inter">I'm a product designer focused on creating intuitive interfaces that help users interact with complex AI systems. My work spans research, interaction design, and prototyping.</p>
-        </div>
+    // --- HELPER FUNCTION: GENERATE POINTS FROM IMAGE ---
+    async function getBrainPoints(imageUrl, targetCount) {
+        const img = new Image();
+        img.src = imageUrl;
+        // Wait for image to load
+        await new Promise((resolve, reject) => {
+            img.onload = resolve;
+            img.onerror = reject;
+        });
 
-        <!-- Manrope -->
-        <div class="font-sample">
-            <div class="font-name">Manrope (Sans-serif)</div>
-            <h2 class="sample-heading manrope">Designing Context-Aware Experiences</h2>
-            <h3 class="sample-subheading manrope">Lead Product Designer at Anthropic</h3>
-            <p class="sample-body manrope">I'm a product designer focused on creating intuitive interfaces that help users interact with complex AI systems. My work spans research, interaction design, and prototyping.</p>
-        </div>
+        // Draw image to an invisible canvas to analyze pixels
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d', { willReadFrequently: true });
+        // We scan a smaller version for performance
+        const width = 250; 
+        const height = Math.floor((img.height / img.width) * width);
+        canvas.width = width;
+        canvas.height = height;
+        ctx.drawImage(img, 0, 0, width, height);
 
-        <!-- DM Sans -->
-        <div class="font-sample">
-            <div class="font-name">DM Sans (Sans-serif)</div>
-            <h2 class="sample-heading dm-sans">Designing Context-Aware Experiences</h2>
-            <h3 class="sample-subheading dm-sans">Lead Product Designer at Anthropic</h3>
-            <p class="sample-body dm-sans">I'm a product designer focused on creating intuitive interfaces that help users interact with complex AI systems. My work spans research, interaction design, and prototyping.</p>
-        </div>
+        const imgData = ctx.getImageData(0, 0, width, height).data;
+        const validPixels = [];
 
-        <!-- Space Grotesk -->
-        <div class="font-sample">
-            <div class="font-name">Space Grotesk (Sans-serif)</div>
-            <h2 class="sample-heading space-grotesk">Designing Context-Aware Experiences</h2>
-            <h3 class="sample-subheading space-grotesk">Lead Product Designer at Anthropic</h3>
-            <p class="sample-body space-grotesk">I'm a product designer focused on creating intuitive interfaces that help users interact with complex AI systems. My work spans research, interaction design, and prototyping.</p>
-        </div>
+        // Scan pixels
+        for (let y = 0; y < height; y++) {
+            for (let x = 0; x < width; x++) {
+                const index = (y * width + x) * 4;
+                const alpha = imgData[index + 3];
+                // Look for dark pixels (brain area) that aren't transparent
+                if (alpha > 20 && imgData[index] < 100) {
+                    // Center coordintes (-0.5 to 0.5) and scale up
+                    const posX = (x / width - 0.5) * 8;
+                    // Flip Y axis for 3D space and adjust aspect ratio
+                    const posY = -(y / height - 0.5) * 8 * (height / width);
+                    validPixels.push({x: posX, y: posY});
+                }
+            }
+        }
 
-        <!-- Outfit -->
-        <div class="font-sample">
-            <div class="font-name">Outfit (Sans-serif)</div>
-            <h2 class="sample-heading outfit">Designing Context-Aware Experiences</h2>
-            <h3 class="sample-subheading outfit">Lead Product Designer at Anthropic</h3>
-            <p class="sample-body outfit">I'm a product designer focused on creating intuitive interfaces that help users interact with complex AI systems. My work spans research, interaction design, and prototyping.</p>
-        </div>
+        // Select random points from the valid brain pixels
+        const positions = new Float32Array(targetCount * 3);
+        for(let i = 0; i < targetCount; i++) {
+                const i3 = i * 3;
+                // Pick a random valid pixel if available, else default to center
+                const pixel = validPixels.length > 0 ? validPixels[Math.floor(Math.random() * validPixels.length)] : {x:0, y:0};
+                
+                positions[i3] = pixel.x;
+                positions[i3 + 1] = pixel.y;
+                // Give it some thickness so it's not paper thin
+                positions[i3 + 2] = (Math.random() - 0.5) * 0.8;
+        }
+        return positions;
+    }
 
-        <!-- Crimson Pro -->
-        <div class="font-sample">
-            <div class="font-name">Crimson Pro (Serif)</div>
-            <h2 class="sample-heading crimson-pro">Designing Context-Aware Experiences</h2>
-            <h3 class="sample-subheading crimson-pro">Lead Product Designer at Anthropic</h3>
-            <p class="sample-body crimson-pro">I'm a product designer focused on creating intuitive interfaces that help users interact with complex AI systems. My work spans research, interaction design, and prototyping.</p>
-        </div>
 
-        <!-- Lora -->
-        <div class="font-sample">
-            <div class="font-name">Lora (Serif)</div>
-            <h2 class="sample-heading lora">Designing Context-Aware Experiences</h2>
-            <h3 class="sample-subheading lora">Lead Product Designer at Anthropic</h3>
-            <p class="sample-body lora">I'm a product designer focused on creating intuitive interfaces that help users interact with complex AI systems. My work spans research, interaction design, and prototyping.</p>
-        </div>
+    // --- MAIN APP ---
+    async function initApp() {
+        // 1. SETUP SCENE
+        const scene = new THREE.Scene();
+        // Move camera further back to see the whole brain
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.z = 7;
 
-        <!-- Cormorant -->
-        <div class="font-sample">
-            <div class="font-name">Cormorant (Serif)</div>
-            <h2 class="sample-heading cormorant">Designing Context-Aware Experiences</h2>
-            <h3 class="sample-subheading cormorant">Lead Product Designer at Anthropic</h3>
-            <p class="sample-body cormorant">I'm a product designer focused on creating intuitive interfaces that help users interact with complex AI systems. My work spans research, interaction design, and prototyping.</p>
-        </div>
-    </div>
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        document.body.appendChild(renderer.domElement);
+
+        // 2. CREATE PARTICLES FROM BRAIN IMAGE
+        const count = 25000; // Increased count for denser brain
+        const geometry = new THREE.BufferGeometry();
+        const randoms = new Float32Array(count);
+
+        // --- LOAD IMAGE DATA HERE ---
+        // Make sure 'brain.png' is in the same folder and you are running a local server
+        let brainPositions;
+        try {
+            // Replace 'image_2.png' with your actual filename if different
+            brainPositions = await getBrainPoints('image_2.png', count);
+        } catch (e) {
+            console.error("Could not load brain image. Ensure image exists and served via local server (CORS). Falling back to sphere shape.");
+            // Fallback to a sphere if image fails to load
+            brainPositions = new Float32Array(count * 3);
+            for(let i=0; i<count; i++) {
+                const i3 = i*3;
+                const r = 2 * Math.cbrt(Math.random());
+                const theta = Math.random() * 2 * Math.PI;
+                const phi = Math.acos(2 * Math.random() - 1);
+                brainPositions[i3] = r * Math.sin(phi) * Math.cos(theta);
+                brainPositions[i3+1] = r * Math.sin(phi) * Math.sin(theta);
+                brainPositions[i3+2] = r * Math.cos(phi);
+            }
+        }
+
+        for(let i = 0; i < count; i++) {
+            randoms[i] = Math.random();
+        }
+
+        geometry.setAttribute('position', new THREE.BufferAttribute(brainPositions, 3));
+        geometry.setAttribute('aRandom', new THREE.BufferAttribute(randoms, 1));
+
+        // 3. THE SHADER (Updated for size and subtle interaction)
+        const material = new THREE.ShaderMaterial({
+            vertexShader: `
+                uniform float uTime;
+                uniform vec2 uMouse;
+                attribute float aRandom;
+                varying float vAlpha;
+
+                void main() {
+                    vec3 pos = position;
+
+                    // --- SUBTLE INTERACTION LOGIC ---
+                    float dist = distance(pos.xy, uMouse);
+                    // Larger influence area (2.5 instead of 0.8) for smoother gradient
+                    float hoverArea = 1.0 - smoothstep(0.0, 2.5, dist);
+
+                    // Gentle push towards camera. 
+                    // Reduced multiplier from 2.0 down to 0.5 for subtlety.
+                    pos.z += hoverArea * 0.5; 
+
+                    // Optional: very slight wiggle on hover
+                    // pos.x += sin(uTime * 10.0 + pos.y) * hoverArea * 0.02;
+
+
+                    // --- BASE ANIMATION ---
+                    float time = uTime * 0.3; // Slower general movement
+                    // Gentle drifting based on initial position
+                    pos.x += sin(time * aRandom * 2.0 + pos.z) * 0.1;
+                    pos.y += cos(time * aRandom * 2.0 + pos.x) * 0.1;
+
+                    vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
+                    gl_Position = projectionMatrix * mvPosition;
+
+                    // --- BIGGER SIZE ---
+                    // Increased base size from roughly 4.0 to 12.0
+                    // Reduced hover size increase so it doesn't pop too much
+                    float baseSize = 12.0 * aRandom + 5.0;
+                    float hoverSizeBoost = hoverArea * 3.0;
+                    gl_PointSize = (baseSize + hoverSizeBoost) * (1.0 / -mvPosition.z);
+                    
+                    // Brightness increase on hover
+                    vAlpha = 0.4 + 0.6 * sin(uTime + aRandom * 10.0) + (hoverArea * 0.3);
+                }
+            `,
+            fragmentShader: `
+                varying float vAlpha;
+                void main() {
+                    // Make the dot a soft circle
+                    float r = distance(gl_PointCoord, vec2(0.5));
+                    if (r > 0.5) discard;
+                    // Smoother gradient for softer look
+                    float strength = smoothstep(0.5, 0.1, r);
+                    gl_FragColor = vec4(vec3(0.9, 0.95, 1.0), strength * vAlpha);
+                }
+            `,
+            uniforms: {
+                uTime: { value: 0 },
+                uMouse: { value: new THREE.Vector2(9999, 9999) }
+            },
+            transparent: true,
+            depthWrite: false,
+            blending: THREE.AdditiveBlending
+        });
+
+        const particles = new THREE.Points(geometry, material);
+        scene.add(particles);
+
+        // 4. MOUSE TRACKING (Adjusted for new camera depth)
+        window.addEventListener('mousemove', (event) => {
+            const x = (event.clientX / window.innerWidth) * 2 - 1;
+            const y = -(event.clientY / window.innerHeight) * 2 + 1;
+            // Camera Z is now 7, so the view width is wider. Adjusted multipliers.
+            material.uniforms.uMouse.value.x = x * 6.5; 
+            material.uniforms.uMouse.value.y = y * 4.0; 
+        });
+
+        // 5. ANIMATION LOOP
+        const clock = new THREE.Clock();
+        function animate() {
+            requestAnimationFrame(animate);
+            const elapsedTime = clock.getElapsedTime();
+            material.uniforms.uTime.value = elapsedTime;
+            
+            // Subtle slow rotation of the whole brain
+            particles.rotation.y = Math.sin(elapsedTime * 0.1) * 0.1;
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    }
+
+    // Run the app
+    initApp();
+</script>
 </body>
 </html>

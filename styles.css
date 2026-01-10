@@ -37,6 +37,55 @@ body {
     font-weight: 250;
 }
 
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1; /* Puts it behind everything */
+    pointer-events: none; /* Allows you to click links on top of it */
+}
+
+/* 1. Make the intro section a reference point for positioning */
+.intro {
+    position: relative; 
+    /* Ensure the intro background is transparent so we see the canvas */
+    background: transparent !important; 
+}
+
+/* 2. Position the canvas container */
+#canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Fills the intro section height */
+    z-index: 0; /* Behind text, but above background */
+    overflow: hidden;
+}
+
+
+
+/* 3. Ensure your text sits on top */
+.intro-content {
+    position: relative;
+    z-index: 1; /* Puts text above the canvas */
+    pointer-events: none; /* Let clicks pass through text areas to the canvas */
+}
+
+/* Re-enable clicks for buttons/links inside the content */
+.intro-content a, 
+.intro-content button,
+.intro-roles {
+    pointer-events: auto;
+}
+
+/* Important: Make sure your main body is transparent so we can see the canvas */
+body, main, section {
+    background-color: transparent !important; 
+}
+
 /* Content visibility for password modal transition */
 /* Commented out since password functionality is disabled */
 /* body.content-hidden header,
@@ -104,23 +153,23 @@ a {
     position: fixed;
     width: 14px;
     height: 14px;
-    background: #ffffff;
-    border: 2px solid #000000;
+    background: #d0d0d0;
+    border: none;
     border-radius: 50%;
     pointer-events: none;
     z-index: 99999;
     transform: translate(-50%, -50%);
-    left: 0;
-    top: 0;
-    opacity: 1;
+    left: -100px;
+    top: -100px;
+    opacity: 0;
     display: block !important;
-    transition: background 0.3s ease, border-color 0.3s ease;
+    transition: background 0.3s ease, border 0.3s ease, opacity 0.1s ease;
     mix-blend-mode: difference;
 }
 
 body.dark-mode .cursor-dot {
-    background: #000000;
-    border-color: #ffffff;
+    background: transparent;
+    border: 2px solid #ffffff;
 }
 
 #cursor-dot {
@@ -151,14 +200,16 @@ body.dark-mode .cursor-dot {
     }
 }
 
-/* Project pages cursor colors - white in dark mode, black in light mode */
+/* Project pages cursor colors - filled circle in light mode, border in dark mode */
 body.project-page .cursor-dot {
-    background: #000000;
-    transition: background 0.3s ease;
+    background: #d0d0d0;
+    border: none;
+    transition: background 0.3s ease, border 0.3s ease;
 }
 
 body.project-page.dark-mode .cursor-dot {
-    background: #ffffff;
+    background: transparent;
+    border: 2px solid #ffffff;
 }
 
 /* Override cursor styles for images on project pages - keep custom cursor visible */
@@ -310,6 +361,8 @@ body.dark-mode .header.loaded {
     transform: translateY(0);
 }
 
+
+
 body.dark-mode .logo {
     color: #ffffff;
 }
@@ -431,12 +484,26 @@ body.dark-mode .mobile-nav.active .mobile-theme-toggle {
     transition-delay: 0.6s !important;
 }
 
+body.dark-mode .mobile-theme-toggle .theme-toggle-btn {
+    background: rgba(0, 0, 0, 0.05) !important;
+}
+
+body.dark-mode .mobile-theme-toggle .theme-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.1) !important;
+}
+
+body.dark-mode .mobile-theme-toggle .sun-icon,
+body.dark-mode .mobile-theme-toggle .moon-icon {
+    color: #000000 !important;
+}
+
 body.dark-mode .mobile-nav a:hover {
     color: #C94949 !important;
 }
 
 body.dark-mode .mobile-nav a.active {
-    color: #903232 !important;
+    color: #111 !important;
+    font-weight: 600;
 }
 
 body.dark-mode footer {
@@ -477,6 +544,8 @@ body.dark-mode .linkedin-icon:hover {
     flex-wrap: nowrap !important; /* Prevent wrapping */
     flex-direction: row !important; /* Force horizontal layout */
 }
+
+/* HOME PAGE - DISABLE ALL TRANSITIONS */
 
 .header .logo {
     margin-left: 0;
@@ -861,13 +930,15 @@ body.menu-open {
 }
 
 .mobile-nav a.active {
-    color: #903232;
-    transition: opacity 0.2s, color 0.3s ease;
+    color: #111;
+    font-weight: 600;
+    transition: opacity 0.2s, font-weight 0.1s ease;
 }
 
 .mobile-nav a.active.download-btn {
-    color: #903232 !important;
-    transition: opacity 0.2s, color 0.3s ease;
+    color: #111 !important;
+    font-weight: 600;
+    transition: opacity 0.2s, font-weight 0.1s ease;
 }
 
 /* Mobile Responsive */
@@ -883,12 +954,14 @@ body.menu-open {
         -webkit-backdrop-filter: blur(12px);
         backdrop-filter: blur(12px);
     }
-    
+
     body.dark-mode .header {
         background: rgba(1, 1, 1, 0.75);
         -webkit-backdrop-filter: blur(12px);
         backdrop-filter: blur(12px);
     }
+
+    /* Transparent header on home page mobile - NO TRANSITIONS */
     
     .header .logo {
         margin-left: -0.25rem;
@@ -953,13 +1026,15 @@ body.menu-open {
     }
 
     .mobile-nav-content a.active {
-        color: #903232 !important;
-        transition: opacity 0.2s, color 0.3s ease;
+        color: #111 !important;
+        font-weight: 600;
+        transition: opacity 0.2s, font-weight 0.1s ease;
     }
-    
+
     .mobile-nav-content a.active.download-btn {
-        color: #903232 !important;
-        transition: opacity 0.2s, color 0.3s ease;
+        color: #111 !important;
+        font-weight: 600;
+        transition: opacity 0.2s, font-weight 0.1s ease;
     }
     
     .mobile-theme-toggle {
@@ -968,9 +1043,19 @@ body.menu-open {
         align-items: center;
         pointer-events: none;
     }
-    
+
     .mobile-theme-toggle .theme-toggle-btn {
         pointer-events: auto;
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    .mobile-theme-toggle .theme-toggle-btn:hover {
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-theme-toggle .sun-icon,
+    .mobile-theme-toggle .moon-icon {
+        color: #000000;
     }
     
     .mobile-nav-content a.download-btn {
@@ -3885,7 +3970,7 @@ body.dark-mode .highlight-phrase {
     }
 
     .intro h1 .poppins-text {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 
     .intro p {
@@ -3968,7 +4053,7 @@ body.dark-mode .highlight-phrase {
     }
 
     .intro h1 .poppins-text {
-        font-size: 2rem !important;
+        font-size: 2.2rem !important;
     }
 
     .intro p {
@@ -7238,7 +7323,8 @@ body.dark-mode .mobile-nav .download-btn {
 }
 
 body.dark-mode .mobile-nav a.active.download-btn {
-    color: #903232 !important;
+    color: #111 !important;
+    font-weight: 600;
 }
 
 body.dark-mode .mobile-nav .download-btn:hover {
@@ -10749,6 +10835,8 @@ body.dark-mode .work-header-divider {
 
 #work {
     scroll-margin-top: 5rem;
+    position: relative;
+    z-index: 1;
 }
 
 @media (max-width: 768px) {
@@ -10827,10 +10915,14 @@ body.dark-mode .highlight-word.active {
 .intro + .work-header {
     padding: 0 60px;
     margin-top: 0;
+    position: relative;
+    z-index: 1;
 }
 
 .intro + .work-header + .work-grid {
     padding: 0 60px;
+    position: relative;
+    z-index: 1;
 }
 
 .filter-container {
@@ -11183,6 +11275,8 @@ body.dark-mode .cta-content p {
         padding: 0 2rem;
     }
 
+    
+
     .work-title {
         font-size: 2.2rem;
     }
@@ -11287,6 +11381,9 @@ body.dark-mode .cta-content p {
         min-height: auto;
         position: relative;
     }
+    .work.work-header {
+        padding-top: 2rem;
+    }
     
     .intro-neuron-network {
         position: relative;
@@ -11327,6 +11424,7 @@ body.dark-mode .cta-content p {
     
     .intro + .work-header + .work-grid {
         padding: 0 1.5rem;
+        padding-top:2rem;
     }
     
     .work-title {
@@ -11337,6 +11435,7 @@ body.dark-mode .cta-content p {
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
+        padding-top:2rem;
     }
 
     .filter-container {
@@ -14488,13 +14587,15 @@ body.dark-mode .metric-card code {
     color: inherit !important;
 }
 
-/* Margin page cursor - black in light mode, white in dark mode */
+/* Margin page cursor - filled circle in light mode, border in dark mode */
 body.margin-page .cursor-dot {
-    background: #000000;
+    background: #d0d0d0;
+    border: none;
 }
 
 body.margin-page.dark-mode .cursor-dot {
-    background: #ffffff;
+    background: transparent;
+    border: 2px solid #ffffff;
 }
 
 .margin-main {

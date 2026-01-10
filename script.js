@@ -632,14 +632,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const isProjectPage = document.body.classList.contains('project-page');
             if (isProjectPage) {
                 const isDarkMode = document.body.classList.contains('dark-mode');
-                const backgroundColor = isDarkMode ? '#000000' : '#ffffff';
-                const borderColor = isDarkMode ? '#ffffff' : '#000000';
-                cursorDot.style.background = backgroundColor;
-                cursorDot.style.borderColor = borderColor;
-                // cursorDot2.style.background = backgroundColor;
-                // cursorDot2.style.borderColor = borderColor;
-                // cursorDot3.style.background = backgroundColor;
-                // cursorDot3.style.borderColor = borderColor;
+                // Light mode: filled light gray circle (visible with difference blend), Dark mode: border only
+                cursorDot.style.background = isDarkMode ? 'transparent' : '#d0d0d0';
+                cursorDot.style.border = isDarkMode ? '2px solid #ffffff' : 'none';
+                // cursorDot2.style.background = isDarkMode ? 'transparent' : '#d0d0d0';
+                // cursorDot2.style.border = isDarkMode ? '2px solid #ffffff' : 'none';
+                // cursorDot3.style.background = isDarkMode ? 'transparent' : '#d0d0d0';
+                // cursorDot3.style.border = isDarkMode ? '2px solid #ffffff' : 'none';
             }
         }
         
@@ -839,14 +838,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function toggleTheme() {
-        // Toggle dark mode
+        // Check FUTURE state (what it will be after toggle)
+        const willBeDark = !body.classList.contains('dark-mode');
+
+        // Dispatch event BEFORE class change so canvas can prepare
+        window.dispatchEvent(new CustomEvent('themechange', { detail: { isDark: willBeDark } }));
+
+        // Toggle dark mode IMMEDIATELY AFTER event
         body.classList.toggle('dark-mode');
         themeToggleBtns.forEach(btn => btn.classList.toggle('dark'));
-        
+
         // Save preference to localStorage
-        const isDark = body.classList.contains('dark-mode');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        
+        localStorage.setItem('theme', willBeDark ? 'dark' : 'light');
+
         // Add a cute animation effect
         this.style.transform = 'scale(0.95)';
         setTimeout(() => {

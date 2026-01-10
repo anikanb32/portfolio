@@ -1,0 +1,177 @@
+ <div class="intro-workspace" id="intro-workspace">
+                    
+
+                    <!-- Whiteboard -->
+                    <div class="whiteboard workspace-fade-in workspace-delay-1">
+                        <div class="workspace-tooltip">Move things around and doodle!</div>
+                        <div class="whiteboard-frame">
+                            <div class="whiteboard-surface">
+                                <span class="whiteboard-text"></span>
+                                <!-- Drawing canvas -->
+                                <canvas id="whiteboard-canvas" class="whiteboard-canvas"></canvas>
+                                <!-- Sticky notes -->
+                                <div class="sticky-note" style="top: 15%; left: 20%;"></div>
+                                <div class="sticky-note" style="top: 35%; left: 30%;"></div>
+                                <div class="sticky-note" style="top: 55%; left: 18%;"></div>
+                                <!-- Push pins -->
+                                <div class="push-pin" style="top: 10%; left: 10%;"></div>
+                                <div class="push-pin" style="top: 25%; left: 15%;"></div>
+                                <div class="push-pin" style="top: 10%; right: 10%;"></div>
+                            </div>
+                            <!-- Markers on bottom ledge -->
+                            <div class="whiteboard-markers">
+                                <div class="marker marker-1"></div>
+                                <div class="marker marker-2"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AR Goggles hanging to the right of whiteboard -->
+                    <div class="ar-goggles workspace-fade-in workspace-delay-1">
+                        <!-- <div class="workspace-tooltip">AR Research</div> -->
+                        <img src="vrgoggles.png" alt="AR Goggles">
+                    </div>
+
+                    <!-- Bottom Row: Desk Items and Computer -->
+                    <div class="workspace-bottom-row">
+                        <!-- Desk Setup Section -->
+                        <div class="desk-items workspace-fade-in workspace-delay-2">
+                            <!-- Ledge items row -->
+                            <div class="ledge-items">
+                                <!-- Digital Clock on left -->
+                                <div class="digital-clock-container">
+                                    <!-- <div class="workspace-tooltip clock-tooltip">Current time</div> -->
+                                    <div class="digital-clock">
+                                        <div class="clock-display" id="clock-display">00:00</div>
+                                    </div>
+                                </div>
+
+                                <!-- Teapot/Cup on right -->
+                                <div class="teapot-container">
+                                    <!-- <div class="workspace-tooltip teapot-tooltip">Green tea...</div> -->
+                                    <img src="teapot.png" alt="Teapot">
+                                    <!-- Steam effect -->
+                                    <div class="setup-steam-container">
+                                        <div class="setup-steam setup-steam-1"></div>
+                                        <div class="setup-steam setup-steam-2"></div>
+                                        <div class="setup-steam setup-steam-3"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Record player below teapot -->
+                            <div class="record-player-container">
+                                <!-- <div class="workspace-tooltip record-tooltip">Vinyl collection</div> -->
+                                <img src="recordplayer.png" alt="Record Player">
+                                <!-- Spinning record overlay -->
+                                <div class="setup-record-container">
+                                    <div class="setup-spinning-record"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mac Computer -->
+                        <div class="intro-computer workspace-fade-in workspace-delay-3" id="intro-computer">
+                        <!-- <div class="workspace-tooltip">Decoding brains</div> -->
+                        <div class="computer-container">
+                        <div class="computer-monitor">
+                            <div class="monitor-bezel">
+                                <div class="monitor-screen">
+                                    <!-- Default prompt -->
+                                    <div class="screen-prompt" id="screen-prompt">
+                                        <span>click buttons below!</span>
+                                    </div>
+                                    <!-- Brain animation -->
+                                    <div class="screen-content" id="screen-brain">
+                                        <svg class="brain-dots-svg" viewBox="0 0 200 200">
+                                            <!-- Brain outline dots -->
+                                        </svg>
+                                    </div>
+                                    <!-- Design animation -->
+                                    <div class="screen-content" id="screen-design">
+                                        <div class="design-elements">
+                                            <div class="design-shape shape-1"></div>
+                                            <div class="design-shape shape-2"></div>
+                                            <div class="design-shape shape-3"></div>
+                                            <div class="design-shape shape-4"></div>
+                                            <div class="design-shape shape-5"></div>
+                                            <div class="design-shape shape-6"></div>
+                                            <div class="design-shape shape-7"></div>
+                                            <div class="design-shape shape-8"></div>
+                                            <div class="design-shape shape-9"></div>
+                                        </div>
+                                    </div>
+                                    <!-- Code animation -->
+                                    <div class="screen-content" id="screen-code">
+                                        <div class="code-lines">
+                                            <div class="code-line"></div>
+                                            <div class="code-line"></div>
+                                            <div class="code-line"></div>
+                                            <div class="code-line"></div>
+                                            <div class="code-line"></div>
+                                            <div class="code-line"></div>
+                                            <div class="code-line"></div>
+                                            <div class="code-line"></div>
+                                            <div class="code-line"></div>
+                                            <div class="code-line"></div>
+                                            <div class="code-line"></div>
+                                            <div class="code-line"></div>
+                                        </div>
+                                    </div>
+                                    <!-- Draw canvas -->
+                                    <canvas class="screen-content" id="screen-draw"></canvas>
+                                </div>
+                                <div class="monitor-chin">
+                                    <!-- Computer buttons -->
+                                    <div class="computer-buttons">
+                                        <button class="comp-btn" data-screen="brain" title="Neuroscience">
+                                            <img class="btn-icon" src="brain.svg" alt="Brain">
+                                        </button>
+                                        <button class="comp-btn" data-screen="design" title="Design">
+                                            <img class="btn-icon" src="images/paintbrush.svg" alt="Design">
+                                        </button>
+                                        <button class="comp-btn" data-screen="code" title="Code">
+                                            <img class="btn-icon" src="newcode.svg" alt="Code">
+                                        </button>
+                                        <!-- <button class="comp-btn" data-screen="draw" title="Draw">
+                                            <svg class="btn-icon plus-icon" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                            </svg>
+                                        </button> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="computer-stand">
+                            <div class="stand-neck"></div>
+                            <div class="stand-base"></div>
+                        </div>
+                    </div>
+
+                    <!-- Polaroid Photos -->
+                    <div class="polaroid-stack workspace-fade-in workspace-delay-4">
+                        <div class="polaroid polaroid-1">
+                            <div class="polaroid-frame">
+                                <div class="polaroid-photo">
+                                    <img src="fashion.png" alt="Polaroid 1" class="polaroid-img">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="polaroid polaroid-2">
+                            <div class="polaroid-frame">
+                                <div class="polaroid-photo">
+                                    <img src="mountains.png" alt="Polaroid 2" class="polaroid-img">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="polaroid polaroid-3">
+                            <div class="polaroid-frame">
+                                <div class="polaroid-photo">
+                                    <img src="flowers.png" alt="Polaroid 3" class="polaroid-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
