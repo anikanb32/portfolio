@@ -830,9 +830,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
     const body = document.body;
     
-    // Check for saved theme preference or default to light mode
+    // Check for saved theme preference or default to dark mode
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
+    if (savedTheme === 'dark' || !savedTheme) {
         body.classList.add('dark-mode');
         themeToggleBtns.forEach(btn => btn.classList.add('dark'));
     }
