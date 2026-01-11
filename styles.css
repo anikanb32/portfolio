@@ -16916,6 +16916,21 @@ body.dark-mode .playground-item:active {
     pointer-events: auto;
 }
 
+/* Mode Toggle Header */
+.mode-toggle-header {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.5);
+    text-align: right;
+    margin-bottom: -0.25rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+body.dark-mode .mode-toggle-header {
+    color: rgba(255, 255, 255, 0.4);
+}
+
 /* Mode Toggle Buttons - Pill Shape */
 .mode-toggle-buttons {
     display: flex;
@@ -16929,8 +16944,8 @@ body.dark-mode .playground-item:active {
 }
 
 body.dark-mode .mode-toggle-buttons {
-    background: rgba(30, 30, 30, 0.95);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
+    background: rgba(20, 20, 20, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .mode-btn {
@@ -16994,8 +17009,8 @@ body.dark-mode .mode-btn.active {
 }
 
 body.dark-mode .mode-panel {
-    background: rgba(30, 30, 30, 0.95);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
+    background: rgba(20, 20, 20, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.3);
     color: #fff;
 }
 
@@ -17052,6 +17067,16 @@ body.dark-mode .control-group label {
 .control-group input[type="color"]::-webkit-color-swatch {
     border: none;
     border-radius: 8px;
+}
+
+/* Style the color picker dialog */
+.control-group input[type="color"]::-moz-color-swatch {
+    border: none;
+    border-radius: 8px;
+}
+
+input[type="color"]::-webkit-color-picker-panel {
+    border-radius: 12px;
 }
 
 body.dark-mode .control-group input[type="color"] {
@@ -17350,25 +17375,16 @@ body.dark-mode #research-distance p {
     display: flex;
     align-items: center;
     justify-content: center;
+    white-space: pre-line;
+    text-align: center;
 }
 
 body.dark-mode #distance-result {
     color: #fff;
 }
 
+
 /* Custom Cursors for Each Mode */
-body.design-mode #canvas-container {
-    cursor: crosshair;
-}
-
-body.dev-mode #canvas-container {
-    cursor: text;
-}
-
-body.research-mode #canvas-container {
-    cursor: help;
-}
-
 /* Hide default cursor dot when mode is active */
 body.design-mode .cursor-dot,
 body.dev-mode .cursor-dot,

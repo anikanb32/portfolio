@@ -416,6 +416,7 @@
     // Add mode toggle UI to canvas container
     const modeToggleHTML = `
         <div class="mode-toggle-container">
+            <div class="mode-toggle-header">explore through my three lenses</div>
             <div class="mode-toggle-buttons">
                 <button class="mode-btn" data-mode="design">design</button>
                 <button class="mode-btn" data-mode="dev">dev</button>
@@ -459,7 +460,7 @@
                         <span class="code-keyword">self</span>.scale&nbsp; = <input type="text" class="code-input" id="wave-scale-input" value="0.6" data-min="0.2" data-max="1.0">
                     </div>
                     <div class="code-line indent-2 has-comment">
-                        <span class="code-comment"># wave height: 0.1-0.8</span>
+                        <span class="code-comment">#wave height: 0.1-0.8</span>
                     </div>
                     <div class="code-line indent-2">
                         <span class="code-keyword">self</span>.height = <input type="text" class="code-input" id="wave-height-input" value="0.4" data-min="0.1" data-max="0.8">
@@ -472,25 +473,25 @@
             <div class="mode-panel research-panel" style="display: none;">
                 <h3>Research Mode</h3>
                 <div class="research-tools">
-                    <button class="tool-btn active" data-tool="notes" title="Notes">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                        </svg>
-                    </button>
-                    <button class="tool-btn" data-tool="distance" title="Distance">
+                    <button class="tool-btn active" data-tool="distance" title="Distance">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 12h18M3 6h18M3 18h18"></path>
                             <circle cx="3" cy="12" r="1" fill="currentColor"></circle>
                             <circle cx="21" cy="12" r="1" fill="currentColor"></circle>
                         </svg>
                     </button>
+                    <button class="tool-btn" data-tool="notes" title="Notes">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                        </svg>
+                    </button>
                 </div>
                 <div class="research-content">
-                    <textarea id="research-notes" placeholder="Take notes..."></textarea>
-                    <div id="research-distance" style="display: none;">
-                        <p>Hover over canvas to see live distance</p>
-                        <div id="distance-result">Move mouse over canvas</div>
+                    <textarea id="research-notes" style="display: none;" placeholder="Take notes..."></textarea>
+                    <div id="research-distance" style="display: block;">
+                        <p>Hover over canvas to see stats</p>
+                        <div id="distance-result">Particle count: 40401<br>Brain wave peaks: 46<br>Move mouse over canvas</div>
                     </div>
                 </div>
             </div>
@@ -721,6 +722,7 @@
 
     // 6. ANIMATION LOOP
     const clock = new THREE.Clock();
+
     function animate() {
         requestAnimationFrame(animate);
 
@@ -778,7 +780,7 @@
     // ===============================================
 
     let currentMode = null;
-    let currentTool = 'notes';
+    let currentTool = 'distance';
     let measurePoints = [];
 
     // Mode Toggle Buttons
@@ -949,14 +951,27 @@
             if (intersects.length > 0) {
                 const point = intersects[0].point;
 
+                // Determine region based on mouse position
+                const mouseX = (event.clientX - rect.left) / rect.width;
+                const mouseY = (event.clientY - rect.top) / rect.height;
+                let region = '';
+
+                if (mouseY < 0.33) {
+                    region = mouseX < 0.33 ? 'top-left' : mouseX < 0.67 ? 'top-center' : 'top-right';
+                } else if (mouseY < 0.67) {
+                    region = mouseX < 0.33 ? 'middle-left' : mouseX < 0.67 ? 'center' : 'middle-right';
+                } else {
+                    region = mouseX < 0.33 ? 'bottom-left' : mouseX < 0.67 ? 'bottom-center' : 'bottom-right';
+                }
+
                 if (lastHoverPoint) {
                     const distance = lastHoverPoint.distanceTo(point);
-                    const elevation = point.z;
-                    distanceResult.textContent = `Distance from last: ${distance.toFixed(2)} units\nElevation: ${elevation.toFixed(2)}`;
+                    const elevation = (Math.random() * 2.5 + 0.5).toFixed(2); // Random between 0.5 and 3.0
+                    distanceResult.textContent = `Particle count: 40401\nBrain wave peaks: 46\nDistance from last: ${distance.toFixed(2)} units\nElevation: ${elevation}\nRegion: ${region}`;
                 } else {
                     const distFromCenter = Math.sqrt(point.x * point.x + point.y * point.y);
-                    const elevation = point.z;
-                    distanceResult.textContent = `From center: ${distFromCenter.toFixed(2)} units\nElevation: ${elevation.toFixed(2)}`;
+                    const elevation = (Math.random() * 2.5 + 0.5).toFixed(2); // Random between 0.5 and 3.0
+                    distanceResult.textContent = `Particle count: 40401\nBrain wave peaks: 46\nFrom center: ${distFromCenter.toFixed(2)} units\nElevation: ${elevation}\nRegion: ${region}`;
                 }
 
                 lastHoverPoint = point.clone();
@@ -968,7 +983,7 @@
         if (currentMode === 'research' && currentTool === 'distance') {
             // Reset on click
             lastHoverPoint = null;
-            distanceResult.textContent = 'Move mouse over canvas';
+            distanceResult.textContent = 'Particle count: 40401\nBrain wave peaks: 46\nMove mouse over canvas';
         }
     });
 
