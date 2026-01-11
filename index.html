@@ -413,6 +413,91 @@
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);
 
+    // Add mode toggle UI to canvas container
+    const modeToggleHTML = `
+        <div class="mode-toggle-container">
+            <div class="mode-toggle-buttons">
+                <button class="mode-btn" data-mode="design">design</button>
+                <button class="mode-btn" data-mode="dev">dev</button>
+                <button class="mode-btn" data-mode="research">research</button>
+            </div>
+
+            <!-- Design Mode Panel -->
+            <div class="mode-panel design-panel" style="display: none;">
+                <h3>Design Mode</h3>
+                <div class="control-group">
+                    <label>Color</label>
+                    <input type="color" id="design-color" value="#000000">
+                </div>
+                <div class="control-group">
+                    <label>Size</label>
+                    <input type="range" id="design-size" min="5" max="30" value="13">
+                </div>
+                <button class="reset-btn" id="design-reset">Reset</button>
+            </div>
+
+            <!-- Dev Mode Panel -->
+            <div class="mode-panel dev-panel" style="display: none;">
+                <h3>Dev Mode</h3>
+                <div class="code-editor">
+                    <div class="code-line">
+                        <span class="code-keyword">class</span> <span class="code-class">Waves</span>:
+                    </div>
+                    <div class="code-line indent-1">
+                        <span class="code-keyword">def</span> <span class="code-function">__init__</span>(<span class="code-keyword">self</span>, wave):
+                    </div>
+                    <div class="code-line indent-2 has-comment">
+                        <span class="code-comment"># wave speed: 0.05-0.3</span>
+                    </div>
+                    <div class="code-line indent-2">
+                        <span class="code-keyword">self</span>.speed&nbsp; = <input type="text" class="code-input" id="wave-speed-input" value="0.15" data-min="0.05" data-max="0.3">
+                    </div>
+                    <div class="code-line indent-2 has-comment">
+                        <span class="code-comment">  # wave scale: 0.2-1.0</span>
+                    </div>
+                    <div class="code-line indent-2">
+                        <span class="code-keyword">self</span>.scale&nbsp; = <input type="text" class="code-input" id="wave-scale-input" value="0.6" data-min="0.2" data-max="1.0">
+                    </div>
+                    <div class="code-line indent-2 has-comment">
+                        <span class="code-comment"># wave height: 0.1-0.8</span>
+                    </div>
+                    <div class="code-line indent-2">
+                        <span class="code-keyword">self</span>.height = <input type="text" class="code-input" id="wave-height-input" value="0.4" data-min="0.1" data-max="0.8">
+                    </div>
+                </div>
+                <div class="code-error" id="code-error"></div>
+            </div>
+
+            <!-- Research Mode Panel -->
+            <div class="mode-panel research-panel" style="display: none;">
+                <h3>Research Mode</h3>
+                <div class="research-tools">
+                    <button class="tool-btn active" data-tool="notes" title="Notes">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                        </svg>
+                    </button>
+                    <button class="tool-btn" data-tool="distance" title="Distance">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 12h18M3 6h18M3 18h18"></path>
+                            <circle cx="3" cy="12" r="1" fill="currentColor"></circle>
+                            <circle cx="21" cy="12" r="1" fill="currentColor"></circle>
+                        </svg>
+                    </button>
+                </div>
+                <div class="research-content">
+                    <textarea id="research-notes" placeholder="Take notes..."></textarea>
+                    <div id="research-distance" style="display: none;">
+                        <p>Hover over canvas to see live distance</p>
+                        <div id="distance-result">Move mouse over canvas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    container.insertAdjacentHTML('beforeend', modeToggleHTML);
+
     // 2. GEOMETRY (Dense Grid)
     const geometry = new THREE.PlaneGeometry(16, 16, 200, 200);
 
@@ -421,6 +506,10 @@
         vertexShader: `
             uniform float uTime;
             uniform vec2 uMouse;
+            uniform float uPointSize;
+            uniform float uWaveSpeed;
+            uniform float uWaveScale;
+            uniform float uWaveHeight;
             varying float vElevation;
 
             // Simplex Noise
@@ -463,11 +552,11 @@
                 pos.x += (random(pos.xy) - 0.5) * jitterAmount;
                 pos.y += (random(pos.yx) - 0.5) * jitterAmount;
 
-                // Waves - slowed down animation
-                float timeScale = uTime * 0.15;
-                float noiseScale = 0.6;
-                float elevation = snoise(vec2(pos.x * noiseScale + timeScale, pos.y * noiseScale)) * 0.4;
-                elevation += snoise(vec2(pos.x * noiseScale * 2.0 - timeScale, pos.y * noiseScale * 2.0)) * 0.15;
+                // Waves - with dynamic parameters
+                float timeScale = uTime * uWaveSpeed;
+                float noiseScale = uWaveScale;
+                float elevation = snoise(vec2(pos.x * noiseScale + timeScale, pos.y * noiseScale)) * uWaveHeight;
+                elevation += snoise(vec2(pos.x * noiseScale * 2.0 - timeScale, pos.y * noiseScale * 2.0)) * (uWaveHeight * 0.375);
 
                 // Interaction - smoother ripple
                 float dist = distance(pos.xy, uMouse);
@@ -481,8 +570,9 @@
                 vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
                 gl_Position = projectionMatrix * mvPosition;
 
-                // Size - much larger dots for better visibility
-                gl_PointSize = 13.0 * (1.0 / -mvPosition.z);
+                // Size - use uniform for dynamic sizing
+                float pointSize = uPointSize > 0.0 ? uPointSize : 13.0;
+                gl_PointSize = pointSize * (1.0 / -mvPosition.z);
             }
         `,
         fragmentShader: `
@@ -505,7 +595,11 @@
             uTime: { value: 0 },
             uMouse: { value: new THREE.Vector2(9999, 9999) },
             uColor1: { value: currentTheme.dotColor1 },
-            uColor2: { value: currentTheme.dotColor2 }
+            uColor2: { value: currentTheme.dotColor2 },
+            uPointSize: { value: 13.0 },
+            uWaveSpeed: { value: 0.15 },
+            uWaveScale: { value: 0.6 },
+            uWaveHeight: { value: 0.4 }
         },
         transparent: true,
         depthWrite: false
@@ -678,6 +772,207 @@
         renderer.render(scene, camera);
     }
     animate();
+
+    // ===============================================
+    // INTERACTIVE MODE SYSTEM
+    // ===============================================
+
+    let currentMode = null;
+    let currentTool = 'notes';
+    let measurePoints = [];
+
+    // Mode Toggle Buttons
+    const modeBtns = document.querySelectorAll('.mode-btn');
+    const modePanels = document.querySelectorAll('.mode-panel');
+
+    modeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const mode = btn.dataset.mode;
+            const targetPanel = document.querySelector(`.${mode}-panel`);
+            const isActive = btn.classList.contains('active');
+
+            if (isActive) {
+                // Clicking active button - close panel
+                btn.classList.remove('active');
+                targetPanel.style.display = 'none';
+                document.body.classList.remove(`${mode}-mode`);
+                currentMode = null;
+            } else {
+                // Clicking inactive button - open panel and close others
+                modeBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                modePanels.forEach(panel => {
+                    panel.style.display = 'none';
+                });
+                targetPanel.style.display = 'block';
+
+                // Update body class for cursor changes
+                document.body.classList.remove('design-mode', 'dev-mode', 'research-mode');
+                document.body.classList.add(`${mode}-mode`);
+
+                currentMode = mode;
+            }
+        });
+    });
+
+    // Design Mode - Color and Size Controls
+    const designColor = document.getElementById('design-color');
+    const designSize = document.getElementById('design-size');
+    const designReset = document.getElementById('design-reset');
+
+    designColor.addEventListener('input', (e) => {
+        const color = e.target.value;
+        const r = parseInt(color.substr(1, 2), 16) / 255;
+        const g = parseInt(color.substr(3, 2), 16) / 255;
+        const b = parseInt(color.substr(5, 2), 16) / 255;
+
+        // Update dot colors
+        material.uniforms.uColor1.value.set(r * 0.7, g * 0.7, b * 0.7);
+        material.uniforms.uColor2.value.set(r, g, b);
+    });
+
+    designSize.addEventListener('input', (e) => {
+        const size = parseFloat(e.target.value);
+        // Update point size in vertex shader would require shader recompilation
+        // So we'll update via a uniform if we add one, or scale the geometry
+        // For now, let's add a uniform to the shader
+        if (!material.uniforms.uPointSize) {
+            material.uniforms.uPointSize = { value: size };
+        } else {
+            material.uniforms.uPointSize.value = size;
+        }
+    });
+
+    designReset.addEventListener('click', () => {
+        designColor.value = '#000000';
+        designSize.value = 13;
+
+        // Reset to current theme colors
+        const isDark = document.body.classList.contains('dark-mode');
+        const resetTheme = isDark ? themes.dark : themes.light;
+        material.uniforms.uColor1.value.copy(resetTheme.dotColor1);
+        material.uniforms.uColor2.value.copy(resetTheme.dotColor2);
+
+        if (material.uniforms.uPointSize) {
+            material.uniforms.uPointSize.value = 13;
+        }
+    });
+
+    // Dev Mode - Code Input with Validation
+    const waveSpeedInput = document.getElementById('wave-speed-input');
+    const waveScaleInput = document.getElementById('wave-scale-input');
+    const waveHeightInput = document.getElementById('wave-height-input');
+    const codeError = document.getElementById('code-error');
+
+    function validateInput(input) {
+        const value = parseFloat(input.value);
+        const min = parseFloat(input.dataset.min);
+        const max = parseFloat(input.dataset.max);
+
+        // Clear previous error states
+        input.classList.remove('error');
+        codeError.classList.remove('show');
+
+        if (isNaN(value)) {
+            input.classList.add('error');
+            codeError.textContent = `ValueError: invalid literal for float(): '${input.value}'`;
+            codeError.classList.add('show');
+            return false;
+        }
+
+        if (value < min || value > max) {
+            input.classList.add('error');
+            codeError.textContent = `ValueError: value ${value} is out of range [${min}, ${max}]`;
+            codeError.classList.add('show');
+            return false;
+        }
+
+        return true;
+    }
+
+    function handleCodeInput(input, uniformName) {
+        input.addEventListener('input', () => {
+            if (validateInput(input)) {
+                const value = parseFloat(input.value);
+                material.uniforms[uniformName].value = value;
+            }
+        });
+
+        input.addEventListener('blur', () => {
+            if (validateInput(input)) {
+                const value = parseFloat(input.value);
+                input.value = value.toFixed(2);
+            }
+        });
+    }
+
+    handleCodeInput(waveSpeedInput, 'uWaveSpeed');
+    handleCodeInput(waveScaleInput, 'uWaveScale');
+    handleCodeInput(waveHeightInput, 'uWaveHeight');
+
+    // Research Mode - Tool Selection
+    const toolBtns = document.querySelectorAll('.tool-btn');
+    const researchNotes = document.getElementById('research-notes');
+    const researchDistance = document.getElementById('research-distance');
+    const distanceResult = document.getElementById('distance-result');
+
+    toolBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tool = btn.dataset.tool;
+
+            // Update button states
+            toolBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Update content visibility
+            researchNotes.style.display = tool === 'notes' ? 'block' : 'none';
+            researchDistance.style.display = tool === 'distance' ? 'block' : 'none';
+
+            currentTool = tool;
+        });
+    });
+
+    // Research Mode - Live Distance Display
+    let lastHoverPoint = null;
+    const canvas = renderer.domElement;
+
+    canvas.addEventListener('mousemove', (event) => {
+        if (currentMode === 'research' && currentTool === 'distance') {
+            const rect = canvas.getBoundingClientRect();
+            const x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+            const y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+            raycaster.setFromCamera(new THREE.Vector2(x, y), camera);
+            const intersects = raycaster.intersectObject(planeMesh);
+
+            if (intersects.length > 0) {
+                const point = intersects[0].point;
+
+                if (lastHoverPoint) {
+                    const distance = lastHoverPoint.distanceTo(point);
+                    const elevation = point.z;
+                    distanceResult.textContent = `Distance from last: ${distance.toFixed(2)} units\nElevation: ${elevation.toFixed(2)}`;
+                } else {
+                    const distFromCenter = Math.sqrt(point.x * point.x + point.y * point.y);
+                    const elevation = point.z;
+                    distanceResult.textContent = `From center: ${distFromCenter.toFixed(2)} units\nElevation: ${elevation.toFixed(2)}`;
+                }
+
+                lastHoverPoint = point.clone();
+            }
+        }
+    });
+
+    canvas.addEventListener('click', (event) => {
+        if (currentMode === 'research' && currentTool === 'distance') {
+            // Reset on click
+            lastHoverPoint = null;
+            distanceResult.textContent = 'Move mouse over canvas';
+        }
+    });
+
+    // Initialize with no mode active
 
 </script>
 </body>
