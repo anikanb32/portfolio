@@ -542,6 +542,7 @@ body.dark-mode .linkedin-icon:hover {
     justify-content: space-between;
     align-items: center !important;
     padding: 48px 60px 0 60px;
+    padding-bottom: 3%;
     background: #fff;
     position: relative;
     z-index: 100; /* Ensure header is visible above other content */
@@ -16548,15 +16549,7 @@ body.dark-mode .setup-steam {
 .playground-main {
     padding: 8rem 60px;
     min-height: calc(100vh - 200px);
-    background-image: radial-gradient(circle, #d0d0d0 1px, transparent 1px);
-    background-size: 20px 20px;
-    background-position: 0 0;
-}
-
-body.dark-mode .playground-main {
-    background-image: radial-gradient(circle, #404040 1px, transparent 1px);
-    background-size: 20px 20px;
-    background-position: 0 0;
+    overflow: hidden;
 }
 
 /* Playground page header and footer dots */
@@ -16605,8 +16598,17 @@ body.playground-page.dark-mode footer {
     font-family: 'Poppins', sans-serif;
     font-size: 0.95rem;
     font-weight: 300;
-    margin-bottom: 3rem;
+    margin-bottom: 0.5rem;
     color: #666;
+}
+
+.playground-instruction {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+    color: #999;
+    font-style: italic;
 }
 
 body.dark-mode .playground-title {
@@ -16617,23 +16619,43 @@ body.dark-mode .playground-subtitle {
     color: #aaa;
 }
 
+body.dark-mode .playground-instruction {
+    color: #777;
+}
+
 .playground-canvas {
     position: relative;
-    width: 100%;
-    height: 600px;
+    width: 400%;
+    height: 4000px;
     margin-top: 3rem;
+    padding-top: 1200px;
+    padding-left: 2000px;
+    cursor: grab;
+    user-select: none;
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+    background-image: radial-gradient(circle, #d0d0d0 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0;
+}
+
+body.dark-mode .playground-canvas {
+    background-image: radial-gradient(circle, #404040 1px, transparent 1px);
 }
 
 .playground-item {
     position: absolute;
     width: 200px;
     height: 250px;
-    background-color: #d9d9d9;
+    background-color: transparent;
     border-radius: 8px;
     cursor: grab;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .playground-item img,
@@ -16644,6 +16666,7 @@ body.dark-mode .playground-subtitle {
     border-radius: 8px;
     pointer-events: none;
     user-select: none;
+    display: block;
 }
 
 .playground-item:active {
@@ -16663,7 +16686,7 @@ body.dark-mode .playground-subtitle {
 }
 
 body.dark-mode .playground-item {
-    background-color: #4a4a4a;
+    background-color: transparent;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -16748,19 +16771,35 @@ body.dark-mode .playground-item:active {
     }
 
     .playground-canvas {
-        height: 550px;
+        width: 350%;
+        height: 2500px;
+        padding-top: 600px;
+        padding-left: 1200px;
     }
 
     .playground-item {
-        width: 180px;
-        height: 220px;
+        width: 160px;
+        height: auto;
+    }
+
+    .playground-item video,
+    .playground-item img {
+        width: 100%;
+        height: auto;
     }
 }
 
 @media (max-width: 768px) {
     .playground-main {
-        padding: 4rem 3rem;
-        background-position: 0 0;
+        padding: 7rem 2rem 0 2rem;
+        overflow: hidden;
+        min-height: 100vh;
+        background-image: radial-gradient(circle, #d0d0d0 1px, transparent 1px);
+        background-size: 20px 20px;
+    }
+
+    body.dark-mode .playground-main {
+        background-image: radial-gradient(circle, #404040 1px, transparent 1px);
     }
 
     .playground-section {
@@ -16768,74 +16807,89 @@ body.dark-mode .playground-item:active {
     }
 
     .playground-title {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 
     .playground-subtitle {
-        font-size: 0.85rem;
-        margin-bottom: 3rem;
+        font-size: 0.8rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .playground-instruction {
+        font-size: 0.7rem;
+        margin-bottom: 2rem;
     }
 
     .playground-canvas {
-        height: 1200px;
+        width: 200%;
+        height: 1000px;
         margin-top: 2rem;
+        padding-top: 100px;
+        background-image: none !important;
     }
 
     .playground-item {
-        width: 140px;
-        height: 180px;
+        width: 130px;
+        height: auto;
     }
 
-    /* Adjust positioning to prevent overlap and cutoff */
-    .playground-item[style*="left: 58%"] {
-        left: 45% !important;
-    }
-
-    .playground-item[style*="left: 70%"],
-    .playground-item[style*="left: 72%"] {
-        left: 50% !important;
-    }
-
-    .playground-item[style*="left: 78%"] {
-        left: 10% !important;
-        top: 85% !important;
+    .playground-item video,
+    .playground-item img {
+        width: 100%;
+        height: auto;
     }
 }
 
 @media (max-width: 480px) {
     .playground-main {
-        padding: 2rem;
-        background-position: 0 0;
+        padding: 6.5rem 1.5rem 0 1.5rem;
+        overflow: hidden;
+        min-height: 100vh;
+        background-image: radial-gradient(circle, #d0d0d0 1px, transparent 1px);
+        background-size: 20px 20px;
+    }
+
+    body.dark-mode .playground-main {
+        background-image: radial-gradient(circle, #404040 1px, transparent 1px);
     }
 
     .playground-section {
         padding: 0;
     }
 
-    .playground-main {
-        padding: 1.5rem;
-    }
-
     .playground-title {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 
     .playground-subtitle {
-        font-size: 0.85rem;
-        margin-bottom: 2rem;
+        font-size: 0.75rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .playground-instruction {
+        font-size: 0.65rem;
+        margin-bottom: 1.5rem;
     }
 
     .playground-canvas {
-        height: 1000px;
-        overflow: hidden;
+        width: 180%;
+        height: 1400px;
+        margin-top: 1.5rem;
+        padding-top: 120px;
+        background-image: none !important;
+        cursor: default;
     }
 
     .playground-item {
-        width: 110px;
-        height: 140px;
+        width: 100px;
+        height: auto;
         border-radius: 6px;
-        /* Constrain items to stay within viewport */
-        max-width: calc(100vw - 60px);
+    }
+
+    .playground-item video,
+    .playground-item img {
+        width: 100%;
+        height: auto;
     }
 
     /* Override inline left and top positions for mobile to prevent overlap and cutoff */
