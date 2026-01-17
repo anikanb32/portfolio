@@ -779,6 +779,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (hoverElements.length === 0) return;
 
         let isHovering = false;
+        let cursorBubbleEnabled = false;
+
+        // Delay enabling cursor bubble until after fade-in animations complete
+        // Work items fade in with delays up to ~1.5s, so wait 2s to be safe
+        setTimeout(() => {
+            cursorBubbleEnabled = true;
+        }, 2000);
 
         // Track mouse position for bubble
         document.addEventListener('mousemove', (e) => {
@@ -790,6 +797,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         hoverElements.forEach(element => {
             element.addEventListener('mouseenter', (e) => {
+                // Don't show cursor bubble until fade-in animations are done
+                if (!cursorBubbleEnabled) return;
+
                 const text = element.getAttribute('data-cursor-text');
                 if (text) {
                     isHovering = true;
