@@ -11255,7 +11255,7 @@ body.dark-mode .highlight-word.active {
 
 .work-item {
     width: 100%;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     opacity: 1;
     transition: opacity 0.3s ease;
     text-decoration: none !important;
@@ -17389,12 +17389,12 @@ body.dark-mode .execute-btn:hover {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.15rem;
     font-family: 'Courier New', monospace;
     font-size: 0.75rem;
-    line-height: 1.5;
+    line-height: 1.3;
     background: rgba(0, 0, 0, 0.03);
-    padding: 1rem 1rem;
+    padding: 0.75rem 1rem;
     border-radius: 8px;
     overflow-y: auto;
     overflow-x: hidden;
@@ -17405,32 +17405,34 @@ body.dark-mode .code-editor {
     background: rgba(255, 255, 255, 0.03);
 }
 
-.code-line {
+/* Dev mode code lines */
+.dev-code-line {
     display: block;
-    margin-bottom: 0.5rem;
     white-space: nowrap;
 }
 
-.code-line.has-comment {
-    margin-bottom: .5rem;
+.dev-code-line.has-comment {
+    margin-top: 0.25rem;
+    margin-bottom: -0.1rem;
 }
 
-.code-line.indent-1 {
+.dev-code-line.indent-1 {
     padding-left: 1.5em;
 }
 
-.code-line.indent-2 {
+.dev-code-line.indent-2 {
     padding-left: 3em;
 }
 
-/* Align code inputs in dev mode */
-.code-line.indent-2:has(.code-input) {
-    display: flex;
-    align-items: center;
+/* Variable name with fixed width for alignment */
+.code-var {
+    display: inline-block;
+    width: 85px;
 }
 
-.code-line.indent-2 .code-input {
-    margin-left: auto;
+.dev-code-line.indent-2:has(.code-input) {
+    display: flex;
+    align-items: center;
 }
 
 .code-keyword {
@@ -17481,6 +17483,7 @@ body.dark-mode .code-comment {
     width: 50px;
     text-align: center;
     transition: all 0.2s ease;
+    margin-left: 0.5rem;
 }
 
 body.dark-mode .code-input {
@@ -17614,10 +17617,10 @@ body.dark-mode #research-distance p {
     color: #000;
     flex: 1;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     white-space: pre-line;
-    text-align: center;
+    text-align: left;
 }
 
 body.dark-mode #distance-result {
