@@ -429,7 +429,7 @@
             </div>
 
             <!-- Design Mode Panel -->
-            <div class="mode-panel design-panel" style="display: none;">
+            <div class="mode-panel design-panel">
                 <h3>Design Mode</h3>
                 <div class="control-group">
                     <label>Color</label>
@@ -443,7 +443,7 @@
             </div>
 
             <!-- Dev Mode Panel -->
-            <div class="mode-panel dev-panel" style="display: none;">
+            <div class="mode-panel dev-panel">
                 <h3>Dev Mode</h3>
                 <div class="code-editor">
                     <div class="code-line">
@@ -455,27 +455,17 @@
                     <div class="code-line indent-2 has-comment">
                         <span class="code-comment"># wave speed: 0.05-0.3</span>
                     </div>
-                    <div class="code-line indent-2">
-                        <span class="code-keyword">self</span>.speed&nbsp; = <input type="text" class="code-input" id="wave-speed-input" value="0.15" data-min="0.05" data-max="0.3">
-                    </div>
-                    <div class="code-line indent-2 has-comment">
-                        <span class="code-comment">  # wave scale: 0.2-1.0</span>
-                    </div>
-                    <div class="code-line indent-2">
-                        <span class="code-keyword">self</span>.scale&nbsp; = <input type="text" class="code-input" id="wave-scale-input" value="0.6" data-min="0.2" data-max="1.0">
-                    </div>
-                    <div class="code-line indent-2 has-comment">
-                        <span class="code-comment">#wave height: 0.1-0.8</span>
-                    </div>
-                    <div class="code-line indent-2">
-                        <span class="code-keyword">self</span>.height = <input type="text" class="code-input" id="wave-height-input" value="0.4" data-min="0.1" data-max="0.8">
-                    </div>
+                    <div class="code-line indent-2"><span class="code-keyword">self</span>.speed&nbsp; = <input type="text" class="code-input" id="wave-speed-input" value="0.15" data-min="0.05" data-max="0.3"></div>
+                    <div class="code-line indent-2 has-comment"><span class="code-comment"># wave scale: 0.2-1.0</span></div>
+                    <div class="code-line indent-2"><span class="code-keyword">self</span>.scale&nbsp; = <input type="text" class="code-input" id="wave-scale-input" value="0.6" data-min="0.2" data-max="1.0"></div>
+                    <div class="code-line indent-2 has-comment"><span class="code-comment"># wave height: 0.1-0.8</span></div>
+                    <div class="code-line indent-2"><span class="code-keyword">self</span>.height = <input type="text" class="code-input" id="wave-height-input" value="0.4" data-min="0.1" data-max="0.8"></div>
                 </div>
                 <div class="code-error" id="code-error"></div>
             </div>
 
             <!-- Research Mode Panel -->
-            <div class="mode-panel research-panel" style="display: none;">
+            <div class="mode-panel research-panel">
                 <h3>Research Mode</h3>
                 <div class="research-tools">
                     <button class="tool-btn active" data-tool="distance" title="Distance">
@@ -495,7 +485,7 @@
                 <div class="research-content">
                     <textarea id="research-notes" style="display: none;" placeholder="Take notes..."></textarea>
                     <div id="research-distance" style="display: block;">
-                        <p>Hover over canvas to see stats</p>
+                        <p>hover over canvas to see stats</p>
                         <div id="distance-result">Particle count: 40401<br>Brain wave peaks: 46<br>Move mouse over canvas</div>
                     </div>
                 </div>
@@ -792,6 +782,16 @@
     const modeBtns = document.querySelectorAll('.mode-btn');
     const modePanels = document.querySelectorAll('.mode-panel');
 
+    // Helper function to close panel with animation
+    function closePanelWithAnimation(panel) {
+        panel.classList.remove('animate-in');
+        panel.classList.add('animate-out');
+        panel.addEventListener('animationend', function handler() {
+            panel.classList.remove('visible', 'animate-out');
+            panel.removeEventListener('animationend', handler);
+        }, { once: true });
+    }
+
     modeBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const mode = btn.dataset.mode;
@@ -799,9 +799,9 @@
             const isActive = btn.classList.contains('active');
 
             if (isActive) {
-                // Clicking active button - close panel
+                // Clicking active button - close panel with animation
                 btn.classList.remove('active');
-                targetPanel.style.display = 'none';
+                closePanelWithAnimation(targetPanel);
                 document.body.classList.remove(`${mode}-mode`);
                 currentMode = null;
             } else {
@@ -809,10 +809,16 @@
                 modeBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
+                // Close other panels immediately (no animation for switching)
                 modePanels.forEach(panel => {
-                    panel.style.display = 'none';
+                    panel.classList.remove('visible', 'animate-in', 'animate-out');
                 });
-                targetPanel.style.display = 'block';
+
+                // Show panel with bounce animation
+                targetPanel.classList.add('visible');
+                // Trigger reflow to restart animation
+                void targetPanel.offsetWidth;
+                targetPanel.classList.add('animate-in');
 
                 // Update body class for cursor changes
                 document.body.classList.remove('design-mode', 'dev-mode', 'research-mode');

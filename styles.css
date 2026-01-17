@@ -17108,7 +17108,7 @@ body.dark-mode .playground-item:active {
 .mode-toggle-header {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.75rem;
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.6);
     text-align: right;
     margin-bottom: -0.25rem;
     font-weight: 400;
@@ -17116,7 +17116,7 @@ body.dark-mode .playground-item:active {
 }
 
 body.dark-mode .mode-toggle-header {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 /* Mode Toggle Buttons - Pill Shape */
@@ -17184,10 +17184,53 @@ body.dark-mode .mode-btn.active {
     backdrop-filter: blur(10px);
     min-width: 300px;
     max-width: 300px;
-    transition: all 0.3s ease;
     pointer-events: auto;
-    display: flex;
+    display: none;
     flex-direction: column;
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.mode-panel.visible {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Animation keyframes for panel entrance */
+@keyframes panelSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(6px) scale(0.99);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(-2px) scale(1.005);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes panelSlideOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(6px) scale(0.99);
+    }
+}
+
+.mode-panel.animate-in {
+    animation: panelSlideIn 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.mode-panel.animate-out {
+    animation: panelSlideOut 0.25s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
 }
 
 .design-panel,
@@ -17378,6 +17421,16 @@ body.dark-mode .code-editor {
 
 .code-line.indent-2 {
     padding-left: 3em;
+}
+
+/* Align code inputs in dev mode */
+.code-line.indent-2:has(.code-input) {
+    display: flex;
+    align-items: center;
+}
+
+.code-line.indent-2 .code-input {
+    margin-left: auto;
 }
 
 .code-keyword {
