@@ -761,6 +761,72 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         initCustomCursor();
     }
+
+    // Cursor Bubble for Resume Timeline Cards
+    function initCursorBubble() {
+        const cursorBubble = document.getElementById('cursor-bubble');
+        const cursorBubbleText = cursorBubble?.querySelector('.cursor-bubble-text');
+        const cursorDot = document.getElementById('cursor-dot');
+
+        if (!cursorBubble || !cursorBubbleText) return;
+
+        // Only on desktop
+        if (window.innerWidth <= 768) return;
+
+        // Find all elements with data-cursor-text
+        const hoverElements = document.querySelectorAll('[data-cursor-text]');
+
+        if (hoverElements.length === 0) return;
+
+        let isHovering = false;
+
+        // Track mouse position for bubble
+        document.addEventListener('mousemove', (e) => {
+            if (isHovering) {
+                cursorBubble.style.left = e.clientX + 'px';
+                cursorBubble.style.top = e.clientY + 'px';
+            }
+        });
+
+        hoverElements.forEach(element => {
+            element.addEventListener('mouseenter', (e) => {
+                const text = element.getAttribute('data-cursor-text');
+                if (text) {
+                    isHovering = true;
+                    cursorBubbleText.textContent = text;
+
+                    // Position at current mouse location
+                    cursorBubble.style.left = e.clientX + 'px';
+                    cursorBubble.style.top = e.clientY + 'px';
+
+                    // Activate bubble
+                    cursorBubble.classList.add('active');
+
+                    // Hide the cursor dot
+                    if (cursorDot) {
+                        cursorDot.style.opacity = '0';
+                    }
+                }
+            });
+
+            element.addEventListener('mouseleave', () => {
+                isHovering = false;
+                cursorBubble.classList.remove('active');
+
+                // Show the cursor dot again
+                if (cursorDot) {
+                    cursorDot.style.opacity = '1';
+                }
+            });
+        });
+    }
+
+    // Initialize cursor bubble when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCursorBubble);
+    } else {
+        initCursorBubble();
+    }
     
     // Cool page load animations for records
     setTimeout(() => {

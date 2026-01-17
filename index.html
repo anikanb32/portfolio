@@ -140,12 +140,12 @@
 
       <section class="work-grid fade-in-stagger">
           <div class="work-item" data-project="class" data-category="design">
-              <div class="project-image-container">
+              <div class="project-image-container" data-cursor-text="view project">
                   <video autoplay loop muted playsinline class="project-image" preload="metadata">
                       <source src="../images/work/class-preview.mp4" type="video/mp4">
                   </video>
                   <div class="project-overlay">
-                      <span class="view-project">view project</span>
+                      <!-- <span class="view-project">view project</span> -->
                   </div>
               </div>
               <h2 class="project-name">Community Living and Support Services</h2>
@@ -158,12 +158,12 @@
               <p class="project-description">A tool to centralize critical information for the Structured Day program, supporting individuals recovering from Traumatic Brain Injuries.</p>
           </div>
           <div class="work-item" data-project="interactionpatterns" data-category="design">
-              <div class="project-image-container">
+              <div class="project-image-container" data-cursor-text="view project">
                   <video autoplay loop muted playsinline class="project-image" preload="metadata">
                       <source src="images/aicontextmanagement/aicontext.mp4" type="video/mp4">
                   </video>
                   <div class="project-overlay">
-                      <span class="view-project">view project</span>
+                      <!-- <span class="view-project">view project</span> -->
                   </div>
               </div>
               <h2 class="project-name">AI Context-Interaction Patterns</h2>
@@ -207,10 +207,10 @@
 
 
           <div class="work-item" data-project="xometry" data-category="programming">
-              <div class="project-image-container">
+              <div class="project-image-container" data-cursor-text="view project">
                   <img src="../images/newxometrylogo.png" alt="Xometry Project" class="project-image">
                   <div class="project-overlay">
-                      <span class="view-project">view project</span>
+                      <!-- <span class="view-project">view project</span> -->
                   </div>
               </div>
               <h2 class="project-name">Xometry</h2>
@@ -222,7 +222,7 @@
           </div>
 
           <div class="work-item" data-project="context-aware-vr" data-category="research">
-              <div class="project-image-container">
+              <div class="project-image-container" data-cursor-text="view project">
                   <img src="../images/llminterface/contextawarexr-preview.png" alt="Context-Aware VR Interfaces" class="project-image">
                   <div class="project-overlay">
                       <span class="view-project">view project</span>
@@ -240,12 +240,11 @@
           
 
           <a href="margin/" class="work-item" data-category="programming">
-              <div class="project-image-container">
+              <div class="project-image-container" data-cursor-text="view project">
                   <video autoplay loop muted playsinline class="project-image" preload="metadata">
                       <source src="../images/margin/margin.mp4" type="video/mp4">
                   </video>
                   <div class="project-overlay">
-                      <span class="view-project">view project</span>
                   </div>
               </div>
               <h2 class="project-name">margin</h2>
@@ -256,10 +255,10 @@
           </a>
 
           <a href="vantage/" class="work-item" data-category="programming">
-              <div class="project-image-container">
+              <div class="project-image-container" data-cursor-text="view project">
                   <img src="images/vantage/vantage.jpeg" alt="Vantage Project" class="project-image">
                   <div class="project-overlay">
-                      <span class="view-project">view project</span>
+                      
                   </div>
               </div>
               <h2 class="project-name">Vantage</h2>
@@ -271,7 +270,8 @@
           </a>
 
           <div class="work-item coming-soon" data-category="design">
-              <div class="project-image-container">
+
+              <div class="project-image-container" data-cursor-text="coming soon">
                   <video autoplay loop muted playsinline class="project-image" preload="metadata">
                       <source src="../images/work/coachpro.mp4" type="video/mp4">
                   </video>
@@ -281,12 +281,12 @@
                   <span class="tag">Product Design</span>
                   <span class="tag">User Research</span>
               </div>
-              <p class="project-description">Coming soon...</p>
-              <!-- A comprehensive platform for tennis academies to manage operations, track player development, and build meaningful coach-player relationships. -->
+              <p class="project-description">Coming soon!</p>
+              <!-- A comprehensive platform for tennis academies to manage operations, track player development, and build meaningful coach-player relationships.  -->
           </div>
 
           <div class="work-item coming-soon" data-category="research">
-              <div class="project-image-container">
+              <div class="project-image-container" data-cursor-text="coming soon">
                   <video autoplay muted playsinline class="project-image bmw-logo-video" preload="metadata">
                       <source src="bmwlogo.mp4" type="video/mp4">
                   </video>
@@ -297,7 +297,7 @@
                   <span class="tag">AR/VR</span>
               </div>
               <!-- <p class="project-description">Exploring immersive experiences for context-based user journeys.</p> -->
-              <p class="project-description">Coming soon...</p>
+              <p class="project-description">Coming soon!</p>
           </div>
 
           <!-- <div class="work-item coming-soon" data-category="programming">
@@ -364,6 +364,11 @@
     <div class="cursor-dot" id="cursor-dot"></div>
     <!-- <div class="cursor-dot" id="cursor-dot-2"></div>
     <div class="cursor-dot" id="cursor-dot-3"></div> -->
+
+    <!-- Cursor Bubble -->
+    <div class="cursor-bubble" id="cursor-bubble">
+        <span class="cursor-bubble-text"></span>
+    </div>
 
     <script src="script.js"></script>
 <script type="module">

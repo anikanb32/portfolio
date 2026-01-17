@@ -205,6 +205,69 @@ body.dark-mode .cursor-dot {
     }
 }
 
+/* Cursor Bubble - Expands from dot with text */
+.cursor-bubble {
+    position: fixed;
+    pointer-events: none;
+    z-index: 100000;
+    transform: translate(-50%, -50%);
+    left: -100px;
+    top: -100px;
+    background: #1a1a1a;
+    border-radius: 50px;
+    padding: 0;
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition:
+        width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        opacity 0.2s ease,
+        background 0.3s ease;
+}
+
+.cursor-bubble.active {
+    width: auto;
+    height: auto;
+    padding: 10px 20px;
+    opacity: 1;
+}
+
+.cursor-bubble-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #ffffff;
+    white-space: nowrap;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.1s ease, transform 0.1s ease;
+}
+
+.cursor-bubble.active .cursor-bubble-text {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+}
+
+body.dark-mode .cursor-bubble {
+    background: #ffffff;
+}
+
+body.dark-mode .cursor-bubble-text {
+    color: #1a1a1a;
+}
+
+@media (max-width: 768px) {
+    .cursor-bubble {
+        display: none !important;
+    }
+}
+
 /* Project pages cursor colors - filled circle in light mode, border in dark mode */
 body.project-page .cursor-dot {
     background: #d0d0d0;
@@ -347,13 +410,6 @@ body.dark-mode {
     color: #ffffff;
 }
 
-/* Global dark mode transition - ensures all elements change at the same speed */
-/* Exclude fade-in elements, logo, playground items, and timeline-card from this rule so they keep their animation transitions */
-body.dark-mode *:not(.fade-in):not(.fade-in-delay-1):not(.fade-in-delay-2):not(.fade-in-delay-3):not(.fade-in-delay-4):not(.fade-in-delay-5):not(.fade-in-delay-6):not(.fade-in-stagger):not(.fade-in-stagger *):not(.work-item):not(.playground-fade-in):not(.workspace-fade-in):not(.playground-item):not(.playground-item *):not(.logo):not(.logo *):not(.logo-a):not(.logo-nika):not(.logo-b):not(.logo-hagavatula):not(.timeline-card) {
-    transition-property: background-color, color, border-color;
-    transition-duration: 0.3s;
-    transition-timing-function: ease;
-}
 
 body.dark-mode .header {
     background: #010101; /* #1a1a1a */
@@ -542,6 +598,7 @@ body.dark-mode .linkedin-icon:hover {
     justify-content: space-between;
     align-items: center !important;
     padding: 48px 60px 0 60px;
+    padding-bottom: 2%;
     background: #fff;
     position: relative;
     z-index: 100; /* Ensure header is visible above other content */
@@ -1720,45 +1777,27 @@ body.dark-mode .record-player-deck {
     position: relative;
     width: 28px;
     height: 28px;
-    background: linear-gradient(145deg, #7a7a7a 0%, #5a5a5a 100%);
+    background: #6a6a6a;
     border-radius: 6px;
-    box-shadow:
-        0 4px 8px rgba(0,0,0,0.4),
-        0 2px 4px rgba(0,0,0,0.3),
-        inset 0 2px 2px rgba(255,255,255,0.2),
-        inset 0 -2px 2px rgba(0,0,0,0.3);
-    border: 1px solid rgba(0,0,0,0.4);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    border: none;
     cursor: pointer;
     transition: all 0.15s ease;
 }
 
 .record-control-btn:hover {
-    background: linear-gradient(145deg, #8a8a8a 0%, #6a6a6a 100%);
-    box-shadow:
-        0 5px 10px rgba(0,0,0,0.5),
-        0 3px 6px rgba(0,0,0,0.4),
-        inset 0 2px 2px rgba(255,255,255,0.25),
-        inset 0 -2px 2px rgba(0,0,0,0.35);
-    transform: translateY(-1px);
+    background: #7a7a7a;
 }
 
 .record-control-btn:active {
-    background: linear-gradient(145deg, #4a4a4a 0%, #3a3a3a 100%);
-    box-shadow:
-        0 1px 2px rgba(0,0,0,0.3),
-        inset 0 3px 6px rgba(0,0,0,0.6),
-        inset 0 1px 2px rgba(0,0,0,0.4);
-    transform: translateY(2px);
+    background: #5a5a5a;
+    transform: translateY(1px);
 }
 
 /* Active/pressed state for control buttons */
 .record-control-btn.active {
-    background: linear-gradient(145deg, #4a4a4a 0%, #3a3a3a 100%);
-    box-shadow:
-        0 1px 2px rgba(0,0,0,0.3),
-        inset 0 3px 6px rgba(0,0,0,0.6),
-        inset 0 1px 2px rgba(0,0,0,0.4);
-    transform: translateY(2px);
+    background: #5a5a5a;
+    transform: translateY(1px);
 }
 
 
@@ -4708,6 +4747,101 @@ body.dark-mode .email-icon:hover {
     border-radius: 8px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.10);
     background: #f7f7f7;
+    transition: transform 0.3s ease;
+}
+
+.about-img:hover {
+    transform: rotate(3deg);
+}
+
+body.dark-mode .about-img {
+    transition: transform 0.3s ease !important;
+}
+
+body.dark-mode .about-img:hover {
+    transform: rotate(3deg);
+}
+
+/* About image wrapper for polaroid icons */
+.about-img-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Polaroid icons that pop up around profile image */
+.about-icon-polaroid {
+    position: absolute;
+    width: 50px;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.about-icon-polaroid .polaroid-frame {
+    background: #ffffff;
+    padding: 6px 6px 12px 6px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+
+.about-icon-polaroid .polaroid-photo {
+    width: 100%;
+    aspect-ratio: 1;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    color: #333;
+}
+
+/* Position each icon */
+.about-icon-code {
+    top: -20px;
+    left: -30px;
+    transform: scale(0.5) rotate(-12deg);
+}
+
+.about-icon-brain {
+    top: -30px;
+    right: -20px;
+    transform: scale(0.5) rotate(8deg);
+}
+
+.about-icon-art {
+    bottom: 60px;
+    left: -40px;
+    transform: scale(0.5) rotate(-5deg);
+}
+
+/* Show icons on hover */
+.about-img-wrapper:hover .about-icon-polaroid {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.about-img-wrapper:hover .about-icon-code {
+    transform: scale(1) rotate(-12deg);
+}
+
+.about-img-wrapper:hover .about-icon-brain {
+    transform: scale(1) rotate(8deg);
+}
+
+.about-img-wrapper:hover .about-icon-art {
+    transform: scale(1) rotate(-5deg);
+}
+
+/* Dark mode for polaroid icons */
+body.dark-mode .about-icon-polaroid .polaroid-frame {
+    background: #f0f0f0;
+}
+
+body.dark-mode .about-icon-polaroid .polaroid-photo {
+    background: #e8e8e8;
+    color: #222;
 }
 
 .about-strengths {
@@ -5148,35 +5282,20 @@ body.dark-mode .email-icon:hover {
 .center-button {
     width: 24px;
     height: 24px;
-    background: linear-gradient(145deg, #7a7a7a 0%, #5a5a5a 100%);
+    background: linear-gradient(180deg, #7a7a7a 0%, #5a5a5a 100%);
     border-radius: 4px;
-    border: 1px solid rgba(0,0,0,0.4);
+    border: none;
     cursor: pointer;
     transition: all 0.15s ease;
-    box-shadow:
-        0 4px 8px rgba(0,0,0,0.4),
-        0 2px 4px rgba(0,0,0,0.3),
-        inset 0 2px 2px rgba(255,255,255,0.2),
-        inset 0 -2px 2px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.25);
 }
 
 .center-button:hover {
-    background: linear-gradient(145deg, #8a8a8a 0%, #6a6a6a 100%);
-    box-shadow:
-        0 5px 10px rgba(0,0,0,0.5),
-        0 3px 6px rgba(0,0,0,0.4),
-        inset 0 2px 2px rgba(255,255,255,0.25),
-        inset 0 -2px 2px rgba(0,0,0,0.35);
-    transform: translateY(-1px);
+    background: linear-gradient(180deg, #8a8a8a 0%, #6a6a6a 100%);
 }
 
 .center-button.active {
-    background: linear-gradient(145deg, #4a4a4a 0%, #3a3a3a 100%);
-    box-shadow:
-        0 1px 2px rgba(0,0,0,0.3),
-        inset 0 3px 6px rgba(0,0,0,0.6),
-        inset 0 1px 2px rgba(0,0,0,0.4);
-    transform: translateY(2px);
+    background: linear-gradient(180deg, #5a5a5a 0%, #4a4a4a 100%);
 }
 
 
@@ -5311,7 +5430,12 @@ body.dark-mode .email-icon:hover {
         height: 250px;
         margin-bottom: 1rem;
     }
-    
+
+    /* Hide polaroid icons on mobile */
+    .about-icon-polaroid {
+        display: none;
+    }
+
     .about-edu {
         font-size: 0.85rem;
         text-align: left;
@@ -6416,6 +6540,14 @@ body.dark-mode .dj-section-subtitle {
     transform: translateY(-3px);
 }
 
+body.dark-mode .vinyl-pick {
+    transition: transform 0.3s ease;
+}
+
+body.dark-mode .vinyl-pick:hover {
+    transform: translateY(-3px);
+}
+
 .vinyl-album-cover {
     width: 80px;
     height: 80px;
@@ -6428,6 +6560,14 @@ body.dark-mode .dj-section-subtitle {
 
 .vinyl-album-cover:hover {
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .vinyl-album-cover {
+    transition: box-shadow 0.3s ease;
+}
+
+body.dark-mode .vinyl-album-cover:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
 }
 
 .album-image {
@@ -6622,6 +6762,55 @@ body.dark-mode .dj-image-placeholder {
     background: #000000;
     border-color: #555;
     color: #999;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+body.dark-mode .dj-image-placeholder:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    transform: scale(1.05);
+}
+
+body.dark-mode .dj-image-set {
+    transition: opacity 0.3s ease !important;
+}
+
+body.dark-mode .dj-image-set.active {
+    opacity: 1;
+    display: flex;
+}
+
+body.dark-mode .dj-image-set.active .dj-image-item {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards !important;
+}
+
+body.dark-mode .dj-image-set.active .dj-image-item:nth-child(1) { animation-delay: 0.2s !important; }
+body.dark-mode .dj-image-set.active .dj-image-item:nth-child(2) { animation-delay: 0.4s !important; }
+body.dark-mode .dj-image-set.active .dj-image-item:nth-child(3) { animation-delay: 0.6s !important; }
+
+body.dark-mode .dj-image-set.active .dj-image-item:nth-child(1).floating {
+    animation: fadeInUp 0.6s ease forwards, floatGently1 5.2s ease-in-out infinite !important;
+    animation-delay: 0.2s, 0s !important;
+}
+body.dark-mode .dj-image-set.active .dj-image-item:nth-child(2).floating {
+    animation: fadeInUp 0.6s ease forwards, floatGently2 6.8s ease-in-out infinite !important;
+    animation-delay: 0.4s, 0s !important;
+}
+body.dark-mode .dj-image-set.active .dj-image-item:nth-child(3).floating {
+    animation: fadeInUp 0.6s ease forwards, floatGently3 7.7s ease-in-out infinite !important;
+    animation-delay: 0.6s, 0s !important;
+}
+
+body.dark-mode .dj-image-item {
+    transition: all 0.3s ease !important;
+}
+
+body.dark-mode .dj-image-item:hover {
+    transform: translateX(-10px) scale(1.05);
+}
+
+body.dark-mode .dj-image-item:hover .dj-image-placeholder {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
 }
 
 body.dark-mode .dj-image-caption {
@@ -7122,6 +7311,9 @@ body.dark-mode .vinyl-record[data-color="#1e3a8a"] {
     padding: 2rem;
     transition: all 0.3s ease;
     position: relative;
+    display: block;
+    text-decoration: none;
+    color: inherit;
 }
 
 .timeline-card:hover {
@@ -7246,7 +7438,6 @@ body.dark-mode .timeline-header h3 {
 
 body.dark-mode .timeline-card {
     background: #141414;
-    transition: transform 0.3s ease;
 }
 
 body.dark-mode .timeline-card:hover {
@@ -7284,7 +7475,6 @@ body.dark-mode .timeline-card .duration {
 /* Dark mode styling for education entries - lighter background */
 body.dark-mode .timeline-card.education-card {
     background: #2a2a2a;
-    transition: transform 0.3s ease;
 }
 
 body.dark-mode .timeline-card.education-card:hover {
@@ -11100,12 +11290,10 @@ body.dark-mode .work-item:visited .project-description {
 
 .work-item.coming-soon {
     cursor: default;
-    pointer-events: none;
 }
 
 .work-item.coming-soon .project-image-container {
     cursor: default;
-    pointer-events: none;
 }
 
 .work-item.coming-soon .project-image-container:hover .project-image {
@@ -16906,7 +17094,7 @@ body.dark-mode .playground-item:active {
 
 .mode-toggle-container {
     position: absolute;
-    bottom: 8rem;
+    bottom: 10rem;
     right: 4rem;
     z-index: 1000;
     display: flex;
@@ -17398,3 +17586,5 @@ body.research-mode .cursor-dot {
         display: none;
     }
 }
+
+
