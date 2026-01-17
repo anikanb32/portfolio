@@ -12006,6 +12006,21 @@ body.dark-mode .back-button:hover {
     opacity: 0.6;
 }
 
+/* Dark mode styles for progress indicator on project pages using body.dark-mode */
+body.dark-mode .step-label {
+    color: #ffffff;
+}
+
+body.dark-mode .progress-step.active .step-label {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+body.dark-mode .progress-step.completed .step-label {
+    color: #ffffff;
+    opacity: 0.6;
+}
+
 /* Xometry Page Specific Styles */
 .rfq-comparison {
     display: grid;
