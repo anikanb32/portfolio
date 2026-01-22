@@ -27,6 +27,10 @@
     tap-highlight-color: transparent;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     background: white;
@@ -7894,6 +7898,12 @@ body.dark-mode .mobile-nav .download-btn:hover {
 .status-chip.class-shipped {
     color: #4A9FCA;
     background-color: rgba(135, 206, 235, 0.3);
+    border-radius: 5px;
+}
+
+.status-chip.coachpro-shipped {
+    color: #15705b;
+    background-color: #0f5a47;
     border-radius: 5px;
 }
 
