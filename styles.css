@@ -476,19 +476,20 @@ body.dark-mode .logo:hover .logo-hagavatula {
 }
 
 body.dark-mode .nav a {
-    color: #666666;
+    color: #777777;
+    transition: color 0.3s ease;
 }
 
 body.dark-mode .nav a:hover {
-    color: #999999;
+    color: #ffffff;
 }
 
 body.dark-mode .nav a.active {
     color: #ffffff;
 }
 
-body.dark-mode .nav a.active.download-btn {
-    color: #903232 !important;
+body.dark-mode .nav a.active:hover {
+    color: #ffffff;
 }
 
 body.dark-mode .theme-toggle-btn {
@@ -813,16 +814,16 @@ body.dark-mode .linkedin-icon:hover {
 }
 
   .nav a:hover {
-    color: #666666;
+    color: #000000;
 }
 
   .nav a.active {
     color: #000000;
   }
 
-  .nav a.active.download-btn {
-    color: #903232 !important;
-}
+  .nav a.active:hover {
+    color: #000000;
+  }
 
 /* Hamburger Menu */
 .hamburger {
@@ -3648,17 +3649,18 @@ body.dark-mode .role-item {
 }
 
 .school-link::after {
-    content: ' ↗';
+    content: '↗';
     display: inline-block;
     font-size: 0.75em;
     opacity: 0;
-    transform: translateX(-5px);
-    transition: all 0.3s ease;
+    margin-left: 4px;
+    transform: translate(-5px, 3px);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .school-link:hover::after {
     opacity: 1;
-    transform: translateX(0);
+    transform: translate(2px, -2px);
 }
 
 /* Highlight phrases styling */
