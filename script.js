@@ -2754,3 +2754,57 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Stat Number Count-Up Animation
+document.addEventListener('DOMContentLoaded', () => {
+    const statNumbers = document.querySelectorAll('.stat-number[data-count]');
+
+    if (!statNumbers.length) return;
+
+    const animateCount = (element, delay = 0) => {
+        setTimeout(() => {
+            const target = parseInt(element.getAttribute('data-count'));
+            const duration = 1500; // 1.5 seconds
+            const startTime = performance.now();
+
+            const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+
+            const updateCount = (currentTime) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easedProgress = easeOutQuart(progress);
+                const current = Math.round(easedProgress * target);
+
+                element.textContent = current;
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCount);
+                }
+            };
+
+            requestAnimationFrame(updateCount);
+        }, delay);
+    };
+
+    // Track if stats container has been animated
+    let hasAnimated = false;
+
+    // Observe the parent container instead of individual stats
+    const statsContainer = document.querySelector('.overview-stats');
+    if (!statsContainer) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !hasAnimated) {
+                hasAnimated = true;
+                // Stagger the animations
+                statNumbers.forEach((stat, index) => {
+                    animateCount(stat, index * 150);
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    observer.observe(statsContainer);
+});
+
