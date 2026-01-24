@@ -160,9 +160,9 @@ a {
 /* Custom Cursor Dots */
 .cursor-dot {
     position: fixed;
-    width: 14px;
-    height: 14px;
-    background: #d0d0d0;
+    width: 20px;
+    height: 20px;
+    background: #333333;
     border: none;
     border-radius: 50%;
     pointer-events: none;
@@ -173,18 +173,24 @@ a {
     opacity: 0;
     display: block !important;
     transition: background 0.3s ease, border 0.3s ease, opacity 0.1s ease;
-    mix-blend-mode: difference;
 }
 
 body.dark-mode .cursor-dot {
-    background: transparent;
-    border: 2px solid #ffffff;
+    background: #d0d0d0;
+    border: none;
 }
 
 #cursor-dot {
-    width: 14px;
-    height: 14px;
-    transition: transform 0.05s ease-out;
+    width: 20px;
+    height: 20px;
+    transition: width 0.2s ease, height 0.2s ease, border-radius 0.2s ease, transform 0.05s ease-out;
+}
+
+/* Text cursor - morphs from dot to line */
+#cursor-dot.cursor-text {
+    width: 5px;
+    height: 44px;
+    border-radius: 3px;
 }
 
 #cursor-dot-2 {
@@ -272,16 +278,16 @@ body.dark-mode .cursor-bubble-text {
     }
 }
 
-/* Project pages cursor colors - filled circle in light mode, border in dark mode */
+/* Project pages cursor colors */
 body.project-page .cursor-dot {
-    background: #d0d0d0;
+    background: #333333;
     border: none;
     transition: background 0.3s ease, border 0.3s ease;
 }
 
 body.project-page.dark-mode .cursor-dot {
-    background: transparent;
-    border: 2px solid #ffffff;
+    background: #d0d0d0;
+    border: none;
 }
 
 /* Override cursor styles for images on project pages - keep custom cursor visible */
@@ -3627,6 +3633,32 @@ body.dark-mode img.role-icon {
 
 body.dark-mode .role-item {
     color: #ffffff;
+}
+
+/* School links in intro */
+.school-link {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: none;
+}
+
+.school-link:hover {
+    opacity: 0.7;
+}
+
+.school-link::after {
+    content: ' ↗';
+    display: inline-block;
+    font-size: 0.75em;
+    opacity: 0;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+}
+
+.school-link:hover::after {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 /* Highlight phrases styling */
@@ -14891,13 +14923,13 @@ body.dark-mode .ai-main #problem p {
 
 /* Margin page cursor - filled circle in light mode, border in dark mode */
 body.margin-page .cursor-dot {
-    background: #d0d0d0;
+    background: #333333;
     border: none;
 }
 
 body.margin-page.dark-mode .cursor-dot {
-    background: transparent;
-    border: 2px solid #ffffff;
+    background: #d0d0d0;
+    border: none;
 }
 
 .margin-main {

@@ -632,13 +632,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const isProjectPage = document.body.classList.contains('project-page');
             if (isProjectPage) {
                 const isDarkMode = document.body.classList.contains('dark-mode');
-                // Light mode: filled light gray circle (visible with difference blend), Dark mode: border only
-                cursorDot.style.background = isDarkMode ? 'transparent' : '#d0d0d0';
-                cursorDot.style.border = isDarkMode ? '2px solid #ffffff' : 'none';
-                // cursorDot2.style.background = isDarkMode ? 'transparent' : '#d0d0d0';
-                // cursorDot2.style.border = isDarkMode ? '2px solid #ffffff' : 'none';
-                // cursorDot3.style.background = isDarkMode ? 'transparent' : '#d0d0d0';
-                // cursorDot3.style.border = isDarkMode ? '2px solid #ffffff' : 'none';
+                cursorDot.style.background = isDarkMode ? '#d0d0d0' : '#333333';
+                cursorDot.style.border = 'none';
             }
         }
         
@@ -733,6 +728,43 @@ document.addEventListener('DOMContentLoaded', function() {
             cursorDot.style.opacity = '1';
             // cursorDot2.style.opacity = '0.8';
             // cursorDot3.style.opacity = '0.6';
+        });
+
+        // Text cursor effect - change dot to line when hovering over actual text
+        document.addEventListener('mousemove', (e) => {
+            const el = document.elementFromPoint(e.clientX, e.clientY);
+            if (!el) return;
+
+            // Skip buttons and navigation
+            if (el.closest('button') || el.closest('.btn') || el.closest('.mode-btn') ||
+                el.closest('.nav') || el.closest('.mobile-nav') || el.closest('.header') ||
+                el.closest('.theme-toggle') || el.closest('.filter-btn') || el.closest('.tool-btn')) {
+                cursorDot.classList.remove('cursor-text');
+                cursorDot.style.height = '';
+                return;
+            }
+
+            // Check if element is a text-containing inline element
+            const textTags = ['P', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'SPAN', 'A', 'LI', 'LABEL', 'STRONG', 'EM', 'B', 'I'];
+            const isTextElement = textTags.includes(el.tagName);
+
+            // Check if mouse is actually over text content (not padding/empty space)
+            const range = document.caretRangeFromPoint(e.clientX, e.clientY);
+            const isOverText = range && range.startContainer && range.startContainer.nodeType === Node.TEXT_NODE;
+
+            if (isTextElement && isOverText) {
+                cursorDot.classList.add('cursor-text');
+                // Adapt cursor line height to text size
+                const computedStyle = window.getComputedStyle(el);
+                const lineHeight = parseFloat(computedStyle.lineHeight);
+                const fontSize = parseFloat(computedStyle.fontSize);
+                // Use line-height if available, otherwise use fontSize * 1.2
+                const cursorHeight = !isNaN(lineHeight) ? lineHeight : fontSize * 1.2;
+                cursorDot.style.height = cursorHeight + 'px';
+            } else {
+                cursorDot.classList.remove('cursor-text');
+                cursorDot.style.height = '';
+            }
         });
 
         // function animate() {
