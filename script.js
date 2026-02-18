@@ -2808,3 +2808,48 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(statsContainer);
 });
 
+// Text Scramble Effect for Nav Links
+(function() {
+    const chars = 'abcdefghijklmnopqrstuvwxyz';
+
+    function scramble(el) {
+        const original = el.getAttribute('data-original') || el.textContent;
+        if (!el.getAttribute('data-original')) el.setAttribute('data-original', original);
+
+        // Lock width so it doesn't shift
+        el.style.display = 'inline-block';
+        el.style.width = el.offsetWidth + 'px';
+
+        let iteration = 0;
+        const totalFrames = original.length * 2;
+        clearInterval(el._scrambleInterval);
+
+        el._scrambleInterval = setInterval(() => {
+            el.textContent = original.split('').map((char, i) => {
+                if (char === ' ') return ' ';
+                if (i < Math.floor(iteration / 2)) return original[i];
+                return chars[Math.floor(Math.random() * chars.length)];
+            }).join('');
+
+            iteration++;
+            if (iteration > totalFrames) {
+                clearInterval(el._scrambleInterval);
+                el.textContent = original;
+            }
+        }, 20);
+    }
+
+    function restore(el) {
+        clearInterval(el._scrambleInterval);
+        const original = el.getAttribute('data-original');
+        if (original) el.textContent = original;
+        el.style.width = '';
+    }
+
+    // Apply to nav links only (exclude theme toggle)
+    document.querySelectorAll('.nav a').forEach(link => {
+        link.addEventListener('mouseenter', () => scramble(link));
+        link.addEventListener('mouseleave', () => restore(link));
+    });
+})();
+

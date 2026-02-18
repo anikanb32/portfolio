@@ -11425,33 +11425,33 @@ body.dark-mode .highlight-word.active {
 }
 
 .filter-btn {
-    background: transparent;
+    background: #f0f0f0;
     border: none;
-    border-radius: 0;
-    padding: 0.5rem 0;
+    border-radius: 5px;
+    padding: 0.45rem 1rem;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: background 0.2s ease, color 0.2s ease;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     font-family: inherit;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     font-weight: 400;
-    color: #cccccc;
+    color: #999;
     position: relative;
     overflow: visible;
 }
 
 .filter-btn:hover {
-    background: transparent;
+    background: #e4e4e4;
     transform: none;
     box-shadow: none;
-    color: #666666;
+    color: #333;
 }
 
 .filter-btn.active {
-    background: transparent;
-    color: #000000;
+    background: #000;
+    color: #fff;
     transform: none;
     box-shadow: none;
     font-weight: 400;
@@ -11693,19 +11693,19 @@ body.dark-mode .work-subtitle.fade-in-delay-2.loaded {
 }
 
 body.dark-mode .filter-btn {
-    background: transparent;
-    color: #666666;
+    background: #1e1e1e;
+    color: #666;
     border: none;
 }
 
 body.dark-mode .filter-btn:hover {
-    background: transparent;
-    color: #999999;
+    background: #2a2a2a;
+    color: #aaa;
 }
 
 body.dark-mode .filter-btn.active {
-    background: transparent;
-    color: #ffffff;
+    background: #fff;
+    color: #000;
 }
 
 body.dark-mode .filter-btn:not(.active) .filter-count {
