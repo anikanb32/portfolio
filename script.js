@@ -2853,3 +2853,55 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 })();
 
+
+// Exploration card hover image preview
+(function() {
+    const preview = document.getElementById('exp-hover-preview');
+    const previewImg = document.getElementById('exp-hover-img');
+    const previewVideo = document.getElementById('exp-hover-video');
+    if (!preview || !previewImg) return;
+
+    let mouseX = 0, mouseY = 0;
+    let currentX = 0, currentY = 0;
+    let animFrame;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function lerp(a, b, t) { return a + (b - a) * t; }
+
+    function animate() {
+        currentX = lerp(currentX, mouseX, 0.12);
+        currentY = lerp(currentY, mouseY, 0.12);
+        preview.style.left = (currentX + 20) + 'px';
+        preview.style.top = (currentY + 20) + 'px';
+        animFrame = requestAnimationFrame(animate);
+    }
+
+    document.querySelectorAll('.exp-card[data-hover-img]').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            const src = card.getAttribute('data-hover-img');
+            const isVideo = src.match(/\.(mp4|webm|ogg)$/i);
+            if (isVideo && previewVideo) {
+                previewImg.style.display = 'none';
+                previewVideo.style.display = 'block';
+                previewVideo.src = src;
+                previewVideo.play();
+            } else {
+                if (previewVideo) previewVideo.style.display = 'none';
+                previewImg.style.display = 'block';
+                previewImg.src = src;
+            }
+            preview.classList.add('visible');
+            animFrame = requestAnimationFrame(animate);
+        });
+
+        card.addEventListener('mouseleave', () => {
+            preview.classList.remove('visible');
+            if (previewVideo) { previewVideo.pause(); previewVideo.src = ''; }
+            cancelAnimationFrame(animFrame);
+        });
+    });
+})();

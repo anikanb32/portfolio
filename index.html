@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Ovo&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ovo&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="home-page">
     <header class="header">
@@ -22,7 +22,7 @@
         <nav class="nav">
           <a href="#work">work</a>
           <a href="about/">about</a>
-          <a href="playground/">playground</a>
+          <a href="playground/">explorations</a>
           <a href="resume/">resume</a>
           <div class="theme-toggle">
             <button class="theme-toggle-btn" aria-label="Toggle dark mode">
@@ -46,7 +46,7 @@
       <div class="mobile-nav-content">
         <a href="#work" class="active">work</a>
         <a href="about/">about</a>
-        <a href="playground/">playground</a>
+        <a href="playground/">explorations</a>
         <a href="resume/" class="download-btn">resume</a>
         <div class="theme-toggle mobile-theme-toggle">
           <button class="theme-toggle-btn" aria-label="Toggle dark mode">
@@ -172,7 +172,7 @@
               <div class="project-tags">
                   <span class="status-chip class-shipped">shipped</span>
                   <span class="tag">UX Design</span>
-                  <span class="tag">User Research</span>
+                  
                   <span class="tag">Frontend Development</span>
               </div>
               <p class="project-description">A tool to centralize critical information for the Structured Day program, supporting individuals recovering from Traumatic Brain Injuries.</p>
@@ -321,9 +321,49 @@
                   </div>
           </div> -->
 
-          
+
         </section>
-    
+
+        <!-- Explorations Section -->
+        <div class="explorations-section">
+            <div class="explorations-header">
+                <h1 class="about-title">explorations<span class="work-dot">.</span></h1>
+                <p class="explorations-intro"><a href="playground/">jump to other things I've made.</a></p>
+            </div>
+            <div class="explorations-grid">
+                <div class="exp-card exp-1" data-hover-img="images/playground/lg.mp4">
+                    <div class="exp-number">01</div>
+                    <div class="exp-title">Nandini</div>
+                    <div class="exp-desc">Creative expression, wearable technology</div>
+                </div>
+                <div class="exp-card exp-2" data-hover-img="images/playground/eve.png">
+                    <div class="exp-number">02</div>
+                    <div class="exp-title"> Eve</div>
+                    <div class="exp-desc">Fashion design, storytelling, crafting tactile experience</div>
+                </div>
+                <div class="exp-card exp-3" data-hover-img="images/playground/fieldnotes.png">
+                    <div class="exp-number">03</div>
+                    <div class="exp-title">Field Notes</div>
+                    <div class="exp-desc">Creative expression, observing the mundane</div>
+                </div>
+                <div class="exp-card exp-4" data-hover-img="images/playground/nobordershop.png">
+                    <div class="exp-number">04</div>
+                    <div class="exp-title">NO BORDERS SHOP</div>
+                    <div class="exp-desc">Community, conversation, self-expression, fashion</div>
+                </div>
+                <div class="exp-card exp-5" data-hover-img="images/playground/neurologicbrain.mp4">
+                    <div class="exp-number">05</div>
+                    <div class="exp-title">NeuroLogic</div>
+                    <div class="exp-desc">Interface design, interaction, and education</div>
+                </div>
+                <div class="exp-card exp-6" data-hover-img="images/vantage/vantage.jpeg">
+                    <div class="exp-number">06</div>
+                    <div class="exp-title">Vantage</div>
+                    <div class="exp-desc">XR toolkit for visuals mapped to use cases</div>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <footer>
@@ -375,6 +415,12 @@
     <!-- Cursor Bubble -->
     <div class="cursor-bubble" id="cursor-bubble">
         <span class="cursor-bubble-text"></span>
+    </div>
+
+    <!-- Exploration Hover Image -->
+    <div class="exp-hover-preview" id="exp-hover-preview">
+        <img src="" alt="" id="exp-hover-img">
+        <video id="exp-hover-video" autoplay loop muted playsinline style="display:none; width:100%; height:180px; object-fit:cover;"></video>
     </div>
 
     <script src="script.js"></script>
