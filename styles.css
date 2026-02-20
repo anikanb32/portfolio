@@ -3658,20 +3658,6 @@ body.dark-mode .role-item {
     opacity: 0.7;
 }
 
-.school-link::after {
-    content: '↗';
-    display: inline-block;
-    font-size: 0.75em;
-    opacity: 0;
-    margin-left: 4px;
-    transform: translate(-5px, 3px);
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.school-link:hover::after {
-    opacity: 1;
-    transform: translate(2px, -2px);
-}
 
 /* Highlight phrases styling */
 .highlight-phrase {

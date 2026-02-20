@@ -938,9 +938,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
     const body = document.body;
     
-    // Check for saved theme preference or default to dark mode
+    // Check for saved theme preference or default to light mode
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark' || !savedTheme) {
+    if (savedTheme === 'dark') {
         body.classList.add('dark-mode');
         themeToggleBtns.forEach(btn => btn.classList.add('dark'));
     }
@@ -2850,6 +2850,34 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.nav a').forEach(link => {
         link.addEventListener('mouseenter', () => scramble(link));
         link.addEventListener('mouseleave', () => restore(link));
+    });
+
+    // Apply to school links (UC Berkeley, CMU) — text-only scramble, no display/width changes
+    document.querySelectorAll('.school-link').forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            const original = link.getAttribute('data-original') || link.textContent;
+            if (!link.getAttribute('data-original')) link.setAttribute('data-original', original);
+            let iteration = 0;
+            const totalFrames = original.length * 2;
+            clearInterval(link._scrambleInterval);
+            link._scrambleInterval = setInterval(() => {
+                link.textContent = original.split('').map((char, i) => {
+                    if (char === ' ') return ' ';
+                    if (i < Math.floor(iteration / 2)) return original[i];
+                    return chars[Math.floor(Math.random() * chars.length)];
+                }).join('');
+                iteration++;
+                if (iteration > totalFrames) {
+                    clearInterval(link._scrambleInterval);
+                    link.textContent = original;
+                }
+            }, 20);
+        });
+        link.addEventListener('mouseleave', () => {
+            clearInterval(link._scrambleInterval);
+            const original = link.getAttribute('data-original');
+            if (original) link.textContent = original;
+        });
     });
 
 })();
