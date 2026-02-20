@@ -2851,6 +2851,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('mouseenter', () => scramble(link));
         link.addEventListener('mouseleave', () => restore(link));
     });
+
 })();
 
 
@@ -2894,6 +2895,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 previewImg.style.display = 'block';
                 previewImg.src = src;
             }
+            // Snap to current mouse position to prevent dragging from 0,0
+            currentX = mouseX;
+            currentY = mouseY;
             preview.classList.add('visible');
             animFrame = requestAnimationFrame(animate);
         });
@@ -2904,4 +2908,107 @@ document.addEventListener('DOMContentLoaded', () => {
             cancelAnimationFrame(animFrame);
         });
     });
+})();
+
+// Exploration card expand popup
+(function() {
+    function closeAll() {
+        document.querySelectorAll('.exp-popup.visible').forEach(p => {
+            p.classList.remove('visible');
+            p.closest('.exp-card')?.querySelector('.exp-expand-btn')?.classList.remove('active');
+        });
+    }
+
+    document.querySelectorAll('.exp-card').forEach(card => {
+        const btn = card.querySelector('.exp-expand-btn');
+        if (!btn) return;
+
+        const title = card.querySelector('.exp-title')?.textContent.trim() || '';
+        const date = card.getAttribute('data-date') || '';
+        const desc = card.querySelector('.exp-desc')?.textContent.trim() || '';
+
+        const popup = document.createElement('div');
+        popup.className = 'exp-popup';
+        popup.innerHTML = `
+            <div class="exp-popup-title">${title}</div>
+            ${date ? `<div class="exp-popup-date">${date}</div>` : ''}
+            <div class="exp-popup-desc">${desc}</div>
+        `;
+        card.appendChild(popup);
+
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = popup.classList.contains('visible');
+            closeAll();
+            if (!isOpen) {
+                popup.classList.add('visible');
+                btn.classList.add('active');
+            }
+        });
+    });
+
+    document.addEventListener('click', closeAll);
+})();
+
+// Playground item expand popup (fixed-position to escape overflow:hidden)
+(function() {
+    if (!document.querySelector('.playground-item')) return;
+
+    const popup = document.createElement('div');
+    popup.className = 'exp-popup pg-popup';
+    popup.innerHTML = `
+        <div class="exp-popup-title"></div>
+        <div class="exp-popup-date"></div>
+        <div class="exp-popup-desc"></div>
+    `;
+    document.body.appendChild(popup);
+
+    let activeBtn = null;
+
+    function closePopup() {
+        popup.classList.remove('visible');
+        if (activeBtn) {
+            activeBtn.classList.remove('active');
+            activeBtn = null;
+        }
+    }
+
+    function positionPopup(btn) {
+        const rect = btn.getBoundingClientRect();
+        const popupWidth = 188;
+        let left = rect.right - popupWidth;
+        let top = rect.bottom + 6;
+        if (left < 8) left = 8;
+        if (left + popupWidth > window.innerWidth - 8) left = window.innerWidth - popupWidth - 8;
+        if (top + 120 > window.innerHeight - 8) top = rect.top - 120 - 6;
+        popup.style.left = left + 'px';
+        popup.style.top = top + 'px';
+    }
+
+    document.querySelectorAll('.playground-item').forEach(item => {
+        const btn = item.querySelector('.pg-expand-btn');
+        if (!btn) return;
+
+        btn.addEventListener('mousedown', (e) => e.stopPropagation()); // don't trigger drag
+        btn.addEventListener('mouseenter', () => {
+            popup.querySelector('.exp-popup-title').textContent = item.getAttribute('data-title') || '';
+            const dateEl = popup.querySelector('.exp-popup-date');
+            const date = item.getAttribute('data-date') || '';
+            dateEl.textContent = date;
+            dateEl.style.display = date ? '' : 'none';
+            popup.querySelector('.exp-popup-desc').textContent = item.getAttribute('data-desc') || '';
+
+            if (activeBtn) activeBtn.classList.remove('active');
+            activeBtn = btn;
+            btn.classList.add('active');
+            positionPopup(btn);
+            popup.classList.add('visible');
+        });
+
+        btn.addEventListener('mouseleave', closePopup);
+    });
+
+    window.addEventListener('scroll', () => {
+        if (activeBtn) positionPopup(activeBtn);
+    }, { passive: true });
 })();

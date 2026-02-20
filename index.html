@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script>if(localStorage.getItem("theme")==="dark"){document.documentElement.classList.add("dark-mode");}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anika's Portfolio</title>
     <link rel="shortcut icon" href="favicon.ico">
@@ -150,7 +151,7 @@
                       <!-- <span class="view-project">view project</span> -->
                   </div>
               </div>
-              <h2 class="project-name">AI Context-Interaction Patterns</h2>
+              <h2 class="project-name">AI Context-Interaction</h2>
               <div class="project-tags">
                     <span class="tag">AI Interaction</span>
                   <span class="tag">UX Design</span>
@@ -168,14 +169,14 @@
                       <!-- <span class="view-project">view project</span> -->
                   </div>
               </div>
-              <h2 class="project-name">Community Living and Support Services</h2>
+              <h2 class="project-name">Adaptive Care Dashboard</h2>
               <div class="project-tags">
                   <span class="status-chip class-shipped">shipped</span>
                   <span class="tag">UX Design</span>
                   
                   <span class="tag">Frontend Development</span>
               </div>
-              <p class="project-description">A tool to centralize critical information for the Structured Day program, supporting individuals recovering from Traumatic Brain Injuries.</p>
+              <p class="project-description">A tool to centralize critical information to support individuals recovering from Traumatic Brain Injuries.</p>
           </div>
 
           <!-- <div class="work-item" data-project="noborders" data-category="design">
@@ -221,7 +222,7 @@
                   <span class="status-chip xometry-shipped">shipped</span>
                   <span class="tag">Frontend Development</span>
               </div>
-              <p class="project-description">Implementations to streamline the process of matching custom manufacturing parts through AI-powered instant quoting.</p>
+              <p class="project-description">Implementations to streamline the process of matching custom manufacturing parts through AI-powered quoting.</p>
           </div>
 
           <div class="work-item" data-project="context-aware-vr" data-category="spatial">
@@ -231,7 +232,7 @@
                       <!-- <span class="view-project">view project</span> -->
                   </div>
               </div>
-              <h2 class="project-name">Context-Aware Virtual Reality Interfaces</h2>
+              <h2 class="project-name">Context-Aware XR Interfaces</h2>
               <div class="project-tags">
                   <span class="tag">Research</span>
                   <span class="tag">LLMs</span>
@@ -297,7 +298,7 @@
                       <source src="bmwlogo.mp4" type="video/mp4">
                   </video>
               </div>
-              <h2 class="project-name">Immersive Automotive Experiences</h2>
+              <h2 class="project-name">Immersive Journeys</h2>
               <div class="project-tags">
                   <span class="tag">Research</span>
                   <span class="tag">AI Interaction</span>
@@ -328,35 +329,41 @@
         <div class="explorations-section">
             <div class="explorations-header">
                 <h1 class="about-title">explorations<span class="work-dot">.</span></h1>
-                <p class="explorations-intro"><a href="playground/">jump to other things I've made.</a></p>
+                <p class="explorations-intro"><a href="playground/"><b>jump</b> to more things I've made.</a></p>
             </div>
             <div class="explorations-grid">
-                <div class="exp-card exp-1" data-hover-img="images/playground/lg.mp4">
+                <div class="exp-card exp-1" data-hover-img="images/playground/lg.mp4" data-date="2023">
+
                     <div class="exp-number">01</div>
                     <div class="exp-title">Nandini</div>
                     <div class="exp-desc">Creative expression, wearable technology</div>
                 </div>
-                <div class="exp-card exp-2" data-hover-img="images/playground/eve.png">
+                <div class="exp-card exp-2" data-hover-img="images/playground/eve.png" data-date="2023">
+
                     <div class="exp-number">02</div>
                     <div class="exp-title"> Eve</div>
                     <div class="exp-desc">Fashion design, storytelling, crafting tactile experience</div>
                 </div>
-                <div class="exp-card exp-3" data-hover-img="images/playground/fieldnotes.png">
+                <div class="exp-card exp-3" data-hover-img="images/playground/fieldnotes.png" data-date="2024">
+
                     <div class="exp-number">03</div>
                     <div class="exp-title">Field Notes</div>
                     <div class="exp-desc">Creative expression, observing the mundane</div>
                 </div>
-                <div class="exp-card exp-4" data-hover-img="images/playground/nobordershop.png">
+                <div class="exp-card exp-4" data-hover-img="images/playground/nobordershop.png" data-date="2022">
+
                     <div class="exp-number">04</div>
                     <div class="exp-title">NO BORDERS SHOP</div>
                     <div class="exp-desc">Community, conversation, self-expression, fashion</div>
                 </div>
-                <div class="exp-card exp-5" data-hover-img="images/playground/neurologicbrain.mp4">
+                <div class="exp-card exp-5" data-hover-img="images/playground/neurologicbrain.mp4" data-date="2024">
+
                     <div class="exp-number">05</div>
                     <div class="exp-title">NeuroLogic</div>
                     <div class="exp-desc">Interface design, interaction, and education</div>
                 </div>
-                <div class="exp-card exp-6" data-hover-img="images/vantage/vantage.jpeg">
+                <div class="exp-card exp-6" data-hover-img="images/vantage/vantage.jpeg" data-date="2024">
+
                     <div class="exp-number">06</div>
                     <div class="exp-title">Vantage</div>
                     <div class="exp-desc">XR toolkit for visuals mapped to use cases</div>
@@ -369,7 +376,7 @@
     <footer>
         <div class="footer-content">
             <div class="contact-info">
-                <h3>thanks for stopping by :)</h3>
+                <h3>thanks for stopping by.</h3>
                 <div class="social-links">
                     <a href="mailto:anikabhagavatula@berkeley.edu" class="email-icon" aria-label="Email">
                         <svg width="32" height="32" viewBox="0 0 512 512" fill="currentColor">
