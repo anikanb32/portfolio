@@ -3040,3 +3040,209 @@ document.addEventListener('DOMContentLoaded', () => {
         if (activeBtn) positionPopup(activeBtn);
     }, { passive: true });
 })();
+
+
+// Letter Grid — cycling messages + split-flap + hover colors + 3D tilt + click spin
+(function () {
+    const grid = document.getElementById('letterGrid');
+    if (!grid) return;
+
+    // Three messages, each 3 rows × 16 chars exactly
+    const messages = [
+        [
+            'CURIOUS ABOUT   ',
+            'CODE AND DESIGN ',
+            '                '
+        ],
+        [
+            'DECODING COMPLEX',
+            'INTERFACES      ',
+            '                '
+        ],
+        [
+            'BRAIN AND       ',
+            'BEHAVIOR IN     ',
+            'DESIGN          '
+        ]
+    ];
+
+    // Dusty/pastel blues + slate grays
+    const palette = [
+        '#5b7fa6', '#6e90b0', '#7aa3c0', '#8fafc8',
+        '#a8bfd4', '#b0c4d8', '#7d9aad', '#90a8b8',
+        '#8899aa', '#9aaabb'
+    ];
+
+    const randomColor = () => palette[Math.floor(Math.random() * palette.length)];
+    const flapChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+    let currentMsgIdx = 0;
+
+    // Build tiles from first message — appended directly to grid (CSS Grid handles layout)
+    const allTiles = [];
+    messages[0].forEach((row, rIdx) => {
+        [...row].forEach((char, cIdx) => {
+            const tile = document.createElement('div');
+            const isSpace = char === ' ';
+            tile.className = 'lg-tile' + (isSpace ? ' lg-space' : '');
+            tile.dataset.row = rIdx;
+            tile.dataset.col = cIdx;
+
+            const span = document.createElement('span');
+            span.className = 'lg-char';
+            span.textContent = isSpace ? '\u00A0' : char;
+            span.dataset.original = span.textContent;
+
+            tile.appendChild(span);
+            grid.appendChild(tile);
+            allTiles.push(tile);
+        });
+    });
+
+    // Single-character flip with forced reflow to retrigger CSS animation
+    function flapChar(span, char) {
+        span.textContent = char;
+        span.classList.remove('lg-flapping');
+        void span.offsetWidth;
+        span.classList.add('lg-flapping');
+    }
+
+    // Animate a tile to a new character after a delay (used for auto-cycle)
+    function flapToChar(tile, newChar, delay) {
+        const span = tile.querySelector('.lg-char');
+        if (!span) return;
+        const isSpace = newChar === ' ';
+        const displayChar = isSpace ? '\u00A0' : newChar;
+
+        // Always update dataset.original so hover restore lands on the right char
+        span.dataset.original = displayChar;
+        if (isSpace) tile.classList.add('lg-space');
+        else tile.classList.remove('lg-space');
+
+        // Skip visual animation if user is hovering this tile
+        if (tile._hovered) return;
+
+        setTimeout(() => {
+            if (tile._hovered) return;
+            clearInterval(tile._autoFlap);
+            let step = 0;
+            tile._autoFlap = setInterval(() => {
+                if (step < 5) {
+                    flapChar(span, flapChars[Math.floor(Math.random() * flapChars.length)]);
+                    step++;
+                } else {
+                    flapChar(span, displayChar);
+                    clearInterval(tile._autoFlap);
+                }
+            }, 70);
+        }, delay);
+    }
+
+    // Transition all tiles to a new message with left-to-right, top-to-bottom stagger
+    function transitionToMessage(msgIdx) {
+        const msg = messages[msgIdx];
+        allTiles.forEach(tile => {
+            // Clear any active hover state
+            tile._hovered = false;
+            clearInterval(tile._flap);
+            tile._flapActive = false;
+            tile.style.background = '';
+            tile.style.borderColor = '';
+            tile.style.transform = '';
+            const span = tile.querySelector('.lg-char');
+            if (span) span.classList.remove('lg-flapping');
+
+            const row = parseInt(tile.dataset.row);
+            const col = parseInt(tile.dataset.col);
+            flapToChar(tile, msg[row][col], col * 30 + row * 50);
+        });
+    }
+
+    // Auto-cycle every 5 seconds (resettable so manual nav restarts the timer)
+    let cycleTimer = setInterval(advance, 5000);
+
+    function advance() {
+        currentMsgIdx = (currentMsgIdx + 1) % messages.length;
+        transitionToMessage(currentMsgIdx);
+    }
+
+    function resetCycle() {
+        clearInterval(cycleTimer);
+        cycleTimer = setInterval(advance, 5000);
+    }
+
+    // Arrow nav
+    const lgPrev = document.getElementById('lgPrev');
+    const lgNext = document.getElementById('lgNext');
+
+    if (lgPrev) lgPrev.addEventListener('click', () => {
+        currentMsgIdx = (currentMsgIdx - 1 + messages.length) % messages.length;
+        transitionToMessage(currentMsgIdx);
+        resetCycle();
+    });
+
+    if (lgNext) lgNext.addEventListener('click', () => {
+        currentMsgIdx = (currentMsgIdx + 1) % messages.length;
+        transitionToMessage(currentMsgIdx);
+        resetCycle();
+    });
+
+    // Hover: split-flap scramble + random color + 3D tilt
+    function startHoverFlap(tile) {
+        const span = tile.querySelector('.lg-char');
+        if (!span) return;
+        const original = span.dataset.original;
+        clearInterval(tile._flap);
+        tile._flapActive = true;
+        let step = 0;
+        tile._flap = setInterval(() => {
+            if (!tile._flapActive) { clearInterval(tile._flap); return; }
+            if (step < 6) {
+                flapChar(span, flapChars[Math.floor(Math.random() * flapChars.length)]);
+                step++;
+            } else {
+                flapChar(span, original);
+                clearInterval(tile._flap);
+            }
+        }, 80);
+    }
+
+    function stopHoverFlap(tile) {
+        tile._flapActive = false;
+        clearInterval(tile._flap);
+        const span = tile.querySelector('.lg-char');
+        if (!span) return;
+        span.classList.remove('lg-flapping');
+        span.textContent = span.dataset.original || span.textContent;
+    }
+
+    allTiles.forEach(tile => {
+        tile.addEventListener('mouseenter', () => {
+            if (tile.classList.contains('lg-space')) return;
+            tile._hovered = true;
+            clearInterval(tile._autoFlap);
+            const c = randomColor();
+            tile.style.background = c;
+            tile.style.borderColor = c;
+            startHoverFlap(tile);
+        });
+
+        tile.addEventListener('mousemove', e => {
+            if (tile.classList.contains('lg-space')) return;
+            const r = tile.getBoundingClientRect();
+            const rotX = ((e.clientY - r.top  - r.height / 2) / (r.height / 2)) * -12;
+            const rotY = ((e.clientX - r.left - r.width  / 2) / (r.width  / 2)) *  12;
+            tile.style.transform = `perspective(400px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.12)`;
+        });
+
+        tile.addEventListener('mouseleave', () => {
+            if (tile.classList.contains('lg-space')) return;
+            tile._hovered = false;
+            stopHoverFlap(tile);
+            tile.style.background = '';
+            tile.style.borderColor = '';
+            tile.style.transform = '';
+        });
+    });
+
+})();
