@@ -4554,81 +4554,116 @@ body.dark-mode .lg-arrow:hover {
     width: 100%;
 }
 
+/* Split-flap tile — dark board aesthetic */
 .lg-tile {
     aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1.5px solid #e0e0e0;
-    border-radius: 5px;
-    cursor: pointer;
     position: relative;
+    border-radius: 5px;
     user-select: none;
-    transition: background 0.1s ease, border-color 0.1s ease, box-shadow 0.15s ease;
-    will-change: transform, background;
+    perspective: 200px; /* gives child flaps their 3D depth */
 }
 
-.lg-space {
-    border-color: #efefef;
-    cursor: default;
+.lg-tile:not(.lg-space) { cursor: pointer; }
+
+/* Four card panels — static backs + animated flaps */
+.lg-upper, .lg-lower, .lg-flap-t, .lg-flap-b {
+    position: absolute;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
 
-.lg-char {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(0.55rem, 1.4vw, 1rem);
-    font-weight: 600;
-    color: #333;
-    line-height: 1;
-    pointer-events: none;
-    display: inline-block;
-    transform-origin: center center;
+/* Static top half — shows new char, visible once top flap folds away */
+.lg-upper {
+    top: 0;
+    height: calc(50% - 1px);
+    align-items: flex-end;
+    border-radius: 5px 5px 0 0;
+    background: #1e1e20;
+    transition: background 0.1s ease;
 }
 
-@keyframes lg-flap-in {
-    0%   { transform: scaleY(0); opacity: 0; }
-    100% { transform: scaleY(1); opacity: 1; }
+/* Static bottom half — shows old char until midpoint, then new */
+.lg-lower {
+    bottom: 0;
+    height: calc(50% - 1px);
+    align-items: flex-start;
+    border-radius: 0 0 5px 5px;
+    background: #19191b;
+    transition: background 0.1s ease;
 }
 
-.lg-char.lg-flapping {
-    animation: lg-flap-in 0.06s ease-out forwards;
-}
-
-.lg-tile:not(.lg-space):hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+/* Top flap — covers upper, shows old char, folds down during flip */
+.lg-flap-t {
+    top: 0;
+    height: calc(50% - 1px);
+    align-items: flex-end;
+    border-radius: 5px 5px 0 0;
+    background: #26262a;
+    transform-origin: bottom center;
     z-index: 2;
 }
 
-.lg-tile:not(.lg-space):hover .lg-char {
-    color: #fff;
+/* Bottom flap — starts folded up, unfolds showing new char */
+.lg-flap-b {
+    bottom: 0;
+    height: calc(50% - 1px);
+    align-items: flex-start;
+    border-radius: 0 0 5px 5px;
+    background: #212125;
+    transform-origin: top center;
+    transform: rotateX(90deg);
+    z-index: 2;
 }
 
-/* Spin animation on click */
-@keyframes lg-spin {
-    0%   { transform: perspective(400px) rotateY(0deg) scale(1); }
-    40%  { transform: perspective(400px) rotateY(180deg) scale(0.85); }
-    100% { transform: perspective(400px) rotateY(360deg) scale(1); }
+/* The center split line */
+.lg-tile::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(50% - 1px);
+    height: 2px;
+    background: #070707;
+    z-index: 5;
+    pointer-events: none;
 }
 
-.lg-tile.lg-spinning {
-    animation: lg-spin 0.55s ease-in-out forwards;
+/* Character text — warm amber like real boards */
+/* Shared character style */
+.lg-upper span, .lg-lower span,
+.lg-flap-t span, .lg-flap-b span {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(0.75rem, 1.9vw, 1.35rem);
+    font-weight: 700;
+    color: #ffffff;
+    pointer-events: none;
+    display: block;
+    line-height: 1;
 }
 
-/* Dark mode */
-body.dark-mode .lg-tile {
-    border-color: #2a2a2a;
+/* Center the character on the split line:
+   upper/flapT align to bottom edge, then push down 50% of char height
+   → char center lands exactly at the split → overflow clips the bottom half */
+.lg-upper span, .lg-flap-t span {
+    transform: translateY(50%);
 }
 
-body.dark-mode .lg-space {
-    border-color: #1e1e1e;
+/* lower/flapB align to top edge, then pull up 50% of char height
+   → char center lands exactly at the split → overflow clips the top half */
+.lg-lower span, .lg-flap-b span {
+    transform: translateY(-50%);
 }
 
-body.dark-mode .lg-char {
-    color: #bbb;
-}
+/* Space tiles — slightly dimmer */
+.lg-space .lg-upper, .lg-space .lg-flap-t { background: #161618; }
+.lg-space .lg-lower, .lg-space .lg-flap-b { background: #131315; }
+.lg-space::after { background: #050505; }
 
-body.dark-mode .lg-tile:not(.lg-space):hover .lg-char {
-    color: #fff;
-}
+/* Hover lift */
+.lg-tile:not(.lg-space):hover { z-index: 2; }
 
 /* Responsive */
 @media (max-width: 900px) {
@@ -4637,8 +4672,7 @@ body.dark-mode .lg-tile:not(.lg-space):hover .lg-char {
 }
 
 @media (max-width: 600px) {
-    .letter-grid-section { padding: 2.5rem 20px; }
-    .letter-grid { gap: 3px; }
+    .letter-grid-section { display: none; }
 }
 
 /* Explorations Section */
